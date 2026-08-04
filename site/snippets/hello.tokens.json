@@ -1,0 +1,114 @@
+{
+ "source": "i32 main() {\n    println(\"Hello from Vesta ${1 + 1}!\");\n    return 0;\n}\n",
+ "hash": "760c9c5c90567723227ed3c411b722fd4a06b0d32e763935ea0b6e7111832ced",
+ "legend": [
+  "namespace",
+  "type",
+  "class",
+  "enum",
+  "interface",
+  "struct",
+  "typeParameter",
+  "parameter",
+  "variable",
+  "property",
+  "enumMember",
+  "function",
+  "method",
+  "keyword",
+  "modifier",
+  "comment",
+  "string",
+  "number",
+  "operator",
+  "macro",
+  "escapeSequence",
+  "interpolation",
+  "register"
+ ],
+ "tokens": [
+  {
+   "line": 0,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 0,
+   "col": 4,
+   "len": 4,
+   "kind": "function",
+   "doc": "**main** _(funcion)_ main()"
+  },
+  {
+   "line": 1,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 1,
+   "col": 12,
+   "len": 18,
+   "kind": "string"
+  },
+  {
+   "line": 1,
+   "col": 30,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 1,
+   "col": 32,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 1,
+   "col": 34,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 1,
+   "col": 36,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 1,
+   "col": 37,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 1,
+   "col": 38,
+   "len": 2,
+   "kind": "string"
+  },
+  {
+   "line": 2,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 2,
+   "col": 11,
+   "len": 1,
+   "kind": "number"
+  }
+ ],
+ "coverage": {
+  "percent": 100.0,
+  "unclassified": []
+ },
+ "compiles": {
+  "ok": true,
+  "exit": 0,
+  "errors": []
+ },
+ "lsp_diagnostics": []
+}

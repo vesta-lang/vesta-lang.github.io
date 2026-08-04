@@ -1,0 +1,264 @@
+{
+ "source": "// Los enteros de ancho multiple no son primitivos del lenguaje: son tipos de\n// biblioteca, escritos en Vesta, que se usan como si fueran nativos.\n//\n// Comprueba los enlaces a la definicion: u256 se define en stdlib/vx/std/wideint.vx\n\nimport std.wideint only u256;\n\ni32 main() {\n    u256 a = u256.zero();\n    u256 b = u256.max();\n\n    println(\"a < b -> ${a < b}\");\n    return 0;\n}\n",
+ "hash": "f5c9127df4cf5bd86c5fc679596b5eca569afe81cd18739762a67a8480422903",
+ "legend": [
+  "namespace",
+  "type",
+  "class",
+  "enum",
+  "interface",
+  "struct",
+  "typeParameter",
+  "parameter",
+  "variable",
+  "property",
+  "enumMember",
+  "function",
+  "method",
+  "keyword",
+  "modifier",
+  "comment",
+  "string",
+  "number",
+  "operator",
+  "macro",
+  "escapeSequence",
+  "interpolation",
+  "register"
+ ],
+ "tokens": [
+  {
+   "line": 0,
+   "col": 0,
+   "len": 77,
+   "kind": "comment"
+  },
+  {
+   "line": 1,
+   "col": 0,
+   "len": 69,
+   "kind": "comment"
+  },
+  {
+   "line": 2,
+   "col": 0,
+   "len": 2,
+   "kind": "comment"
+  },
+  {
+   "line": 3,
+   "col": 0,
+   "len": 84,
+   "kind": "comment"
+  },
+  {
+   "line": 5,
+   "col": 0,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 5,
+   "col": 7,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 5,
+   "col": 11,
+   "len": 7,
+   "kind": "variable"
+  },
+  {
+   "line": 5,
+   "col": 19,
+   "len": 4,
+   "kind": "keyword"
+  },
+  {
+   "line": 5,
+   "col": 24,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 7,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 7,
+   "col": 4,
+   "len": 4,
+   "kind": "function",
+   "doc": "**main** _(funcion)_ main()"
+  },
+  {
+   "line": 8,
+   "col": 4,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 8,
+   "col": 9,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 8,
+   "col": 11,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 8,
+   "col": 13,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 8,
+   "col": 18,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 9,
+   "col": 4,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 9,
+   "col": 9,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 9,
+   "col": 11,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 9,
+   "col": 13,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 9,
+   "col": 18,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 11,
+   "col": 12,
+   "len": 10,
+   "kind": "string"
+  },
+  {
+   "line": 11,
+   "col": 22,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 11,
+   "col": 24,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 26,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 11,
+   "col": 28,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 29,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 11,
+   "col": 30,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 12,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 12,
+   "col": 11,
+   "len": 1,
+   "kind": "number"
+  }
+ ],
+ "coverage": {
+  "percent": 100.0,
+  "unclassified": []
+ },
+ "compiles": {
+  "ok": true,
+  "exit": 0,
+  "errors": []
+ },
+ "lsp_diagnostics": [
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 507
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 700
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 1352
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 1525
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 2132
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 2286
+  },
+  {
+   "severity": 1,
+   "message": "el modulo 'wideint' no exporta 'u256' (es privado o no existe)",
+   "line": 5
+  }
+ ]
+}

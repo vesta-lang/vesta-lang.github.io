@@ -1,0 +1,42 @@
+// Contratos verificados: el compilador infiere la huella real de cada funcion
+// y la compara con lo declarado.  Un contrato incumplido aborta la compilacion.
+//
+// Adaptado de examples_codes_vx/analyze/contracts.vx
+
+// Sin efectos: el compilador PRUEBA las cuatro propiedades a la vez.
+@pure
+@nothrow
+@nopanic
+@alloc(0)
+i64 cuadrado(i64 x) {
+    return x * x;
+}
+
+// Pureza por composicion: 'combina' no tiene efectos propios y solo llama a
+// 'cuadrado', que es pura, de modo que el compilador deduce que tambien lo es.
+@pure
+@nothrow
+@alloc(0)
+i64 combina(i64 a, i64 b) {
+    return cuadrado(a) + cuadrado(b);
+}
+
+// @alloc(0) garantiza que el bucle no reserva memoria dinamica.
+@nothrow
+@nopanic
+@alloc(0)
+i64 suma_hasta(i64 n) {
+    i64 acc = 0;
+    i64 i = 0;
+    while (i < n) {
+        acc = acc + i;
+        i = i + 1;
+    }
+    return acc;
+}
+
+i32 main() {
+    println("combina(3, 4)  = ${combina(3, 4)}");
+    println("suma_hasta(10) = ${suma_hasta(10)}");
+    return 0;
+}

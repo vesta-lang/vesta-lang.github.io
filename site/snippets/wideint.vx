@@ -1,0 +1,14 @@
+// Los enteros de ancho multiple no son primitivos del lenguaje: son tipos de
+// biblioteca, escritos en Vesta, que se usan como si fueran nativos.
+//
+// Comprueba los enlaces a la definicion: u256 se define en stdlib/vx/std/wideint.vx
+
+import std.wideint only u256;
+
+i32 main() {
+    u256 a = u256.zero();
+    u256 b = u256.max();
+
+    println("a < b -> ${a < b}");
+    return 0;
+}

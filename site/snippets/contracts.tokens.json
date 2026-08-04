@@ -1,0 +1,577 @@
+{
+ "source": "// Contratos verificados: el compilador infiere la huella real de cada funcion\n// y la compara con lo declarado.  Un contrato incumplido aborta la compilacion.\n//\n// Adaptado de examples_codes_vx/analyze/contracts.vx\n\n// Sin efectos: el compilador PRUEBA las cuatro propiedades a la vez.\n@pure\n@nothrow\n@nopanic\n@alloc(0)\ni64 cuadrado(i64 x) {\n    return x * x;\n}\n\n// Pureza por composicion: 'combina' no tiene efectos propios y solo llama a\n// 'cuadrado', que es pura, de modo que el compilador deduce que tambien lo es.\n@pure\n@nothrow\n@alloc(0)\ni64 combina(i64 a, i64 b) {\n    return cuadrado(a) + cuadrado(b);\n}\n\n// @alloc(0) garantiza que el bucle no reserva memoria dinamica.\n@nothrow\n@nopanic\n@alloc(0)\ni64 suma_hasta(i64 n) {\n    i64 acc = 0;\n    i64 i = 0;\n    while (i < n) {\n        acc = acc + i;\n        i = i + 1;\n    }\n    return acc;\n}\n\ni32 main() {\n    println(\"combina(3, 4)  = ${combina(3, 4)}\");\n    println(\"suma_hasta(10) = ${suma_hasta(10)}\");\n    return 0;\n}\n",
+ "hash": "749af2a0708f2b5df55d65290a4f64e1c33583ff57ccb35ba72e886b58818f57",
+ "legend": [
+  "namespace",
+  "type",
+  "class",
+  "enum",
+  "interface",
+  "struct",
+  "typeParameter",
+  "parameter",
+  "variable",
+  "property",
+  "enumMember",
+  "function",
+  "method",
+  "keyword",
+  "modifier",
+  "comment",
+  "string",
+  "number",
+  "operator",
+  "macro",
+  "escapeSequence",
+  "interpolation",
+  "register"
+ ],
+ "tokens": [
+  {
+   "line": 0,
+   "col": 0,
+   "len": 78,
+   "kind": "comment"
+  },
+  {
+   "line": 1,
+   "col": 0,
+   "len": 80,
+   "kind": "comment"
+  },
+  {
+   "line": 2,
+   "col": 0,
+   "len": 2,
+   "kind": "comment"
+  },
+  {
+   "line": 3,
+   "col": 0,
+   "len": 53,
+   "kind": "comment"
+  },
+  {
+   "line": 5,
+   "col": 0,
+   "len": 69,
+   "kind": "comment"
+  },
+  {
+   "line": 6,
+   "col": 1,
+   "len": 4,
+   "kind": "annotation"
+  },
+  {
+   "line": 7,
+   "col": 1,
+   "len": 7,
+   "kind": "annotation"
+  },
+  {
+   "line": 8,
+   "col": 1,
+   "len": 7,
+   "kind": "annotation"
+  },
+  {
+   "line": 9,
+   "col": 1,
+   "len": 5,
+   "kind": "annotation"
+  },
+  {
+   "line": 9,
+   "col": 7,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 10,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 10,
+   "col": 4,
+   "len": 8,
+   "kind": "function",
+   "doc": "**cuadrado** _(funcion)_ cuadrado(x)"
+  },
+  {
+   "line": 10,
+   "col": 13,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 10,
+   "col": 17,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 11,
+   "col": 11,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 13,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 11,
+   "col": 15,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 14,
+   "col": 0,
+   "len": 76,
+   "kind": "comment"
+  },
+  {
+   "line": 15,
+   "col": 0,
+   "len": 79,
+   "kind": "comment"
+  },
+  {
+   "line": 16,
+   "col": 1,
+   "len": 4,
+   "kind": "annotation"
+  },
+  {
+   "line": 17,
+   "col": 1,
+   "len": 7,
+   "kind": "annotation"
+  },
+  {
+   "line": 18,
+   "col": 1,
+   "len": 5,
+   "kind": "annotation"
+  },
+  {
+   "line": 18,
+   "col": 7,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 19,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 19,
+   "col": 4,
+   "len": 7,
+   "kind": "function",
+   "doc": "**combina** _(funcion)_ combina(a, b)"
+  },
+  {
+   "line": 19,
+   "col": 12,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 19,
+   "col": 16,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 19,
+   "col": 19,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 19,
+   "col": 23,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 20,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 20,
+   "col": 11,
+   "len": 8,
+   "kind": "function",
+   "doc": "**cuadrado** _(funcion)_ cuadrado(x)"
+  },
+  {
+   "line": 20,
+   "col": 20,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 20,
+   "col": 23,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 20,
+   "col": 25,
+   "len": 8,
+   "kind": "function",
+   "doc": "**cuadrado** _(funcion)_ cuadrado(x)"
+  },
+  {
+   "line": 20,
+   "col": 34,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 23,
+   "col": 0,
+   "len": 64,
+   "kind": "comment"
+  },
+  {
+   "line": 24,
+   "col": 1,
+   "len": 7,
+   "kind": "annotation"
+  },
+  {
+   "line": 25,
+   "col": 1,
+   "len": 7,
+   "kind": "annotation"
+  },
+  {
+   "line": 26,
+   "col": 1,
+   "len": 5,
+   "kind": "annotation"
+  },
+  {
+   "line": 26,
+   "col": 7,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 27,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 27,
+   "col": 4,
+   "len": 10,
+   "kind": "function",
+   "doc": "**suma_hasta** _(funcion)_ suma_hasta(n)"
+  },
+  {
+   "line": 27,
+   "col": 15,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 27,
+   "col": 19,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 28,
+   "col": 4,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 28,
+   "col": 8,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 28,
+   "col": 12,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 28,
+   "col": 14,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 29,
+   "col": 4,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 29,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 29,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 29,
+   "col": 12,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 30,
+   "col": 4,
+   "len": 5,
+   "kind": "keyword"
+  },
+  {
+   "line": 30,
+   "col": 11,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 30,
+   "col": 13,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 30,
+   "col": 15,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 31,
+   "col": 8,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 31,
+   "col": 12,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 31,
+   "col": 14,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 31,
+   "col": 18,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 31,
+   "col": 20,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 32,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 32,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 32,
+   "col": 12,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 32,
+   "col": 14,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 32,
+   "col": 16,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 34,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 34,
+   "col": 11,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 37,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 37,
+   "col": 4,
+   "len": 4,
+   "kind": "function",
+   "doc": "**main** _(funcion)_ main()"
+  },
+  {
+   "line": 38,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 38,
+   "col": 12,
+   "len": 18,
+   "kind": "string"
+  },
+  {
+   "line": 38,
+   "col": 30,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 38,
+   "col": 32,
+   "len": 7,
+   "kind": "function",
+   "doc": "**combina** _(funcion)_ combina(a, b)"
+  },
+  {
+   "line": 38,
+   "col": 40,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 38,
+   "col": 43,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 38,
+   "col": 45,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 38,
+   "col": 46,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 39,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 39,
+   "col": 12,
+   "len": 18,
+   "kind": "string"
+  },
+  {
+   "line": 39,
+   "col": 30,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 39,
+   "col": 32,
+   "len": 10,
+   "kind": "function",
+   "doc": "**suma_hasta** _(funcion)_ suma_hasta(n)"
+  },
+  {
+   "line": 39,
+   "col": 43,
+   "len": 2,
+   "kind": "number"
+  },
+  {
+   "line": 39,
+   "col": 46,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 39,
+   "col": 47,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 40,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 40,
+   "col": 11,
+   "len": 1,
+   "kind": "number"
+  }
+ ],
+ "coverage": {
+  "percent": 100.0,
+  "unclassified": []
+ },
+ "compiles": {
+  "ok": true,
+  "exit": 0,
+  "errors": []
+ },
+ "lsp_diagnostics": []
+}
