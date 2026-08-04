@@ -549,11 +549,19 @@ export function render(markdown, options = {}) {
 
         // Parrafo: se acumula hasta la siguiente linea en blanco o construccion
         // de bloque.
+        // Una lista solo puede INTERRUMPIR un parrafo si empieza por `1.`.
+        //
+        // Sin esa condicion, un parrafo que llega a una linea que empieza por un
+        // numero y un punto se parte en dos y el numero se convierte en vinete.
+        // Ocurrio de verdad con la frase "...si guardas 300 el resultado no
+        // sera / 300. El segundo es el espacio...", donde el salto de linea cayo
+        // justo antes del "300.". Es la misma regla que aplica CommonMark, y por
+        // el mismo motivo.
         const paragraph = [];
         while (
             i < lines.length &&
             lines[i].trim() !== '' &&
-            !/^(?:#{1,6}\s|>|```|\s*(?:[-*+]|\d+\.)\s)/.test(lines[i])
+            !/^(?:#{1,6}\s|>|```|\s*[-*+]\s|\s*1\.\s)/.test(lines[i])
         ) {
             paragraph.push(lines[i].trim());
             i += 1;
