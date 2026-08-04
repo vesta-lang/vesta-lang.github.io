@@ -1,0 +1,90 @@
+Licencia de vesta-lang.github.io
+================================
+
+Copyright (c) 2026 David Lopez T. (DesmonHak)
+
+Este repositorio contiene el sitio web del lenguaje Vesta, y en el conviven dos
+clases de material que se licencian por separado. La distincion no es un
+tecnicismo: reutilizar el generador del sitio y republicar un texto sobre el
+lenguaje son cosas distintas y merecen condiciones distintas.
+
+Este fichero cubre UNICAMENTE este repositorio. El compilador, la maquina
+virtual y la biblioteca estandar de Vesta se distribuyen bajo sus propios
+terminos, en https://github.com/vesta-lang/vesta.
+
+
+1. CODIGO -- Licencia MIT
+-------------------------
+
+Se aplica al software de este repositorio: `build.mjs`, todo lo que hay en
+`tools/`, y las hojas de estilo y los scripts de `site/assets/css/` y
+`site/assets/js/`.
+
+    Por la presente se concede permiso, libre de cargo, a cualquier persona que
+    obtenga una copia de este software y de los ficheros de documentacion
+    asociados (el "Software"), a utilizar el Software sin restriccion,
+    incluyendo sin limitacion los derechos a usar, copiar, modificar, fusionar,
+    publicar, distribuir, sublicenciar y/o vender copias del Software, y a
+    permitir a las personas a las que se les proporcione el Software a hacer lo
+    mismo, sujeto a las siguientes condiciones:
+
+    El aviso de copyright anterior y este aviso de permiso se incluiran en
+    todas las copias o partes sustanciales del Software.
+
+    EL SOFTWARE SE PROPORCIONA "COMO ESTA", SIN GARANTIA DE NINGUN TIPO,
+    EXPRESA O IMPLICITA, INCLUYENDO PERO NO LIMITADO A GARANTIAS DE
+    COMERCIALIZACION, IDONEIDAD PARA UN PROPOSITO PARTICULAR E INCUMPLIMIENTO.
+    EN NINGUN CASO LOS AUTORES O TITULARES DEL COPYRIGHT SERAN RESPONSABLES DE
+    NINGUNA RECLAMACION, DANOS U OTRAS RESPONSABILIDADES, YA SEA EN UNA ACCION
+    DE CONTRATO, AGRAVIO O CUALQUIER OTRO MOTIVO, DERIVADAS DE, FUERA DE O EN
+    CONEXION CON EL SOFTWARE O SU USO U OTRO TIPO DE ACCIONES EN EL SOFTWARE.
+
+
+2. CONTENIDO -- Creative Commons Atribucion 4.0 Internacional
+-------------------------------------------------------------
+
+Se aplica al material editorial: el texto de las paginas (`site/content/`), los
+fragmentos de codigo de ejemplo (`site/snippets/`) y los diagramas que genera
+el sitio.
+
+    Este contenido se distribuye bajo la licencia Creative Commons Atribucion
+    4.0 Internacional (CC BY 4.0).
+
+    Eres libre de compartirlo y adaptarlo, incluso con fines comerciales,
+    siempre que des el credito correspondiente, indiques si se han hecho
+    cambios y enlaces a la licencia.
+
+    Texto completo: https://creativecommons.org/licenses/by/4.0/legalcode.es
+    Resumen legible: https://creativecommons.org/licenses/by/4.0/deed.es
+
+Atribucion sugerida:
+
+    Documentacion de Vesta (https://vesta-lang.github.io), CC BY 4.0.
+
+Los fragmentos de `site/snippets/` se publican ademas con la intencion expresa
+de que puedan copiarse y usarse en programas propios sin necesidad de
+atribucion: son ejemplos, y un ejemplo que no se puede copiar no sirve de nada.
+
+
+3. MARCA -- fuera de ambas licencias
+------------------------------------
+
+El nombre "Vesta", el nombre "VestaVM" y el logotipo (`site/assets/img/logo.png`)
+identifican al proyecto y NO quedan cubiertos por las licencias anteriores.
+
+Se pueden usar para referirse al proyecto: en un articulo, en una charla, en la
+documentacion de una biblioteca que lo utilice o al enlazar al sitio.
+
+No se pueden usar de forma que sugiera respaldo, afiliacion u origen oficial de
+algo que no lo sea, ni como identidad de un proyecto derivado. Un fork del
+lenguaje o de este sitio necesita su propio nombre y su propio logotipo.
+
+
+4. Material de terceros
+-----------------------
+
+Si en algun momento se incorpora material de terceros (tipografias, iconos o
+datos), se listara aqui con su licencia, que prevalecera sobre este fichero
+para el material correspondiente.
+
+A dia de hoy no hay ninguno: el sitio no incluye dependencias externas.
