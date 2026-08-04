@@ -623,3 +623,80 @@ th {
     font-size: 12px;
     font-style: italic;
 }
+
+/* --- Pagina de error ---------------------------------------------------- */
+
+.layout-error main {
+    max-width: 34rem;
+    padding-top: 4rem;
+    text-align: center;
+}
+
+.error-page .hero-logo {
+    /* La llama va centrada y algo mayor: en esta pagina es lo unico que hay
+     * antes del mensaje, y sostiene sola la parte alta. */
+    width: clamp(8rem, 26vw, 12rem);
+    margin: 0 auto 1.75rem;
+}
+
+/* La animacion sustituye a la imagen tambien aqui; el contenedor que crea el
+ * script hereda el centrado. */
+.error-page .flame {
+    margin: 0 auto 1.75rem;
+    width: max-content;
+}
+
+.error-code {
+    margin: 0;
+    font-size: 3.25rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+}
+
+.layout-error h1 {
+    margin: 0.6rem 0 1.25rem;
+    font-size: 1.5rem;
+}
+
+/*
+ * El parrafo de la ruta se oculta mientras esta vacio, que es como llega si no
+ * se ejecuta el script. Un rotulo seguido de nada confunde mas que su ausencia.
+ */
+.error-path:empty {
+    display: none;
+}
+
+.error-path {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    color: var(--fg-soft);
+}
+
+.error-path code {
+    /* Una ruta larga debe partirse en cualquier punto: son direcciones, no
+     * palabras, y no tienen puntos de corte naturales. */
+    word-break: break-all;
+    color: var(--fg);
+}
+
+.error-hint {
+    margin: 0 0 2rem;
+    color: var(--fg-soft);
+}
+
+.layout-error .hero-actions {
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.error-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 1.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.925rem;
+}

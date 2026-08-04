@@ -33,6 +33,7 @@ import { fileURLToPath } from 'node:url';
 import { pipelineDiagram } from './tools/diagram.mjs';
 import { highlight } from './tools/highlight.mjs';
 import { renderPage } from './tools/layout.mjs';
+import { socialCard } from './tools/og-image.mjs';
 import { parseFrontMatter, render } from './tools/markdown.mjs';
 import { LANGUAGES, SITE_URL, urlFor } from './tools/site.mjs';
 import { renderSnippetFile } from './tools/snippet.mjs';
@@ -79,9 +80,23 @@ function canonicalPath(file, langDir) {
     const rel = relative(langDir, file).split(sep).join('/');
     const noExt = rel.replace(/\.md$/, '');
     if (noExt === 'index') return '/';
+    // La pagina de error es la excepcion: GitHub Pages la sirve desde
+    // `/404.html` exactamente, no desde un directorio con indice.
+    if (noExt === '404') return '/404.html';
     if (noExt.endsWith('/index')) return `/${noExt.slice(0, -'/index'.length)}/`;
     return `/${noExt}/`;
 }
+
+/**
+ * Indica si una ruta corresponde a la pagina de error.
+ *
+ * Se comprueba en varios sitios (nombre del fichero de salida, sitemap,
+ * hreflang) y merece un nombre en lugar de repetir la comparacion.
+ *
+ * @param {string} path Ruta canonica.
+ * @returns {boolean}
+ */
+const isErrorPage = (path) => path === '/404.html';
 
 /**
  * Sustituye los marcadores de fragmento por su HTML resaltado.
@@ -220,6 +235,60 @@ ${entries.join('\n')}
 }
 
 /**
+ * Comprueba que todos los enlaces internos apuntan a algo que existe.
+ *
+ * Un enlace roto no rompe el build ni aparece en ningun registro: simplemente
+ * lleva al visitante a una pagina de error. Sin esta comprobacion el unico modo
+ * de encontrarlos es que alguien los pise, y para entonces ya estan publicados.
+ *
+ * Hoy AVISA en lugar de fallar, porque la portada enlaza a secciones que
+ * todavia se estan escribiendo. Cuando existan, este mismo recorrido debe pasar
+ * a lanzar y a cortar la publicacion: un enlace roto en un sitio terminado es
+ * un defecto, no un trabajo pendiente.
+ *
+ * @param {Map<string, {path: string}>} pages Paginas generadas.
+ * @returns {number} Numero de destinos distintos que no resuelven.
+ */
+function checkLinks(pages) {
+    // Rutas que el sitio sirve de verdad, en la forma en que se escriben en un
+    // enlace.
+    const known = new Set(['/404.html']);
+    for (const page of pages.values()) {
+        for (const lang of Object.keys(page.versions)) {
+            known.add(urlFor(lang, page.path));
+        }
+    }
+
+    const missing = new Map();
+    for (const file of walk(OUT, (n) => n.endsWith('.html'))) {
+        const html = readFileSync(file, 'utf8');
+        const from = `/${relative(OUT, file).split(sep).join('/')}`;
+
+        for (const match of html.matchAll(/href="(\/[^"#]*)"/g)) {
+            const href = match[1].split('#')[0];
+            if (known.has(href)) continue;
+            // Los recursos (hojas de estilo, imagenes, scripts) se comprueban
+            // contra el disco; las paginas, contra la lista de rutas servidas.
+            if (/\.[a-z0-9]+$/i.test(href)) {
+                if (existsSync(join(OUT, href.replace(/^\//, '')))) continue;
+            }
+            if (!missing.has(href)) missing.set(href, new Set());
+            missing.get(href).add(from);
+        }
+    }
+
+    if (missing.size > 0) {
+        console.warn(`
+${missing.size} enlaces internos sin destino:`);
+        for (const [href, sources] of [...missing].sort()) {
+            console.warn(`  ${href}  <- ${[...sources].join(', ')}`);
+        }
+        console.warn('');
+    }
+    return missing.size;
+}
+
+/**
  * Escribe un fichero creando los directorios intermedios.
  *
  * @param {string} path Ruta absoluta de destino.
@@ -274,10 +343,16 @@ async function build() {
                 available,
                 section: meta.section || '',
                 bodyClass: meta.layout ? `layout-${meta.layout}` : '',
+                robots: meta.robots || '',
                 jsonLd: page.path === '/' ? homeJsonLd(lang) : '',
             });
 
-            const outPath = join(OUT, urlFor(lang, page.path).replace(/^\//, ''), 'index.html');
+            // La pagina de error se escribe como fichero suelto; el resto, como
+            // indice de su directorio, para que las URLs acaben en barra.
+            const target = urlFor(lang, page.path).replace(/^\//, '');
+            const outPath = isErrorPage(page.path)
+                ? join(OUT, target)
+                : join(OUT, target, 'index.html');
             emit(outPath, document);
             count += 1;
         }
@@ -288,9 +363,24 @@ async function build() {
         cpSync(ASSETS, join(OUT, 'assets'), { recursive: true });
     }
 
+    // Tarjeta social por idioma. Se genera en cada build para que no pueda
+    // quedarse diciendo un titular que la portada ya cambio.
+    for (const lang of Object.keys(LANGUAGES)) {
+        emit(
+            join(OUT, 'assets', `og-${lang}.svg`),
+            socialCard(lang, join(ASSETS, 'img', 'logo.png'))
+        );
+    }
+
     emit(
         join(OUT, 'sitemap.xml'),
-        sitemap([...pages.values()].map((p) => ({ path: p.path, available: Object.keys(p.versions) })))
+        sitemap(
+            [...pages.values()]
+                // La pagina de error no se indexa: anunciarla en el sitemap
+                // invitaria al buscador a rastrear justamente lo que no existe.
+                .filter((p) => !isErrorPage(p.path))
+                .map((p) => ({ path: p.path, available: Object.keys(p.versions) }))
+        )
     );
     emit(
         join(OUT, 'robots.txt'),
@@ -300,7 +390,11 @@ async function build() {
     // Jekyll; este fichero lo desactiva.
     emit(join(OUT, '.nojekyll'), '');
 
-    console.log(`${count} paginas en ${Date.now() - started} ms -> dist/`);
+    const broken = checkLinks(pages);
+    console.log(
+        `${count} paginas en ${Date.now() - started} ms -> dist/` +
+            (broken > 0 ? ` (${broken} enlaces pendientes)` : '')
+    );
 }
 
 /** Sirve `dist/` en local, para revisar antes de publicar. */
@@ -332,8 +426,15 @@ async function serve() {
         const file = join(OUT, path);
 
         if (!existsSync(file) || statSync(file).isDirectory()) {
-            res.writeHead(404, { 'content-type': 'text/plain' });
-            res.end('404');
+            // Se sirve la misma pagina de error que servira Pages, para poder
+            // revisarla igual que cualquier otra en lugar de a ciegas.
+            const notFound = join(OUT, '404.html');
+            res.writeHead(404, {
+                'content-type': existsSync(notFound)
+                    ? 'text/html; charset=utf-8'
+                    : 'text/plain',
+            });
+            res.end(existsSync(notFound) ? readFileSync(notFound) : '404');
             return;
         }
         const ext = path.slice(path.lastIndexOf('.'));

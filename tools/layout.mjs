@@ -107,11 +107,19 @@ export function renderPage(page) {
         section = '',
         bodyClass = '',
         jsonLd = '',
+        robots = '',
     } = page;
 
     const ui = UI[lang];
     const canonical = `${SITE_URL}${urlFor(lang, path)}`;
-    const ogImage = `${SITE_URL}/assets/og-default.png`;
+    // Imagen de la vista previa al compartir el enlace.
+    //
+    // La principal es un PNG porque varias plataformas grandes rechazan SVG en
+    // `og:image` y, ante la duda, es mejor una imagen sencilla que se vea
+    // siempre que una bonita que a veces no aparezca. La tarjeta compuesta se
+    // declara detras, para los clientes que si la admiten.
+    const ogImage = `${SITE_URL}/assets/img/logo.png`;
+    const ogCard = `${SITE_URL}/assets/og-${lang}.svg`;
 
     return `<!doctype html>
 <html lang="${lang}">
@@ -121,6 +129,7 @@ export function renderPage(page) {
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="canonical" href="${canonical}">
+    ${robots ? `<meta name="robots" content="${escapeHtml(robots)}">` : ''}
     ${alternates(path, available)}
 
     <meta property="og:type" content="website">
@@ -130,7 +139,11 @@ export function renderPage(page) {
     <meta property="og:description" content="${escapeHtml(description)}">
     <meta property="og:url" content="${canonical}">
     <meta property="og:image" content="${ogImage}">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image:width" content="900">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="${escapeHtml(title)}">
+    <meta property="og:image" content="${ogCard}">
+    <meta name="twitter:card" content="summary">
 
     <link rel="icon" href="/assets/img/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="/assets/img/logo.png">
@@ -171,6 +184,9 @@ ${content}
 
     <script type="module" src="/assets/js/lang.mjs"></script>
     <script type="module" src="/assets/js/flame.mjs"></script>
+    ${bodyClass.includes('layout-error')
+        ? '<script type="module" src="/assets/js/error-path.mjs"></script>'
+        : ''}
 </body>
 </html>
 `;
