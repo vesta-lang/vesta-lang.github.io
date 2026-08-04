@@ -506,6 +506,27 @@ export function render(markdown, options = {}) {
             continue;
         }
 
+        // Linea que YA es un elemento HTML completo: se emite tal cual.
+        //
+        // Cubre los hijos de un envoltorio transparente que no son etiquetas de
+        // bloque -- un `<a>` dentro de un `<nav>`, por ejemplo. Sin esta regla
+        // caian al parrafo y se publicaban escapados, con el marcado a la
+        // vista.
+        //
+        // La condicion es estricta: la linea empieza por una etiqueta de
+        // apertura y termina en `>`. Un parrafo que empiece con `<` pero acabe
+        // en otra cosa sigue tratandose como texto.
+        if (
+            blockTag &&
+            !blockTag[1] &&
+            line.trim().endsWith('>') &&
+            new RegExp(`</${tagName}\s*>$`, 'i').test(line.trim())
+        ) {
+            out.push(line.trim());
+            i += 1;
+            continue;
+        }
+
         // Etiqueta OPACA: se consume entera, con su contenido.
         if (blockTag && RAW_TAGS.has(tagName)) {
             const tag = tagName;
