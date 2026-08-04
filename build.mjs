@@ -34,6 +34,7 @@ import { pipelineDiagram } from './tools/diagram.mjs';
 import { highlight } from './tools/highlight.mjs';
 import { renderPage } from './tools/layout.mjs';
 import { socialCard } from './tools/og-image.mjs';
+import { insertTabs, tabStyles } from './tools/tabs.mjs';
 import { parseFrontMatter, render } from './tools/markdown.mjs';
 import { LANGUAGES, SITE_URL, urlFor } from './tools/site.mjs';
 import { renderSnippetFile } from './tools/snippet.mjs';
@@ -329,10 +330,16 @@ async function build() {
             const { meta, body } = parseFrontMatter(raw);
 
             const headings = [];
-            const html = render(insertDiagrams(insertSnippets(body), lang), {
-                highlight,
-                headings,
-            });
+            // Las pestanas se montan DESPUES de convertir el Markdown: sus
+            // marcadores son comentarios, de modo que el contenido de cada una
+            // se procesa como texto normal y conserva encabezados, listas y
+            // bloques de codigo resaltados.
+            const html = insertTabs(
+                render(insertDiagrams(insertSnippets(body), lang), {
+                    highlight,
+                    headings,
+                })
+            );
 
             const document = renderPage({
                 lang,
@@ -345,6 +352,7 @@ async function build() {
                 bodyClass: meta.layout ? `layout-${meta.layout}` : '',
                 robots: meta.robots || '',
                 jsonLd: page.path === '/' ? homeJsonLd(lang) : '',
+                head: tabStyles(html),
             });
 
             // La pagina de error se escribe como fichero suelto; el resto, como

@@ -51,7 +51,30 @@ export const NAV = [
 ];
 
 /** Enlace al texto completo de la licencia, en el repositorio del proyecto. */
-export const LICENSE_URL = `${REPO_URL}/blob/main/LICENSE`;
+export const LICENSE_URL = `${REPO_URL}/blob/release/LICENSE`;
+
+/**
+ * Recursos del proyecto que viven fuera de este sitio.
+ *
+ * `arch-data` publica las latencias y los puertos de ejecucion por
+ * microarquitectura que usa el planificador del compilador (`--cpu`). Es
+ * material propio, publicado y verificable, y merece estar enlazado aunque no
+ * ocupe un sitio en la navegacion principal.
+ */
+export const RESOURCES = [
+    {
+        url: REPO_URL,
+        en: 'Compiler and standard library',
+        es: 'Compilador y biblioteca estandar',
+    },
+    {
+        url: 'https://vesta-lang.github.io/arch-data/',
+        en: 'Architecture data',
+        es: 'Datos de arquitecturas',
+        en_note: 'per-microarchitecture instruction latencies',
+        es_note: 'latencias de instruccion por microarquitectura',
+    },
+];
 
 /**
  * Cadenas de interfaz que no forman parte del contenido de las paginas.

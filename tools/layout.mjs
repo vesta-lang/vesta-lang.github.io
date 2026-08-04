@@ -13,7 +13,16 @@
  */
 
 import { escapeHtml } from './markdown.mjs';
-import { LANGUAGES, LICENSE_URL, NAV, SITE_URL, REPO_URL, UI, urlFor } from './site.mjs';
+import {
+    LANGUAGES,
+    LICENSE_URL,
+    NAV,
+    RESOURCES,
+    SITE_URL,
+    REPO_URL,
+    UI,
+    urlFor,
+} from './site.mjs';
 
 /**
  * Genera los enlaces alternos entre idiomas de una pagina.
@@ -108,6 +117,7 @@ export function renderPage(page) {
         bodyClass = '',
         jsonLd = '',
         robots = '',
+        head = '',
     } = page;
 
     const ui = UI[lang];
@@ -150,6 +160,7 @@ export function renderPage(page) {
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/code.css">
     ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
+    ${head}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
     <a class="skip-link" href="#content">${ui.skip}</a>
@@ -174,8 +185,19 @@ ${content}
 
     <footer class="site-footer">
         <div class="footer-grid">
-            <p>${ui.footer}<br>
-               <a href="${REPO_URL}" rel="noopener">${REPO_URL.replace('https://', '')}</a></p>
+            <div>
+                <p>${ui.footer}</p>
+                <ul class="footer-resources">
+                    ${RESOURCES.map((r) => {
+                        const note = r[`${lang}_note`];
+                        return (
+                            `<li><a href="${r.url}" rel="noopener">${r[lang]}</a>` +
+                            (note ? ` <span>${escapeHtml(note)}</span>` : '') +
+                            '</li>'
+                        );
+                    }).join('')}
+                </ul>
+            </div>
             <p class="footer-license"><strong>${ui.licenseTitle}</strong><br>
                ${ui.licenseBody}
                <a href="${LICENSE_URL}" rel="noopener">${ui.licenseLink}</a></p>
