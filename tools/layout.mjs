@@ -118,6 +118,7 @@ export function renderPage(page) {
         jsonLd = '',
         robots = '',
         head = '',
+        docs = null,
     } = page;
 
     const ui = UI[lang];
@@ -179,9 +180,18 @@ export function renderPage(page) {
         </div>
     </header>
 
-    <main id="content">
+${docs
+        ? `    <div class="doc-layout">
+        ${docs.sidebar}
+        <main id="content" class="doc-main">
 ${content}
-    </main>
+${docs.pager}
+        </main>
+        ${docs.toc}
+    </div>`
+        : `    <main id="content">
+${content}
+    </main>`}
 
     <footer class="site-footer">
         <div class="footer-grid">

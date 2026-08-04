@@ -35,6 +35,8 @@ import { highlight } from './tools/highlight.mjs';
 import { renderPage } from './tools/layout.mjs';
 import { socialCard } from './tools/og-image.mjs';
 import { insertTabs, tabStyles } from './tools/tabs.mjs';
+import { pager, sidebar, tableOfContents } from './tools/docs.mjs';
+import { LEARN, chapterHref, flatChapters } from './site/content/learn.mjs';
 import { parseFrontMatter, render } from './tools/markdown.mjs';
 import { LANGUAGES, SITE_URL, urlFor } from './tools/site.mjs';
 import { renderSnippetFile } from './tools/snippet.mjs';
@@ -341,6 +343,22 @@ async function build() {
                 })
             );
 
+            // Las paginas de Learn llevan barra lateral, indice y navegacion
+            // de anterior y siguiente. Las tres salen del mismo indice, asi que
+            // no pueden contradecirse entre si.
+            let docs = null;
+            if (page.path.startsWith('/learn/')) {
+                const flat = flatChapters();
+                const position = flat.findIndex(
+                    (entry) => chapterHref(entry.chapter, lang).href === page.path
+                );
+                docs = {
+                    sidebar: sidebar(LEARN, lang, page.path),
+                    toc: tableOfContents(headings, lang),
+                    pager: position === -1 ? '' : pager(flat, position, lang),
+                };
+            }
+
             const document = renderPage({
                 lang,
                 path: page.path,
@@ -353,6 +371,7 @@ async function build() {
                 robots: meta.robots || '',
                 jsonLd: page.path === '/' ? homeJsonLd(lang) : '',
                 head: tabStyles(html),
+                docs,
             });
 
             // La pagina de error se escribe como fichero suelto; el resto, como
