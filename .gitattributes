@@ -1,0 +1,12 @@
+# Finales de linea normalizados a LF en el repositorio.
+#
+# Importa mas de lo que parece: el indice semantico de cada fragmento guarda el
+# hash SHA-256 de su `.vx`, y el build compara.  Si el fichero llegara con CRLF
+# a una maquina y con LF a otra, el hash dejaria de coincidir y la publicacion
+# se rompuria sin que nadie hubiera tocado el codigo.
+* text=auto eol=lf
+
+# Binarios: nunca se tocan.
+*.png binary
+*.ico binary
+*.woff2 binary

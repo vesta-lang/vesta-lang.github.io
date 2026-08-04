@@ -1,43 +1,69 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Construye el sitio y lo publica en GitHub Pages.
+#
+# El build no instala dependencias: el generador es propio y solo usa la
+# biblioteca estandar de Node. Tampoco necesita el compilador de Vesta -- el
+# resaltado de los fragmentos se genera en local y se commitea como JSON, de
+# modo que aqui solo se leen ficheros de texto.
+name: Deploy site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+  # Las ramas de trabajo solo se construyen para comprobar que el build pasa;
+  # no despliegan nada.
+  pull_request:
+    branches: ["main", "develop"]
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Un despliegue a la vez. No se cancelan los que ya estan en curso: interrumpir
+# una publicacion a medias deja el sitio en un estado indeterminado.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # El build falla solo si algun fragmento .vx quedo sin regenerar su
+      # indice: es preferible romper la publicacion a servir un fragmento cuyo
+      # resaltado no corresponde a su codigo.
+      - name: Build
+        run: node build.mjs
+
+      - name: Upload artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
   deploy:
+    # Solo se publica desde main. Las pull requests llegan hasta el build, que
+    # es donde se detecta un fragmento desincronizado o un error de contenido.
+    if: github.event_name != 'pull_request'
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
