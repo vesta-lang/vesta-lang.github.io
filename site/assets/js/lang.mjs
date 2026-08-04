@@ -24,6 +24,9 @@ const STORAGE_KEY = 'vesta:lang';
 const LANGUAGES = ['en', 'es'];
 const DEFAULT_LANGUAGE = 'en';
 
+/** Prefijo de ruta de cada idioma. El idioma por defecto vive en la raiz. */
+const PREFIX = { en: '', es: '/es' };
+
 /**
  * Deduce el idioma de una ruta del sitio.
  *
@@ -75,7 +78,17 @@ function preferredLanguage() {
  * quedo donde he pedido.
  */
 function rememberExplicitChoice() {
+    const isError = document.body.classList.contains('layout-error');
+    const carried = new URLSearchParams(location.search).get('from');
+
     for (const link of document.querySelectorAll('.lang-switch a')) {
+        // En la pagina de error, el selector debe arrastrar la ruta que fallo;
+        // sin ella, cambiar de idioma perderia el unico dato util de la pagina.
+        if (isError) {
+            const from = carried || location.pathname + location.search;
+            link.href = `${link.getAttribute('href')}?from=${encodeURIComponent(from)}`;
+        }
+
         link.addEventListener('click', () => {
             try {
                 localStorage.setItem(STORAGE_KEY, link.getAttribute('hreflang'));
@@ -98,7 +111,18 @@ function run() {
         stored = null;
     }
 
-    const current = languageOfPath(location.pathname);
+    // La pagina de error es un caso aparte y hay que tratarlo explicitamente.
+    //
+    // GitHub Pages responde SIEMPRE con `/404.html` -- el del idioma por
+    // defecto -- sea cual sea la ruta fallida, asi que en esa pagina la ruta no
+    // dice nada del idioma del contenido servido: alguien puede estar viendo el
+    // 404 en ingles con `/es/algo` en la barra de direcciones. El idioma real
+    // es el que declara el documento.
+    const isError = document.body.classList.contains('layout-error');
+    const current = isError
+        ? document.documentElement.lang || DEFAULT_LANGUAGE
+        : languageOfPath(location.pathname);
+
     // Quien ya eligio manda; si eligio este idioma, no hay nada que hacer.
     const target = stored || preferredLanguage();
     if (!target || target === current || !LANGUAGES.includes(target)) return;
@@ -111,6 +135,20 @@ function run() {
     } catch {
         // Sin almacenamiento se redirige igual, pero solo esta vez.
     }
+
+    if (isError) {
+        // Se salta a la pagina de error del otro idioma, no a la traduccion de
+        // la ruta rota: `/es/<ruta-que-no-existe>` volveria a fallar y dejaria
+        // al visitante en el mismo idioma de partida. La ruta original viaja en
+        // la consulta para poder seguir mostrandola.
+        const from = new URLSearchParams(location.search).get('from')
+            || location.pathname + location.search;
+        location.replace(
+            `${PREFIX[target]}/404.html?from=${encodeURIComponent(from)}`
+        );
+        return;
+    }
+
     location.replace(pathInLanguage(location.pathname, current, target) + location.hash);
 }
 

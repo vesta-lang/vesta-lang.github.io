@@ -19,14 +19,16 @@ const target = document.querySelector('.error-path');
 
 if (target) {
     const label = target.dataset.label || '';
-    // `pathname` ya viene codificado; se decodifica para que una ruta con
-    // acentos se lea como la escribio quien la pidio, y si viniera mal formada
-    // se muestra tal cual en lugar de fallar.
-    let path = location.pathname + location.search;
+    // Si se llego aqui tras cambiar de idioma, la ruta que fallo de verdad
+    // viaja en `from`: la de la barra de direcciones ya es la del propio 404.
+    // Se decodifica para que una ruta con acentos se lea como la escribio quien
+    // la pidio, y si viniera mal formada se muestra tal cual en lugar de fallar.
+    const carried = new URLSearchParams(location.search).get('from');
+    let path = carried || location.pathname + location.search;
     try {
         path = decodeURI(path);
     } catch {
-        // URI invalida: se deja el original.
+        // URI invalida: se muestra tal cual en lugar de fallar.
     }
 
     target.textContent = label ? `${label}: ` : '';
