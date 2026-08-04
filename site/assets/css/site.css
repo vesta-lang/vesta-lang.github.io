@@ -1,0 +1,625 @@
+/*
+ * site.css -- sistema de diseno del sitio de Vesta.
+ *
+ * Criterio: sobrio y legible antes que llamativo. El proyecto es un lenguaje de
+ * programacion serio y la portada tiene que parecerlo; los hechos ya son
+ * suficientemente vistosos por si solos.
+ *
+ * El color de acento se usa con cuentagotas -- enlaces y poco mas -- para que
+ * cuando aparezca signifique algo. La tipografia hace el trabajo pesado.
+ */
+
+/*
+ * Paleta tomada del logotipo, que es una llama: Vesta es la diosa romana del
+ * hogar y del fuego. Los tonos dominantes de la marca son el rojo #c02020, el
+ * ambar #d09010, el oro verdoso #d0e030 y el pardo #704000.
+ *
+ * El acento no usa el rojo puro del logo: a tamano de texto resulta agresivo y
+ * ademas se confunde con un mensaje de error. Se usa un ambar quemado, que
+ * pertenece a la misma familia y contrasta bien sobre blanco.
+ */
+:root {
+    color-scheme: light dark;
+
+    --bg: #ffffff;
+    --bg-soft: #faf7f2;
+    --fg: #211d18;
+    --fg-soft: #5e564b;
+    --border: #e6dfd3;
+    --accent: #a8461a;
+    --accent-soft: #fdf2e6;
+
+    --brand-flame: #c02020;
+    --brand-amber: #d09010;
+    --brand-gold: #d0e030;
+
+    /* Ancho de la COLUMNA de contenido: es el mismo para todas las piezas de
+     * una pagina, de modo que todo comparte borde izquierdo. */
+    --column: 56rem;
+    /* Ancho maximo de la PROSA dentro de esa columna. Limitar la linea es una
+     * cuestion de legibilidad, no de maquetacion, y por eso no re-centra: el
+     * parrafo se alinea con el resto, solo que termina antes. */
+    --measure: 42rem;
+    --wide: 68rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #100e0c;
+        --bg-soft: #191612;
+        --fg: #e6e0d6;
+        --fg-soft: #a29788;
+        --border: #2e2822;
+        /* En oscuro el ambar quemado pierde legibilidad; se sube al oro de la
+         * llama, que es el tono del logo con mas luminancia. */
+        --accent: #e8a13c;
+        --accent-soft: #241a0f;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    /* Un ancla no debe dejar el titulo pegado al borde superior. */
+    scroll-padding-top: 5rem;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 1rem/1.7 system-ui, -apple-system, 'Segoe UI', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+/* El enlace de salto solo aparece al tabular: es una ayuda de teclado, no un
+ * elemento de la interfaz. */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+}
+
+a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+}
+
+/* --- Cabecera ----------------------------------------------------------- */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1.15rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    text-decoration: none;
+}
+
+.brand img {
+    /* Alto fijo y ancho automatico: el logo es cuadrado, pero atarlo por el
+     * alto lo mantiene alineado con el texto si algun dia deja de serlo. */
+    height: 1.7rem;
+    width: auto;
+}
+
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-right: auto;
+    font-size: 0.925rem;
+}
+
+.site-nav a {
+    color: var(--fg-soft);
+    text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current] {
+    color: var(--fg);
+}
+
+.header-aux {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+.lang-switch a,
+.repo-link {
+    color: var(--fg-soft);
+    text-decoration: none;
+}
+
+.lang-switch a:hover,
+.repo-link:hover {
+    color: var(--fg);
+}
+
+/* --- Contenido ---------------------------------------------------------- */
+
+main {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+}
+
+/*
+ * Una sola columna para toda la portada.
+ *
+ * Antes el hero media 58rem y la prosa 42rem, ambos centrados: al estar
+ * centrados sobre el mismo eje pero con anchos distintos, cada bloque empezaba
+ * en una x diferente y nada quedaba alineado. Ahora la columna es unica y todo
+ * cuelga de su borde izquierdo; lo unico que varia es donde TERMINA cada cosa.
+ */
+.layout-home main {
+    max-width: var(--column);
+}
+
+.layout-home main > p,
+.layout-home main > ul,
+.layout-home main > ol {
+    max-width: var(--measure);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+}
+
+h1 {
+    font-size: 2.1rem;
+    margin: 0 0 1rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin: 3rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+/* La primera seccion no lleva separador: no hay nada de lo que separarla. */
+main > h2:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 1.05rem;
+    margin: 2rem 0 0.5rem;
+}
+
+/* El ancla permanente solo se muestra al pasar por el encabezado. */
+.anchor {
+    margin-left: 0.4rem;
+    color: var(--fg-soft);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.12s;
+}
+
+h2:hover .anchor,
+h3:hover .anchor,
+.anchor:focus-visible {
+    opacity: 0.6;
+}
+
+blockquote {
+    margin: 1.5rem 0;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    border-left: 3px solid var(--border);
+    color: var(--fg-soft);
+}
+
+/* --- Portada ------------------------------------------------------------ */
+
+/*
+ * El titular, los botones y el logotipo forman una sola pieza en dos columnas.
+ *
+ * Antes el logo iba suelto encima del titular, a 88 px: a ese tamano no es una
+ * imagen sino un icono, repetia el de la cabecera y dejaba vacia toda la mitad
+ * derecha. Como llama tiene detalle suficiente para sostener un tamano grande,
+ * asi que pasa a ser el elemento visual del bloque y de paso equilibra la
+ * composicion.
+ */
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 2.5rem 3rem;
+    margin: 0 0 4.5rem;
+}
+
+.hero-logo {
+    display: block;
+    width: clamp(7rem, 17vw, 12.5rem);
+    height: auto;
+    /* La llama se separa del fondo con un resplandor calido en lugar de una
+     * caja o un borde: es una llama, y un recuadro la desmentiria. */
+    filter: drop-shadow(0 0 2.75rem rgb(208 144 16 / 25%));
+}
+
+.layout-home h1 {
+    max-width: 16ch;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    margin: 0 0 1.75rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+/*
+ * Contenedor de la version animada. Solo existe si el script pudo arrancar
+ * WebGPU; hasta entonces el logotipo es una imagen suelta y no hay nada que
+ * posicionar.
+ */
+.flame {
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.flame canvas {
+    position: absolute;
+    /* Centrado y cuadrado, con la misma ampliacion (CANVAS_SCALE) con la que se
+     * crea en flame.mjs: el logotipo animado ocupa la zona central y el margen
+     * sobrante aloja el resplandor. Si las proporciones no coincidieran, el
+     * logotipo saldria deformado. */
+    /* Anclado por la BASE: el fuego nace abajo y crece hacia arriba, asi que
+     * la parte que rebasa la caja del logotipo debe ser la superior. Las
+     * proporciones son las mismas con las que se crea el lienzo en flame.mjs;
+     * si no coincidieran, la llama saldria aplastada. */
+    inset: auto auto 0 50%;
+    translate: -50% 0;
+    width: 135%;
+    height: 155%;
+    pointer-events: none;
+}
+
+/*
+ * Cuando la animacion arranca, el lienzo YA muestra el logotipo: la imagen se
+ * oculta para no duplicar la silueta. Se conserva en el documento en vez de
+ * eliminarla, porque es la que aporta el texto alternativo y la que vuelve a
+ * verse si el contexto grafico se pierde.
+ */
+.hero-logo.is-animated {
+    visibility: hidden;
+}
+
+.flame .hero-logo {
+    position: relative;
+    z-index: 1;
+    filter: none;
+}
+
+@media (max-width: 46rem) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-logo {
+        width: 6rem;
+        order: -1;
+    }
+}
+
+.button,
+.button-quiet {
+    display: inline-block;
+    padding: 0.6rem 1.35rem;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    font-size: 0.925rem;
+    text-decoration: none;
+}
+
+.button {
+    background: var(--accent);
+    /* El texto del boton se toma del fondo de la pagina para que contraste en
+     * los dos temas sin declarar un color fijo. */
+    color: var(--bg);
+}
+
+.button-quiet {
+    border-color: var(--border);
+    color: var(--fg);
+}
+
+.button:hover {
+    filter: brightness(1.08);
+}
+
+.button-quiet:hover {
+    border-color: var(--accent);
+}
+
+/* --- Rejilla de caracteristicas ----------------------------------------- */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1px;
+    margin: 1.5rem 0;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.feature {
+    padding: 1.15rem 1.25rem;
+    background: var(--bg);
+}
+
+.feature h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.975rem;
+}
+
+.feature h3 a {
+    text-decoration: none;
+}
+
+.feature h3 a:hover {
+    text-decoration: underline;
+}
+
+.feature p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--fg-soft);
+}
+
+/* --- Tablas ------------------------------------------------------------- */
+
+.table-scroll {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+th,
+td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    font-weight: 600;
+    color: var(--fg-soft);
+}
+
+/* --- Pie ---------------------------------------------------------------- */
+
+.site-footer {
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.875rem;
+    color: var(--fg-soft);
+}
+
+.site-footer p {
+    margin: 0.25rem 0;
+}
+
+/* --- Pantallas estrechas ------------------------------------------------ */
+
+@media (max-width: 46rem) {
+    .site-header {
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+    }
+
+    .site-nav {
+        order: 3;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* --- Pie: licencia ------------------------------------------------------ */
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) minmax(0, 2fr);
+    gap: 1.5rem 3rem;
+}
+
+.footer-license {
+    max-width: 44ch;
+}
+
+@media (max-width: 46rem) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+ * Linea de apoyo del titular.
+ *
+ * El titular carga con la idea y esta linea con el matiz: sin ella, el titular
+ * tendria que explicarse solo y acabaria siendo un parrafo con letra grande.
+ */
+.hero-lead {
+    max-width: 34ch;
+    margin: 0 0 1.75rem;
+    font-size: 1.075rem;
+    line-height: 1.6;
+    color: var(--fg-soft);
+}
+
+/* --- Listas de hechos y de salidas -------------------------------------- */
+
+/*
+ * Dos listas de la portada que no son prosa sino datos: lo que el compilador
+ * puede producir y lo que el proyecto ha construido por su cuenta. Van en
+ * columnas porque se leen de un vistazo, no de principio a fin.
+ */
+.targets,
+.facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    gap: 0.35rem 2.5rem;
+    max-width: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.targets li,
+.facts li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+}
+
+/* La vineta se dibuja con CSS para poder darle el color de la marca sin meter
+ * un caracter decorativo en el contenido. */
+.targets li::before,
+.facts li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.facts li {
+    padding-bottom: 0.35rem;
+    color: var(--fg-soft);
+}
+
+.facts strong {
+    color: var(--fg);
+}
+
+/* --- Diagramas ---------------------------------------------------------- */
+
+/*
+ * Los diagramas son SVG en linea, de modo que heredan el tema y su texto es
+ * texto real: se selecciona, se busca y lo lee un lector de pantalla. Los
+ * colores salen de las mismas variables que el resto del sitio, asi que un
+ * cambio de paleta no deja el diagrama descolgado.
+ */
+.diagram-figure {
+    margin: 1.75rem 0 0;
+    /* Un diagrama ancho se desplaza dentro de su caja; la pagina nunca. */
+    overflow-x: auto;
+}
+
+.diagram {
+    display: block;
+    width: 100%;
+    /* Por debajo de este ancho el texto del SVG se vuelve ilegible, asi que a
+     * partir de ahi se prefiere el scroll horizontal al encogimiento. */
+    min-width: 44rem;
+    height: auto;
+}
+
+.diagram-figure figcaption {
+    max-width: var(--measure);
+    margin-top: 0.9rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--fg-soft);
+}
+
+.d-box {
+    fill: var(--bg-soft);
+    stroke: var(--border);
+    stroke-width: 1;
+}
+
+/* El IR es donde converge todo y de donde sale todo: se marca para que la
+ * lectura del diagrama empiece ahi. */
+.d-box.is-strong {
+    fill: var(--accent-soft);
+    stroke: var(--accent);
+}
+
+.d-label {
+    fill: var(--fg);
+    font-size: 15px;
+    font-weight: 600;
+    text-anchor: middle;
+}
+
+.d-label.is-mono {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    font-size: 14px;
+}
+
+.d-note {
+    fill: var(--fg-soft);
+    font-size: 11.5px;
+    text-anchor: middle;
+}
+
+.d-arrow {
+    fill: none;
+    stroke: var(--fg-soft);
+    stroke-width: 1.5;
+}
+
+.d-headfill {
+    fill: var(--fg-soft);
+}
+
+.d-aside {
+    fill: var(--fg-soft);
+    font-size: 12px;
+    font-style: italic;
+}

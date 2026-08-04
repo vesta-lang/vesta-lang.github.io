@@ -1,0 +1,220 @@
+/*
+ * code.css -- presentacion de los bloques de codigo del sitio.
+ *
+ * Los nombres de clase de token (`t-keyword`, `t-function`, ...) provienen de
+ * la leyenda del servidor LSP de Vesta, no de un esquema inventado aqui: el
+ * generador de indices los emite tal cual. Anadir un tipo de token al lenguaje
+ * significa anadir una regla en este fichero, no tocar el generador.
+ *
+ * La paleta se define con variables y se redefine entera en modo oscuro, de
+ * modo que las reglas de color aparecen una sola vez.
+ */
+
+:root {
+    /* Superficie del bloque. */
+    --code-bg: #fbfaf8;
+    --code-border: #e4e0d8;
+    --code-caption: #6b6459;
+    --code-fg: #2b2823;
+
+    /* Tokens. Tonos apagados a proposito: un bloque de codigo con ocho colores
+     * saturados se lee peor que uno con tres bien elegidos. */
+    --tok-comment: #8a8578;
+    --tok-keyword: #9a3f2b;
+    --tok-type: #1f6a5c;
+    --tok-function: #2f5aa8;
+    --tok-string: #4d7a2f;
+    --tok-number: #8a5a1f;
+    --tok-annotation: #7b3f8c;
+    --tok-operator: #6b6459;
+    --tok-interpolation: #b0761f;
+    --tok-register: #9a3f2b;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --code-bg: #16171a;
+        --code-border: #2a2c31;
+        --code-caption: #8b8f96;
+        --code-fg: #d8d6d1;
+
+        --tok-comment: #6f7480;
+        --tok-keyword: #e08a6d;
+        --tok-type: #5fc4ae;
+        --tok-function: #7aa9e8;
+        --tok-string: #a8cc7a;
+        --tok-number: #e0b070;
+        --tok-annotation: #c99ad8;
+        --tok-operator: #9aa0aa;
+        --tok-interpolation: #e8c07a;
+        --tok-register: #e08a6d;
+    }
+}
+
+/* El interruptor manual de tema gana sobre la preferencia del sistema. */
+:root[data-theme='dark'] {
+    color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+    color-scheme: light;
+}
+
+.snippet {
+    margin: 1.75rem 0;
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+    background: var(--code-bg);
+    overflow: hidden;
+}
+
+.snippet figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0.9rem;
+    border-bottom: 1px solid var(--code-border);
+    font-size: 0.8rem;
+    color: var(--code-caption);
+}
+
+.snippet-source {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+}
+
+.snippet pre {
+    margin: 0;
+    /* El bloque se desplaza dentro de si mismo; la pagina nunca scrollea en
+     * horizontal por culpa de una linea larga de codigo. */
+    overflow-x: auto;
+    padding: 1rem 1.1rem;
+}
+
+.snippet code {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--code-fg);
+    tab-size: 4;
+}
+
+/*
+ * Reset explicito de los tokens.
+ *
+ * Un bloque de codigo se incrusta en paginas con hojas de estilo ajenas
+ * (documentacion, agregadores, la vista previa de un editor) y basta con que
+ * una de ellas ponga un subrayado o un fondo generico a `span` o `code` para
+ * que el fragmento quede ilegible. El color de cada token se declara despues;
+ * lo demas se apaga aqui.
+ */
+.snippet pre span,
+.snippet pre a {
+    background: none;
+    text-decoration: none;
+    box-shadow: none;
+    border: 0;
+}
+
+/* --- Tokens ------------------------------------------------------------- */
+
+.t-comment { color: var(--tok-comment); font-style: italic; }
+.t-keyword { color: var(--tok-keyword); }
+.t-modifier { color: var(--tok-keyword); }
+.t-type,
+.t-class,
+.t-struct,
+.t-enum,
+.t-interface,
+.t-typeParameter { color: var(--tok-type); }
+.t-function,
+.t-method { color: var(--tok-function); }
+.t-string { color: var(--tok-string); }
+.t-number { color: var(--tok-number); }
+.t-annotation,
+.t-macro { color: var(--tok-annotation); }
+.t-operator { color: var(--tok-operator); }
+.t-namespace { color: var(--tok-type); }
+.t-property,
+.t-enumMember { color: var(--tok-function); }
+.t-parameter,
+.t-variable { color: inherit; }
+
+/* Propios de Vesta: el LSP los distingue y ninguna gramatica generica lo hace. */
+.t-escapeSequence { color: var(--tok-interpolation); font-weight: 600; }
+.t-interpolation { color: var(--tok-interpolation); font-weight: 600; }
+.t-register { color: var(--tok-register); font-weight: 600; }
+
+/* --- Simbolos con documentacion ----------------------------------------- */
+
+/*
+ * Un simbolo documentado NO se marca en reposo.
+ *
+ * La primera version subrayaba cada simbolo con documentacion, y como casi
+ * todos la tienen, el bloque acababa con medio codigo subrayado: ilegible, y
+ * ademas inutil, porque una marca que aparece en todas partes no distingue
+ * nada. La afordancia se muestra solo al pasar por encima.
+ */
+.snippet [data-doc] {
+    cursor: help;
+    text-decoration: none;
+}
+
+.snippet [data-doc]:hover,
+.snippet [data-doc]:focus-visible {
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+.snippet a[data-doc],
+.snippet a[href] {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.snippet a[href]:hover {
+    text-decoration: underline solid;
+    text-underline-offset: 3px;
+}
+
+/*
+ * El bocadillo se construye con CSS puro a partir del atributo `data-doc`.
+ * Sin JavaScript: el texto ya viaja en el HTML, asi que mostrarlo no deberia
+ * requerir ejecutar nada. La consecuencia es que tambien funciona con el
+ * navegador en modo lectura o con scripts bloqueados.
+ */
+.snippet [data-doc] {
+    position: relative;
+}
+
+.snippet [data-doc]:hover::after,
+.snippet [data-doc]:focus-visible::after {
+    content: attr(data-doc);
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 8px);
+    z-index: 10;
+    width: max-content;
+    max-width: min(30rem, 80vw);
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--code-border);
+    border-radius: 5px;
+    background: var(--code-bg);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--code-fg);
+    white-space: normal;
+    text-decoration: none;
+}
+
+/* En pantallas tactiles el hover no existe; el bocadillo se oculta y queda el
+ * enlace, que si funciona con un toque. */
+@media (hover: none) {
+    .snippet [data-doc]:hover::after {
+        display: none;
+    }
+}
