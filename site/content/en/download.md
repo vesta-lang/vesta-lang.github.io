@@ -142,26 +142,36 @@ echo 'export PATH="/usr/local/lib/vesta:$PATH"' >> ~/.zshrc
 
 <!-- TAB:installer Windows installer -->
 
-On Windows you do not have to live out of the build tree: the project builds its
-own installer through CMake, and **downloads NSIS by itself** if you do not have
-it.
+This is the easiest route on Windows. The project builds its own installer
+through CMake, and **downloads NSIS by itself** if you do not have it.
 
 ```bash
 cmake --build build --target installer
 ```
 
-That produces `VestaVM-<version>-win64.exe`, which installs into Program Files,
-adds Vesta to the `PATH` and creates the Start Menu shortcut.
+That leaves a `VestaVM-<version>-win64.exe` which takes care of everything: it
+copies the standard library and the native plugins next to the executable, adds
+Vesta to the `PATH` and creates the Start Menu shortcut.
 
-If you would rather not install anything, there is a portable ZIP:
+From then on `vesta` works from any shell and **finds its resources by itself**.
+No environment variables, no working from one particular folder.
+
+```bash
+vesta --version
+```
+
+If you would rather not install anything, there is a portable ZIP with the same
+file layout:
 
 ```bash
 cmake --build build --target installer-zip
 ```
 
-### Custom installation
+<details>
+<summary>Choosing components at install time</summary>
 
-The installer lets you pick which components you want:
+The installer lets you tick and untick what gets installed. The defaults are
+right for most people; this table is only there if you want to fine-tune.
 
 | Component | What it contains |
 | --- | --- |
@@ -172,16 +182,25 @@ The installer lets you pick which components you want:
 | `tools` | Project utilities. |
 | `sdk` | Headers and libraries for embedding Vesta or writing plugins. |
 
-**`stdlib` is worth keeping**: without it the compiler still runs, but any
-program that imports a standard library module will fail to build.
+One warning only: **do not untick `stdlib`** unless you know what you are doing.
+Without it the compiler still starts, but no program that imports a standard
+library module will ever build.
+
+</details>
 
 <!-- TABS:end -->
 
 ## How the compiler finds its resources
 
-This is the most common reason a fresh install fails, so it is worth knowing.
-The compiler does not carry its resources inside: it looks for them on disk, and
-**not all of them are looked up the same way**.
+<p class="notice">
+This matters if you <strong>build from source or install by hand</strong>. With
+the Windows installer you do not need to know any of it: it puts the files where
+the compiler expects them and everything just works.
+</p>
+
+This is the most common reason a manual install fails. The compiler does not
+carry its resources inside: it looks for them on disk, and **not all of them are
+looked up the same way**.
 
 | Resource | What it is | Where it is searched |
 | --- | --- | --- |

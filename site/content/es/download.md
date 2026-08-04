@@ -142,26 +142,37 @@ echo 'export PATH="/usr/local/lib/vesta:$PATH"' >> ~/.zshrc
 
 <!-- TAB:instalador Instalador de Windows -->
 
-En Windows no hace falta quedarse con el arbol de compilacion: el proyecto
-genera su propio instalador desde CMake, y **descarga NSIS por su cuenta** si no
-lo tienes.
+Es la via mas comoda en Windows. El proyecto genera su propio instalador desde
+CMake, y **descarga NSIS por su cuenta** si no lo tienes.
 
 ```bash
 cmake --build build --target installer
 ```
 
-Deja un `VestaVM-<version>-win64.exe` que instala en `Archivos de programa`,
-anade Vesta al `PATH` y crea el acceso directo del menu de inicio.
+Eso deja un `VestaVM-<version>-win64.exe` que se encarga de todo: copia la
+biblioteca estandar y los complementos nativos junto al ejecutable, anade Vesta
+al `PATH` y crea el acceso directo del menu de inicio.
 
-Si prefieres no instalar nada, hay una version portable en ZIP:
+A partir de ahi, `vesta` funciona desde cualquier consola y **encuentra sus
+recursos solo**. Nada de variables de entorno ni de trabajar desde una carpeta
+concreta.
+
+```bash
+vesta --version
+```
+
+Si prefieres no instalar nada, hay una version portable en ZIP con la misma
+disposicion de ficheros:
 
 ```bash
 cmake --build build --target installer-zip
 ```
 
-### Instalacion personalizada
+<details>
+<summary>Elegir componentes al instalar</summary>
 
-El instalador deja elegir que componentes quieres:
+El instalador permite marcar y desmarcar que se instala. Los valores por defecto
+son los correctos para la mayoria; esta tabla es solo por si quieres afinar.
 
 | Componente | Que incluye |
 | --- | --- |
@@ -172,16 +183,24 @@ El instalador deja elegir que componentes quieres:
 | `tools` | Utilidades del proyecto. |
 | `sdk` | Cabeceras y bibliotecas para embeber Vesta o escribir complementos. |
 
-Merece la pena marcar **`stdlib`**: sin ella el compilador funciona, pero
-cualquier programa que importe un modulo de la biblioteca estandar no compilara.
+Solo una advertencia: **no desmarques `stdlib`** salvo que sepas lo que haces.
+Sin ella el compilador arranca, pero ningun programa que importe un modulo de la
+biblioteca estandar llegara a compilar.
+
+</details>
 
 <!-- TABS:end -->
 
 ## Como encuentra el compilador sus recursos
 
-Es la causa mas frecuente de que una instalacion recien hecha falle, asi que
-conviene conocerla. El compilador no lleva sus recursos dentro: los busca en
-disco, y **no todos se buscan igual**.
+<p class="notice">
+Esto importa si <strong>compilas desde el fuente o instalas a mano</strong>. Con
+el instalador de Windows no hace falta saberlo: deja los ficheros donde el
+compilador los espera y funciona sin mas.
+</p>
+
+Es la causa mas frecuente de que una instalacion manual falle. El compilador no
+lleva sus recursos dentro: los busca en disco, y **no todos se buscan igual**.
 
 | Recurso | Que es | Donde se busca |
 | --- | --- | --- |

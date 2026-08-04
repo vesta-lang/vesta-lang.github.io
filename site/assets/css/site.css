@@ -806,3 +806,35 @@ label.button {
     font-size: 0.8rem;
     opacity: 0.75;
 }
+
+/* --- Detalle plegable --------------------------------------------------- */
+
+/*
+ * Para informacion que solo necesita quien la busca. El navegador ya trae el
+ * comportamiento y la accesibilidad; no hace falta JavaScript ni reimplementar
+ * el foco.
+ */
+details {
+    margin: 1.5rem 0;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+summary {
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+summary:hover {
+    color: var(--accent);
+}
+
+details[open] summary {
+    margin-bottom: 0.75rem;
+}
+
+details > :last-child {
+    margin-bottom: 0;
+}
