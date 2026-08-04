@@ -1,0 +1,392 @@
+{
+ "source": "// El mismo fuente corre en la maquina virtual, se compila en caliente con el\n// JIT o se convierte en un ejecutable nativo. No cambia una linea.\n\ni64 fib(i64 n) {\n    if (n < 2) { return n; }\n\n    i64 a = 0;\n    i64 b = 1;\n    i64 i = 2;\n    while (i <= n) {\n        i64 next = a + b;\n        a = b;\n        b = next;\n        i = i + 1;\n    }\n    return b;\n}\n\ni32 main() {\n    println(\"fib(40) = ${fib(40)}\");\n    return 0;\n}\n",
+ "hash": "951025f9fb6e70818d31bd8eb47fa32ff006c3835dd2b760abcaf798d0acb260",
+ "legend": [
+  "namespace",
+  "type",
+  "class",
+  "enum",
+  "interface",
+  "struct",
+  "typeParameter",
+  "parameter",
+  "variable",
+  "property",
+  "enumMember",
+  "function",
+  "method",
+  "keyword",
+  "modifier",
+  "comment",
+  "string",
+  "number",
+  "operator",
+  "macro",
+  "escapeSequence",
+  "interpolation",
+  "register"
+ ],
+ "tokens": [
+  {
+   "line": 0,
+   "col": 0,
+   "len": 77,
+   "kind": "comment"
+  },
+  {
+   "line": 1,
+   "col": 0,
+   "len": 67,
+   "kind": "comment"
+  },
+  {
+   "line": 3,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 3,
+   "col": 4,
+   "len": 3,
+   "kind": "function",
+   "doc": "**fib** _(funcion)_ fib(n)"
+  },
+  {
+   "line": 3,
+   "col": 8,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 3,
+   "col": 12,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 4,
+   "col": 4,
+   "len": 2,
+   "kind": "keyword"
+  },
+  {
+   "line": 4,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 4,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 4,
+   "col": 12,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 4,
+   "col": 17,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 4,
+   "col": 24,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 6,
+   "col": 4,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 6,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 6,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 6,
+   "col": 12,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 7,
+   "col": 4,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 7,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 7,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 7,
+   "col": 12,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 8,
+   "col": 4,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 8,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 8,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 8,
+   "col": 12,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 9,
+   "col": 4,
+   "len": 5,
+   "kind": "keyword"
+  },
+  {
+   "line": 9,
+   "col": 11,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 9,
+   "col": 13,
+   "len": 2,
+   "kind": "operator"
+  },
+  {
+   "line": 9,
+   "col": 16,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 10,
+   "col": 8,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 10,
+   "col": 12,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 10,
+   "col": 17,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 10,
+   "col": 19,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 10,
+   "col": 21,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 10,
+   "col": 23,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 11,
+   "col": 12,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 12,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 12,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 12,
+   "col": 12,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 13,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 13,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 13,
+   "col": 12,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 13,
+   "col": 14,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 13,
+   "col": 16,
+   "len": 1,
+   "kind": "number"
+  },
+  {
+   "line": 15,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 15,
+   "col": 11,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 18,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 18,
+   "col": 4,
+   "len": 4,
+   "kind": "function",
+   "doc": "**main** _(funcion)_ main()"
+  },
+  {
+   "line": 19,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 19,
+   "col": 12,
+   "len": 11,
+   "kind": "string"
+  },
+  {
+   "line": 19,
+   "col": 23,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 25,
+   "len": 3,
+   "kind": "function",
+   "doc": "**fib** _(funcion)_ fib(n)"
+  },
+  {
+   "line": 19,
+   "col": 29,
+   "len": 2,
+   "kind": "number"
+  },
+  {
+   "line": 19,
+   "col": 32,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 33,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 20,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 20,
+   "col": 11,
+   "len": 1,
+   "kind": "number"
+  }
+ ],
+ "coverage": {
+  "percent": 100.0,
+  "unclassified": []
+ },
+ "compiles": {
+  "ok": true,
+  "exit": 0,
+  "errors": []
+ },
+ "lsp_diagnostics": []
+}

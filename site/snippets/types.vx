@@ -1,0 +1,40 @@
+i32 main() {
+    // Enteros con signo: el numero dice cuantos bits ocupa.
+    i8  pequeno = 100;
+    i32 normal  = 70000;
+    i64 grande  = 9000000000;
+
+    // Sin signo: mismo tamano, pero solo valores positivos.
+    u8  byte  = 255;
+    u64 ancho = 18000000000000000000;
+
+    // Coma flotante.
+    f32 simple = 2.5;
+    f64 doble  = 3.14159;
+
+    // Booleano y caracter.
+    bool activo = true;
+    char letra  = 'A';
+
+    // Cadena.
+    string saludo = "hola";
+
+    println("i8=${pequeno} i32=${normal} i64=${grande}");
+    println("u8=${byte} u64=${ancho}");
+    println("f32=${simple} f64=${doble}");
+    println("bool=${activo} char=${letra:char} string=${saludo}");
+
+    // El mismo numero, escrito en cuatro bases.
+    i64 dec = 42;
+    i64 hex = 0x2A;
+    i64 bin = 0b101010;
+    i64 oct = 0o52;
+    println("42 = ${dec} = ${hex} = ${bin} = ${oct}");
+
+    // El tipo se puede deducir del valor inicial.
+    auto contador = 0;
+    auto ratio = 1.5;
+    println("auto: ${contador} y ${ratio}");
+
+    return 0;
+}

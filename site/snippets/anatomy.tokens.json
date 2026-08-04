@@ -1,0 +1,393 @@
+{
+ "source": "// Comentario de linea.\n\n/* Comentario de bloque,\n   que puede ocupar varias lineas. */\n\n// Constante de nivel superior: el compilador rechaza reasignarla.\nconst i64 MAXIMO = 100;\n\n// Una funcion: primero el tipo que devuelve, luego el nombre, y los parametros\n// con su tipo delante.\ni64 recorta(i64 x) {\n    if (x > MAXIMO) { return MAXIMO; }\n    return x;\n}\n\n// Punto de entrada. Devuelve el codigo de salida del proceso.\ni32 main(string[] args) {\n    i64 valor = 60;\n\n    println(\"recorta(${valor})  = ${recorta(valor)}\");\n    println(\"recorta(500) = ${recorta(500)}\");\n    println(\"argumentos recibidos: ${args_count()}\");\n\n    return 0;\n}\n",
+ "hash": "cecf33b5c25558a73200eade39b11ff832d2464cfa6ec032a0cf34f57dcc4445",
+ "legend": [
+  "namespace",
+  "type",
+  "class",
+  "enum",
+  "interface",
+  "struct",
+  "typeParameter",
+  "parameter",
+  "variable",
+  "property",
+  "enumMember",
+  "function",
+  "method",
+  "keyword",
+  "modifier",
+  "comment",
+  "string",
+  "number",
+  "operator",
+  "macro",
+  "escapeSequence",
+  "interpolation",
+  "register"
+ ],
+ "tokens": [
+  {
+   "line": 0,
+   "col": 0,
+   "len": 23,
+   "kind": "comment"
+  },
+  {
+   "line": 2,
+   "col": 0,
+   "len": 24,
+   "kind": "comment"
+  },
+  {
+   "line": 3,
+   "col": 0,
+   "len": 37,
+   "kind": "comment"
+  },
+  {
+   "line": 5,
+   "col": 0,
+   "len": 66,
+   "kind": "comment"
+  },
+  {
+   "line": 6,
+   "col": 0,
+   "len": 5,
+   "kind": "keyword"
+  },
+  {
+   "line": 6,
+   "col": 6,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 6,
+   "col": 10,
+   "len": 6,
+   "kind": "variable"
+  },
+  {
+   "line": 6,
+   "col": 17,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 6,
+   "col": 19,
+   "len": 3,
+   "kind": "number"
+  },
+  {
+   "line": 8,
+   "col": 0,
+   "len": 79,
+   "kind": "comment"
+  },
+  {
+   "line": 9,
+   "col": 0,
+   "len": 23,
+   "kind": "comment"
+  },
+  {
+   "line": 10,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 10,
+   "col": 4,
+   "len": 7,
+   "kind": "function",
+   "doc": "**recorta** _(funcion)_ recorta(x)"
+  },
+  {
+   "line": 10,
+   "col": 12,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 10,
+   "col": 16,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 4,
+   "len": 2,
+   "kind": "keyword"
+  },
+  {
+   "line": 11,
+   "col": 8,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 10,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 11,
+   "col": 12,
+   "len": 6,
+   "kind": "variable"
+  },
+  {
+   "line": 11,
+   "col": 22,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 11,
+   "col": 29,
+   "len": 6,
+   "kind": "variable"
+  },
+  {
+   "line": 12,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 12,
+   "col": 11,
+   "len": 1,
+   "kind": "variable"
+  },
+  {
+   "line": 15,
+   "col": 0,
+   "len": 62,
+   "kind": "comment"
+  },
+  {
+   "line": 16,
+   "col": 0,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 16,
+   "col": 4,
+   "len": 4,
+   "kind": "function",
+   "doc": "**main** _(funcion)_ main(args)"
+  },
+  {
+   "line": 16,
+   "col": 9,
+   "len": 6,
+   "kind": "type"
+  },
+  {
+   "line": 16,
+   "col": 18,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 17,
+   "col": 4,
+   "len": 3,
+   "kind": "type"
+  },
+  {
+   "line": 17,
+   "col": 8,
+   "len": 5,
+   "kind": "variable"
+  },
+  {
+   "line": 17,
+   "col": 14,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 17,
+   "col": 16,
+   "len": 2,
+   "kind": "number"
+  },
+  {
+   "line": 19,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 19,
+   "col": 12,
+   "len": 9,
+   "kind": "string"
+  },
+  {
+   "line": 19,
+   "col": 21,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 23,
+   "len": 5,
+   "kind": "variable"
+  },
+  {
+   "line": 19,
+   "col": 28,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 29,
+   "len": 5,
+   "kind": "string"
+  },
+  {
+   "line": 19,
+   "col": 34,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 36,
+   "len": 7,
+   "kind": "function",
+   "doc": "**recorta** _(funcion)_ recorta(x)"
+  },
+  {
+   "line": 19,
+   "col": 44,
+   "len": 5,
+   "kind": "variable"
+  },
+  {
+   "line": 19,
+   "col": 50,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 51,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 20,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 20,
+   "col": 12,
+   "len": 16,
+   "kind": "string"
+  },
+  {
+   "line": 20,
+   "col": 28,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 20,
+   "col": 30,
+   "len": 7,
+   "kind": "function",
+   "doc": "**recorta** _(funcion)_ recorta(x)"
+  },
+  {
+   "line": 20,
+   "col": 38,
+   "len": 3,
+   "kind": "number"
+  },
+  {
+   "line": 20,
+   "col": 42,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 20,
+   "col": 43,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 21,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 21,
+   "col": 12,
+   "len": 23,
+   "kind": "string"
+  },
+  {
+   "line": 21,
+   "col": 35,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 21,
+   "col": 37,
+   "len": 10,
+   "kind": "variable"
+  },
+  {
+   "line": 21,
+   "col": 49,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 21,
+   "col": 50,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 23,
+   "col": 4,
+   "len": 6,
+   "kind": "keyword"
+  },
+  {
+   "line": 23,
+   "col": 11,
+   "len": 1,
+   "kind": "number"
+  }
+ ],
+ "coverage": {
+  "percent": 100.0,
+  "unclassified": []
+ },
+ "compiles": {
+  "ok": true,
+  "exit": 0,
+  "errors": []
+ },
+ "lsp_diagnostics": []
+}

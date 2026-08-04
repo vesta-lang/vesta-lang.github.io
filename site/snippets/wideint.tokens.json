@@ -257,6 +257,36 @@
   },
   {
    "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 507
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 700
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 1352
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 1525
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 2132
+  },
+  {
+   "severity": 1,
+   "message": "llamada a comptime fn 'std__comptime__literal__parse_int_lit' no es comptime-evaluable (argumento runtime?)",
+   "line": 2286
+  },
+  {
+   "severity": 1,
    "message": "el modulo 'wideint' no exporta 'u256' (es privado o no existe)",
    "line": 5
   }

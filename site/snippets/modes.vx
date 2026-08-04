@@ -1,0 +1,22 @@
+// El mismo fuente corre en la maquina virtual, se compila en caliente con el
+// JIT o se convierte en un ejecutable nativo. No cambia una linea.
+
+i64 fib(i64 n) {
+    if (n < 2) { return n; }
+
+    i64 a = 0;
+    i64 b = 1;
+    i64 i = 2;
+    while (i <= n) {
+        i64 next = a + b;
+        a = b;
+        b = next;
+        i = i + 1;
+    }
+    return b;
+}
+
+i32 main() {
+    println("fib(40) = ${fib(40)}");
+    return 0;
+}

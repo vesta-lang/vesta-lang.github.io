@@ -1,0 +1,25 @@
+// Comentario de linea.
+
+/* Comentario de bloque,
+   que puede ocupar varias lineas. */
+
+// Constante de nivel superior: el compilador rechaza reasignarla.
+const i64 MAXIMO = 100;
+
+// Una funcion: primero el tipo que devuelve, luego el nombre, y los parametros
+// con su tipo delante.
+i64 recorta(i64 x) {
+    if (x > MAXIMO) { return MAXIMO; }
+    return x;
+}
+
+// Punto de entrada. Devuelve el codigo de salida del proceso.
+i32 main(string[] args) {
+    i64 valor = 60;
+
+    println("recorta(${valor})  = ${recorta(valor)}");
+    println("recorta(500) = ${recorta(500)}");
+    println("argumentos recibidos: ${args_count()}");
+
+    return 0;
+}
