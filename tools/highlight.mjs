@@ -164,10 +164,14 @@ const LANGUAGES = {
         keywords: set(`
             if then else elif fi for while until do done case esac function
             return in select time coproc local export readonly declare unset
-            echo cd exit source alias set
+            echo cd exit source alias set sudo
         `),
         lineComment: ['#'],
         strings: ['"', "'"],
+        // Una orden de consola casi nunca contiene palabras clave: `vesta --vx
+        // hola.vx -o hola` no tiene ni una. Sin un trato propio, el bloque
+        // entero sale sin marcar y se lee como texto plano.
+        shell: true,
     },
     json: {
         keywords: set('true false null'),
@@ -359,6 +363,30 @@ export function highlight(code, lang) {
             out.push(span('str', code.slice(i, j)));
             i = j;
             continue;
+        }
+
+        // Shell: la primera palabra de cada orden es el programa que se
+        // invoca, y lo que empieza por guion es una opcion. Son las dos cosas
+        // que la vista busca al leer una orden.
+        if (spec.shell) {
+            let back = i - 1;
+            while (back >= 0 && (code[back] === ' ' || code[back] === '	')) back -= 1;
+            const atLineStart = back < 0 || code[back] === String.fromCharCode(10);
+            const command = atLineStart && rest.match(/^[A-Za-z_][\w.\/-]*/);
+            if (command && !spec.keywords.has(command[0])) {
+                flush();
+                out.push(span('fn', command[0]));
+                i += command[0].length;
+                continue;
+            }
+
+            const option = rest.match(/^--?[A-Za-z][\w-]*/);
+            if (option) {
+                flush();
+                out.push(span('opt', option[0]));
+                i += option[0].length;
+                continue;
+            }
         }
 
         // Directiva de preprocesador, al principio de linea.

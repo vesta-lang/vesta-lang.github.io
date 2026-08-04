@@ -218,3 +218,69 @@
         display: none;
     }
 }
+
+/* --- Bloques de codigo del contenido ------------------------------------ */
+
+/*
+ * Los bloques con vallas del Markdown (bash, texto, C...). Son distintos de
+ * `.snippet`, que son los fragmentos Vesta con indice semantico, pero deben
+ * verse igual: para quien lee no hay dos clases de codigo.
+ *
+ * Faltaban por completo. El resultado era que una orden de consola se
+ * publicaba como texto suelto, sin caja ni color, indistinguible de un parrafo.
+ */
+.code-block {
+    margin: 1.5rem 0;
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+    background: var(--code-bg);
+    overflow: hidden;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 0.9rem 1.1rem;
+    /* El bloque se desplaza dentro de si mismo; la pagina nunca lo hace por
+     * culpa de una orden larga. */
+    overflow-x: auto;
+}
+
+.code-block code {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--code-fg);
+    tab-size: 4;
+}
+
+/* Codigo dentro de un parrafo. */
+:not(pre) > code {
+    padding: 0.12em 0.35em;
+    border-radius: 3px;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    font-size: 0.9em;
+}
+
+/* --- Tokens del tokenizador propio -------------------------------------- */
+
+/*
+ * Los fragmentos Vesta usan los nombres del servidor LSP (`t-keyword`); estos
+ * son los del tokenizador de respaldo, que cubre los demas lenguajes. Se
+ * mantienen separados porque sus vocabularios no coinciden, pero comparten
+ * paleta para que un bloque de bash y uno de Vesta no parezcan de sitios
+ * distintos.
+ */
+.tok-com { color: var(--tok-comment); font-style: italic; }
+.tok-kw { color: var(--tok-keyword); }
+.tok-typ { color: var(--tok-type); }
+.tok-str { color: var(--tok-string); }
+.tok-num { color: var(--tok-number); }
+.tok-ann { color: var(--tok-annotation); }
+.tok-pre { color: var(--tok-annotation); }
+.tok-op { color: var(--tok-operator); }
+
+/* Propios del shell: el programa invocado y sus opciones. */
+.tok-fn { color: var(--tok-function); font-weight: 600; }
+.tok-opt { color: var(--tok-number); }
