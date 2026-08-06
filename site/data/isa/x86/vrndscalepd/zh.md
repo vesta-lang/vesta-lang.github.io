@@ -1,0 +1,155 @@
+---
+summary: 圆包浮点64 数值以包含一定的分数位数
+---
+
+## 说明
+
+将源操作中的双精度浮点值通过即时操作(见图5-29)中指定的四舍五入模式进行回合,并将结果放置在目的地操作中.
+
+目标操作数(第一个操作数)是一个ZMM/YMM/XMM登记册,根据写掩码有条件更新. 源操作数(第二个操作数)可以是ZMM/YMM/XMM注册,512/256/128位内存位置,也可以是从64位内存位置广播的512/256/128位矢量.
+
+四舍五入过程将输入绕到一个整体值,加上imm8指定的分数位[7:4](将包含在结果中),并以双精度浮点值返回结果.
+
+应当指出的是,在执行此指示时不会引起溢出(虽然来源以imm8[7:4]值缩放)。
+
+立即数操作数还指定了四舍五入操作的控制字段,3位字段被定义并显示在下面的"即时控制描述"图中. 直接字节的比特 3 控制处理器行为以进行精密例外,比特 2 选择四舍五入模式控制的来源. 位数 1: 0 指定一个非粘性圆形模式值(以下立即控制表列出圆形模式字段的编码值).
+
+精度浮点例外根据立即数操作数发出信号. 如果任何源操作数是SNaN,那么它将被转换成QNaN. 如果 DAZ 设定为 `1,那么在四舍五入前,异常值将转换为 0。
+
+此指示结果的标志保留下来,包括0的标志.
+
+VRNDSCALEPD的每个数据元素上的操作公式为ROUND(x)=2-M*Round to INT(x*2M,圆 ctrl),,
+
+round_ctrl = imm[3:0];
+
+M=imm[7:4]; (中文(简体) ). X*2M的运行被计算成像表示范围无限(即从未出现溢出).
+
+VRNDSCALEPD是VEX-encoded VROUNDPD指令的一种较为一般的形式. 在VROUNDPD中,每个元素的操作公式是
+
+ROUND(x) = Round_to_INT(x, round_ctrl), round_ctrl = imm[3:0];
+
+说明: EVEX.vvvv是保留的,必须是1111b,否则指令会#UD.
+
+```text
+                           7  6                       5          4              3                 2   1                         0
+```
+
+imm8
+
+```text
+                              Fixed point length                                SPE               RS  Round Control Override
+```
+
+```text
+      Imm8[7:4] : Number of fixed points to preserve     Suppress Precision Exception: Imm8[3]    Round Select: Imm8[2]         Imm8[1:0] = 00b : Round nearest even
+                                                         Imm8[3] = 0b : Use MXCSR exception mask  Imm8[2] = 0b : Use Imm8[1:0]  Imm8[1:0] = 01b : Round down
+                                                         Imm8[3] = 1b : Suppress                  Imm8[2] = 1b : Use MXCSR      Imm8[1:0] = 10b : Round up
+```
+
+Imm8[1:0] = 11b : Truncate
+
+图5-29. VRNDSCALEPD/SD/PS/SS的Imm8控制器
+
+特殊输入值的处理情况见表5-29。
+
+Src1=+/-f 表5-29. VRNDSCALEPD/SD/PS/SS 特殊案例 Src1=+/-NAN 返回值 Src1=+/-0 Src1 转换为 QNAN Src1
+
+## 行动
+
+```text
+RoundToIntegerDP(SRC[63:0], imm8[7:0]) {
+
+if (imm8[2] = 1)
+
+      rounding_direction := MXCSR:RC                     ; get round control from MXCSR
+
+else
+
+      rounding_direction := imm8[1:0]                    ; get round control from imm8[1:0]
+
+FI
+
+M := imm8[7:4]                ; get the scaling factor
+
+case (rounding_direction)
+00: TMP[63:0] := round_to_nearest_even_integer(2M*SRC[63:0])
+01: TMP[63:0] := round_to_equal_or_smaller_integer(2M*SRC[63:0])
+10: TMP[63:0] := round_to_equal_or_larger_integer(2M*SRC[63:0])
+11: TMP[63:0] := round_to_nearest_smallest_magnitude_integer(2M*SRC[63:0])
+ESAC
+
+Dest[63:0] := 2-M* TMP[63:0]                          ; scale down back to 2-M
+
+if (imm8[3] = 0) Then ; check SPE
+
+      if (SRC[63:0] != Dest[63:0]) Then ; check precision lost
+
+           set_precision()                            ; set #PE
+
+      FI;
+
+FI;
+
+
+    return(Dest[63:0])
+}
+
+VRNDSCALEPD (EVEX encoded versions)
+(KL, VL) = (2, 128), (4, 256), (8, 512)
+IF *src is a memory operand*
+
+    THEN TMP_SRC := BROADCAST64(SRC, VL, k1)
+    ELSE TMP_SRC := SRC
+FI;
+
+FOR j := 0 TO KL-1
+
+i := j * 64
+
+IF k1[j] OR *no writemask*
+
+     THEN DEST[i+63:i] := RoundToIntegerDP((TMP_SRC[i+63:i], imm8[7:0])
+
+ELSE
+
+     IF *merging-masking*       ; merging-masking
+
+             THEN *DEST[i+63:i] remains unchanged*
+
+             ELSE               ; zeroing-masking
+
+             DEST[i+63:i] := 0
+
+     FI;
+
+FI;
+
+ENDFOR;
+
+DEST[MAXVL-1:VL] := 0
+```
+
+## Intel C/C++ 内在编译器
+
+```c
+VRNDSCALEPD __m512d _mm512_roundscale_pd( __m512d a, int imm);
+VRNDSCALEPD __m512d _mm512_roundscale_round_pd( __m512d a, int imm, int sae);
+VRNDSCALEPD __m512d _mm512_mask_roundscale_pd(__m512d s, __mmask8 k, __m512d a, int imm);
+VRNDSCALEPD __m512d _mm512_mask_roundscale_round_pd(__m512d s, __mmask8 k, __m512d a, int imm, int sae);
+VRNDSCALEPD __m512d _mm512_maskz_roundscale_pd( __mmask8 k, __m512d a, int imm);
+VRNDSCALEPD __m512d _mm512_maskz_roundscale_round_pd( __mmask8 k, __m512d a, int imm, int sae);
+VRNDSCALEPD __m256d _mm256_roundscale_pd( __m256d a, int imm);
+VRNDSCALEPD __m256d _mm256_mask_roundscale_pd(__m256d s, __mmask8 k, __m256d a, int imm);
+VRNDSCALEPD __m256d _mm256_maskz_roundscale_pd( __mmask8 k, __m256d a, int imm);
+VRNDSCALEPD __m128d _mm_roundscale_pd( __m128d a, int imm);
+VRNDSCALEPD __m128d _mm_mask_roundscale_pd(__m128d s, __mmask8 k, __m128d a, int imm);
+VRNDSCALEPD __m128d _mm_maskz_roundscale_pd( __mmask8 k, __m128d a, int imm);
+```
+
+## SIMD 浮点 例外
+
+无效, 精度 。 如果启用了SPE,则不报告精确例外(不管MXCSR例外面具).
+
+## 其他例外
+
+见表2-48"E2类例外条件"。

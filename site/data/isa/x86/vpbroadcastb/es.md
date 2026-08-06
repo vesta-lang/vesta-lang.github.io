@@ -1,0 +1,163 @@
+---
+summary: Carga con datos enteros de radiodifusión de registro de proposito general
+---
+
+## Descripción
+
+Transmite un valor de 8 bits, 16 bits, 32 bits o 64 bits de un registro de proposito general (el segundo operando) a todos los lugares del registro vectorial de destino (el primer operando) utilizando la máscara de escritura k1.
+
+EVEX.vvvv está reservado y debe ser 1111b instrucciones de lo contrario #UD.
+
+## Operación
+
+```text
+VPBROADCASTB (EVEX encoded versions)
+
+(KL, VL) = (16, 128), (32, 256), (64, 512)
+
+FOR j := 0 TO KL-1
+
+i := j * 8
+
+IF k1[j] OR *no writemask*
+
+     THEN DEST[i+7:i] := SRC[7:0]
+
+     ELSE
+
+             IF *merging-masking*           ; merging-masking
+
+                 THEN *DEST[i+7:i] remains unchanged*
+
+                 ELSE                       ; zeroing-masking
+
+                    DEST[i+7:i] := 0
+
+             FI
+
+FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+
+VPBROADCASTW (EVEX encoded versions)
+
+(KL, VL) = (8, 128), (16, 256), (32, 512)
+
+FOR j := 0 TO KL-1
+
+i := j * 16
+
+IF k1[j] OR *no writemask*
+
+     THEN DEST[i+15:i] := SRC[15:0]
+
+     ELSE
+
+             IF *merging-masking*           ; merging-masking
+
+                 THEN *DEST[i+15:i] remains unchanged*
+
+                 ELSE                       ; zeroing-masking
+
+                    DEST[i+15:i] := 0
+
+             FI
+
+FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+
+VPBROADCASTD (EVEX encoded versions)
+
+(KL, VL) = (4, 128), (8, 256), (16, 512)
+
+FOR j := 0 TO KL-1
+
+i := j * 32
+
+IF k1[j] OR *no writemask*
+
+     THEN DEST[i+31:i] := SRC[31:0]
+
+     ELSE
+
+             IF *merging-masking*           ; merging-masking
+
+                 THEN *DEST[i+31:i] remains unchanged*
+
+                 ELSE                       ; zeroing-masking
+
+                    DEST[i+31:i] := 0
+
+             FI
+
+FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+
+
+VPBROADCASTQ (EVEX encoded versions)
+
+(KL, VL) = (2, 128), (4, 256), (8, 512)
+
+FOR j := 0 TO KL-1
+
+i := j * 64
+
+IF k1[j] OR *no writemask*
+
+     THEN DEST[i+63:i] := SRC[63:0]
+
+     ELSE
+
+             IF *merging-masking*        ; merging-masking
+
+                 THEN *DEST[i+63:i] remains unchanged*
+
+                 ELSE                    ; zeroing-masking
+
+                    DEST[i+63:i] := 0
+
+             FI
+
+FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+```
+
+## Intel C/C++ compilador intrínseco
+
+```c
+VPBROADCASTB __m512i _mm512_mask_set1_epi8(__m512i s, __mmask64 k, int a);
+VPBROADCASTB __m512i _mm512_maskz_set1_epi8( __mmask64 k, int a);
+VPBROADCASTB __m256i _mm256_mask_set1_epi8(__m256i s, __mmask32 k, int a);
+VPBROADCASTB __m256i _mm256_maskz_set1_epi8( __mmask32 k, int a);
+VPBROADCASTB __m128i _mm_mask_set1_epi8(__m128i s, __mmask16 k, int a);
+VPBROADCASTB __m128i _mm_maskz_set1_epi8( __mmask16 k, int a);
+VPBROADCASTD __m512i _mm512_mask_set1_epi32(__m512i s, __mmask16 k, int a);
+VPBROADCASTD __m512i _mm512_maskz_set1_epi32( __mmask16 k, int a);
+VPBROADCASTD __m256i _mm256_mask_set1_epi32(__m256i s, __mmask8 k, int a);
+VPBROADCASTD __m256i _mm256_maskz_set1_epi32( __mmask8 k, int a);
+VPBROADCASTD __m128i _mm_mask_set1_epi32(__m128i s, __mmask8 k, int a);
+VPBROADCASTD __m128i _mm_maskz_set1_epi32( __mmask8 k, int a);
+VPBROADCASTQ __m512i _mm512_mask_set1_epi64(__m512i s, __mmask8 k, __int64 a);
+VPBROADCASTQ __m512i _mm512_maskz_set1_epi64( __mmask8 k, __int64 a);
+VPBROADCASTQ __m256i _mm256_mask_set1_epi64(__m256i s, __mmask8 k, __int64 a);
+VPBROADCASTQ __m256i _mm256_maskz_set1_epi64( __mmask8 k, __int64 a);
+VPBROADCASTQ __m128i _mm_mask_set1_epi64(__m128i s, __mmask8 k, __int64 a);
+VPBROADCASTQ __m128i _mm_maskz_set1_epi64( __mmask8 k, __int64 a);
+VPBROADCASTW __m512i _mm512_mask_set1_epi16(__m512i s, __mmask32 k, int a);
+VPBROADCASTW __m512i _mm512_maskz_set1_epi16( __mmask32 k, int a);
+VPBROADCASTW __m256i _mm256_mask_set1_epi16(__m256i s, __mmask16 k, int a);
+VPBROADCASTW __m256i _mm256_maskz_set1_epi16( __mmask16 k, int a);
+VPBROADCASTW __m128i _mm_mask_set1_epi16(__m128i s, __mmask8 k, int a);
+VPBROADCASTW __m128i _mm_maskz_set1_epi16( __mmask8 k, int a);
+```
