@@ -43,11 +43,18 @@ import {
     tableOfContents,
 } from './tools/docs.mjs';
 import { LEARN, chapterHref, flatChapters } from './site/content/learn.mjs';
-import { DOCS, bookHref, docsHref, flatPages } from './site/content/docs.mjs';
+import { DOCS, bookHref, docsHref, flatPages, instructionHref } from './site/content/docs.mjs';
+import {
+    loadInstructions,
+    loadTranslations,
+    renderInstruction,
+    renderInstructionIndex,
+} from './tools/isa.mjs';
+import { renderOpcodeMap } from './tools/opcode-map.mjs';
 import { renderTagLegend, renderTags, tagStylesheet } from './site/content/tags.mjs';
 import { parseFrontMatter, render } from './tools/markdown.mjs';
 import { pageSource, sourceUrlFor } from './tools/page-source.mjs';
-import { LANGUAGES, SITE_URL, urlFor } from './tools/site.mjs';
+import { LANGUAGES, SITE_URL, siteLanguages, urlFor } from './tools/site.mjs';
 import { renderSnippetFile } from './tools/snippet.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -119,7 +126,7 @@ function canonicalPath(file, langDir) {
  */
 function translationIndex() {
     const map = new Map();
-    const langs = Object.keys(LANGUAGES);
+    const langs = siteLanguages();
 
     for (const { chapter } of flatChapters()) {
         // Los capitulos que apuntan a otra seccion no tienen pagina propia.
@@ -338,10 +345,10 @@ ${entries.join('\n')}
  * @param {Map<string, {path: string}>} pages Paginas generadas.
  * @returns {number} Numero de destinos distintos que no resuelven.
  */
-function checkLinks(pages) {
+function checkLinks(pages, extra = []) {
     // Rutas que el sitio sirve de verdad, en la forma en que se escriben en un
     // enlace.
-    const known = new Set(['/404.html']);
+    const known = new Set(['/404.html', ...extra]);
     for (const page of pages.values()) {
         for (const [lang, { path }] of Object.entries(page.versions)) {
             known.add(urlFor(lang, path));
@@ -412,7 +419,7 @@ function checkChapters(pages) {
     const vistos = new Map();
     for (const { chapter } of flatChapters()) {
         if (chapter.path) continue;
-        for (const lang of Object.keys(LANGUAGES)) {
+        for (const lang of siteLanguages()) {
             const { href } = chapterHref(chapter, lang);
             const duenyo = vistos.get(href);
             if (duenyo && duenyo !== chapter.id) {
@@ -430,7 +437,7 @@ function checkChapters(pages) {
         if (chapter.path) continue;
 
         const versions = pages.get(`learn:${chapter.id}`)?.versions || {};
-        for (const lang of Object.keys(LANGUAGES)) {
+        for (const lang of siteLanguages()) {
             const { href } = chapterHref(chapter, lang);
             const escrito = Boolean(versions[lang]);
 
@@ -455,6 +462,114 @@ ${vacios.length} capitulos enlazados sin texto (quitar el enlace o escribirlos):
 }
 
 /**
+ * Emite la referencia de instrucciones de un juego.
+ *
+ * Estas paginas no tienen fichero de contenido: son ochocientas y pico, y
+ * escribirlas a mano no es que fuera trabajoso, es que garantizaria que la
+ * mitad quedaran desactualizadas. Se generan desde los datos importados, que
+ * es lo unico que escala a un juego de instrucciones entero.
+ *
+ * No entran en la barra lateral por la misma razon: se llega a ellas por el
+ * indice del juego o por el buscador.
+ *
+ * @param {string} isa Identificador del juego.
+ * @param {string} title Titulo de la portada, por idioma.
+ * @returns {Array<string>} Rutas publicas emitidas, para el comprobador de enlaces.
+ */
+function emitInstructionReference(isa) {
+    const entries = loadInstructions(join(ROOT, 'site', 'data', 'isa', isa));
+    if (entries.length === 0) return [];
+
+    // La prosa que vive en los datos -- la condicion de cada excepcion, la
+    // descripcion de cada forma -- se traduce con la misma memoria que genera
+    // los documentos, no con una copia.
+    loadTranslations(join(ROOT, 'site', 'data', 'isa'));
+
+    const emitted = [];
+    const book = DOCS.find((b) => b.id === 'encoding');
+    const page = book.pages.find((p) => p.index === isa);
+
+    // Aqui SI entran los idiomas parciales: la referencia es lo unico que esta
+    // traducido a ellos, y es justo lo que los hace publicables.
+    const langs = Object.keys(LANGUAGES).filter(
+        (code) => code === 'en' || entries.some((e) => e.docs[code])
+    );
+
+    for (const lang of langs) {
+        const hrefFor = (slug, code) => urlFor(code, instructionHref(isa, slug, code));
+
+        // En un idioma parcial solo esta traducida ESTA seccion, asi que la
+        // barra lateral enlaza el resto en ingles. Sin esto, cada pagina china
+        // ofrecia cuatro enlaces a portadas de libro que no se emiten.
+        const reference = docsHref(book, page, lang);
+        const linkTo = LANGUAGES[lang].partial
+            ? (path) => urlFor(path === reference ? lang : 'en', path)
+            : (path) => urlFor(lang, path);
+
+        // Portada del juego: el indice por inicial.
+        const indexPath = docsHref(book, page, lang);
+        const indexVersions = Object.fromEntries(
+            langs.map((code) => [code, docsHref(book, page, code)])
+        );
+        emit(
+            join(OUT, urlFor(lang, indexPath).replace(/^\//, ''), 'index.html'),
+            renderPage({
+                lang,
+                path: indexPath,
+                title: `${page.title[lang] || page.title.en} - Vesta`,
+                description: page.title[lang] || page.title.en,
+                content:
+                    `<h1>${page.title[lang] || page.title.en}</h1>` +
+                    renderInstructionIndex(entries, lang, hrefFor,
+                                           renderOpcodeMap(entries, lang, hrefFor)),
+                versions: indexVersions,
+                section: 'docs',
+                // Lleva el mapa de opcodes, que son 16 columnas: necesita el
+                // ancho igual que las paginas de instruccion.
+                bodyClass: 'isa-page',
+                docs: {
+                    sidebar: referenceSidebar(DOCS, lang, indexPath, bookHref, docsHref, linkTo),
+                    toc: '',
+                    pager: '',
+                },
+            })
+        );
+        emitted.push(urlFor(lang, indexPath));
+
+        for (const entry of entries) {
+            const path = instructionHref(isa, entry.path, lang);
+            const versions = Object.fromEntries(
+                langs.map((code) => [code, instructionHref(isa, entry.path, code)])
+            );
+            const { title, description, html } = renderInstruction(entry, lang);
+
+            emit(
+                join(OUT, urlFor(lang, path).replace(/^\//, ''), 'index.html'),
+                renderPage({
+                    lang,
+                    path,
+                    title: `${title} - Vesta`,
+                    description,
+                    content: html,
+                    versions,
+                    section: 'docs',
+                    // La pagina es sobre todo tablas y necesita el ancho.
+                    bodyClass: 'isa-page',
+                    docs: {
+                        sidebar: referenceSidebar(DOCS, lang, path, bookHref, docsHref, linkTo),
+                        toc: '',
+                        pager: '',
+                    },
+                })
+            );
+            emitted.push(urlFor(lang, path));
+        }
+    }
+
+    return emitted;
+}
+
+/**
  * Contrasta el indice de la referencia con las paginas escritas.
  *
  * Es la misma comprobacion que `checkChapters` hace sobre Learn, y existe por
@@ -472,7 +587,7 @@ ${vacios.length} capitulos enlazados sin texto (quitar el enlace o escribirlos):
 function checkReference(pages) {
     const problemas = [];
 
-    for (const lang of Object.keys(LANGUAGES)) {
+    for (const lang of siteLanguages()) {
         for (const book of DOCS) {
             const home = bookHref(book, lang);
             if (!pages.get(`docs:${book.id}`)?.versions[lang]) {
@@ -533,7 +648,7 @@ async function build() {
     // de idioma desaparecia justamente donde mas falta hace.
     const identities = translationIndex();
     const pages = new Map();
-    for (const lang of Object.keys(LANGUAGES)) {
+    for (const lang of siteLanguages()) {
         const langDir = join(CONTENT, lang);
         for (const file of walk(langDir, (n) => n.endsWith('.md'))) {
             const path = canonicalPath(file, langDir);
@@ -666,7 +781,7 @@ async function build() {
 
     // Tarjeta social por idioma. Se genera en cada build para que no pueda
     // quedarse diciendo un titular que la portada ya cambio.
-    for (const lang of Object.keys(LANGUAGES)) {
+    for (const lang of siteLanguages()) {
         emit(
             join(OUT, 'assets', `og-${lang}.svg`),
             socialCard(lang, join(ASSETS, 'img', 'logo.png'))
@@ -714,9 +829,16 @@ async function build() {
     // Jekyll; este fichero lo desactiva.
     emit(join(OUT, '.nojekyll'), '');
 
+    // La referencia de instrucciones se genera desde los datos importados, no
+    // desde ficheros de contenido. Va despues del bucle de paginas porque no
+    // participa en el emparejado de traducciones: el mnemonico es el mismo en
+    // los dos idiomas y su ruta se construye directamente.
+    const generated = emitInstructionReference('x86');
+    count += generated.length;
+
     checkChapters(pages);
     checkReference(pages);
-    const broken = checkLinks(pages);
+    const broken = checkLinks(pages, generated);
     console.log(
         `${count} paginas en ${Date.now() - started} ms -> dist/` +
             (broken > 0 ? ` (${broken} enlaces pendientes)` : '')

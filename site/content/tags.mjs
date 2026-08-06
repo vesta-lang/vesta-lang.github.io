@@ -97,21 +97,28 @@ export const TAG_FAMILIES = [
         id: 'kind',
         label: { en: 'Kind', es: 'Naturaleza' },
         single: true,
-        // Sin tono: es la familia que menos condiciona la lectura, y darle
-        // color le robaria atencion a las que si deciden algo.
+        // Cada valor tiene su tono, pero TODOS con la saturacion rebajada.
+        //
+        // Es la familia con mas valores y la que menos condiciona la lectura:
+        // si compitiera en intensidad con el estado o con los modos, una fila
+        // de cinco etiquetas se convertiria en un semaforo donde no se
+        // distingue lo urgente. Rebajar la saturacion mantiene cada valor
+        // distinguible del de al lado y a la familia entera en segundo plano,
+        // que es donde le toca.
+        muted: 34,
         values: [
-            { id: 'keyword', neutral: true, label: { en: 'keyword', es: 'palabra clave' } },
-            { id: 'operator', neutral: true, label: { en: 'operator', es: 'operador' } },
-            { id: 'annotation', neutral: true, label: { en: 'annotation', es: 'anotacion' } },
-            { id: 'directive', neutral: true, label: { en: 'directive', es: 'directiva' } },
-            { id: 'function', neutral: true, label: { en: 'function', es: 'funcion' } },
-            { id: 'type', neutral: true, label: { en: 'type', es: 'tipo' } },
-            { id: 'struct', neutral: true, label: { en: 'struct', es: 'struct' } },
-            { id: 'class', neutral: true, label: { en: 'class', es: 'class' } },
-            { id: 'enum', neutral: true, label: { en: 'enum', es: 'enum' } },
-            { id: 'interface', neutral: true, label: { en: 'interface', es: 'interface' } },
-            { id: 'instruction', neutral: true, label: { en: 'instruction', es: 'instruccion' } },
-            { id: 'syntax', neutral: true, label: { en: 'syntax', es: 'sintaxis' } },
+            { id: 'keyword', hue: 264, label: { en: 'keyword', es: 'palabra clave' } },
+            { id: 'operator', hue: 206, label: { en: 'operator', es: 'operador' } },
+            { id: 'annotation', hue: 320, label: { en: 'annotation', es: 'anotacion' } },
+            { id: 'directive', hue: 288, label: { en: 'directive', es: 'directiva' } },
+            { id: 'function', hue: 150, label: { en: 'function', es: 'funcion' } },
+            { id: 'type', hue: 184, label: { en: 'type', es: 'tipo' } },
+            { id: 'struct', hue: 46, label: { en: 'struct', es: 'struct' } },
+            { id: 'class', hue: 14, label: { en: 'class', es: 'class' } },
+            { id: 'enum', hue: 104, label: { en: 'enum', es: 'enum' } },
+            { id: 'interface', hue: 232, label: { en: 'interface', es: 'interface' } },
+            { id: 'instruction', hue: 342, label: { en: 'instruction', es: 'instruccion' } },
+            { id: 'syntax', hue: 74, label: { en: 'syntax', es: 'sintaxis' } },
         ],
     },
 ];
@@ -166,18 +173,10 @@ export function tagStylesheet() {
     for (const family of TAG_FAMILIES) {
         for (const value of family.values) {
             const sel = `.tag-${value.id}`;
-
-            if (value.neutral) {
-                out.push(
-                    `${sel} { background: var(--bg-soft); color: var(--fg-soft);`,
-                    '    border-color: var(--border); }',
-                    ''
-                );
-                continue;
-            }
-
             const h = value.hue;
-            const s = value.sat === undefined ? SAT : value.sat;
+            // Prioridad: la saturacion propia del valor, luego la rebajada de
+            // su familia, y si no la del resto.
+            const s = value.sat ?? family.muted ?? SAT;
 
             if (family.filled) {
                 out.push(
