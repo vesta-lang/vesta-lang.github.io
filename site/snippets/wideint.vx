@@ -1,14 +1,27 @@
-// Los enteros de ancho multiple no son primitivos del lenguaje: son tipos de
-// biblioteca, escritos en Vesta, que se usan como si fueran nativos.
-//
-// Comprueba los enlaces a la definicion: u256 se define en stdlib/vx/std/wideint.vx
+// Enteros mas anchos que la palabra de la maquina. No son tipos del
+// compilador: viven en std.wideint, escritos en Vesta.
 
-import std.wideint only u256;
+import std.wideint only u128, u256;
 
 i32 main() {
-    u256 a = u256.zero();
-    u256 b = u256.max();
+    // Los valores limite se piden a la propia biblioteca.
+    u128 tope128 = u128.max();
+    u256 tope256 = u256.max();
 
-    println("a < b -> ${a < b}");
+    // Interpolar basta: no hay que llamar a nada para imprimirlos.  Hoy salen
+    // como sus limbs en hexadecimal; la representacion en decimal esta
+    // pendiente de implementar.
+    println("mayor u128 = ${tope128}");
+    println("mayor u256 = ${tope256}");
+
+    // Aritmetica normal. Los operadores estan definidos en la biblioteca, no
+    // en el compilador.
+    u128 uno = u128.min();
+    println("menor u128 = ${uno}");
+    println("es cero    = ${uno.is_zero()}");
+
+    // Comparaciones, tambien definidas en la biblioteca.
+    println("tope > cero = ${tope128 > uno}");
+
     return 0;
 }

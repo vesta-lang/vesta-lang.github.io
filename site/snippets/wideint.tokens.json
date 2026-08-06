@@ -1,6 +1,6 @@
 {
- "source": "// Los enteros de ancho multiple no son primitivos del lenguaje: son tipos de\n// biblioteca, escritos en Vesta, que se usan como si fueran nativos.\n//\n// Comprueba los enlaces a la definicion: u256 se define en stdlib/vx/std/wideint.vx\n\nimport std.wideint only u256;\n\ni32 main() {\n    u256 a = u256.zero();\n    u256 b = u256.max();\n\n    println(\"a < b -> ${a < b}\");\n    return 0;\n}\n",
- "hash": "f5c9127df4cf5bd86c5fc679596b5eca569afe81cd18739762a67a8480422903",
+ "source": "// Enteros mas anchos que la palabra de la maquina. No son tipos del\n// compilador: viven en std.wideint, escritos en Vesta.\n\nimport std.wideint only u128, u256;\n\ni32 main() {\n    // Los valores limite se piden a la propia biblioteca.\n    u128 tope128 = u128.max();\n    u256 tope256 = u256.max();\n\n    // Interpolar basta: no hay que llamar a nada para imprimirlos.  Hoy salen\n    // como sus limbs en hexadecimal; la representacion en decimal esta\n    // pendiente de implementar.\n    println(\"mayor u128 = ${tope128}\");\n    println(\"mayor u256 = ${tope256}\");\n\n    // Aritmetica normal. Los operadores estan definidos en la biblioteca, no\n    // en el compilador.\n    u128 uno = u128.min();\n    println(\"menor u128 = ${uno}\");\n    println(\"es cero    = ${uno.is_zero()}\");\n\n    // Comparaciones, tambien definidas en la biblioteca.\n    println(\"tope > cero = ${tope128 > uno}\");\n\n    return 0;\n}\n",
+ "hash": "4d7aede87949e57e8f9925fc4ac7b23f66fe71052ad44febbc26fa3fc23a302a",
  "legend": [
   "namespace",
   "type",
@@ -30,186 +30,402 @@
   {
    "line": 0,
    "col": 0,
-   "len": 77,
+   "len": 68,
    "kind": "comment"
   },
   {
    "line": 1,
    "col": 0,
-   "len": 69,
-   "kind": "comment"
-  },
-  {
-   "line": 2,
-   "col": 0,
-   "len": 2,
+   "len": 55,
    "kind": "comment"
   },
   {
    "line": 3,
    "col": 0,
-   "len": 84,
-   "kind": "comment"
-  },
-  {
-   "line": 5,
-   "col": 0,
    "len": 6,
    "kind": "keyword"
   },
   {
-   "line": 5,
+   "line": 3,
    "col": 7,
    "len": 3,
    "kind": "variable"
   },
   {
-   "line": 5,
+   "line": 3,
    "col": 11,
    "len": 7,
    "kind": "variable"
   },
   {
-   "line": 5,
+   "line": 3,
    "col": 19,
    "len": 4,
    "kind": "keyword"
   },
   {
-   "line": 5,
+   "line": 3,
    "col": 24,
    "len": 4,
    "kind": "variable"
   },
   {
-   "line": 7,
+   "line": 3,
+   "col": 30,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 5,
    "col": 0,
    "len": 3,
    "kind": "type"
   },
   {
-   "line": 7,
+   "line": 5,
    "col": 4,
    "len": 4,
    "kind": "function",
    "doc": "**main** _(funcion)_ main()"
   },
   {
-   "line": 8,
+   "line": 6,
+   "col": 4,
+   "len": 54,
+   "kind": "comment"
+  },
+  {
+   "line": 7,
    "col": 4,
    "len": 4,
    "kind": "variable"
   },
   {
-   "line": 8,
+   "line": 7,
    "col": 9,
-   "len": 1,
+   "len": 7,
    "kind": "variable"
   },
   {
-   "line": 8,
-   "col": 11,
+   "line": 7,
+   "col": 17,
    "len": 1,
    "kind": "operator"
   },
   {
-   "line": 8,
-   "col": 13,
+   "line": 7,
+   "col": 19,
    "len": 4,
    "kind": "variable"
   },
   {
-   "line": 8,
-   "col": 18,
-   "len": 4,
-   "kind": "variable"
-  },
-  {
-   "line": 9,
-   "col": 4,
-   "len": 4,
-   "kind": "variable"
-  },
-  {
-   "line": 9,
-   "col": 9,
-   "len": 1,
-   "kind": "variable"
-  },
-  {
-   "line": 9,
-   "col": 11,
-   "len": 1,
-   "kind": "operator"
-  },
-  {
-   "line": 9,
-   "col": 13,
-   "len": 4,
-   "kind": "variable"
-  },
-  {
-   "line": 9,
-   "col": 18,
+   "line": 7,
+   "col": 24,
    "len": 3,
    "kind": "variable"
   },
   {
+   "line": 8,
+   "col": 4,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 8,
+   "col": 9,
+   "len": 7,
+   "kind": "variable"
+  },
+  {
+   "line": 8,
+   "col": 17,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 8,
+   "col": 19,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 8,
+   "col": 24,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 10,
+   "col": 4,
+   "len": 74,
+   "kind": "comment"
+  },
+  {
    "line": 11,
+   "col": 4,
+   "len": 67,
+   "kind": "comment"
+  },
+  {
+   "line": 12,
+   "col": 4,
+   "len": 28,
+   "kind": "comment"
+  },
+  {
+   "line": 13,
    "col": 4,
    "len": 7,
    "kind": "function"
   },
   {
-   "line": 11,
+   "line": 13,
    "col": 12,
-   "len": 10,
+   "len": 14,
    "kind": "string"
   },
   {
-   "line": 11,
-   "col": 22,
+   "line": 13,
+   "col": 26,
    "len": 2,
    "kind": "interpolation"
   },
   {
-   "line": 11,
-   "col": 24,
-   "len": 1,
-   "kind": "variable"
-  },
-  {
-   "line": 11,
-   "col": 26,
-   "len": 1,
-   "kind": "operator"
-  },
-  {
-   "line": 11,
+   "line": 13,
    "col": 28,
-   "len": 1,
+   "len": 7,
    "kind": "variable"
   },
   {
-   "line": 11,
-   "col": 29,
+   "line": 13,
+   "col": 35,
    "len": 1,
    "kind": "interpolation"
   },
   {
-   "line": 11,
-   "col": 30,
+   "line": 13,
+   "col": 36,
    "len": 1,
    "kind": "string"
   },
   {
-   "line": 12,
+   "line": 14,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 14,
+   "col": 12,
+   "len": 14,
+   "kind": "string"
+  },
+  {
+   "line": 14,
+   "col": 26,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 14,
+   "col": 28,
+   "len": 7,
+   "kind": "variable"
+  },
+  {
+   "line": 14,
+   "col": 35,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 14,
+   "col": 36,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 16,
+   "col": 4,
+   "len": 73,
+   "kind": "comment"
+  },
+  {
+   "line": 17,
+   "col": 4,
+   "len": 20,
+   "kind": "comment"
+  },
+  {
+   "line": 18,
+   "col": 4,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 18,
+   "col": 9,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 18,
+   "col": 13,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 18,
+   "col": 15,
+   "len": 4,
+   "kind": "variable"
+  },
+  {
+   "line": 18,
+   "col": 20,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 19,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 19,
+   "col": 12,
+   "len": 14,
+   "kind": "string"
+  },
+  {
+   "line": 19,
+   "col": 26,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 28,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 19,
+   "col": 31,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 19,
+   "col": 32,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 20,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 20,
+   "col": 12,
+   "len": 14,
+   "kind": "string"
+  },
+  {
+   "line": 20,
+   "col": 26,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 20,
+   "col": 28,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 20,
+   "col": 32,
+   "len": 7,
+   "kind": "variable"
+  },
+  {
+   "line": 20,
+   "col": 41,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 20,
+   "col": 42,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 22,
+   "col": 4,
+   "len": 53,
+   "kind": "comment"
+  },
+  {
+   "line": 23,
+   "col": 4,
+   "len": 7,
+   "kind": "function"
+  },
+  {
+   "line": 23,
+   "col": 12,
+   "len": 15,
+   "kind": "string"
+  },
+  {
+   "line": 23,
+   "col": 27,
+   "len": 2,
+   "kind": "interpolation"
+  },
+  {
+   "line": 23,
+   "col": 29,
+   "len": 7,
+   "kind": "variable"
+  },
+  {
+   "line": 23,
+   "col": 37,
+   "len": 1,
+   "kind": "operator"
+  },
+  {
+   "line": 23,
+   "col": 39,
+   "len": 3,
+   "kind": "variable"
+  },
+  {
+   "line": 23,
+   "col": 42,
+   "len": 1,
+   "kind": "interpolation"
+  },
+  {
+   "line": 23,
+   "col": 43,
+   "len": 1,
+   "kind": "string"
+  },
+  {
+   "line": 25,
    "col": 4,
    "len": 6,
    "kind": "keyword"
   },
   {
-   "line": 12,
+   "line": 25,
    "col": 11,
    "len": 1,
    "kind": "number"
@@ -287,8 +503,13 @@
   },
   {
    "severity": 1,
+   "message": "el modulo 'wideint' no exporta 'u128' (es privado o no existe)",
+   "line": 3
+  },
+  {
+   "severity": 1,
    "message": "el modulo 'wideint' no exporta 'u256' (es privado o no existe)",
-   "line": 5
+   "line": 3
   }
  ]
 }

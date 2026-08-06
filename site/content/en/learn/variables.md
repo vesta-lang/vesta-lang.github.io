@@ -70,11 +70,11 @@ And the rest:
 | `f64` | 64 | Double-precision floating point |
 | `bool` | 8 | `true` or `false` |
 | `char` | 32 | A Unicode code point |
-| `string` | — | Text, managed by the runtime |
+| `string` | - | Text, managed by the runtime |
 
 ## Four ways to write the same number
 
-```text
+```vx
 i64 dec = 42;
 i64 hex = 0x2A;
 i64 bin = 0b101010;
@@ -89,7 +89,7 @@ binary than in decimal.
 
 When the initial value already says what the type is, `auto` saves repeating it:
 
-```text
+```vx
 auto contador = 0;      // i64
 auto ratio = 1.5;       // f64
 ```
@@ -105,7 +105,7 @@ build time exactly as if you had written it.
 
 A `char` holds a Unicode code point, and interpolating it shows that number:
 
-```text
+```vx
 char letra = 'A';
 println("${letra}");         // 65
 println("${letra:char}");    // A
@@ -119,14 +119,14 @@ get their own chapter in the strings part.
 
 Going to a wider type loses nothing and needs no asking:
 
-```text
+```vx
 i32 a = 7;
 i64 b = a;      // plenty of room
 ```
 
 The other way round does lose information, and here you want to be careful:
 
-```text
+```vx
 i64 grande = 300;
 i8 pequeno = (i8) grande;   // 44
 ```
@@ -143,7 +143,7 @@ i8 pequeno = (i8) grande;   // 44
 
 `const` marks a value that cannot be reassigned:
 
-```text
+```vx
 const i64 MAXIMO = 100;
 ```
 

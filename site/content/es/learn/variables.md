@@ -70,11 +70,11 @@ Y el resto:
 | `f64` | 64 | Coma flotante de precisión doble |
 | `bool` | 8 | `true` o `false` |
 | `char` | 32 | Un punto de código Unicode |
-| `string` | — | Texto, gestionado por el runtime |
+| `string` | - | Texto, gestionado por el runtime |
 
 ## Cuatro maneras de escribir el mismo número
 
-```text
+```vx
 i64 dec = 42;
 i64 hex = 0x2A;
 i64 bin = 0b101010;
@@ -89,7 +89,7 @@ en binario que en decimal.
 
 Cuando el valor inicial ya dice de qué tipo se trata, `auto` evita repetirlo:
 
-```text
+```vx
 auto contador = 0;      // i64
 auto ratio = 1.5;       // f64
 ```
@@ -105,28 +105,28 @@ compilación igual que si lo hubieras escrito.
 
 Un `char` guarda un punto de código Unicode, y al interpolarlo verás ese número:
 
-```text
+```vx
 char letra = 'A';
 println("${letra}");         // 65
 println("${letra:char}");    // A
 ```
 
 `${expr:char}` es un **especificador de formato**: dice cómo quieres que se
-escriba el valor, no qué valor es. Hay más —`:hex` para hexadecimal, por
-ejemplo—, y tienen su capítulo en la parte de cadenas.
+escriba el valor, no qué valor es. Hay más, como `:hex` para hexadecimal, y
+tienen su capítulo en la parte de cadenas.
 
 ## Convertir entre tipos
 
 Pasar a un tipo más ancho no pierde nada y no hace falta pedirlo:
 
-```text
+```vx
 i32 a = 7;
 i64 b = a;      // cabe de sobra
 ```
 
 Al revés sí se pierde información, y aquí conviene ir con cuidado:
 
-```text
+```vx
 i64 grande = 300;
 i8 pequeno = (i8) grande;   // 44
 ```
@@ -143,7 +143,7 @@ El `(i8)` es un **cast**: le dices al compilador que sabes lo que haces.
 
 `const` marca un valor que no se puede reasignar:
 
-```text
+```vx
 const i64 MAXIMO = 100;
 ```
 

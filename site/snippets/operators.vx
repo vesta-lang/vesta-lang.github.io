@@ -1,0 +1,46 @@
+i32 main() {
+    i64 a = 17;
+    i64 b = 5;
+
+    // Aritmetica. Entre enteros, la division descarta la parte decimal.
+    println("${a} + ${b} = ${a + b}");
+    println("${a} - ${b} = ${a - b}");
+    println("${a} * ${b} = ${a * b}");
+    println("${a} / ${b} = ${a / b}      (division entera)");
+    println("${a} % ${b} = ${a % b}      (resto)");
+
+    // Con flotantes, la division conserva los decimales.
+    println("17.0 / 5.0 = ${17.0 / 5.0}");
+
+    // Comparaciones: el resultado es un bool.
+    println("a == b -> ${a == b}");
+    println("a >= b -> ${a >= b}");
+
+    // Logica. && y || no evaluan la derecha si ya saben el resultado.
+    bool si = true;
+    bool no = false;
+    println("si && no -> ${si && no}");
+    println("si || no -> ${si || no}");
+    println("!si      -> ${!si}");
+
+    // Bits: cada operador trabaja sobre la representacion binaria.
+    i64 x = 0b1100;   // 12
+    i64 y = 0b1010;   // 10
+    println("x & y  = ${x & y}");
+    println("x | y  = ${x | y}");
+    println("x ^ y  = ${x ^ y}");
+    println("x << 2 = ${x << 2}");
+    println("x >> 2 = ${x >> 2}");
+
+    // Asignacion compuesta: opera y guarda en la misma variable.
+    i64 c = 10;
+    c += 5;
+    c *= 2;
+    c %= 7;
+    println("c tras += 5, *= 2 y %= 7 -> ${c}");
+
+    // Cast: convertir de forma explicita. Hacia entero, trunca.
+    println("(i64) 3.9 = ${(i64) 3.9}");
+
+    return 0;
+}
