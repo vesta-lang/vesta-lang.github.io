@@ -275,21 +275,24 @@ export const DOCS = [
         },
         pages: [
             {
+                id: 'instruction-format',
+                title: { en: 'Anatomy of an instruction', es: 'Anatomia de una instruccion' },
+                slug: { en: 'instruction-format', es: 'formato-de-instruccion' },
+                draft: true,
+            },
+            {
+                id: 'x86',
+                // La referencia de instrucciones no es una pagina sino un
+                // indice: cada mnemonico tiene la suya, generada desde los
+                // datos importados. Esta entrada es su portada.
+                title: { en: 'x86 instruction reference', es: 'Referencia de instrucciones x86' },
+                slug: { en: 'x86', es: 'x86' },
+                index: 'x86',
+            },
+            {
                 id: 'bytecode',
                 title: { en: 'Bytecode encoding', es: 'Codificacion del bytecode' },
                 slug: { en: 'bytecode', es: 'bytecode' },
-                draft: true,
-            },
-            {
-                id: 'x86-64',
-                title: { en: 'x86-64 encoding', es: 'Codificacion x86-64' },
-                slug: { en: 'x86-64', es: 'x86-64' },
-                draft: true,
-            },
-            {
-                id: 'x86-32',
-                title: { en: 'x86-32 encoding', es: 'Codificacion x86-32' },
-                slug: { en: 'x86-32', es: 'x86-32' },
                 draft: true,
             },
             {
@@ -309,6 +312,41 @@ export const DOCS = [
 ];
 
 /**
+ * Devuelve el segmento de URL de un idioma, cayendo al ingles.
+ *
+ * Un idioma parcial -- que solo traduce una seccion -- no declara slugs, y no
+ * se le inventan: usa los ingleses. Es ademas lo que conviene, porque un
+ * segmento de URL en una escritura no latina se publica percent-encoded y deja
+ * de poder leerse ni escribirse a mano.
+ *
+ * @param {Object} slugs Segmentos por idioma.
+ * @param {string} lang Idioma pedido.
+ * @returns {string} El segmento disponible.
+ */
+function slugIn(slugs, lang) {
+    return slugs[lang] || slugs.en;
+}
+
+/**
+ * Construye la ruta canonica de la pagina de una instruccion.
+ *
+ * Las instrucciones cuelgan de la portada de su juego (`/docs/encoding/x86/`)
+ * y no son un cuarto nivel de navegacion: son mas de ochocientas paginas, asi
+ * que a la barra lateral no entran y se llega a ellas por el indice o por el
+ * buscador. El slug no se traduce porque es el mnemonico.
+ *
+ * @param {string} isa Identificador del juego de instrucciones.
+ * @param {string} slug Identificador de la pagina en el origen.
+ * @param {string} lang Idioma.
+ * @returns {string} Ruta canonica, con barra final.
+ */
+export function instructionHref(isa, slug, lang) {
+    const book = DOCS.find((b) => b.id === 'encoding');
+    const page = book.pages.find((p) => p.index === isa);
+    return `/docs/${slugIn(book.slug, lang)}/${slugIn(page.slug, lang)}/${slug}/`;
+}
+
+/**
  * Construye la ruta canonica de una pagina de la referencia.
  *
  * La ruta canonica lleva siempre el prefijo `/docs/`; el idioma lo anade
@@ -322,7 +360,7 @@ export const DOCS = [
  * @returns {string} Ruta canonica, con barra final.
  */
 export function docsHref(book, page, lang) {
-    return `/docs/${book.slug[lang]}/${page.slug[lang]}/`;
+    return `/docs/${slugIn(book.slug, lang)}/${slugIn(page.slug, lang)}/`;
 }
 
 /**
@@ -333,7 +371,7 @@ export function docsHref(book, page, lang) {
  * @returns {string} Ruta canonica, con barra final.
  */
 export function bookHref(book, lang) {
-    return `/docs/${book.slug[lang]}/`;
+    return `/docs/${slugIn(book.slug, lang)}/`;
 }
 
 /**

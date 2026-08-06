@@ -64,9 +64,17 @@ function alternates(versions) {
  * @returns {string} HTML de la navegacion.
  */
 function nav(lang, current) {
+    // Un idioma parcial solo cubre una seccion, asi que sus enlaces de
+    // navegacion llevan a la version que SI existe, la inglesa. Apuntarlos a su
+    // propio prefijo daba siete enlaces rotos por pagina, hacia una traduccion
+    // que nadie ha escrito. El rotulo si va en su idioma: se entiende adonde
+    // lleva antes de pulsarlo.
+    const partial = Boolean(LANGUAGES[lang].partial);
+
     const items = NAV.map((item) => {
         const active = item.id === current ? ' aria-current="page"' : '';
-        return `<a href="${urlFor(lang, item.path)}"${active}>${item[lang]}</a>`;
+        const href = urlFor(partial ? 'en' : lang, item.path);
+        return `<a href="${href}"${active}>${item[lang] || item.en}</a>`;
     });
     return items.join('\n            ');
 }
@@ -88,10 +96,22 @@ function languageSwitch(lang, versions) {
 
     const links = others.map(
         (code) =>
-            `<a href="${urlFor(code, versions[code])}" hreflang="${code}" lang="${code}">` +
-            `${LANGUAGES[code].label}</a>`
+            `<li><a href="${urlFor(code, versions[code])}" hreflang="${code}" ` +
+            `lang="${code}">${LANGUAGES[code].label}</a></li>`
     );
-    return `<span class="lang-switch" aria-label="${UI[lang].langLabel}">${links.join('')}</span>`;
+
+    // Desplegable, no una fila de enlaces. Con dos idiomas la fila cabia; con
+    // once seria una barra de etiquetas que empuja la navegacion fuera de la
+    // pantalla. Se hace con `details`, que despliega sin JavaScript y llega
+    // con teclado: un menu que necesita un script deja fuera a quien no lo
+    // ejecuta, y aqui no hace ninguna falta.
+    return (
+        `<details class="lang-switch">` +
+        `<summary aria-label="${UI[lang].langLabel}">` +
+        `<span lang="${lang}">${LANGUAGES[lang].label}</span></summary>` +
+        `<ul>${links.join('')}</ul>` +
+        `</details>`
+    );
 }
 
 /**
@@ -172,7 +192,7 @@ export function renderPage(page) {
     <a class="skip-link" href="#content">${ui.skip}</a>
 
     <header class="site-header">
-        <a class="brand" href="${urlFor(lang, '/')}">
+        <a class="brand" href="${urlFor(LANGUAGES[lang].partial ? 'en' : lang, '/')}">
             <img src="/assets/img/logo.png" alt="" width="32" height="32">
             <span>Vesta</span>
         </a>
@@ -227,6 +247,7 @@ ${content}
     <script type="module" src="/assets/js/lang.mjs"></script>
     <script type="module" src="/assets/js/flame.mjs"></script>
     <script type="module" src="/assets/js/copy-code.mjs"></script>
+    <script type="module" src="/assets/js/isa-runtime.mjs"></script>
     ${bodyClass.includes('layout-error')
         ? '<script type="module" src="/assets/js/error-path.mjs"></script>'
         : ''}

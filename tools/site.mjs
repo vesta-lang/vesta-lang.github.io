@@ -6,6 +6,9 @@
  * objetivo es que anadir una seccion o un idioma sea editar este fichero, no
  * buscar cadenas repartidas por las plantillas.
  *
+ * Lleva rotulos de interfaz en castellano y en chino, que son ortografia
+ * de su idioma y no decoracion:  lint-script: es, zh
+ *
  * Las rutas publicadas son un compromiso: una URL que ya se ha indexado no se
  * cambia sin dejar una redireccion, y GitHub Pages no permite redirecciones.
  * Por eso conviene pensarlas aqui antes de publicar, no despues.
@@ -28,7 +31,26 @@ export const REPO_URL = 'https://github.com/vesta-lang/vesta';
 export const LANGUAGES = {
     en: { code: 'en', label: 'English', prefix: '', default: true },
     es: { code: 'es', label: 'Español', prefix: '/es' },
+    // Parcial: solo cubre la referencia de instrucciones, que se traduce con
+    // el mismo canal que produce los documentos. La portada, Learn y el resto
+    // no existen en chino, y publicarlas en ingles bajo `/zh/` seria anunciar
+    // una traduccion que no hay. Un idioma parcial se marca aqui y se comporta
+    // igual que los demas alli donde SI hay texto.
+    zh: { code: 'zh', label: '中文', prefix: '/zh', partial: true },
 };
+
+/**
+ * Idiomas que cubren el sitio entero.
+ *
+ * Es lo que recorre cualquier emisor general. Un idioma parcial se queda
+ * fuera a proposito: la regla del proyecto es que una traduccion que no existe
+ * no genera pagina vacia ni anuncia su `hreflang`.
+ *
+ * @returns {Array<string>} Codigos de idioma completos.
+ */
+export function siteLanguages() {
+    return Object.keys(LANGUAGES).filter((code) => !LANGUAGES[code].partial);
+}
 
 /**
  * Navegacion principal.
@@ -39,15 +61,17 @@ export const LANGUAGES = {
  * quien solo quiere probar el lenguaje.
  */
 export const NAV = [
-    { id: 'learn', path: '/learn/', en: 'Learn', es: 'Aprende' },
-    { id: 'docs', path: '/docs/', en: 'Documentation', es: 'Documentación' },
-    { id: 'stdlib', path: '/stdlib/', en: 'Standard Library', es: 'Biblioteca' },
+    { id: 'learn', path: '/learn/', en: 'Learn', es: 'Aprende', zh: '学习' },
+    { id: 'docs', path: '/docs/', en: 'Documentation', es: 'Documentación', zh: '文档' },
+    { id: 'stdlib', path: '/stdlib/', en: 'Standard Library', es: 'Biblioteca',
+      zh: '标准库' },
     // "Compiler Internals" no se traduce literalmente: "interioridades" en
     // castellano connota intimidades, no maquinaria. "Arquitectura" describe lo
     // que hay dentro (SSA, optimizador, JIT, enlazador, GC, cache) y cabe en la
     // navegacion junto al resto.
-    { id: 'internals', path: '/internals/', en: 'Compiler Internals', es: 'Arquitectura' },
-    { id: 'download', path: '/download/', en: 'Download', es: 'Descargas' },
+    { id: 'internals', path: '/internals/', en: 'Compiler Internals',
+      es: 'Arquitectura', zh: '编译器内部' },
+    { id: 'download', path: '/download/', en: 'Download', es: 'Descargas', zh: '下载' },
 ];
 
 /** Enlace al texto completo de la licencia, en el repositorio del proyecto. */
@@ -114,6 +138,23 @@ export const UI = {
             'con Vesta no quedan sujetos a la GPL</strong> y puedes licenciarlos ' +
             'como quieras.',
         licenseLink: 'Leer la licencia completa',
+    },
+    // Chino: solo cubre la referencia de instrucciones, asi que aqui hace falta
+    // el armazon de esas paginas y nada mas. Lo que enlaza la navegacion sigue
+    // llevando a su version inglesa, que es la que existe.
+    zh: {
+        skip: '跳到内容',
+        langLabel: '语言',
+        repo: '源代码',
+        footer: 'Vesta 以开放方式开发。',
+        toc: '本页内容',
+        downloadMd: '下载 Markdown',
+        licenseTitle: '许可证',
+        licenseBody:
+            'Vesta 工具链是 GPLv2 下的自由软件，并带有运行时例外：' +
+            '<strong>你用 Vesta 编写和编译的程序不受 GPL 约束</strong>，' +
+            '可以按你自己的意愿授权。',
+        licenseLink: '阅读完整许可证',
     },
 };
 

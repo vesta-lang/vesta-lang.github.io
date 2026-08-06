@@ -37,6 +37,23 @@ const UI = {
 };
 
 /**
+ * Devuelve un rotulo en el idioma pedido, cayendo al ingles.
+ *
+ * Los indices de la doc declaran sus titulos en los idiomas que cubren el
+ * sitio entero. Un idioma parcial -- que solo traduce una seccion -- no los
+ * tiene, y no se los inventa: se muestra el ingles, que es la version que
+ * existe. Sin esto el build reventaba al pedir el titulo chino de una seccion
+ * que no esta en chino.
+ *
+ * @param {Object} titles Rotulos por idioma.
+ * @param {string} lang Idioma pedido.
+ * @returns {string} El rotulo disponible.
+ */
+function titleIn(titles, lang) {
+    return titles[lang] || titles.en;
+}
+
+/**
  * Construye la barra lateral con el recorrido completo.
  *
  * Los capitulos pendientes se muestran, sin enlace y marcados. Ocultarlos haria
@@ -54,7 +71,7 @@ export function sidebar(parts, lang, current) {
     const groups = parts.map((part) => {
         const items = part.chapters.map((chapter) => {
             const { href: raw, own } = chapterHref(chapter, lang);
-            const label = escapeHtml(chapter.title[lang]);
+            const label = escapeHtml(titleIn(chapter.title, lang));
 
             if (chapter.draft) {
                 return (
@@ -68,7 +85,7 @@ export function sidebar(parts, lang, current) {
 
         return (
             `<li class="doc-part">` +
-            `<h3>${escapeHtml(part.title[lang])}</h3>` +
+            `<h3>${escapeHtml(titleIn(part.title, lang))}</h3>` +
             `<ul>${items.join('')}</ul>` +
             `</li>`
         );
@@ -100,31 +117,35 @@ export function sidebar(parts, lang, current) {
  * @param {string} current Ruta canonica de la pagina actual.
  * @param {Function} bookHref Constructor de la ruta de la portada de un libro.
  * @param {Function} pageHref Constructor de la ruta de una pagina.
+ * @param {Function} [linkTo] Constructor de la URL final. Existe para los
+ *        idiomas parciales: una pagina que no esta traducida se enlaza en el
+ *        idioma que si la tiene, en lugar de a una ruta que no se emite.
  * @returns {string} HTML de la barra lateral.
  */
-export function referenceSidebar(books, lang, current, bookHref, pageHref) {
+export function referenceSidebar(books, lang, current, bookHref, pageHref, linkTo) {
+    const link = linkTo || ((path) => urlFor(lang, path));
     const t = UI[lang] || UI.en;
 
     const groups = books.map((book) => {
         const home = bookHref(book, lang);
         const open = current === home || current.startsWith(home);
-        const label = escapeHtml(book.title[lang]);
+        const label = escapeHtml(titleIn(book.title, lang));
         const active = current === home ? ' aria-current="page"' : '';
 
         const head =
-            `<h3><a href="${urlFor(lang, home)}"${active}>${label}</a></h3>`;
+            `<h3><a href="${link(home)}"${active}>${label}</a></h3>`;
 
         if (!open) return `<li class="doc-part is-closed">${head}</li>`;
 
         const items = book.pages.map((page) => {
             const href = pageHref(book, page, lang);
-            const title = escapeHtml(page.title[lang]);
+            const title = escapeHtml(titleIn(page.title, lang));
 
             if (page.draft) {
                 return `<li class="is-draft"><span title="${t.draft}">${title}</span></li>`;
             }
             const mark = href === current ? ' aria-current="page"' : '';
-            return `<li><a href="${urlFor(lang, href)}"${mark}>${title}</a></li>`;
+            return `<li><a href="${link(href)}"${mark}>${title}</a></li>`;
         });
 
         return `<li class="doc-part">${head}<ul>${items.join('')}</ul></li>`;
@@ -156,7 +177,7 @@ export function bookIndex(book, lang, pageHref) {
     const t = UI[lang] || UI.en;
 
     const items = book.pages.map((page) => {
-        const title = escapeHtml(page.title[lang]);
+        const title = escapeHtml(titleIn(page.title, lang));
         if (page.draft) {
             return `<li class="is-draft"><span title="${t.draft}">${title}</span></li>`;
         }

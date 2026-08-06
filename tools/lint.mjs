@@ -36,7 +36,15 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
  * por el mismo motivo que los marcadores de mas abajo: escribirlo entero
  * haria que este fichero disparase su propia regla `no-ai-trace`.
  */
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'dist', '.' + 'clau' + 'de']);
+const SKIP_DIRS = new Set([
+    '.git', 'node_modules', 'dist', '.' + 'clau' + 'de',
+    // Volcados en crudo de fuentes ajenas: material de trabajo del que se
+    // importa, no fuente del proyecto. Comprobarles el ASCII marcaria catorce
+    // mil lineas del manual de Intel, que no vamos a reescribir.
+    'manual',
+    // Descargas temporales. No se commitean y no son fuente.
+    '.cache',
+]);
 
 /**
  * Ficheros sueltos que no se revisan.
@@ -91,6 +99,72 @@ const FORBIDDEN = new Map([
  * los simbolos matematicos decorativos.
  */
 const SPANISH = new Set([...'aeiouAEIOUnNuU'].concat([...'áéíóúüñÁÉÍÓÚÜÑ¿¡ª°']));
+
+/**
+ * Rangos de la escritura china, con su puntuacion.
+ *
+ * Se admite tambien la raya y los puntos suspensivos, que la tabla de
+ * prohibidos veta en el resto del repositorio. No es una excepcion nueva sino
+ * la misma de siempre aplicada donde toca: esos caracteres estan prohibidos
+ * porque delatan texto generado en la prosa del proyecto, y en un texto chino
+ * son ortografia igual que la enye en uno castellano.
+ */
+const CHINESE_RANGES = [
+    [0x3000, 0x303f],  // puntuacion CJK
+    [0x3400, 0x4dbf],  // ideogramas, extension A
+    [0x4e00, 0x9fff],  // ideogramas
+    [0xf900, 0xfaff],  // formas de compatibilidad
+    [0xff00, 0xffef],  // formas de ancho completo
+    [0x2014, 0x2014], [0x2026, 0x2026],
+    [0x2018, 0x2019], [0x201c, 0x201d],
+];
+
+/**
+ * Idiomas con escritura propia, por el nombre del fichero que la contiene.
+ *
+ * El idioma decide que caracteres son ortografia y cuales son ruido, asi que
+ * la regla no puede ser una sola para todo el repositorio. Se deduce del
+ * nombre porque es donde ya esta escrito: `es.md`, `zh.md`,
+ * `glossary.zh.json`, `x86.tm.zh.json`.
+ */
+const SCRIPTS = new Map([
+    ['es', { name: 'castellana', allows: (cp, ch) => SPANISH.has(ch) }],
+    ['zh', {
+        name: 'china',
+        allows: (cp) => CHINESE_RANGES.some(([a, b]) => cp >= a && cp <= b),
+    }],
+]);
+
+/**
+ * Devuelve la escritura admitida en un fichero, o la castellana por omision.
+ *
+ * @param {string} file Ruta relativa.
+ * @param {string} [raw] Contenido, por si declara sus escrituras.
+ * @returns {{name: string, allows: function}} Escritura admitida.
+ */
+function scriptOf(file, raw) {
+    // Un fichero puede declarar que escrituras lleva dentro. Hace falta para
+    // el codigo: los rotulos de la interfaz de un idioma viven en una tabla
+    // del fuente, y sin esto la unica salida serian trescientos `lint-allow`,
+    // que no es una excepcion sino un agujero. Se declara una vez, arriba, y
+    // revisar quien lo usa es un `grep`.
+    const declared = raw && raw.match(/lint-script:\s*([a-z, ]+)/);
+    if (declared) {
+        const codes = declared[1].split(',').map((c) => c.trim()).filter(Boolean);
+        const allowed = codes.map((c) => SCRIPTS.get(c)).filter(Boolean);
+        if (allowed.length > 0) {
+            return {
+                name: codes.join(' y '),
+                allows: (cp, ch) => allowed.some((s) => s.allows(cp, ch)),
+            };
+        }
+    }
+
+    const name = file.split(/[\\/]/).pop();
+    const match = name.match(/^(?:.*\.)?([a-z]{2})\.(?:md|json)$/);
+    const script = match && SCRIPTS.get(match[1]);
+    return script || SCRIPTS.get('es');
+}
 
 /**
  * Lenguajes de valla que el sitio sabe resaltar.
@@ -234,6 +308,8 @@ function checkAny(file, lines, raw) {
         report(file, lines.length, 'final-newline', 'Falta el salto de linea final.');
     }
 
+    const script = scriptOf(file, raw);
+
     lines.forEach((line, i) => {
         const n = i + 1;
 
@@ -245,6 +321,10 @@ function checkAny(file, lines, raw) {
             const cp = ch.codePointAt(0);
             if (cp < 128) continue;
 
+            // La escritura del idioma manda sobre la tabla de prohibidos: en
+            // un fichero chino la raya es puntuacion, no un delator.
+            if (script.allows(cp, ch)) continue;
+
             const bad = FORBIDDEN.get(cp);
             if (bad) {
                 report(
@@ -254,13 +334,11 @@ function checkAny(file, lines, raw) {
                 );
                 continue;
             }
-            if (!SPANISH.has(ch)) {
-                report(
-                    file, n, 'ascii',
-                    `Caracter no ASCII U+${cp.toString(16).toUpperCase().padStart(4, '0')} ` +
-                        'fuera de la ortografia castellana.'
-                );
-            }
+            report(
+                file, n, 'ascii',
+                `Caracter no ASCII U+${cp.toString(16).toUpperCase().padStart(4, '0')} ` +
+                    `fuera de la ortografia ${script.name}.`
+            );
         }
 
         for (const marker of AI_MARKERS) {
