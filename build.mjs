@@ -35,8 +35,16 @@ import { highlight } from './tools/highlight.mjs';
 import { renderPage } from './tools/layout.mjs';
 import { socialCard } from './tools/og-image.mjs';
 import { insertTabs, tabStyles } from './tools/tabs.mjs';
-import { pager, sidebar, tableOfContents } from './tools/docs.mjs';
+import {
+    bookIndex,
+    pager,
+    referenceSidebar,
+    sidebar,
+    tableOfContents,
+} from './tools/docs.mjs';
 import { LEARN, chapterHref, flatChapters } from './site/content/learn.mjs';
+import { DOCS, bookHref, docsHref, flatPages } from './site/content/docs.mjs';
+import { renderTagLegend, renderTags, tagStylesheet } from './site/content/tags.mjs';
 import { parseFrontMatter, render } from './tools/markdown.mjs';
 import { pageSource, sourceUrlFor } from './tools/page-source.mjs';
 import { LANGUAGES, SITE_URL, urlFor } from './tools/site.mjs';
@@ -92,6 +100,50 @@ function canonicalPath(file, langDir) {
 }
 
 /**
+ * Construye el indice de rutas equivalentes entre idiomas.
+ *
+ * Devuelve, para cada ruta canonica, la identidad de la pagina a la que
+ * pertenece. Dos rutas con la misma identidad son la misma pagina escrita en
+ * dos idiomas, aunque su ultimo segmento no se parezca en nada.
+ *
+ * La informacion no se inventa aqui: los indices de Learn y de la referencia
+ * ya declaran el slug de cada idioma, de modo que ellos son quienes emparejan.
+ * Deducirlo del nombre del fichero era el defecto que esto corrige, porque un
+ * slug traducido dejaba a cada version huerfana de la otra.
+ *
+ * Las paginas que no estan en ningun indice (portada, descarga, error) usan su
+ * propia ruta como identidad, que es correcto: su ultimo segmento no se
+ * traduce.
+ *
+ * @returns {Map<string,string>} Ruta canonica -> identidad.
+ */
+function translationIndex() {
+    const map = new Map();
+    const langs = Object.keys(LANGUAGES);
+
+    for (const { chapter } of flatChapters()) {
+        // Los capitulos que apuntan a otra seccion no tienen pagina propia.
+        if (chapter.path) continue;
+        for (const lang of langs) {
+            map.set(chapterHref(chapter, lang).href, `learn:${chapter.id}`);
+        }
+    }
+
+    for (const book of DOCS) {
+        for (const lang of langs) {
+            map.set(bookHref(book, lang), `docs:${book.id}`);
+        }
+        for (const page of book.pages) {
+            for (const lang of langs) {
+                map.set(docsHref(book, page, lang), `docs:${book.id}/${page.id}`);
+            }
+        }
+    }
+
+    return map;
+}
+
+/**
  * Indica si una ruta corresponde a la pagina de error.
  *
  * Se comprueba en varios sitios (nombre del fichero de salida, sitemap,
@@ -123,6 +175,38 @@ function insertSnippets(markdown) {
         }
         return renderSnippetFile(index, { source: `site/snippets/${name}.vx` });
     });
+}
+
+/**
+ * Sustituye los marcadores de etiquetas por su fila.
+ *
+ * Las etiquetas van en un marcador dentro del texto y no en el front matter
+ * porque **cada entrada tiene las suyas**. Una pagina de la referencia agrupa
+ * muchas construcciones, y decir que la pagina entera es `estable` cuando una
+ * de sus entradas no lo es seria justo el tipo de afirmacion que la seccion no
+ * puede permitirse.
+ *
+ * El vocabulario esta cerrado: `renderTags` lanza ante una etiqueta que no
+ * conozca, y eso detiene el build. Es deliberado. Una etiqueta mal escrita no
+ * se ve en la pagina -- sale una mas o sale una menos -- pero parte en dos los
+ * indices cruzados, que es donde se nota cuando ya nadie recuerda por que.
+ *
+ * @param {string} markdown Contenido de la pagina.
+ * @param {string} lang Idioma de la pagina.
+ * @param {string} file Fichero de origen, para el mensaje de error.
+ * @returns {string} Contenido con los marcadores resueltos.
+ */
+function insertTags(markdown, lang, file) {
+    return markdown
+        .replace(/<!--\s*TAGLEGEND\s*-->/g, () => renderTagLegend(lang))
+        .replace(/<!--\s*TAGS:([^>]*?)-->/g, (_, list) => {
+            const tags = list.trim().split(/[\s,]+/).filter(Boolean);
+            try {
+                return renderTags(tags, lang);
+            } catch (error) {
+                throw new Error(`${file}: ${error.message}`);
+            }
+        });
 }
 
 /**
@@ -220,15 +304,15 @@ function homeJsonLd(lang) {
  * del build haria que todas las URLs se declararan modificadas en cada
  * publicacion, que es peor que no decir nada.
  *
- * @param {Array<{path: string, available: string[]}>} pages Paginas generadas.
+ * @param {Array<Object<string,string>>} pages Rutas por idioma de cada pagina.
  * @returns {string} XML del sitemap.
  */
 function sitemap(pages) {
     const entries = [];
-    for (const page of pages) {
-        for (const lang of page.available) {
+    for (const versions of pages) {
+        for (const [lang, path] of Object.entries(versions)) {
             entries.push(
-                `    <url>\n        <loc>${SITE_URL}${urlFor(lang, page.path)}</loc>\n    </url>`
+                `    <url>\n        <loc>${SITE_URL}${urlFor(lang, path)}</loc>\n    </url>`
             );
         }
     }
@@ -259,8 +343,8 @@ function checkLinks(pages) {
     // enlace.
     const known = new Set(['/404.html']);
     for (const page of pages.values()) {
-        for (const lang of Object.keys(page.versions)) {
-            known.add(urlFor(lang, page.path));
+        for (const [lang, { path }] of Object.entries(page.versions)) {
+            known.add(urlFor(lang, path));
         }
     }
 
@@ -345,9 +429,10 @@ function checkChapters(pages) {
         // instalacion, no tienen fuente propia en Learn.
         if (chapter.path) continue;
 
+        const versions = pages.get(`learn:${chapter.id}`)?.versions || {};
         for (const lang of Object.keys(LANGUAGES)) {
             const { href } = chapterHref(chapter, lang);
-            const escrito = pages.has(href) && pages.get(href).versions[lang];
+            const escrito = Boolean(versions[lang]);
 
             if (escrito && chapter.draft) huerfanos.push(`${href} [${lang}]`);
             if (!escrito && !chapter.draft) vacios.push(`${href} [${lang}]`);
@@ -365,6 +450,53 @@ ${huerfanos.length} capitulos escritos que siguen marcados como borrador ` +
         console.warn(`
 ${vacios.length} capitulos enlazados sin texto (quitar el enlace o escribirlos):`);
         for (const entry of vacios) console.warn(`  ${entry}`);
+        console.warn('');
+    }
+}
+
+/**
+ * Contrasta el indice de la referencia con las paginas escritas.
+ *
+ * Es la misma comprobacion que `checkChapters` hace sobre Learn, y existe por
+ * el mismo motivo: la barra lateral no enlaza lo marcado como borrador, asi
+ * que una pagina escrita a la que se le olvido quitar la marca se publica sin
+ * que nada apunte a ella.
+ *
+ * Comprueba ademas la portada de cada libro. Un libro sin portada deja un
+ * agujero en la navegacion justo en el nivel intermedio, que es el que el
+ * lector usa para orientarse entre los cuatro.
+ *
+ * @param {Map} pages Paginas encontradas, indexadas por ruta canonica.
+ * @returns {void}
+ */
+function checkReference(pages) {
+    const problemas = [];
+
+    for (const lang of Object.keys(LANGUAGES)) {
+        for (const book of DOCS) {
+            const home = bookHref(book, lang);
+            if (!pages.get(`docs:${book.id}`)?.versions[lang]) {
+                problemas.push(`${home} [${lang}]: portada del libro sin escribir`);
+            }
+        }
+
+        for (const { book, page } of flatPages()) {
+            const href = docsHref(book, page, lang);
+            const id = `docs:${book.id}/${page.id}`;
+            const escrita = Boolean(pages.get(id)?.versions[lang]);
+
+            if (escrita && page.draft) {
+                problemas.push(`${href} [${lang}]: escrita pero marcada como borrador`);
+            }
+            if (!escrita && !page.draft) {
+                problemas.push(`${href} [${lang}]: enlazada pero sin texto`);
+            }
+        }
+    }
+
+    if (problemas.length > 0) {
+        console.warn(`\n${problemas.length} paginas de la referencia sin cuadrar:`);
+        for (const p of problemas) console.warn(`  ${p}`);
         console.warn('');
     }
 }
@@ -388,24 +520,38 @@ async function build() {
     rmSync(OUT, { recursive: true, force: true });
     mkdirSync(OUT, { recursive: true });
 
-    // Primera pasada: leer todas las paginas para saber en que idiomas existe
-    // cada ruta. Sin esto no se pueden emitir los `hreflang`, que deben ser
-    // reciprocos: una pagina solo anuncia las traducciones que existen.
+    // Primera pasada: agrupar las versiones de cada pagina para saber en que
+    // idiomas existe. Sin esto no se pueden emitir los `hreflang`, que deben
+    // ser reciprocos: una pagina solo anuncia las traducciones que existen.
+    //
+    // Se agrupa por IDENTIDAD y no por ruta. La diferencia importa en cuanto
+    // un ultimo segmento se traduce: `/learn/control-flow/` y
+    // `/learn/control-de-flujo/` son la misma pagina en dos idiomas, pero
+    // como rutas no se parecen en nada. Agrupando por ruta, cada una quedaba
+    // sola y se publicaba sin `hreflang` a su traduccion ni `x-default`, de
+    // modo que un buscador las tomaba por dos paginas distintas y el selector
+    // de idioma desaparecia justamente donde mas falta hace.
+    const identities = translationIndex();
     const pages = new Map();
     for (const lang of Object.keys(LANGUAGES)) {
         const langDir = join(CONTENT, lang);
         for (const file of walk(langDir, (n) => n.endsWith('.md'))) {
             const path = canonicalPath(file, langDir);
-            if (!pages.has(path)) pages.set(path, { path, versions: {} });
-            pages.get(path).versions[lang] = file;
+            const id = identities.get(path) || path;
+            if (!pages.has(id)) pages.set(id, { id, versions: {} });
+            pages.get(id).versions[lang] = { file, path };
         }
     }
 
     let count = 0;
     for (const page of pages.values()) {
-        const available = Object.keys(page.versions);
+        // Rutas por idioma, para los `hreflang` y el selector: cada idioma
+        // enlaza a SU ruta, no a la del idioma que se este generando.
+        const versions = Object.fromEntries(
+            Object.entries(page.versions).map(([code, v]) => [code, v.path])
+        );
 
-        for (const [lang, file] of Object.entries(page.versions)) {
+        for (const [lang, { file, path }] of Object.entries(page.versions)) {
             const raw = readFileSync(file, 'utf8');
             const { meta, body } = parseFrontMatter(raw);
 
@@ -414,28 +560,52 @@ async function build() {
             // marcadores son comentarios, de modo que el contenido de cada una
             // se procesa como texto normal y conserva encabezados, listas y
             // bloques de codigo resaltados.
+            // La portada de un libro lista sus paginas desde el indice, para
+            // que no haya que mantener la misma lista en dos sitios.
+            const libro = DOCS.find((b) => bookHref(b, lang) === path);
+            const conIndice = libro
+                ? body.replace(
+                      /<!--\s*BOOKINDEX\s*-->/g,
+                      () => bookIndex(libro, lang, docsHref)
+                  )
+                : body;
+
             const html = insertTabs(
-                render(insertDiagrams(insertSnippets(body), lang), {
+                render(insertTags(insertDiagrams(insertSnippets(conIndice), lang), lang, file), {
                     highlight,
                     headings,
                 })
             );
 
+            // Las paginas de la referencia llevan la barra lateral de tres
+            // niveles y el indice de la propia pagina, pero NO navegacion de
+            // anterior y siguiente: la referencia no se lee en orden, y un pie
+            // que invita a continuar sugiere un recorrido que no existe.
+            let docs = null;
+            if (path.startsWith('/docs/')) {
+                docs = {
+                    sidebar: referenceSidebar(
+                        DOCS, lang, path, bookHref, docsHref
+                    ),
+                    toc: tableOfContents(headings, lang),
+                    pager: '',
+                };
+            }
+
             // Las paginas de Learn llevan barra lateral, indice y navegacion
             // de anterior y siguiente. Las tres salen del mismo indice, asi que
             // no pueden contradecirse entre si.
-            let docs = null;
-            if (page.path.startsWith('/learn/')) {
+            if (path.startsWith('/learn/')) {
                 const flat = flatChapters();
                 const position = flat.findIndex(
-                    (entry) => chapterHref(entry.chapter, lang).href === page.path
+                    (entry) => chapterHref(entry.chapter, lang).href === path
                 );
 
                 // El fuente descargable se emite junto a la pagina. Solo en
                 // Learn: son capitulos que se leen enteros y que alguien puede
                 // querer llevarse para anotarlos o traducirlos. Una pagina de
                 // consulta o la portada no tienen ese uso.
-                const url = urlFor(lang, page.path);
+                const url = urlFor(lang, path);
                 const sourceUrl = sourceUrlFor(url);
                 emit(
                     join(OUT, sourceUrl.replace(/^\//, '')),
@@ -450,7 +620,7 @@ async function build() {
                 );
 
                 docs = {
-                    sidebar: sidebar(LEARN, lang, page.path),
+                    sidebar: sidebar(LEARN, lang, path),
                     toc: tableOfContents(headings, lang),
                     pager: position === -1 ? '' : pager(flat, position, lang),
                     sourceUrl,
@@ -459,23 +629,23 @@ async function build() {
 
             const document = renderPage({
                 lang,
-                path: page.path,
+                path: path,
                 title: meta.title || 'Vesta',
                 description: meta.description || '',
                 content: html,
-                available,
+                versions,
                 section: meta.section || '',
                 bodyClass: meta.layout ? `layout-${meta.layout}` : '',
                 robots: meta.robots || '',
-                jsonLd: page.path === '/' ? homeJsonLd(lang) : '',
+                jsonLd: path === '/' ? homeJsonLd(lang) : '',
                 head: tabStyles(html),
                 docs,
             });
 
             // La pagina de error se escribe como fichero suelto; el resto, como
             // indice de su directorio, para que las URLs acaben en barra.
-            const target = urlFor(lang, page.path).replace(/^\//, '');
-            const outPath = isErrorPage(page.path)
+            const target = urlFor(lang, path).replace(/^\//, '');
+            const outPath = isErrorPage(path)
                 ? join(OUT, target)
                 : join(OUT, target, 'index.html');
             emit(outPath, document);
@@ -487,6 +657,12 @@ async function build() {
     if (existsSync(ASSETS)) {
         cpSync(ASSETS, join(OUT, 'assets'), { recursive: true });
     }
+
+    // Colores de las etiquetas. Se generan desde el vocabulario en lugar de
+    // escribirse a mano porque el color de una etiqueta ya esta declarado
+    // alli: mantenerlo tambien en un `.css` seria pedir que las dos copias se
+    // separen a la primera etiqueta nueva.
+    emit(join(OUT, 'assets', 'css', 'tags.css'), tagStylesheet());
 
     // Tarjeta social por idioma. Se genera en cada build para que no pueda
     // quedarse diciendo un titular que la portada ya cambio.
@@ -501,10 +677,14 @@ async function build() {
         join(OUT, 'sitemap.xml'),
         sitemap(
             [...pages.values()]
+                .map((p) =>
+                    Object.fromEntries(
+                        Object.entries(p.versions).map(([lang, v]) => [lang, v.path])
+                    )
+                )
                 // La pagina de error no se indexa: anunciarla en el sitemap
                 // invitaria al buscador a rastrear justamente lo que no existe.
-                .filter((p) => !isErrorPage(p.path))
-                .map((p) => ({ path: p.path, available: Object.keys(p.versions) }))
+                .filter((v) => !Object.values(v).some(isErrorPage))
         )
     );
     // El fichero se GENERA y no se versiona, porque lleva el dominio dentro:
@@ -535,6 +715,7 @@ async function build() {
     emit(join(OUT, '.nojekyll'), '');
 
     checkChapters(pages);
+    checkReference(pages);
     const broken = checkLinks(pages);
     console.log(
         `${count} paginas en ${Date.now() - started} ms -> dist/` +

@@ -876,6 +876,110 @@ details > :last-child {
     line-height: 1.5;
 }
 
+/* --- Etiquetas de la referencia ------------------------------------------
+ *
+ * La forma vive aqui; el color, en assets/css/tags.css, que se GENERA desde
+ * el vocabulario de etiquetas. Separarlos es lo que permite anadir una
+ * etiqueta nueva sin tocar una sola linea de CSS escrita a mano.
+ *
+ * La fila va pegada a su encabezado y no separada como un parrafo: describe
+ * la entrada que la precede, y con el espacio de un parrafo normal parece
+ * pertenecer al texto que viene despues.
+ */
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: -0.35rem 0 1.1rem;
+}
+
+.tag {
+    padding: 0.1rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* Leyenda: una fila por familia. Se apoya en grid y no en una tabla porque el
+ * tercer campo es prosa y en una celda de tabla se estrecha hasta romperse. */
+.tag-legend {
+    display: grid;
+    gap: 1.1rem;
+    margin: 1.5rem 0 2rem;
+    padding: 1.2rem 1.3rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.tag-legend-row h3 {
+    margin: 0 0 0.4rem;
+    padding: 0;
+    border: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-soft);
+}
+
+.tag-legend-help {
+    margin: 0.35rem 0 0;
+    font-size: 0.85rem;
+    color: var(--fg-soft);
+}
+
+/* --- Indice de la portada de un libro ------------------------------------ */
+
+.book-index {
+    margin: 1.2rem 0 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.book-index li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.book-index li:last-child {
+    border-bottom: 0;
+}
+
+/* Las paginas pendientes se muestran sin enlace: ocultarlas haria parecer
+ * terminado un libro que no lo esta. */
+.book-index .is-draft span,
+.doc-sidebar .is-draft span {
+    color: var(--fg-soft);
+    opacity: 0.55;
+}
+
+/* --- Barra lateral de la referencia --------------------------------------
+ *
+ * Los libros que no son el actual se quedan en su titulo. Siguen visibles
+ * -- esconderlos dejaria al lector sin saber que existen -- pero no compiten
+ * con las paginas del libro que esta leyendo.
+ */
+.doc-part.is-closed {
+    margin-bottom: 0.6rem;
+}
+
+.doc-part h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.doc-part h3 a:hover {
+    color: var(--accent);
+}
+
+.doc-part h3 a[aria-current='page'] {
+    color: var(--accent);
+}
+
 /* --- Descargar el capitulo en Markdown -----------------------------------
  *
  * Es un enlace normal con `download`, no un boton con JS: el fichero existe en

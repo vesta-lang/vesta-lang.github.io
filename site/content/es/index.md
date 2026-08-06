@@ -66,17 +66,17 @@ o se convierte en un ejecutable nativo autónomo.
 <div class="feature-grid">
 
 <article class="feature">
-<h3><a href="/es/docs/contratos/">El compilador demuestra lo que cuesta</a></h3>
+<h3><a href="/es/docs/lenguaje/">El compilador demuestra lo que cuesta</a></h3>
 <p>Una función declara su huella (pura, sin excepciones, cero reservas, O(n)) y el compilador la verifica o rechaza compilar.</p>
 </article>
 
 <article class="feature">
-<h3><a href="/es/docs/comptime/">Comptime con JIT detrás</a></h3>
+<h3><a href="/es/docs/lenguaje/">Comptime con JIT detrás</a></h3>
 <p>Funciones que se ejecutan durante la compilación con el lenguaje completo: ensamblador nativo, llamadas a la API del sistema y generación de código.</p>
 </article>
 
 <article class="feature">
-<h3><a href="/es/docs/ctpe/">CTPE: el programa, precalculado</a></h3>
+<h3><a href="/es/internals/">CTPE: el programa, precalculado</a></h3>
 <p>Si tu punto de entrada es puro, el compilador lo ejecuta al compilar e inyecta el resultado como constante. Activo por defecto.</p>
 </article>
 
@@ -96,12 +96,12 @@ o se convierte en un ejecutable nativo autónomo.
 </article>
 
 <article class="feature">
-<h3><a href="/es/docs/overlays/">Vistas tipadas sobre memoria</a></h3>
+<h3><a href="/es/docs/lenguaje/">Vistas tipadas sobre memoria</a></h3>
 <p>Describe una cabecera PE, un registro MMIO o un paquete de red una vez, y accede por nombre de campo en lugar de por desplazamiento.</p>
 </article>
 
 <article class="feature">
-<h3><a href="/es/docs/ffi/">Pensado para interoperar</a></h3>
+<h3><a href="/es/docs/lenguaje/">Pensado para interoperar</a></h3>
 <p>Llama a bibliotecas de C, a DLL del sistema y a syscalls crudas sin salir del lenguaje ni pasar por libc.</p>
 </article>
 

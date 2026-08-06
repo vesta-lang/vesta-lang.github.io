@@ -233,6 +233,74 @@ export function resolveTags(tags) {
 }
 
 /**
+ * Explicacion de cada familia, para la leyenda.
+ *
+ * La leyenda no repite lo que la etiqueta ya dice: dice para que sirve la
+ * familia. Sin esto, un lector ve `VM` y `JIT` en una entrada y no sabe si
+ * son requisitos, recomendaciones o donde se ha probado.
+ */
+const FAMILY_HELP = {
+    status: {
+        en: 'Whether you can rely on it today.',
+        es: 'Si puedes contar con ello hoy.',
+    },
+    modes: {
+        en: 'Where it works. A missing mode means it is not available there.',
+        es: 'Donde funciona. Un modo ausente significa que alli no esta.',
+    },
+    memory: {
+        en: 'What it does with memory. The first three say who frees; ' +
+            'borrow says how it is accessed without owning.',
+        es: 'Que hace con la memoria. Las tres primeras dicen quien libera; ' +
+            'borrow dice como se accede sin ser dueno.',
+    },
+    origin: {
+        en: 'Where it comes from: the compiler, the library, the runtime or ' +
+            'the preprocessor.',
+        es: 'De donde sale: el compilador, la biblioteca, el runtime o el ' +
+            'preprocesador.',
+    },
+    kind: {
+        en: 'What kind of thing the entry is.',
+        es: 'Que clase de cosa es la entrada.',
+    },
+};
+
+/**
+ * Renderiza la leyenda completa de las etiquetas.
+ *
+ * Se genera desde el vocabulario y no se escribe a mano por el mismo motivo
+ * que los colores: una leyenda escrita aparte se queda sin la etiqueta que se
+ * anadio la semana pasada, y una leyenda incompleta es peor que ninguna,
+ * porque quien la consulta cree haberla consultado.
+ *
+ * @param {string} lang Idioma.
+ * @returns {string} HTML de la leyenda.
+ */
+export function renderTagLegend(lang) {
+    const rows = TAG_FAMILIES.map((family) => {
+        const chips = family.values
+            .map((value) => {
+                const label = value.label[lang] || value.label.en;
+                return `<span class="tag tag-${value.id}">${label}</span>`;
+            })
+            .join('');
+        const name = family.label[lang] || family.label.en;
+        const help = FAMILY_HELP[family.id];
+
+        return (
+            '<div class="tag-legend-row">' +
+            `<h3>${name}</h3>` +
+            `<p class="tag-row">${chips}</p>` +
+            `<p class="tag-legend-help">${help[lang] || help.en}</p>` +
+            '</div>'
+        );
+    });
+
+    return `<div class="tag-legend">${rows.join('')}</div>`;
+}
+
+/**
  * Renderiza la fila de etiquetas de una entrada.
  *
  * Cada etiqueta lleva el nombre de su familia en el `title`, porque el color

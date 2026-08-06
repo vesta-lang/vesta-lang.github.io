@@ -82,6 +82,91 @@ export function sidebar(parts, lang, current) {
 }
 
 /**
+ * Construye la barra lateral de la referencia.
+ *
+ * A diferencia de Learn, que es una lista plana porque se lee en orden y tiene
+ * un final, la referencia crece indefinidamente y se entra por el medio. Una
+ * barra lateral con las paginas de los cuatro libros a la vez dejaria de
+ * servir para navegar en cuanto pasara de una pantalla, que es casi de
+ * inmediato.
+ *
+ * Por eso solo se despliega el libro actual. El resto ocupan una linea cada
+ * uno, enlazando a su portada: siguen visibles, porque esconderlos dejaria al
+ * lector sin saber que existen, pero no compiten con la pagina que esta
+ * leyendo.
+ *
+ * @param {Array} books Indice de la referencia.
+ * @param {string} lang Idioma.
+ * @param {string} current Ruta canonica de la pagina actual.
+ * @param {Function} bookHref Constructor de la ruta de la portada de un libro.
+ * @param {Function} pageHref Constructor de la ruta de una pagina.
+ * @returns {string} HTML de la barra lateral.
+ */
+export function referenceSidebar(books, lang, current, bookHref, pageHref) {
+    const t = UI[lang] || UI.en;
+
+    const groups = books.map((book) => {
+        const home = bookHref(book, lang);
+        const open = current === home || current.startsWith(home);
+        const label = escapeHtml(book.title[lang]);
+        const active = current === home ? ' aria-current="page"' : '';
+
+        const head =
+            `<h3><a href="${urlFor(lang, home)}"${active}>${label}</a></h3>`;
+
+        if (!open) return `<li class="doc-part is-closed">${head}</li>`;
+
+        const items = book.pages.map((page) => {
+            const href = pageHref(book, page, lang);
+            const title = escapeHtml(page.title[lang]);
+
+            if (page.draft) {
+                return `<li class="is-draft"><span title="${t.draft}">${title}</span></li>`;
+            }
+            const mark = href === current ? ' aria-current="page"' : '';
+            return `<li><a href="${urlFor(lang, href)}"${mark}>${title}</a></li>`;
+        });
+
+        return `<li class="doc-part">${head}<ul>${items.join('')}</ul></li>`;
+    });
+
+    return (
+        `<nav class="doc-sidebar" aria-label="${t.sections}">` +
+        `<ul>${groups.join('')}</ul>` +
+        `</nav>`
+    );
+}
+
+/**
+ * Construye el listado de paginas de la portada de un libro.
+ *
+ * Sale del mismo indice que la barra lateral. Escrito a mano en cada portada
+ * se quedaria sin la pagina anadida ayer, y una portada incompleta es peor que
+ * ninguna: quien la consulta cree haber visto el libro entero.
+ *
+ * Las paginas pendientes aparecen sin enlace y marcadas, por el mismo motivo
+ * que en Learn: ocultarlas haria parecer terminado un libro que no lo esta.
+ *
+ * @param {Object} book Libro.
+ * @param {string} lang Idioma.
+ * @param {Function} pageHref Constructor de la ruta de una pagina.
+ * @returns {string} HTML del listado.
+ */
+export function bookIndex(book, lang, pageHref) {
+    const t = UI[lang] || UI.en;
+
+    const items = book.pages.map((page) => {
+        const title = escapeHtml(page.title[lang]);
+        if (page.draft) {
+            return `<li class="is-draft"><span title="${t.draft}">${title}</span></li>`;
+        }
+        return `<li><a href="${urlFor(lang, pageHref(book, page, lang))}">${title}</a></li>`;
+    });
+
+    return `<ul class="book-index">${items.join('')}</ul>`;
+}
+
+/**
  * Construye el indice de la propia pagina.
  *
  * Solo se listan los encabezados de segundo nivel. Incluir los de tercero

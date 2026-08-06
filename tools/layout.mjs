@@ -31,21 +31,26 @@ import {
  * traduccion que no se ha escrito manda al buscador a un 404 y perjudica a las
  * dos versiones.
  *
- * @param {string} path Ruta canonica de la pagina.
- * @param {string[]} available Idiomas en los que existe la pagina.
+ * Recibe la ruta de CADA idioma y no una sola, porque el ultimo segmento se
+ * traduce: `/learn/control-flow/` y `/learn/control-de-flujo/` son la misma
+ * pagina, y construir la segunda anteponiendo el prefijo a la primera daria
+ * una URL que no existe.
+ *
+ * @param {Object<string,string>} versions Ruta canonica por idioma.
  * @returns {string} Etiquetas `<link rel="alternate">`.
  */
-function alternates(path, available) {
+function alternates(versions) {
     const links = [];
-    for (const lang of available) {
+    for (const [lang, path] of Object.entries(versions)) {
         links.push(
             `<link rel="alternate" hreflang="${lang}" href="${SITE_URL}${urlFor(lang, path)}">`
         );
     }
     // El ingles hace de version por defecto para cualquier otro idioma.
-    if (available.includes('en')) {
+    if (versions.en) {
         links.push(
-            `<link rel="alternate" hreflang="x-default" href="${SITE_URL}${urlFor('en', path)}">`
+            `<link rel="alternate" hreflang="x-default" ` +
+                `href="${SITE_URL}${urlFor('en', versions.en)}">`
         );
     }
     return links.join('\n    ');
@@ -74,17 +79,16 @@ function nav(lang, current) {
  * Si la traduccion no existe, el enlace no se muestra.
  *
  * @param {string} lang Idioma actual.
- * @param {string} path Ruta canonica de la pagina.
- * @param {string[]} available Idiomas en los que existe la pagina.
+ * @param {Object<string,string>} versions Ruta canonica por idioma.
  * @returns {string} HTML del selector.
  */
-function languageSwitch(lang, path, available) {
-    const others = available.filter((code) => code !== lang);
+function languageSwitch(lang, versions) {
+    const others = Object.keys(versions).filter((code) => code !== lang);
     if (others.length === 0) return '';
 
     const links = others.map(
         (code) =>
-            `<a href="${urlFor(code, path)}" hreflang="${code}" lang="${code}">` +
+            `<a href="${urlFor(code, versions[code])}" hreflang="${code}" lang="${code}">` +
             `${LANGUAGES[code].label}</a>`
     );
     return `<span class="lang-switch" aria-label="${UI[lang].langLabel}">${links.join('')}</span>`;
@@ -99,7 +103,7 @@ function languageSwitch(lang, path, available) {
  * @param {string} page.title Titulo unico de la pagina.
  * @param {string} page.description Descripcion para buscadores y redes.
  * @param {string} page.content HTML del cuerpo.
- * @param {string[]} page.available Idiomas en los que existe la pagina.
+ * @param {Object<string,string>} page.versions Ruta canonica por idioma.
  * @param {string} [page.section] Identificador de la seccion activa.
  * @param {string} [page.bodyClass] Clase extra para el `<body>`.
  * @param {string} [page.jsonLd] Bloque JSON-LD ya serializado.
@@ -112,7 +116,7 @@ export function renderPage(page) {
         title,
         description,
         content,
-        available,
+        versions,
         section = '',
         bodyClass = '',
         jsonLd = '',
@@ -141,7 +145,7 @@ export function renderPage(page) {
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="canonical" href="${canonical}">
     ${robots ? `<meta name="robots" content="${escapeHtml(robots)}">` : ''}
-    ${alternates(path, available)}
+    ${alternates(versions)}
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vesta">
@@ -160,6 +164,7 @@ export function renderPage(page) {
     <link rel="apple-touch-icon" href="/assets/img/logo.png">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/code.css">
+    <link rel="stylesheet" href="/assets/css/tags.css">
     ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
     ${head}
 </head>
@@ -175,7 +180,7 @@ export function renderPage(page) {
             ${nav(lang, section)}
         </nav>
         <div class="header-aux">
-            ${languageSwitch(lang, path, available)}
+            ${languageSwitch(lang, versions)}
             <a class="repo-link" href="${REPO_URL}" rel="noopener">${ui.repo}</a>
         </div>
     </header>

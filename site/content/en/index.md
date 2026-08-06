@@ -64,17 +64,17 @@ the JIT, or becomes a standalone native executable.
 <div class="feature-grid">
 
 <article class="feature">
-<h3><a href="/docs/contracts/">The compiler proves what it costs</a></h3>
+<h3><a href="/docs/language/">The compiler proves what it costs</a></h3>
 <p>A function declares its footprint (pure, non-throwing, zero allocations, O(n)) and the compiler verifies it or refuses to build.</p>
 </article>
 
 <article class="feature">
-<h3><a href="/docs/comptime/">Comptime, with a JIT behind it</a></h3>
+<h3><a href="/docs/language/">Comptime, with a JIT behind it</a></h3>
 <p>Functions that run during compilation with the full language: native assembly, system API calls and code generation.</p>
 </article>
 
 <article class="feature">
-<h3><a href="/docs/ctpe/">CTPE: the program, precomputed</a></h3>
+<h3><a href="/internals/">CTPE: the program, precomputed</a></h3>
 <p>If your entry point is pure, the compiler runs it at build time and folds the result into a constant. On by default.</p>
 </article>
 
@@ -94,12 +94,12 @@ the JIT, or becomes a standalone native executable.
 </article>
 
 <article class="feature">
-<h3><a href="/docs/overlays/">Typed views over memory</a></h3>
+<h3><a href="/docs/language/">Typed views over memory</a></h3>
 <p>Describe a PE header, an MMIO register or a network packet once, then read it by field name instead of by offset.</p>
 </article>
 
 <article class="feature">
-<h3><a href="/docs/ffi/">Built for interop</a></h3>
+<h3><a href="/docs/language/">Built for interop</a></h3>
 <p>Call C libraries, system DLLs and raw syscalls without leaving the language or going through libc.</p>
 </article>
 

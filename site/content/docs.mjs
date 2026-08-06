@@ -71,6 +71,12 @@ export const DOCS = [
                 id: 'lexical',
                 title: { en: 'Lexical structure', es: 'Estructura lexica' },
                 slug: { en: 'lexical', es: 'lexico' },
+                // Bloqueada: la tabla de literales flotantes no se puede
+                // publicar todavia. La documentacion del proyecto anuncia la
+                // forma IEEE 754 hexadecimal (`0x1.8p+1`) y el lexer la
+                // rechaza, asi que hace falta decidir cual de las dos se
+                // corrige antes de afirmar nada aqui.
+                draft: true,
             },
             {
                 id: 'types',
