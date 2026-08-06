@@ -1,0 +1,269 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "70"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shuffle the low words in xmm2/m128 based on the encoding in imm8 and store the result in xmm1.",
+   "opcode": "F2 0F 70 /r ib",
+   "operands": "A",
+   "syntax": "PSHUFLW xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shuffle the low words in xmm2/m128 based on the encoding in imm8 and store the result in xmm1.",
+   "opcode": "VEX.128.F2.0F.WIG 70 /r ib",
+   "operands": "A",
+   "syntax": "VPSHUFLW xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shuffle the low words in ymm2/m256 based on the encoding in imm8 and store the result in ymm1.",
+   "opcode": "VEX.256.F2.0F.WIG 70 /r ib",
+   "operands": "A",
+   "syntax": "VPSHUFLW ymm1, ymm2/m256, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "EVEX.128.F2.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shuffle the low words in xmm2/m128 based on AVX512BW) OR the encoding in imm8 and store the result in AVX10.1 xmm1 under write mask k1.",
+   "opcode": "EVEX.128.F2.0F.WIG 70 /r ib",
+   "operands": "B",
+   "syntax": "VPSHUFLW xmm1 {k1}{z}, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "EVEX.256.F2.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shuffle the low words in ymm2/m256 based on AVX512BW) OR the encoding in imm8 and store the result in AVX10.1 ymm1 under write mask k1.",
+   "opcode": "EVEX.256.F2.0F.WIG 70 /r ib",
+   "operands": "B",
+   "syntax": "VPSHUFLW ymm1 {k1}{z}, ymm2/m256, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "EVEX.512.F2.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shuffle the low words in zmm2/m512 based on OR AVX10.1 the encoding in imm8 and store the result in zmm1 under write mask k1.",
+   "opcode": "EVEX.512.F2.0F.WIG 70 /r ib",
+   "operands": "B",
+   "syntax": "VPSHUFLW zmm1 {k1}{z}, zmm2/m512, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pshuflw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PSHUFLW",
+   "VPSHUFLW"
+  ]
+ },
+ "mnemonics": [
+  "PSHUFLW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1722,
+    1724
+   ]
+  }
+ ],
+ "version": 1
+}

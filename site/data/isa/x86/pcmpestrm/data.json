@@ -1,0 +1,111 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "60"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform a packed comparison of     string data with explicit lengths, generating  a mask, and storing the result in XMM0.",
+   "opcode": "66 0F 3A 60 /r imm8",
+   "operands": "RMI",
+   "syntax": "PCMPESTRM xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "60"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A",
+     "type": "VEX"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform a packed comparison of     string data with explicit lengths, generating  a mask, and storing the result in XMM0.",
+   "opcode": "VEX.128.66.0F3A 60 /r ib",
+   "operands": "RMI",
+   "syntax": "VPCMPESTRM xmm1, xmm2/m128, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pcmpestrm",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PCMPESTRM",
+   "VPCMPESTRM"
+  ]
+ },
+ "mnemonics": [
+  "PCMPESTRM"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1545,
+    1546
+   ]
+  }
+ ],
+ "version": 1
+}

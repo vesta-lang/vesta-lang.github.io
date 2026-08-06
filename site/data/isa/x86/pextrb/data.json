@@ -1,0 +1,366 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "14"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract a byte integer value from xmm2 at the source byte offset specified by imm8 into reg or m8. The upper bits of r3 or r64 are zeroed.",
+   "opcode": "66 0F 3A 14 /r ib",
+   "operands": "A",
+   "syntax": "PEXTRB reg/m8, xmm2, imm8"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "16"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract a dword integer value from xmm2 at the source dword offset specified by imm8 into r/m32.",
+   "opcode": "66 0F 3A 16 /r ib",
+   "operands": "A",
+   "syntax": "PEXTRD r/m3, xmm2, imm8"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "16"
+    ],
+    "prefixes": [
+     "66"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Extract a qword integer value from xmm2 at the source qword offset specified by imm8 into r/m64.",
+   "opcode": "66 REX.W 0F 3A 16 /r ib",
+   "operands": "A",
+   "syntax": "PEXTRQ r/m64, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "14"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v1"
+   },
+   "note": "Extract a byte integer value from xmm2 at the source byte offset specified by imm8 into reg or m8. The upper bits of r64/r32 is filled with zeros.",
+   "opcode": "VEX.128.66.0F3A.W0 14 /r ib",
+   "operands": "A",
+   "syntax": "VPEXTRB reg/m8, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "16"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract a dword integer value from xmm2 at the source dword offset specified by imm8 into r32/m32.",
+   "opcode": "VEX.128.66.0F3A.W0 16 /r ib",
+   "operands": "A",
+   "syntax": "VPEXTRD r32/m32, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "16"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "i2",
+    "long": "v"
+   },
+   "note": "Extract a qword integer value from xmm2 at the source dword offset specified by imm8 into r64/m64.",
+   "opcode": "VEX.128.66.0F3A.W1 16 /r ib",
+   "operands": "A",
+   "syntax": "VPEXTRQ r64/m64, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "14"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract a byte integer value from xmm2 at the OR AVX10.1 source byte offset specified by imm8 into reg or m8. The upper bits of r64/r32 is filled with zeros.",
+   "opcode": "EVEX.128.66.0F3A.WIG 14 /r ib",
+   "operands": "B",
+   "syntax": "VPEXTRB reg/m8, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "16"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract a dword integer value from xmm2 at the OR AVX10.1 source dword offset specified by imm8 into r32/m32.",
+   "opcode": "EVEX.128.66.0F3A.W0 16 /r ib",
+   "operands": "B",
+   "syntax": "VPEXTRD r32/m32, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "16"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.2",
+    "long": "v"
+   },
+   "note": "Extract a qword integer value from xmm2 at the OR AVX10.1 source dword offset specified by imm8 into r64/m64.",
+   "opcode": "EVEX.128.66.0F3A.W1 16 /r ib",
+   "operands": "B",
+   "syntax": "VPEXTRQ r64/m64, xmm2, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pextrb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PEXTRB",
+   "VPEXTRB",
+   "PEXTRD",
+   "VPEXTRD",
+   "PEXTRQ",
+   "VPEXTRQ"
+  ]
+ },
+ "mnemonics": [
+  "PEXTRB",
+  "PEXTRD",
+  "PEXTRQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1575,
+    1577
+   ]
+  }
+ ],
+ "version": 1
+}

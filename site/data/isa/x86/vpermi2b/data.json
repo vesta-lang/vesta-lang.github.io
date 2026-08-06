@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute bytes in xmm3/m128 and xmm2 using AVX512_VBMI) byte indexes in xmm1 and store the byte results OR AVX10.1 in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 75 /r",
+   "operands": "A",
+   "syntax": "VPERMI2B xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute bytes in ymm3/m256 and ymm2 using AVX512_VBMI) byte indexes in ymm1 and store the byte results OR AVX10.1 in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 75 /r",
+   "operands": "A",
+   "syntax": "VPERMI2B ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512_VBMI",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute bytes in zmm3/m512 and zmm2 using OR AVX10.1 byte indexes in zmm1 and store the byte results in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 75 /r",
+   "operands": "A",
+   "syntax": "VPERMI2B zmm1 {k1}{z}, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpermi2b",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPERMI2B"
+  ]
+ },
+ "mnemonics": [
+  "VPERMI2B"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2554,
+    2555
+   ]
+  }
+ ],
+ "version": 1
+}

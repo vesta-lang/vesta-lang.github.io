@@ -1,0 +1,164 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4A"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 16 bits masks in k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.0F.W0 4A /r",
+   "operands": "RVR",
+   "syntax": "KADDW k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4A"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L1.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 8 bits masks in k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.66.0F.W0 4A /r",
+   "operands": "RVR",
+   "syntax": "KADDB k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4A"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 64 bits masks in k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.0F.W1 4A /r",
+   "operands": "RVR",
+   "syntax": "KADDQ k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4A"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L1.66.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 32 bits masks in k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.66.0F.W1 4A /r",
+   "operands": "RVR",
+   "syntax": "KADDD k1, k2, k3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "kaddw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KADDW",
+   "KADDB",
+   "KADDQ",
+   "KADDD"
+  ]
+ },
+ "mnemonics": [
+  "KADDW",
+  "KADDB",
+  "KADDQ",
+  "KADDD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVR",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1217,
+    1218
+   ]
+  }
+ ],
+ "version": 1
+}

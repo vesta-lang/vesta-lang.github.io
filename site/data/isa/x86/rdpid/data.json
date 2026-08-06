@@ -1,0 +1,113 @@
+{
+ "encodings": [
+  {
+   "cpuid": "RDPID",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "n.e."
+   },
+   "note": "Read IA32_TSC_AUX into r32.",
+   "opcode": "F3 0F C7 /7",
+   "operands": "R",
+   "syntax": "RDPID r32"
+  },
+  {
+   "cpuid": "RDPID",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Read IA32_TSC_AUX into r64. Instruction Operand E ncoding1 Operand 2 Operand 3                    Operand 4 N/A N/A                            N/A",
+   "opcode": "F3 0F C7 /7",
+   "operands": "R",
+   "syntax": "RDPID r64 Op/En           Operand 1 R               ModRM:r/m (w)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.RDPID[22] = 0."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rdpid",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDPID"
+  ]
+ },
+ "mnemonics": [
+  "RDPID"
+ ],
+ "operand_encodings": [
+  {
+   "id": "R",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1837,
+    1837
+   ]
+  }
+ ],
+ "version": 1
+}

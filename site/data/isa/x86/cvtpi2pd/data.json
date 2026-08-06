@@ -1,0 +1,66 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2A"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Convert two packed signed doubleword integers from mm/mem64 to two packed double precision floating-point values in xmm.",
+   "opcode": "66 0F 2A /r",
+   "operands": "RM",
+   "syntax": "CVTPI2PD xmm, mm/m641"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cvtpi2pd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CVTPI2PD"
+  ]
+ },
+ "mnemonics": [
+  "CVTPI2PD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    927,
+    927
+   ]
+  }
+ ],
+ "version": 1
+}

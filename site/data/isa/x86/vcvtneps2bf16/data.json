@@ -1,0 +1,194 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.128.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single precision floating-point CONVERT values from xmm2/m128 to packed BF16 values and store in xmm1.",
+   "opcode": "VEX.128.F3.0F38.W0 72 /r",
+   "operands": "A",
+   "syntax": "VCVTNEPS2BF16 xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.256.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single precision floating-point CONVERT values from ymm2/m256 to packed BF16 values and store in xmm1.",
+   "opcode": "VEX.256.F3.0F38.W0 72 /r",
+   "operands": "A",
+   "syntax": "VCVTNEPS2BF16 xmm1, ymm2/m256"
+  },
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single data from xmm2/m128 AND AVX512VL) to packed BF16 data in xmm1 with writemask OR AVX10.1 k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 72 /r",
+   "operands": "B",
+   "syntax": "VCVTNEPS2BF16 xmm1{k1}{z}, xmm2/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single data from ymm2/m256 AND AVX512VL) to packed BF16 data in xmm1 with writemask OR AVX10.1 k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 72 /r",
+   "operands": "B",
+   "syntax": "VCVTNEPS2BF16 xmm1{k1}{z}, ymm2/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single data from zmm2/m512 AND AVX512F) to packed BF16 data in ymm1 with writemask OR AVX10.1 k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 72 /r",
+   "operands": "B",
+   "syntax": "VCVTNEPS2BF16 ymm1{k1}{z}, zmm2/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtneps2bf16",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTNEPS2BF16"
+  ]
+ },
+ "mnemonics": [
+  "VCVTNEPS2BF16"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2089,
+    2090
+   ]
+  }
+ ],
+ "version": 1
+}

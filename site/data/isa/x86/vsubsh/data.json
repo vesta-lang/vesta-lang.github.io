@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5C"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Subtract the low FP16 value in xmm3/m16 from OR AVX10.1 xmm2 and store the result in xmm1 subject to writemask k1. Bits 127:16 from xmm2 are copied to xmm1[127:16].",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 5C /r",
+   "operands": "A",
+   "syntax": "VSUBSH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsubsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSUBSH"
+  ]
+ },
+ "mnemonics": [
+  "VSUBSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2821,
+    2821
+   ]
+  }
+ ],
+ "version": 1
+}

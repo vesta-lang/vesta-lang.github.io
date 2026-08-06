@@ -1,0 +1,141 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Raise invalid opcode exception.",
+   "opcode": "0F FF /r",
+   "operands": "RM",
+   "syntax": "UD01 r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Raise invalid opcode exception.",
+   "opcode": "0F B9 /r",
+   "operands": "RM",
+   "syntax": "UD1 r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "0B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Raise invalid opcode exception.",
+   "opcode": "0F 0B",
+   "operands": "ZO",
+   "syntax": "UD2"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "D6"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Raise invalid opcode exception.",
+   "opcode": "D6",
+   "operands": "ZO",
+   "syntax": "UDB"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "Raises an invalid opcode exception in all operating modes. (UDB does so only in 64-bit mode.)"
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "Raises an invalid opcode exception in all operating modes. (UDB does so only in 64-bit mode.)"
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "Raises an invalid opcode exception in all operating modes. (UDB does so only in 64-bit mode.)"
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "Raises an invalid opcode exception in all operating modes. (UDB does so only in 64-bit mode.)"
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "Raises an invalid opcode exception in all operating modes. (UDB does so only in 64-bit mode.)"
+  }
+ ],
+ "format": "isadoc",
+ "id": "ud",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "UD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2025,
+    2025
+   ]
+  }
+ ],
+ "version": 1
+}

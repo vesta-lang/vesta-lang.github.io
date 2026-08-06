@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "map": "0F 3A",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Calculate a RANGE operation output value from 2 OR AVX10.1 single-precision floating-point values in xmm2 and xmm3/m32, store the output to xmm1 under writemask. Imm8 specifies the comparison and sign   of the range operation.",
+   "opcode": "EVEX.LLIG.66.0F3A.W0 51 /r",
+   "operands": "A",
+   "syntax": "VRANGESS xmm1 {k1}{z}, xmm2, xmm3/m32{sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrangess",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRANGESS"
+  ]
+ },
+ "mnemonics": [
+  "VRANGESS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2722,
+    2724
+   ]
+  }
+ ],
+ "version": 1
+}

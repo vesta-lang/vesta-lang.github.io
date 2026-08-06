@@ -1,0 +1,115 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "NFX",
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Flushes cache line containing m8.",
+   "opcode": "NFx 66 0F AE /7",
+   "operands": "M",
+   "syntax": "CLFLUSHOPT m8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "For an illegal memory operand effective address in the CS, DS, ES, FS or GS segments."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:EBX.CLFLUSHOPT[23] = 0. If the LOCK prefix is used. If an instruction prefix F2H or F3H is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If any part of the operand lies outside the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:EBX.CLFLUSHOPT[23] = 0. If the LOCK prefix is used. If an instruction prefix F2H or F3H is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real address mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:EBX.CLFLUSHOPT[23] = 0. If the LOCK prefix is used. If an instruction prefix F2H or F3H is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "clflushopt",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CLFLUSHOPT"
+  ]
+ },
+ "mnemonics": [
+  "CLFLUSHOPT"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    850,
+    851
+   ]
+  }
+ ],
+ "version": 1
+}

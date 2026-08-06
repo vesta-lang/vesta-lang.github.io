@@ -1,0 +1,77 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "CB"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform 2 rounds of SHA512 operation using SHA512 an initial SHA512 state (C,D,G,H) from ymm1, an initial SHA512 state (A,B,E,F) from ymm2, and a pre-computed sum of the next 2 round message qwords and the corresponding round constants from xmm3, storing the updated SHA512 state (A,B,E,F) result in ymm1.",
+   "opcode": "VEX.256.F2.0F38.W0 CB 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "VSHA512RNDS2 ymm1, ymm2, xmm3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsha512rnds2",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSHA512RNDS2"
+  ]
+ },
+ "mnemonics": [
+  "VSHA512RNDS2"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2799,
+    2805
+   ]
+  }
+ ],
+ "version": 1
+}

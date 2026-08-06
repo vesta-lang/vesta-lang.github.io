@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the packed FP16 values in xmm2 using AND AVX512VL) values from xmm3/m128/m16bcst, and store OR AVX10.1 the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 2C /r",
+   "operands": "A",
+   "syntax": "VSCALEFPH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the packed FP16 values in ymm2 using AND AVX512VL) values from ymm3/m256/m16bcst, and store the OR AVX10.1 result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 2C /r",
+   "operands": "A",
+   "syntax": "VSCALEFPH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the packed FP16 values in zmm2 using OR AVX10.1 values from zmm3/m512/m16bcst, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 2C /r",
+   "operands": "A",
+   "syntax": "VSCALEFPH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vscalefph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSCALEFPH"
+  ]
+ },
+ "mnemonics": [
+  "VSCALEFPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2779,
+    2781
+   ]
+  }
+ ],
+ "version": 1
+}

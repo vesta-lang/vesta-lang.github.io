@@ -1,0 +1,240 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "15"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves single precision floating-point values from high quadwords of xmm1 and xmm2/m128.",
+   "opcode": "NP 0F 15 /r",
+   "operands": "A",
+   "syntax": "UNPCKHPS xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "VEX.128.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves single precision floating-point values from high quadwords of xmm2 and xmm3/m128.",
+   "opcode": "VEX.128.0F.WIG 15 /r",
+   "operands": "B",
+   "syntax": "VUNPCKHPS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "VEX.256.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves single precision floating-point values from high quadwords of ymm2 and ymm3/m256.",
+   "opcode": "VEX.256.0F.WIG 15 /r",
+   "operands": "B",
+   "syntax": "VUNPCKHPS ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "EVEX.128.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves single precision floating-point AVX512F) OR values from high quadwords of xmm2 and AVX10.1 xmm3/m128/m32bcst and write result to xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.0F.W0 15 /r",
+   "operands": "C",
+   "syntax": "VUNPCKHPS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "EVEX.256.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves single precision floating-point AVX512F) OR values from high quadwords of ymm2 and AVX10.1 ymm3/m256/m32bcst and write result to ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.0F.W0 15 /r",
+   "operands": "C",
+   "syntax": "VUNPCKHPS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "text": "EVEX.512.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves single precision floating-point OR AVX10.1 values from high quadwords of zmm2 and zmm3/m512/m32bcst and write result to zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.0F.W0 15 /r",
+   "operands": "C",
+   "syntax": "VUNPCKHPS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "unpckhps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "UNPCKHPS",
+   "VUNPCKHPS"
+  ]
+ },
+ "mnemonics": [
+  "UNPCKHPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2036,
+    2039
+   ]
+  }
+ ],
+ "version": 1
+}

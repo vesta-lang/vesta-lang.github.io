@@ -1,0 +1,66 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "F7"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Selectively write bytes from mm1 to memory location using the byte mask in mm2. The default memory location is specified by DS:DI/EDI/RDI.",
+   "opcode": "NP 0F F7 /r",
+   "operands": "RM",
+   "syntax": "MASKMOVQ mm1, mm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "maskmovq",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MASKMOVQ"
+  ]
+ },
+ "mnemonics": [
+  "MASKMOVQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1292,
+    1293
+   ]
+  }
+ ],
+ "version": 1
+}

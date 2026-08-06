@@ -1,0 +1,92 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load MXCSR register from m32.",
+   "opcode": "NP 0F AE /2",
+   "operands": "M",
+   "syntax": "LDMXCSR m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F",
+     "text": "VEX.LZ.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load MXCSR register from m32.",
+   "opcode": "VEX.LZ.0F.WIG AE /2",
+   "operands": "M",
+   "syntax": "VLDMXCSR m32"
+  }
+ ],
+ "format": "isadoc",
+ "id": "ldmxcsr",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LDMXCSR",
+   "VLDMXCSR"
+  ]
+ },
+ "mnemonics": [
+  "LDMXCSR"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1243,
+    1243
+   ]
+  }
+ ],
+ "version": 1
+}

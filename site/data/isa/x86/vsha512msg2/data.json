@@ -1,0 +1,72 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "CD"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Performs the final calculation for the next four SHA512 SHA512 message qwords using previous message qwords from ymm1 and ymm2, storing the result in ymm1.",
+   "opcode": "VEX.256.F2.0F38.W0 CD 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "VSHA512MSG2 ymm1, ymm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsha512msg2",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSHA512MSG2"
+  ]
+ },
+ "mnemonics": [
+  "VSHA512MSG2"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2797,
+    2798
+   ]
+  }
+ ],
+ "version": 1
+}

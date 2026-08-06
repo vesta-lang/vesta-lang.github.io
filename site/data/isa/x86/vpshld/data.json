@@ -1,0 +1,380 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, AND AVX512VL) extract result shifted to the left by constant OR AVX10.1 value in imm8 into xmm1.",
+   "opcode": "EVEX.128.66.0F3A.W1 70 /r /ib",
+   "operands": "A",
+   "syntax": "VPSHLDW xmm1{k1}{z}, xmm2, xmm3/m128, imm8"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, AND AVX512VL) extract result shifted to the left by constant OR AVX10.1 value in imm8 into ymm1.",
+   "opcode": "EVEX.256.66.0F3A.W1 70 /r /ib",
+   "operands": "A",
+   "syntax": "VPSHLDW ymm1{k1}{z}, ymm2, ymm3/m256, imm8"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "70"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, OR AVX10.1 extract result shifted to the left by constant value in imm8 into zmm1.",
+   "opcode": "EVEX.512.66.0F3A.W1 70 /r /ib",
+   "operands": "A",
+   "syntax": "VPSHLDW zmm1{k1}{z}, zmm2, zmm3/m512, imm8"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, AND AVX512VL) extract result shifted to the left by constant OR AVX10.1 value in imm8 into xmm1.",
+   "opcode": "EVEX.128.66.0F3A.W0 71 /r /ib",
+   "operands": "B",
+   "syntax": "VPSHLDD xmm1{k1}{z}, xmm2, xmm3/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, AND AVX512VL) extract result shifted to the left by constant OR AVX10.1 value in imm8 into ymm1.",
+   "opcode": "EVEX.256.66.0F3A.W0 71 /r /ib",
+   "operands": "B",
+   "syntax": "VPSHLDD ymm1{k1}{z}, ymm2, ymm3/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, OR AVX10.1 extract result shifted to the left by constant value in imm8 into zmm1.",
+   "opcode": "EVEX.512.66.0F3A.W0 71 /r /ib",
+   "operands": "B",
+   "syntax": "VPSHLDD zmm1{k1}{z}, zmm2, zmm3/m512/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, AND AVX512VL) extract result shifted to the left by constant OR AVX10.1 value in imm8 into xmm1.",
+   "opcode": "EVEX.128.66.0F3A.W1 71 /r /ib",
+   "operands": "B",
+   "syntax": "VPSHLDQ xmm1{k1}{z}, xmm2, xmm3/m128/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, AND AVX512VL) extract result shifted to the left by constant OR AVX10.1 value in imm8 into ymm1.",
+   "opcode": "EVEX.256.66.0F3A.W1 71 /r /ib",
+   "operands": "B",
+   "syntax": "VPSHLDQ ymm1{k1}{z}, ymm2, ymm3/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate destination and source operands, OR AVX10.1 extract result shifted to the left by constant value in imm8 into zmm1.",
+   "opcode": "EVEX.512.66.0F3A.W1 71 /r /ib",
+   "operands": "B",
+   "syntax": "VPSHLDQ zmm1{k1}{z}, zmm2, zmm3/m512/m64bcst, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpshld",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPSHLD",
+   "VPSHLDW",
+   "VPSHLDD",
+   "VPSHLDQ"
+  ]
+ },
+ "mnemonics": [
+  "VPSHLD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2673,
+    2675
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,99 @@
+{
+ "encodings": [
+  {
+   "cpuid": "UINTR",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Send interprocessor user interrupt.",
+   "opcode": "F3 0F C7 /6",
+   "operands": "A",
+   "syntax": "SENDUIPI reg"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The SENDUIPI instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The SENDUIPI instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The SENDUIPI instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The SENDUIPI instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If executed inside an enclave. If CR4.UINTR = 0. If IA32_UINTR_TT[0] = 0. If CPUID.07H.00H:EDX.UINTR[5] = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#PF",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP",
+   "when": "If the value of the register operand exceeds UITTSZ. If the selected UITTE is not valid or sets any reserved bits. If the selected UPID sets any reserved bits. If there is an attempt to access memory using a linear address that is not canonical relative to the current paging mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "senduipi",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SENDUIPI"
+  ]
+ },
+ "mnemonics": [
+  "SENDUIPI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1908,
+    1909
+   ]
+  }
+ ],
+ "version": 1
+}

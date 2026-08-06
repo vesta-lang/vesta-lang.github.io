@@ -1,0 +1,189 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "0F",
+     "18"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move data from m8 closer to the processor using T0 hint.",
+   "opcode": "0F 18 /1",
+   "operands": "M",
+   "syntax": "PREFETCHT0 m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "18"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move data from m8 closer to the processor using T1 hint.",
+   "opcode": "0F 18 /2",
+   "operands": "M",
+   "syntax": "PREFETCHT1 m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "0F",
+     "18"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move data from m8 closer to the processor using T2 hint.",
+   "opcode": "0F 18 /3",
+   "operands": "M",
+   "syntax": "PREFETCHT2 m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "18"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move data from m8 closer to the processor using NTA hint.",
+   "opcode": "0F 18 /0",
+   "operands": "M",
+   "syntax": "PREFETCHNTA m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "18"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Move code from relative address closer to the processor using IT0 hint.",
+   "opcode": "0F 18 /7",
+   "operands": "M",
+   "syntax": "PREFETCHIT0 m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "18"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Move code from relative address closer to the processor using IT1 hint.",
+   "opcode": "0F 18 /6",
+   "operands": "M",
+   "syntax": "PREFETCHIT1 m8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "prefetchh",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "PREFETCHh"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1703,
+    1704
+   ]
+  }
+ ],
+ "version": 1
+}

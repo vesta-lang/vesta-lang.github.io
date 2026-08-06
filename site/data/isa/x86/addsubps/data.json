@@ -1,0 +1,233 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D0"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add/subtract single precision floating-point values from xmm2/m128 to xmm1.",
+   "opcode": "F2 0F D0 /r",
+   "operands": "RM",
+   "syntax": "ADDSUBPS xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D0"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add/subtract single precision floating-point values from xmm3/mem to xmm2 and stores result in xmm1.",
+   "opcode": "VEX.128.F2.0F.WIG D0 /r",
+   "operands": "RVM",
+   "syntax": "VADDSUBPS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D0"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add / subtract single precision floating-point values from ymm3/mem to ymm2 and stores result in ymm1.",
+   "opcode": "VEX.256.F2.0F.WIG D0 /r",
+   "operands": "RVM",
+   "syntax": "VADDSUBPS ymm1, ymm2, ymm3/m256"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.ADX[19] = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "For an illegal memory operand effective address in the CS, DS, ES, FS or GS segments. If the DS, ES, FS, or GS register is used to access memory and it contains a null segment selector. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.ADX[19] = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If any part of the operand lies outside the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.ADX[19] = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If any part of the operand lies outside the effective address space from 0 to FFFFH. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.ADX[19] = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3. ADOX -- Unsigned Integer Addition of Two Operands With Overflow Flag"
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "addsubps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ADDSUBPS",
+   "VADDSUBPS"
+  ]
+ },
+ "mnemonics": [
+  "ADDSUBPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    732,
+    736
+   ]
+  }
+ ],
+ "version": 1
+}

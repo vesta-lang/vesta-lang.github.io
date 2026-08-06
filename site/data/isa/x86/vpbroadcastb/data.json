@@ -1,0 +1,374 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast an 8-bit value from a GPR to all bytes in AVX512BW) OR AVX10.1 the 128-bit destination subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 7A /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTB xmm1 {k1}{z}, reg"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast an 8-bit value from a GPR to all bytes in AVX512BW) OR AVX10.1 the 256-bit destination subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 7A /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTB ymm1 {k1}{z}, reg"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast an 8-bit value from a GPR to all bytes in OR AVX10.1 the 512-bit destination subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 7A /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTB zmm1 {k1}{z}, reg"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a 16-bit value from a GPR to all words in AVX512BW) OR AVX10.1 the 128-bit destination subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 7B /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTW xmm1 {k1}{z}, reg"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7B"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a 16-bit value from a GPR to all words in AVX512BW) OR AVX10.1 the 256-bit destination subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 7B /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTW ymm1 {k1}{z}, reg"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7B"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a 16-bit value from a GPR to all words in OR AVX10.1 the 512-bit destination subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 7B /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTW zmm1 {k1}{z}, reg"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a 32-bit value from a GPR to all AVX512F) OR AVX10.1 doublewords in the 128-bit destination subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 7C /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTD xmm1 {k1}{z}, r32"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a 32-bit value from a GPR to all AVX512F) OR AVX10.1 doublewords in the 256-bit destination subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 7C /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTD ymm1 {k1}{z}, r32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a 32-bit value from a GPR to all OR AVX10.1 doublewords in the 512-bit destination subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 7C /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTD zmm1 {k1}{z}, r32"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.1",
+    "long": "v"
+   },
+   "note": "Broadcast a 64-bit value from a GPR to all AVX512F) OR AVX10.1 quadwords in the 128-bit destination subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 7C /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTQ xmm1 {k1}{z}, r64"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.1",
+    "long": "v"
+   },
+   "note": "Broadcast a 64-bit value from a GPR to all AVX512F) OR AVX10.1 quadwords in the 256-bit destination subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 7C /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTQ ymm1 {k1}{z}, r64"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.1",
+    "long": "v"
+   },
+   "note": "Broadcast a 64-bit value from a GPR to all OR AVX10.1 quadwords in the 512-bit destination subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 7C /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTQ zmm1 {k1}{z}, r64"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpbroadcastb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPBROADCASTB",
+   "VPBROADCASTW",
+   "VPBROADCASTD",
+   "VPBROADCASTQ"
+  ]
+ },
+ "mnemonics": [
+  "VPBROADCASTB",
+  "VPBROADCASTW",
+  "VPBROADCASTD",
+  "VPBROADCASTQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2502,
+    2504
+   ]
+  }
+ ],
+ "version": 1
+}

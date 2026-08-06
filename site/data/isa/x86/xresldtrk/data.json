@@ -1,0 +1,47 @@
+{
+ "encodings": [
+  {
+   "cpuid": "TSXLDTRK",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "E9"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Specifies the end of an Intel TSX suspend read address tracking region.",
+   "opcode": "F2 0F 01 E9",
+   "operands": "ZO",
+   "syntax": "XRESLDTRK"
+  }
+ ],
+ "format": "isadoc",
+ "id": "xresldtrk",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XRESLDTRK"
+  ]
+ },
+ "mnemonics": [
+  "XRESLDTRK"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2875,
+    2875
+   ]
+  }
+ ],
+ "version": 1
+}

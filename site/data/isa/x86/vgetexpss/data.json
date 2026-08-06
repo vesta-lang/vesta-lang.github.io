@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "43"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert the biased exponent (bits 30:23) of the low OR AVX10.1 single-precision floating-point value in xmm3/m32 to a single-precision floating-point value representing unbiased integer exponent. Stores the result to xmm1 under the writemask k1 and merge with the other elements of xmm2.",
+   "opcode": "EVEX.LLIG.66.0F38.W0 43 /r",
+   "operands": "A",
+   "syntax": "VGETEXPSS xmm1 {k1}{z}, xmm2, xmm3/m32{sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vgetexpss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VGETEXPSS"
+  ]
+ },
+ "mnemonics": [
+  "VGETEXPSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2438,
+    2439
+   ]
+  }
+ ],
+ "version": 1
+}

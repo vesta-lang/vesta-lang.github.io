@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "83"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Select unaligned bytes from qwords in AVX512_VBMI) xmm3/m128/m64bcst using control bytes in OR AVX10.1 xmm2, write byte results to xmm1 under k1.",
+   "opcode": "EVEX.128.66.0F38.W1 83 /r",
+   "operands": "A",
+   "syntax": "VPMULTISHIFTQB xmm1 {k1}{z}, xmm2,xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "83"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Select unaligned bytes from qwords in AVX512_VBMI) ymm3/m256/m64bcst using control bytes in OR AVX10.1 ymm2, write byte results to ymm1 under k1.",
+   "opcode": "EVEX.256.66.0F38.W1 83 /r",
+   "operands": "A",
+   "syntax": "VPMULTISHIFTQB ymm1 {k1}{z}, ymm2,ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512_VBMI",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "83"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Select unaligned bytes from qwords in OR AVX10.1 zmm3/m512/m64bcst using control bytes in zmm2, write byte results to zmm1 under k1.",
+   "opcode": "EVEX.512.66.0F38.W1 83 /r",
+   "operands": "A",
+   "syntax": "VPMULTISHIFTQB zmm1 {k1}{z}, zmm2,zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpmultishiftqb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPMULTISHIFTQB"
+  ]
+ },
+ "mnemonics": [
+  "VPMULTISHIFTQB"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2655,
+    2656
+   ]
+  }
+ ],
+ "version": 1
+}

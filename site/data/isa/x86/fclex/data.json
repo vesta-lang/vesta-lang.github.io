@@ -1,0 +1,94 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9B",
+     "DB",
+     "E2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Clear floating-point exception flags after checking for pending unmasked floating-point exceptions.",
+   "opcode": "9B DB E2",
+   "operands": "",
+   "syntax": "FCLEX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DB",
+     "E2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Clear floating-point exception flags without checking for pending unmasked floating-point exceptions.",
+   "opcode": "DB E2",
+   "operands": "",
+   "syntax": "FNCLEX1"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "fclex",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FNCLEX"
+  ]
+ },
+ "mnemonics": [
+  "FCLEX",
+  "FNCLEX"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1024,
+    1025
+   ]
+  }
+ ],
+ "version": 1
+}

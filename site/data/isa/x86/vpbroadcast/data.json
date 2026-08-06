@@ -1,0 +1,920 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a byte integer in the source operand to sixteen locations in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 78 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTB xmm1, xmm2/m8"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a byte integer in the source operand to thirty-two locations in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 78 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTB ymm1, xmm2/m8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a byte integer in the source AVX512BW) OR AVX10.1 operand to locations in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 78 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTB xmm1{k1}{z}, xmm2/m8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a byte integer in the source AVX512BW) OR AVX10.1 operand to locations in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 78 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTB ymm1{k1}{z}, xmm2/m8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a byte integer in the source OR AVX10.1 operand to 64 locations in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 78 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTB zmm1{k1}{z}, xmm2/m8"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "79"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a word integer in the source operand to eight locations in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 79 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTW xmm1, xmm2/m16"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "79"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a word integer in the source operand to sixteen locations in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 79 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTW ymm1, xmm2/m16"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "79"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a word integer in the source AVX512BW) OR AVX10.1 operand to locations in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 79 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTW xmm1{k1}{z}, xmm2/m16"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "79"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a word integer in the source AVX512BW) OR AVX10.1 operand to locations in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 79 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTW ymm1{k1}{z}, xmm2/m16"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "79"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a word integer in the source OR AVX10.1 operand to 32 locations in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 79 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTW zmm1{k1}{z}, xmm2/m16"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a dword integer in the source operand to four locations in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 58 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTD xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a dword integer in the source operand to eight locations in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 58 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTD ymm1, xmm2/m32"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a dword integer in the source AVX512F) OR AVX10.1 operand to locations in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 58 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTD xmm1 {k1}{z}, xmm2/m32"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a dword integer in the source AVX512F) OR AVX10.1 operand to locations in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 58 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTD ymm1 {k1}{z}, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a dword integer in the source OR AVX10.1 operand to locations in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 58 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTD zmm1 {k1}{z}, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a qword element in source operand to two locations in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 59 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTQ xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a qword element in source operand to four locations in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 59 /r",
+   "operands": "A",
+   "syntax": "VPBROADCASTQ ymm1, xmm2/m64"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a qword element in source AVX512F) OR AVX10.1 operand to locations in xmm1 subject to writemask k1. Op / 64/32 CPUID Feat ure       Description En bit M Suppo ode  Flag rt",
+   "opcode": "EVEX.128.66.0F38.W1 59 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTQ xmm1 {k1}{z}, xmm2/m64 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "AND       Broadcast a qword element in source AVX512F) O AVX10.1 R         operand to locations in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 59 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTQ ymm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast a qword element in source OR AVX10.1 operand to locations in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 59 /r",
+   "operands": "B",
+   "syntax": "VPBROADCASTQ zmm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "AND       Broadcast two dword elements in source AVX512DQ) OR        operand to locations in xmm1 subject to AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 59 /r",
+   "operands": "C",
+   "syntax": "VBROADCASTI32x2 xmm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "AND       Broadcast two dword elements in source AVX512DQ) OR        operand to locations in ymm1 subject to AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 59 /r",
+   "operands": "C",
+   "syntax": "VBROADCASTI32x2 ymm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "59"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast two dword elements in source OR AVX10.1 operand to locations in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 59 /r",
+   "operands": "C",
+   "syntax": "VBROADCASTI32x2 zmm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast 128 bits of integer data in mem to low and high 128-bits in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 5A /r",
+   "operands": "A",
+   "syntax": "VBROADCASTI128 ymm1, m128"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "AND       Broadcast 128 bits of 4 doubleword integer AVX512F) O AVX10.1 R         data in mem to locations in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 5A /r",
+   "operands": "D",
+   "syntax": "VBROADCASTI32X4 ymm1 {k1}{z}, m128"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast 128 bits of 4 doubleword integer OR AVX10.1 data in mem to locations in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 5A /r",
+   "operands": "D",
+   "syntax": "VBROADCASTI32X4 zmm1 {k1}{z}, m128"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "AND       Broadcast 128 bits of 2 quadword integer AVX512DQ) AVX10.1 OR        data in mem to locations in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 5A /r",
+   "operands": "C",
+   "syntax": "VBROADCASTI64X2 ymm1 {k1}{z}, m128"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast 128 bits of 2 quadword integer OR AVX10.1 data in mem to locations in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 5A /r",
+   "operands": "C",
+   "syntax": "VBROADCASTI64X2 zmm1 {k1}{z}, m128"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5B"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast 256 bits of 8 doubleword integer OR AVX10.1 data in mem to locations in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 5B /r",
+   "operands": "E",
+   "syntax": "VBROADCASTI32X8 zmm1 {k1}{z}, m256"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5B"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast 256 bits of 4 quadword integer OR AVX10.1 data in mem to locations in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 5B /r",
+   "operands": "D",
+   "syntax": "VBROADCASTI64X4 zmm1 {k1}{z}, m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpbroadcast",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPBROADCASTB",
+   "VPBROADCASTW",
+   "VPBROADCASTD",
+   "VPBROADCASTQ"
+  ]
+ },
+ "mnemonics": [
+  "VPBROADCAST"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple2"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple4"
+  },
+  {
+   "id": "E",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple8"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2493,
+    2501
+   ]
+  }
+ ],
+ "version": 1
+}

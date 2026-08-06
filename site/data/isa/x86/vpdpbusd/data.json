@@ -1,0 +1,204 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX_VNNI",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in xmm3/m128 with corresponding unsigned bytes of xmm2, summing those products and adding them to doubleword result in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBUSD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX_VNNI",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in ymm3/m256 with corresponding unsigned bytes of ymm2, summing those products and adding them to doubleword result in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBUSD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512_VNNI",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in AND AVX512VL) xmm3/m128/m32bcst with corresponding OR AVX10.1 unsigned bytes of xmm2, summing those products and adding them to doubleword result in xmm1 under writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 50 /r",
+   "operands": "B",
+   "syntax": "VPDPBUSD xmm1{k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_VNNI",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in AND AVX512VL) ymm3/m256/m32bcst with corresponding OR AVX10.1 unsigned bytes of ymm2, summing those products and adding them to doubleword result in ymm1 under writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 50 /r",
+   "operands": "B",
+   "syntax": "VPDPBUSD ymm1{k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512_VNNI",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in OR AVX10.1 zmm3/m512/m32bcst with corresponding unsigned bytes of zmm2, summing those products and adding them to doubleword result in zmm1 under writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 50 /r",
+   "operands": "B",
+   "syntax": "VPDPBUSD zmm1{k1}{z}, zmm2, zmm3/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpdpbusd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPDPBUSD"
+  ]
+ },
+ "mnemonics": [
+  "VPDPBUSD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2532,
+    2534
+   ]
+  }
+ ],
+ "version": 1
+}

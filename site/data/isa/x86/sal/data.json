@@ -1,0 +1,1232 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m8 by 2, once.",
+   "opcode": "D0 /4",
+   "operands": "M1",
+   "syntax": "SAL r/m8, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m8 by 2, CL times.",
+   "opcode": "D2 /4",
+   "operands": "MC",
+   "syntax": "SAL r/m8, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m8 by 2, imm8 times.",
+   "opcode": "C0 /4 ib",
+   "operands": "MI",
+   "syntax": "SAL r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m16 by 2, once.",
+   "opcode": "D1 /4",
+   "operands": "M1",
+   "syntax": "SAL r/m16, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m16 by 2, CL times.",
+   "opcode": "D3 /4",
+   "operands": "MC",
+   "syntax": "SAL r/m16, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m16 by 2, imm8 times.",
+   "opcode": "C1 /4 ib",
+   "operands": "MI",
+   "syntax": "SAL r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m3 by 2, once.",
+   "opcode": "D1 /4",
+   "operands": "M1",
+   "syntax": "SAL r/m3, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Multiply r/m64 by 2, once.",
+   "opcode": "REX.W + D1 /4",
+   "operands": "M1",
+   "syntax": "SAL r/m64, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m3 by 2, CL times.",
+   "opcode": "D3 /4",
+   "operands": "MC",
+   "syntax": "SAL r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Multiply r/m64 by 2, CL times.",
+   "opcode": "REX.W + D3 /4",
+   "operands": "MC",
+   "syntax": "SAL r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m3 by 2, imm8 times.",
+   "opcode": "C1 /4 ib",
+   "operands": "MI",
+   "syntax": "SAL r/m3, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Multiply r/m64 by 2, imm8 times.",
+   "opcode": "REX.W + C1 /4 ib",
+   "operands": "MI",
+   "syntax": "SAL r/m64, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m8 by 2, once.",
+   "opcode": "D0 /7",
+   "operands": "M1",
+   "syntax": "SAR r/m8, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m8 by 2, CL times.",
+   "opcode": "D2 /7",
+   "operands": "MC",
+   "syntax": "SAR r/m8, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m8 by 2, imm8 times.",
+   "opcode": "C0 /7 ib",
+   "operands": "MI",
+   "syntax": "SAR r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m16 by 2, once.",
+   "opcode": "D1 /7",
+   "operands": "M1",
+   "syntax": "SAR r/m16,1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m16 by 2, CL times.",
+   "opcode": "D3 /7",
+   "operands": "MC",
+   "syntax": "SAR r/m16, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m16 by 2, imm8 times.",
+   "opcode": "C1 /7 ib",
+   "operands": "MI",
+   "syntax": "SAR r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m3 by 2, once.",
+   "opcode": "D1 /7",
+   "operands": "M1",
+   "syntax": "SAR r/m3, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m64 by 2, once.",
+   "opcode": "REX.W + D1 /7",
+   "operands": "M1",
+   "syntax": "SAR r/m64, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m3 by 2, CL times.",
+   "opcode": "D3 /7",
+   "operands": "MC",
+   "syntax": "SAR r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m64 by 2, CL times.",
+   "opcode": "REX.W + D3 /7",
+   "operands": "MC",
+   "syntax": "SAR r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m3 by 2, imm8 times.",
+   "opcode": "C1 /7 ib",
+   "operands": "MI",
+   "syntax": "SAR r/m3, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Signed divide3 r/m64 by 2, imm8 times",
+   "opcode": "REX.W + C1 /7 ib",
+   "operands": "MI",
+   "syntax": "SAR r/m64, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m8 by 2, once.",
+   "opcode": "D0 /4",
+   "operands": "M1",
+   "syntax": "SHL r/m8, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m8 by 2, CL times.",
+   "opcode": "D2 /4",
+   "operands": "MC",
+   "syntax": "SHL r/m8, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m8 by 2, imm8 times.",
+   "opcode": "C0 /4 ib",
+   "operands": "MI",
+   "syntax": "SHL r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m16 by 2, once.",
+   "opcode": "D1 /4",
+   "operands": "M1",
+   "syntax": "SHL r/m16,1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m16 by 2, CL times.",
+   "opcode": "D3 /4",
+   "operands": "MC",
+   "syntax": "SHL r/m16, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m16 by 2, imm8 times.",
+   "opcode": "C1 /4 ib",
+   "operands": "MI",
+   "syntax": "SHL r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m3 by 2, once.",
+   "opcode": "D1 /4",
+   "operands": "M1",
+   "syntax": "SHL r/m32,1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Multiply r/m64 by 2, once.",
+   "opcode": "REX.W + D1 /4",
+   "operands": "M1",
+   "syntax": "SHL r/m64,1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m3 by 2, CL times.",
+   "opcode": "D3 /4",
+   "operands": "MC",
+   "syntax": "SHL r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Multiply r/m64 by 2, CL times.",
+   "opcode": "REX.W + D3 /4",
+   "operands": "MC",
+   "syntax": "SHL r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multiply r/m3 by 2, imm8 times.",
+   "opcode": "C1 /4 ib",
+   "operands": "MI",
+   "syntax": "SHL r/m3, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Multiply r/m64 by 2, imm8 times.",
+   "opcode": "REX.W + C1 /4 ib",
+   "operands": "MI",
+   "syntax": "SHL r/m64, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Unsigned divide r/m8 by 2, once.",
+   "opcode": "D0 /5",
+   "operands": "M1",
+   "syntax": "SHR r/m82,1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Unsigned divide r/m8 by 2, CL times.",
+   "opcode": "D2 /5",
+   "operands": "MC",
+   "syntax": "SHR r/m8, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Unsigned divide r/m8 by 2, imm8 times.",
+   "opcode": "C0 /5 ib",
+   "operands": "MI",
+   "syntax": "SHR r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Unsigned divide r/m16 by 2, once.",
+   "opcode": "D1 /5",
+   "operands": "M1",
+   "syntax": "SHR r/m16, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "mc"
+   },
+   "note": "Valid   Valid               Unsigned divide r/m16     by 2, CL times",
+   "opcode": "D3 /5",
+   "operands": "",
+   "syntax": "SHR r/m16, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "mi"
+   },
+   "note": "Valid   Valid               Unsigned divide r/m16     by 2, imm8 times.",
+   "opcode": "C1 /5 ib",
+   "operands": "",
+   "syntax": "SHR r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "m1"
+   },
+   "note": "Valid   Valid               Unsigned divide r/m3     by 2, once.",
+   "opcode": "D1 /5",
+   "operands": "",
+   "syntax": "SHR r/m3, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "m1"
+   },
+   "note": "Valid   N.E.                Unsigned divide r/m64     by 2, once.",
+   "opcode": "REX.W + D1 /5",
+   "operands": "",
+   "syntax": "SHR r/m64, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "mc"
+   },
+   "note": "Valid   Valid               Unsigned divide r/m3     by 2, CL times.",
+   "opcode": "D3 /5",
+   "operands": "",
+   "syntax": "SHR r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "mc"
+   },
+   "note": "Valid   N.E.                Unsigned divide r/m64     by 2, CL times.",
+   "opcode": "REX.W + D3 /5",
+   "operands": "",
+   "syntax": "SHR r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "mi"
+   },
+   "note": "Valid   Valid               Unsigned divide r/m3     by 2, imm8 times.",
+   "opcode": "C1 /5 ib",
+   "operands": "",
+   "syntax": "SHR r/m3, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "mi"
+   },
+   "note": "Valid   N.E.                Unsigned divide r/m64     by 2, imm8 times.",
+   "opcode": "REX.W + C1 /5 ib",
+   "operands": "",
+   "syntax": "SHR r/m64, imm8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the destination is located in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "sal",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SAR",
+   "SHL",
+   "SHLD",
+   "SHR",
+   "SHRD"
+  ]
+ },
+ "mnemonics": [
+  "SAL",
+  "SAR",
+  "SHL",
+  "SHR"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M1",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "1",
+     "raw": "1",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MC",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "CL",
+     "raw": "CL",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MI",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1892,
+    1896
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,47 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "opcode": [
+     "0F",
+     "AE",
+     "F0"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Serializes load and store operations.",
+   "opcode": "NP 0F AE F0",
+   "operands": "ZO",
+   "syntax": "MFENCE"
+  }
+ ],
+ "format": "isadoc",
+ "id": "mfence",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MFENCE"
+  ]
+ },
+ "mnemonics": [
+  "MFENCE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1304,
+    1304
+   ]
+  }
+ ],
+ "version": 1
+}

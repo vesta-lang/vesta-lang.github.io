@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "WBNOINVD",
+   "layout": {
+    "opcode": [
+     "0F",
+     "09"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Write back and do not flush internal caches; initiate writing-back without flushing of external caches.",
+   "opcode": "F3 0F 09",
+   "operands": "ZO",
+   "syntax": "WBNOINVD"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "WBNOINVD cannot be executed at the virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "wbnoinvd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "WBNOINVD"
+  ]
+ },
+ "mnemonics": [
+  "WBNOINVD"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2832,
+    2833
+   ]
+  }
+ ],
+ "version": 1
+}

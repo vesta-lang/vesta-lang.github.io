@@ -1,0 +1,113 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AES",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "DF"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Assist in AES round key generation using an 8 bits Round Constant (RCON) specified in the immediate byte, operating on 128 bits of data specified in xmm2/m128 and stores the result in xmm1.",
+   "opcode": "66 0F 3A DF /r ib",
+   "operands": "RMI",
+   "syntax": "AESKEYGENASSIST xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "Both AES",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DF"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Assist in AES round key generation using 8 and AVX flags bits Round Constant (RCON) specified in the immediate byte, operating on 128 bits of data specified in xmm2/m128 and stores the result in xmm1.",
+   "opcode": "VEX.128.66.0F3A.WIG DF /r ib",
+   "operands": "RMI",
+   "syntax": "VAESKEYGENASSIST xmm1, xmm2/m128, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "aeskeygenassist",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "AESKEYGENASSIST",
+   "VAESKEYGENASSIST"
+  ]
+ },
+ "mnemonics": [
+  "AESKEYGENASSIST"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    762,
+    763
+   ]
+  }
+ ],
+ "version": 1
+}

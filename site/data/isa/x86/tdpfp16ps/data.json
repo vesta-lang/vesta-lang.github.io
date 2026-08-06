@@ -1,0 +1,77 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AMX_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "5C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Matrix multiply FP16 elements from tmm2 and tmm3, and accumulate the packed single precision elements in tmm1.",
+   "opcode": "VEX.128.F2.0F38.W0 5C 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "TDPFP16PS tmm1, tmm2, tmm3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "tdpfp16ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "TDPFP16PS"
+  ]
+ },
+ "mnemonics": [
+  "TDPFP16PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2007,
+    2008
+   ]
+  }
+ ],
+ "version": 1
+}

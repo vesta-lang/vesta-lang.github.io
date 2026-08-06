@@ -1,0 +1,161 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of packed single precision floating-point sources.",
+   "opcode": "VEX.128.66.0F38.W0 0E /r",
+   "operands": "RM",
+   "syntax": "VTESTPS xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of packed single precision floating-point sources.",
+   "opcode": "VEX.256.66.0F38.W0 0E /r",
+   "operands": "RM",
+   "syntax": "VTESTPS ymm1, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of packed double precision floating-point sources.",
+   "opcode": "VEX.128.66.0F38.W0 0F /r",
+   "operands": "RM",
+   "syntax": "VTESTPD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of packed double precision floating-point sources.",
+   "opcode": "VEX.256.66.0F38.W0 0F /r",
+   "operands": "RM",
+   "syntax": "VTESTPD ymm1, ymm2/m256"
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "vtestpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VTESTPD",
+   "VTESTPS"
+  ]
+ },
+ "mnemonics": [
+  "VTESTPD",
+  "VTESTPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2822,
+    2824
+   ]
+  }
+ ],
+ "version": 1
+}

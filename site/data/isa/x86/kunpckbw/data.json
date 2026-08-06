@@ -1,0 +1,134 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4B"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L1.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack 8-bit masks in k2 and k3 and write word result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.66.0F.W0 4B /r",
+   "operands": "RVR",
+   "syntax": "KUNPCKBW k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4B"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack 16-bit masks in k2 and k3 and write doubleword result OR AVX10.1 in k1.",
+   "opcode": "VEX.L1.0F.W0 4B /r",
+   "operands": "RVR",
+   "syntax": "KUNPCKWD k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4B"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack 32-bit masks in k2 and k3 and write quadword result in OR AVX10.1 k1.",
+   "opcode": "VEX.L1.0F.W1 4B /r",
+   "operands": "RVR",
+   "syntax": "KUNPCKDQ k1, k2, k3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "kunpckbw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KUNPCKBW",
+   "KUNPCKWD",
+   "KUNPCKDQ"
+  ]
+ },
+ "mnemonics": [
+  "KUNPCKBW",
+  "KUNPCKWD",
+  "KUNPCKDQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVR",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1233,
+    1233
+   ]
+  }
+ ],
+ "version": 1
+}

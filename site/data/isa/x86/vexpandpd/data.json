@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "88"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Expand packed double precision floating-point AVX512F) OR values from xmm2/m128 to xmm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 88 /r",
+   "operands": "A",
+   "syntax": "VEXPANDPD xmm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "88"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Expand packed double precision floating-point AVX512F) OR AVX10.1 values from ymm2/m256 to ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 88 /r",
+   "operands": "A",
+   "syntax": "VEXPANDPD ymm1 {k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "88"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Expand packed double precision floating-point OR AVX10.1 values from zmm2/m512 to zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 88 /r",
+   "operands": "A",
+   "syntax": "VEXPANDPD zmm1 {k1}{z}, zmm2/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vexpandpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VEXPANDPD"
+  ]
+ },
+ "mnemonics": [
+  "VEXPANDPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2215,
+    2216
+   ]
+  }
+ ],
+ "version": 1
+}

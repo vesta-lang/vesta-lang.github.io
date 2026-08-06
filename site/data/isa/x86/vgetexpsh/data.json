@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "43"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert the exponent of FP16 values in the low OR AVX10.1 word of the source operand to FP16 results representing unbiased integer exponents, and stores the results in the low word of the destination register subject to writemask k1. Bits 127:16 of xmm2 are copied to xmm1[127:16].",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 43 /r",
+   "operands": "A",
+   "syntax": "VGETEXPSH xmm1{k1}{z}, xmm2, xmm3/m16 {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vgetexpsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VGETEXPSH"
+  ]
+ },
+ "mnemonics": [
+  "VGETEXPSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2436,
+    2437
+   ]
+  }
+ ],
+ "version": 1
+}

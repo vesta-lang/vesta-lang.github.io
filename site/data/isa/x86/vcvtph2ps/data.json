@@ -1,0 +1,293 @@
+{
+ "encodings": [
+  {
+   "cpuid": "F16C",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed FP16 values in xmm2/m64 to packed single precision floating-point value in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 13 /r",
+   "operands": "A",
+   "syntax": "VCVTPH2PS xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "F16C",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed FP16 values in xmm2/m128 to packed single precision floating-point value in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 13 /r",
+   "operands": "A",
+   "syntax": "VCVTPH2PS ymm1, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed FP16 values in xmm2/m64 to AVX512F) OR packed single precision floating-point values in xmm1 AVX10.1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 13 /r",
+   "operands": "B",
+   "syntax": "VCVTPH2PS xmm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed FP16 values in xmm2/m128 to AVX512F) OR packed single precision floating-point values in ymm1 AVX10.1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 13 /r",
+   "operands": "B",
+   "syntax": "VCVTPH2PS ymm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert sixteen packed FP16 values in ymm2/m256 OR AVX10.1 to packed single precision floating-point values in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 13 /r",
+   "operands": "B",
+   "syntax": "VCVTPH2PS zmm1 {k1}{z}, ymm2/m256 {sae}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed FP16 values in AND AVX512VL) xmm2/m64/m16bcst to four packed single precision OR AVX10.1 floating-point values, and store result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 13 /r",
+   "operands": "C",
+   "syntax": "VCVTPH2PSX xmm1{k1}{z}, xmm2/m64/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed FP16 values in AND AVX512VL) xmm2/m128/m16bcst to eight packed single OR AVX10.1 precision floating-point values, and store result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 13 /r",
+   "operands": "C",
+   "syntax": "VCVTPH2PSX ymm1{k1}{z}, xmm2/m128/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert sixteen packed FP16 values in OR AVX10.1 ymm2/m256/m16bcst to sixteen packed single precision floating-point values, and store result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 13 /r",
+   "operands": "C",
+   "syntax": "VCVTPH2PSX zmm1{k1}{z}, ymm2/m256/m16bcst {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtph2ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTPH2PS",
+   "VCVTPH2PSX"
+  ]
+ },
+ "mnemonics": [
+  "VCVTPH2PS",
+  "VCVTPH2PSX"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Half Mem"
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Half"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2105,
+    2108
+   ]
+  }
+ ],
+ "version": 1
+}

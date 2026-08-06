@@ -1,0 +1,159 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "90"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using dword indices specified in vm32x, gather qword val- ues from memory conditioned on mask specified by xmm2. Conditionally gathered elements are merged into xmm1.",
+   "opcode": "VEX.128.66.0F38.W1 90 /r",
+   "operands": "A",
+   "syntax": "VPGATHERDQ xmm1, vm32x, xmm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using qword indices specified in vm64x, gather qword val- ues from memory conditioned on mask specified by xmm2. Conditionally gathered elements are merged into xmm1.",
+   "opcode": "VEX.128.66.0F38.W1 91 /r",
+   "operands": "A",
+   "syntax": "VPGATHERQQ xmm1, vm64x, xmm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "90"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using dword indices specified in vm32x, gather qword val- ues from memory conditioned on mask specified by ymm2. Conditionally gathered elements are merged into ymm1.",
+   "opcode": "VEX.256.66.0F38.W1 90 /r",
+   "operands": "A",
+   "syntax": "VPGATHERDQ ymm1, vm32x, ymm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using qword indices specified in vm64y, gather qword val- ues from memory conditioned on mask specified by ymm2. Conditionally gathered elements are merged into ymm1.",
+   "opcode": "VEX.256.66.0F38.W1 91 /r",
+   "operands": "A",
+   "syntax": "VPGATHERQQ ymm1, vm64y, ymm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpgatherdq",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPGATHERDQ",
+   "VPGATHERQQ"
+  ]
+ },
+ "mnemonics": [
+  "VPGATHERDQ",
+  "VPGATHERQQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "BaseReg (R): VSIB:base,",
+     "raw": "BaseReg (R): VSIB:base,",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2606,
+    2609
+   ]
+  }
+ ],
+ "version": 1
+}

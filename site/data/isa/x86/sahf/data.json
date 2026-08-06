@@ -1,0 +1,76 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid*"
+   },
+   "note": "Loads SF, ZF, AF, PF, and CF from AH into the EFLAGS register.",
+   "opcode": "9E",
+   "operands": "ZO",
+   "syntax": "SAHF"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": null,
+   "when": "None."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "None."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "None."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "None."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.80000001H:ECX.LAHF_SAHF_64[0] = 0. If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF"
+ ],
+ "format": "isadoc",
+ "id": "sahf",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SAHF"
+  ]
+ },
+ "mnemonics": [
+  "SAHF"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1890,
+    1891
+   ]
+  }
+ ],
+ "version": 1
+}

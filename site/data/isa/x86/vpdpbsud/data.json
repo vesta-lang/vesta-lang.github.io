@@ -1,0 +1,376 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in xmm3/m128 with corresponding signed bytes of xmm2, summing those products and adding them to the doubleword result in xmm1.",
+   "opcode": "VEX.128.F2.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBSSD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in ymm3/m256 with corresponding signed bytes of ymm2, summing those products and adding them to the doubleword result in ymm1.",
+   "opcode": "VEX.256.F2.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBSSD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in xmm3/m128 with corresponding signed bytes of xmm2, summing those products and adding them to the doubleword result, with signed saturation in xmm1.",
+   "opcode": "VEX.128.F2.0F38.W0 51 /r",
+   "operands": "A",
+   "syntax": "VPDPBSSDS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of signed bytes in ymm3/m256 with corresponding signed bytes of ymm2, summing those products and adding them to the doubleword result, with signed saturation in ymm1.",
+   "opcode": "VEX.256.F2.0F38.W0 51 /r",
+   "operands": "A",
+   "syntax": "VPDPBSSDS ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.128.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in xmm3/m128 with corresponding signed bytes of xmm2, summing those products and adding them to doubleword result in xmm1.",
+   "opcode": "VEX.128.F3.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBSUD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.256.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in ymm3/m256 with corresponding signed bytes of ymm2, summing those products and adding them to doubleword result in ymm1.",
+   "opcode": "VEX.256.F3.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBSUD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.128.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in xmm3/m128 with corresponding signed bytes of xmm2, summing those products and adding them to doubleword result, with signed saturation in xmm1.",
+   "opcode": "VEX.128.F3.0F38.W0 51 /r",
+   "operands": "A",
+   "syntax": "VPDPBSUDS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.256.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in ymm3/m256 with corresponding signed bytes of ymm2, summing those products and adding them to doubleword result, with signed saturation in ymm1.",
+   "opcode": "VEX.256.F3.0F38.W0 51 /r",
+   "operands": "A",
+   "syntax": "VPDPBSUDS ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "text": "VEX.128.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in xmm3/m128 with corresponding unsigned bytes of xmm2, summing those products and adding them to doubleword result in xmm1.",
+   "opcode": "VEX.128.NP.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBUUD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "text": "VEX.256.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in ymm3/m256 with corresponding unsigned bytes of ymm2, summing those products and adding them to doubleword result in ymm1. Op /     64/32        CPUID Feature Description En bit Mode     Flag Support",
+   "opcode": "VEX.256.NP.0F38.W0 50 /r",
+   "operands": "A",
+   "syntax": "VPDPBUUD ymm1, ymm2, ymm3/m256 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "V/V          AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "text": "VEX.128.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "long": "a"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in xmm3/m128 with corresponding unsigned bytes of xmm2, summing those products and adding them to the doubleword result, with unsigned saturation in xmm1.",
+   "opcode": "VEX.128.NP.0F38.W0 51 /r",
+   "operands": "",
+   "syntax": "VPDPBUUDS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "V/V          AVX_VNNI_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "text": "VEX.256.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "long": "a"
+   },
+   "note": "Multiply groups of 4 pairs of unsigned bytes in ymm3/m256 with corresponding unsigned bytes of ymm2, summing those products and adding them to the doubleword result, with unsigned saturation in ymm1.",
+   "opcode": "VEX.256.NP.0F38.W0 51 /r",
+   "operands": "",
+   "syntax": "VPDPBUUDS ymm1, ymm2, ymm3/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpdpbsud",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPDPBSUD",
+   "VPDPBSUDS",
+   "VPDPBUUD",
+   "VPDPBUUDS",
+   "VPDPBSSD",
+   "VPDPBSSDS"
+  ]
+ },
+ "mnemonics": [
+  "VPDPBSUD",
+  "VPDPBSUDS",
+  "VPDPBUUD",
+  "VPDPBUUDS",
+  "VPDPBSSD",
+  "VPDPBSSDS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2529,
+    2531
+   ]
+  }
+ ],
+ "version": 1
+}

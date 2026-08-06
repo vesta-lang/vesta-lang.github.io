@@ -1,0 +1,89 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "map": "0F 3A",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare low FP16 values in xmm3/m16 and OR AVX10.1 xmm2 using bits 4:0 of imm8 as a comparison predicate subject to writemask k2, and store the result in mask register k1.",
+   "opcode": "EVEX.LLIG.F3.0F3A.W0 C2 /r /ib",
+   "operands": "A",
+   "syntax": "VCMPSH k1{k2}, xmm2, xmm3/m16 {sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcmpsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCMPSH"
+  ]
+ },
+ "mnemonics": [
+  "VCMPSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2073,
+    2074
+   ]
+  }
+ ],
+ "version": 1
+}

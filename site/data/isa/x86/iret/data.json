@@ -1,0 +1,166 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "CF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Interrupt return (16-bit operand size).",
+   "opcode": "CF",
+   "operands": "ZO",
+   "syntax": "IRET"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "CF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Interrupt return (32-bit operand size).",
+   "opcode": "CF",
+   "operands": "ZO",
+   "syntax": "IRETD"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "CF"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Interrupt return (64-bit operand size).",
+   "opcode": "REX.W + CF",
+   "operands": "ZO",
+   "syntax": "IRETQ"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the return code or stack segment selector is NULL. If the return instruction pointer is not within the return code segment limit."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(selector)",
+   "when": "If a segment selector index is outside its descriptor table limits. If the return code segment selector RPL is less than the CPL. If the DPL of a conforming-code segment is greater than the return code segment selector RPL. If the DPL for a nonconforming-code segment is not equal to the RPL of the code segment selector. If the stack segment descriptor DPL is not equal to the RPL of the return code segment selector. If the stack segment is not a writable data segment. If the stack segment selector RPL is not equal to the RPL of the return code segment selector. If the segment descriptor for a code segment does not indicate it is a code segment. If the segment selector for a TSS has its local/global bit set for local. If a TSS segment descriptor specifies that the TSS is not busy. If a TSS segment descriptor specifies that the TSS is not available."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the top bytes of stack are not within stack limits. If the return stack segment is not present. #NP (selector) If the return code segment is not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference occurs when the CPL is 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. #CP (Far-RET/IRET) If the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is not 4 byte aligned. If returning to 32-bit or compatibility mode and the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is beyond 4GB. If return instruction pointer from stack and shadow stack do not match."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If the return instruction pointer is not within the return code segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If the top bytes of stack are not within stack limits."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the return instruction pointer is not within the return code segment limit. IF IOPL not equal to 3. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If the top bytes of stack are not within stack limits."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference occurs and alignment checking is enabled."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP(0)",
+   "when": "If EFLAGS.NT[bit 14] = 1. Other exceptions same as in Protected Mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If EFLAGS.NT[bit 14] = 1. If the return code segment selector is NULL. If the stack segment selector is NULL going back to compatibility mode. If the stack segment selector is NULL going back to CPL3 64-bit mode. If a NULL stack segment selector RPL is not equal to CPL going back to non-CPL3 64-bit mode. If the return instruction pointer is not within the return code segment limit. If the return instruction pointer is non-canonical."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(Selector)",
+   "when": "If a segment selector index is outside its descriptor table limits. If a segment descriptor memory address is non-canonical. If the segment descriptor for a code segment does not indicate it is a code segment. If the proposed new code segment descriptor has both the D-bit and L-bit set. If the DPL for a nonconforming-code segment is not equal to the RPL of the code segment selector. If CPL is greater than the RPL of the code segment selector. If FRED transitions are enabled and CPL is less than the RPL of the code segment selector. If FRED transitions are enabled and CPL = 0 and IRET would enter compatibility mode. If the DPL of a conforming-code segment is greater than the return code segment selector RPL. If the stack segment is not a writable data segment. If the stack segment descriptor DPL is not equal to the RPL of the return code segment selector. If the stack segment selector RPL is not equal to the RPL of the return code segment selector."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If an attempt to pop a value off the stack violates the SS limit. If an attempt to pop a value off the stack causes a non-canonical address to be referenced. If the return stack segment is not present. #NP (selector) If the return code segment is not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference occurs when the CPL is 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. #CP (Far-RET/IRET) If the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is not 4 byte aligned. If returning to 32-bit or compatibility mode and the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is beyond 4GB. If return instruction pointer from stack and shadow stack do not match."
+  }
+ ],
+ "format": "isadoc",
+ "id": "iret",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "IRET",
+   "IRETD",
+   "IRETQ"
+  ]
+ },
+ "mnemonics": [
+  "IRET",
+  "IRETD",
+  "IRETQ"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1194,
+    1202
+   ]
+  }
+ ],
+ "version": 1
+}

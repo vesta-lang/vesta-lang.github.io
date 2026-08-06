@@ -1,0 +1,81 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "F9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Read 64-bit time-stamp counter and IA32_TSC_AUX value into EDX:EAX and ECX.",
+   "opcode": "0F 01 F9",
+   "operands": "ZO",
+   "syntax": "RDTSCP"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the TSD flag in register CR4 is set and the CPL is greater than 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.80000001H:EDX.RDTSCP[27] = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.80000001H:EDX.RDTSCP[27] = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the TSD flag in register CR4 is set."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.80000001H:EDX.RDTSCP[27] = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rdtscp",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDTSCP"
+  ]
+ },
+ "mnemonics": [
+  "RDTSCP"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1848,
+    1849
+   ]
+  }
+ ],
+ "version": 1
+}

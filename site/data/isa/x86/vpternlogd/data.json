@@ -1,0 +1,254 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise ternary logic taking xmm1, xmm2, and AVX512F) OR xmm3/m128/m32bcst as source operands and AVX10.1 writing the result to xmm1 under writemask k1 with dword granularity. The immediate value determines the specific binary function being implemented.",
+   "opcode": "EVEX.128.66.0F3A.W0 25 /r ib",
+   "operands": "A",
+   "syntax": "VPTERNLOGD xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise ternary logic taking ymm1, ymm2, and AVX512F) OR ymm3/m256/m32bcst as source operands and AVX10.1 writing the result to ymm1 under writemask k1 with dword granularity. The immediate value determines the specific binary function being implemented.",
+   "opcode": "EVEX.256.66.0F3A.W0 25 /r ib",
+   "operands": "A",
+   "syntax": "VPTERNLOGD ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise ternary logic taking zmm1, zmm2, and OR AVX10.1 zmm3/m512/m32bcst as source operands and writing the result to zmm1 under writemask k1 with dword granularity. The immediate value determines the specific binary function being implemented.",
+   "opcode": "EVEX.512.66.0F3A.W0 25 /r ib",
+   "operands": "A",
+   "syntax": "VPTERNLOGD zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise ternary logic taking xmm1, xmm2, and AVX512F) OR xmm3/m128/m64bcst as source operands and AVX10.1 writing the result to xmm1 under writemask k1 with qword granularity. The immediate value determines the specific binary function being implemented.",
+   "opcode": "EVEX.128.66.0F3A.W1 25 /r ib",
+   "operands": "A",
+   "syntax": "VPTERNLOGQ xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise ternary logic taking ymm1, ymm2, and AVX512F) OR ymm3/m256/m64bcst as source operands and AVX10.1 writing the result to ymm1 under writemask k1 with qword granularity. The immediate value determines the specific binary function being implemented.",
+   "opcode": "EVEX.256.66.0F3A.W1 25 /r ib",
+   "operands": "A",
+   "syntax": "VPTERNLOGQ ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise ternary logic taking zmm1, zmm2, and OR AVX10.1 zmm3/m512/m64bcst as source operands and writing the result to zmm1 under writemask k1 with qword granularity. The immediate value determines the specific binary function being implemented.",
+   "opcode": "EVEX.512.66.0F3A.W1 25 /r ib",
+   "operands": "A",
+   "syntax": "VPTERNLOGQ zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpternlogd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPTERNLOGD",
+   "VPTERNLOGQ"
+  ]
+ },
+ "mnemonics": [
+  "VPTERNLOGD",
+  "VPTERNLOGQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2702,
+    2704
+   ]
+  }
+ ],
+ "version": 1
+}

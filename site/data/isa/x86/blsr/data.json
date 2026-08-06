@@ -1,0 +1,107 @@
+{
+ "encodings": [
+  {
+   "cpuid": "BMI1",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "prefixes": [
+     "F3"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Reset lowest set bit of r/m32, keep all other bits of r/m32 and write result to r32.",
+   "opcode": "VEX.LZ.0F38.W0 F3 /1",
+   "operands": "VM",
+   "syntax": "BLSR r32, r/m32"
+  },
+  {
+   "cpuid": "BMI1",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "prefixes": [
+     "F3"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Reset lowest set bit of r/m64, keep all other bits of r/m64 and write result to r64.",
+   "opcode": "VEX.LZ.0F38.W1 F3 /1",
+   "operands": "VM",
+   "syntax": "BLSR r64, r/m64"
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "blsr",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "BLSR"
+  ]
+ },
+ "mnemonics": [
+  "BLSR"
+ ],
+ "operand_encodings": [
+  {
+   "id": "VM",
+   "operands": [
+    {
+     "field": "vex.vvvv",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    793,
+    793
+   ]
+  }
+ ],
+ "version": 1
+}

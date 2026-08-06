@@ -1,0 +1,159 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "92"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using dword indices specified in vm32x, gather single precision floating-point values from memory conditioned on mask specified by xmm2. Conditionally gathered ele- ments are merged into xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 92 /r",
+   "operands": "A",
+   "syntax": "VGATHERDPS xmm1, vm32x, xmm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "93"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using qword indices specified in vm64x, gather single precision floating-point values from memory conditioned on mask specified by xmm2. Conditionally gathered ele- ments are merged into xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 93 /r",
+   "operands": "A",
+   "syntax": "VGATHERQPS xmm1, vm64x, xmm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "92"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using dword indices specified in vm32y, gather single precision floating-point values from memory conditioned on mask specified by ymm2. Conditionally gathered ele- ments are merged into ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 92 /r",
+   "operands": "A",
+   "syntax": "VGATHERDPS ymm1, vm32y, ymm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "93"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using qword indices specified in vm64y, gather single precision floating-point values from memory conditioned on mask specified by xmm2. Conditionally gathered ele- ments are merged into xmm1.",
+   "opcode": "VEX.256.66.0F38.W0 93 /r",
+   "operands": "A",
+   "syntax": "VGATHERQPS xmm1, vm64y, xmm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vgatherdps-gather-packed-single-precision-floating-point-values-using",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VGATHERDPS",
+   "VGATHERQPS"
+  ]
+ },
+ "mnemonics": [
+  "VGATHERDPS",
+  "VGATHERQPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "BaseReg (R): VSIB:base,",
+     "raw": "BaseReg (R): VSIB:base,",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2416,
+    2419
+   ]
+  }
+ ],
+ "version": 1
+}

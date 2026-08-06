@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "42"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert the exponent of packed double precision floating- AND AVX512F) point values in the source operand to double precision OR AVX10.1 floating-point results representing unbiased integer exponents and stores the results in the destination register.",
+   "opcode": "EVEX.128.66.0F38.W1 42 /r",
+   "operands": "A",
+   "syntax": "VGETEXPPD xmm1 {k1}{z}, xmm2/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "42"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert the exponent of packed double precision floating- AND AVX512F) point values in the source operand to double precision OR AVX10.1 floating-point results representing unbiased integer exponents and stores the results in the destination register.",
+   "opcode": "EVEX.256.66.0F38.W1 42 /r",
+   "operands": "A",
+   "syntax": "VGETEXPPD ymm1 {k1}{z}, ymm2/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "42"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert the exponent of packed double precision floating- OR AVX10.1 point values in the source operand to double precision floating-point results representing unbiased integer exponents and stores the results in the destination under writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 42 /r",
+   "operands": "A",
+   "syntax": "VGETEXPPD zmm1 {k1}{z}, zmm2/m512/m64bcst{sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vgetexppd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VGETEXPPD"
+  ]
+ },
+ "mnemonics": [
+  "VGETEXPPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2423,
+    2426
+   ]
+  }
+ ],
+ "version": 1
+}

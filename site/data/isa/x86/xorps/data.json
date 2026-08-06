@@ -1,0 +1,240 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "57"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the bitwise logical XOR   of packed single precision floating-point values  in xmm1 and xmm2/mem.",
+   "opcode": "NP 0F 57 /r",
+   "operands": "A",
+   "syntax": "XORPS xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "VEX.128.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the bitwise logical XOR   of packed single precision floating-point values  in xmm2 and xmm3/mem.",
+   "opcode": "VEX.128.0F.WIG 57 /r",
+   "operands": "B",
+   "syntax": "VXORPS xmm1,xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "VEX.256.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the bitwise logical XOR   of packed single precision floating-point values  in ymm2 and ymm3/mem.",
+   "opcode": "VEX.256.0F.WIG 57 /r",
+   "operands": "B",
+   "syntax": "VXORPS ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "EVEX.128.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the bitwise logical XOR   of packed single- AVX512DQ) OR precision floating-point values  in xmm2 and AVX10.1 xmm3/m128/m32bcst subject        to writemask k1.",
+   "opcode": "EVEX.128.0F.W0 57 /r",
+   "operands": "C",
+   "syntax": "VXORPS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "EVEX.256.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the bitwise logical XOR   of packed single- AVX512DQ) OR precision floating-point values  in ymm2 and AVX10.1 ymm3/m256/m32bcst subject        to writemask k1.",
+   "opcode": "EVEX.256.0F.W0 57 /r",
+   "operands": "C",
+   "syntax": "VXORPS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "text": "EVEX.512.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the bitwise logical XOR   of packed single- OR AVX10.1 precision floating-point values  in zmm2 and zmm3/m512/m32bcst subject        to writemask k1.",
+   "opcode": "EVEX.512.0F.W0 57 /r",
+   "operands": "C",
+   "syntax": "VXORPS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "xorps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XORPS",
+   "VXORPS"
+  ]
+ },
+ "mnemonics": [
+  "XORPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2872,
+    2874
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,119 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MOVDIR64B",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F8"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 64-bytes as direct-store with guaranteed 64- byte write atomicity from the source memory operand address to destination memory address specified as offset to ES segment in the register operand. Instruction Operand Enc oding1 Ope rand 2 Operand 3  Operand 4 Mod RM:r/m (r) N/A   N/A",
+   "opcode": "66 0F 38 F8 /r",
+   "operands": "A",
+   "syntax": "MOVDIR64B r16/r32/r64, m512 Op/En       Tuple        Operand 1 A           N/A    ModRM:reg (w)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "For an illegal memory operand effective address in the CS, DS, ES, FS or GS segments. If address in destination (register) operand is not aligned to a 64-byte boundary."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.MOVDIR64B[28] = 0. If LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If any part of the operand lies outside the effective address space from 0 to FFFFH. If address in destination (register) operand is not aligned to a 64-byte boundary."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.MOVDIR64B[28] = 0. If LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real address mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If memory address referencing the SS segment is in non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in non-canonical form. If address in destination (register) operand is not aligned to a 64-byte boundary. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.MOVDIR64B[28] = 0. If LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "movdir64b",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVDIR64B"
+  ]
+ },
+ "mnemonics": [
+  "MOVDIR64B"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1340,
+    1341
+   ]
+  }
+ ],
+ "version": 1
+}

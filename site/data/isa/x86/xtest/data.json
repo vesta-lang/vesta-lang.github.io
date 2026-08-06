@@ -1,0 +1,55 @@
+{
+ "encodings": [
+  {
+   "cpuid": "HLE or",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "D6"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Test if executing in a transactional region. RTM",
+   "opcode": "NP 0F 01 D6",
+   "operands": "ZO",
+   "syntax": "XTEST"
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "xtest",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XTEST"
+  ]
+ },
+ "mnemonics": [
+  "XTEST"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2900,
+    2906
+   ]
+  }
+ ],
+ "version": 1
+}

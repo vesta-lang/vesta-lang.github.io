@@ -1,0 +1,80 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "AA"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Resume operation of interrupted program.",
+   "opcode": "0F AA",
+   "operands": "ZO",
+   "syntax": "RSM"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If an attempt is made to execute this instruction when the processor is not in SMM. If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If CPL > 0 and IA32_CORE_CAPABILITIES.RSM_IN_CPL0_ONLY[bit 3] = 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If an attempt is made to execute this instruction when the processor is not in SMM. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If an attempt is made to execute this instruction when the processor is not in SMM. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If IA32_CORE_CAPABILITIES.RSM_IN_CPL0_ONLY[bit 3] = 1."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rsm",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RSM"
+  ]
+ },
+ "mnemonics": [
+  "RSM"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1881,
+    1882
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,118 @@
+{
+ "encodings": [
+  {
+   "cpuid": "CET_SS",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "0F",
+     "1E"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Copy low 32 bits of shadow stack pointer (SSP) to r32.",
+   "opcode": "F3 0F 1E /1 (mod=11)",
+   "operands": "R",
+   "syntax": "RDSSPD r32"
+  },
+  {
+   "cpuid": "CET_SS",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "0F",
+     "1E"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Copies shadow stack pointer (SSP) to r64.",
+   "opcode": "F3 REX.W 0F 1E /1 (mod=11)",
+   "operands": "R",
+   "syntax": "RDSSPQ r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rdsspd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDSSPD",
+   "RDSSPQ"
+  ]
+ },
+ "mnemonics": [
+  "RDSSPD",
+  "RDSSPQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "R",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1847,
+    1847
+   ]
+  }
+ ],
+ "version": 1
+}

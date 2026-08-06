@@ -1,0 +1,139 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "0A"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Round the low packed single precision floating- point value in xmm2/m32 and place the result in xmm1. The rounding mode is determined by imm8.",
+   "opcode": "66 0F 3A 0A /r ib",
+   "operands": "RMI",
+   "syntax": "ROUNDSS xmm1, xmm2/m32, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0A"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.LIG.66.0F3A.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Round the low packed single precision floating- point value in xmm3/m32 and place the result in xmm1. The rounding mode is determined by imm8. Also, upper packed single precision floating-point values (bits[127:32]) from xmm2 are copied to xmm1[127:32].",
+   "opcode": "VEX.LIG.66.0F3A.WIG 0A /r ib",
+   "operands": "RVMI",
+   "syntax": "VROUNDSS xmm1, xmm2, xmm3/m32, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "roundss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ROUNDSS",
+   "VROUNDSS"
+  ]
+ },
+ "mnemonics": [
+  "ROUNDSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1879,
+    1880
+   ]
+  }
+ ],
+ "version": 1
+}

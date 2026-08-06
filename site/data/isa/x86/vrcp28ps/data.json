@@ -1,0 +1,71 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512ER",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "CA"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocals ( < 2^-28 relative error) of the packed single precision floating-point values in zmm2/m512/m32bcst and stores the results in zmm1. Under writemask.",
+   "opcode": "EVEX.512.66.0F38.W0 CA /r",
+   "operands": "A",
+   "syntax": "VRCP28PS zmm1 {k1}{z}, zmm2/m512/m32bcst {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrcp28ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRCP28PS"
+  ]
+ },
+ "mnemonics": [
+  "VRCP28PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2967,
+    2968
+   ]
+  }
+ ],
+ "version": 1
+}

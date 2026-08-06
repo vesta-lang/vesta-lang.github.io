@@ -1,0 +1,178 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "opcode": [
+     "C8",
+     "00"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Create a stack frame for a procedure.",
+   "opcode": "C8 iw 00",
+   "operands": "II",
+   "syntax": "ENTER imm16, 0"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "opcode": [
+     "C8",
+     "01"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Create a stack frame with a nested pointer for a procedure.",
+   "opcode": "C8 iw 01",
+   "operands": "II",
+   "syntax": "ENTER imm16,1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     },
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "C8"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Create a stack frame with nested pointers for a procedure.",
+   "opcode": "C8 iw ib",
+   "operands": "II",
+   "syntax": "ENTER imm16, imm8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the new value of the SP or ESP register is outside the stack segment limit."
+  },
+  {
+   "mode": "protected",
+   "vector": "#PF(fault-code)",
+   "when": "If a page fault occurs or if a write using the final value of the stack pointer (within the current stack segment) would cause a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If the new value of the SP or ESP register is outside the stack segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If the new value of the SP or ESP register is outside the stack segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#PF(fault-code)",
+   "when": "If a page fault occurs or if a write using the final value of the stack pointer (within the current stack segment) would cause a page fault."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#PF(fault-code)",
+   "when": "If a page fault occurs or if a write using the final value of the stack pointer (within the current stack segment) would cause a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "enter",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ENTER"
+  ]
+ },
+ "mnemonics": [
+  "ENTER"
+ ],
+ "operand_encodings": [
+  {
+   "id": "II",
+   "operands": [
+    {
+     "field": "iw",
+     "raw": "iw",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    999,
+    1001
+   ]
+  }
+ ],
+ "version": 1
+}

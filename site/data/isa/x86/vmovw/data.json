@@ -1,0 +1,116 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP5.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Copy word from reg/m16 to xmm1. OR AVX10.1",
+   "opcode": "EVEX.128.66.MAP5.WIG 6E      /r",
+   "operands": "A",
+   "syntax": "VMOVW xmm1, reg/m16"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP5.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Copy word from xmm1 to reg/m16. OR AVX10.1",
+   "opcode": "EVEX.128.66.MAP5.WIG 7E      /r",
+   "operands": "B",
+   "syntax": "VMOVW reg/m16, xmm1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vmovw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VMOVW"
+  ]
+ },
+ "mnemonics": [
+  "VMOVW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2480,
+    2480
+   ]
+  }
+ ],
+ "version": 1
+}

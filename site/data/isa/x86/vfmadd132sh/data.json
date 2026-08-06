@@ -1,0 +1,233 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "99"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and OR AVX10.1 xmm3/m16, add to xmm2, and store the result in xmm1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 99 /r",
+   "operands": "A",
+   "syntax": "VFMADD132SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "A9"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and xmm2, add OR AVX10.1 to xmm3/m16, and store the result in xmm1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 A9 /r",
+   "operands": "A",
+   "syntax": "VFMADD213SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "B9"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm2 and OR AVX10.1 xmm3/m16, add to xmm1, and store the result in xmm1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 B9 /r",
+   "operands": "A",
+   "syntax": "VFMADD231SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9D"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and OR AVX10.1 xmm3/m16, and negate the value. Add this value to xmm2, and store the result in xmm1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 9D /r",
+   "operands": "A",
+   "syntax": "VFNMADD132SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AD"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and xmm2, and OR AVX10.1 negate the value. Add this value to xmm3/m16, and store the result in xmm1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 AD /r",
+   "operands": "A",
+   "syntax": "VFNMADD213SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BD"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm2 and OR AVX10.1 xmm3/m16, and negate the value. Add this value to xmm1, and store the result in xmm1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 BD /r",
+   "operands": "A",
+   "syntax": "VFNMADD231SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfmadd132sh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFMADD132SH",
+   "VFMADD213SH",
+   "VFMADD231SH",
+   "VFNMADD132SH",
+   "VFNMADD213SH",
+   "VFNMADD231SH"
+  ]
+ },
+ "mnemonics": [
+  "VFMADD132SH",
+  "VFMADD213SH",
+  "VFMADD231SH",
+  "VFNMADD132SH",
+  "VFNMADD213SH",
+  "VFNMADD231SH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2280,
+    2282
+   ]
+  }
+ ],
+ "version": 1
+}

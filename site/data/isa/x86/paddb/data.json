@@ -1,0 +1,853 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "FC"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed byte integers from mm/m64 and mm.",
+   "opcode": "NP 0F FC /r1",
+   "operands": "A",
+   "syntax": "PADDB mm, mm/m64"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "FD"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed word integers from mm/m64 and mm.",
+   "opcode": "NP 0F FD /r1",
+   "operands": "A",
+   "syntax": "PADDW mm, mm/m64"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "FE"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed doubleword integers from mm/m64 and mm.",
+   "opcode": "NP 0F FE /r1",
+   "operands": "A",
+   "syntax": "PADDD mm, mm/m64"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D4"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed quadword integers from mm/m64 and mm.",
+   "opcode": "NP 0F D4 /r1",
+   "operands": "A",
+   "syntax": "PADDQ mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "FC"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed byte integers from xmm2/m128 and xmm1.",
+   "opcode": "66 0F FC /r",
+   "operands": "A",
+   "syntax": "PADDB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "FD"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed word integers from xmm2/m128 and xmm1.",
+   "opcode": "66 0F FD /r",
+   "operands": "A",
+   "syntax": "PADDW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "FE"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed doubleword integers from xmm2/m128 and xmm1.",
+   "opcode": "66 0F FE /r",
+   "operands": "A",
+   "syntax": "PADDD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D4"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed quadword integers from xmm2/m128 and xmm1.",
+   "opcode": "66 0F D4 /r",
+   "operands": "A",
+   "syntax": "PADDQ xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed byte integers from xmm2, and xmm3/m128 and store in xmm1.",
+   "opcode": "VEX.128.66.0F.WIG FC /r",
+   "operands": "B",
+   "syntax": "VPADDB xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FD"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed word integers from xmm2, xmm3/m128 and store in xmm1.",
+   "opcode": "VEX.128.66.0F.WIG FD /r",
+   "operands": "B",
+   "syntax": "VPADDW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed doubleword integers from xmm2, xmm3/m128 and store in xmm1.",
+   "opcode": "VEX.128.66.0F.WIG FE /r",
+   "operands": "B",
+   "syntax": "VPADDD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D4"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed quadword integers from xmm2, xmm3/m128 and store in xmm1.",
+   "opcode": "VEX.128.66.0F.WIG D4 /r",
+   "operands": "B",
+   "syntax": "VPADDQ xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FC"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed byte integers from ymm2, and ymm3/m256 and store in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG FC /r",
+   "operands": "B",
+   "syntax": "VPADDB ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FD"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed word integers from ymm2, ymm3/m256 and store in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG FD /r",
+   "operands": "B",
+   "syntax": "VPADDW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed doubleword integers from ymm2, ymm3/m256 and store in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG FE /r",
+   "operands": "B",
+   "syntax": "VPADDD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D4"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed quadword integers from ymm2, ymm3/m256 and store in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG D4 /r",
+   "operands": "B",
+   "syntax": "VPADDQ ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed byte integers from xmm2, and AVX512BW) OR xmm3/m128 and store in xmm1 using writemask AVX10.1 k1.",
+   "opcode": "EVEX.128.66.0F.WIG FC /r",
+   "operands": "C",
+   "syntax": "VPADDB xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FD"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed word integers from xmm2, and AVX512BW) OR xmm3/m128 and store in xmm1 using writemask AVX10.1 k1.",
+   "opcode": "EVEX.128.66.0F.WIG FD /r",
+   "operands": "C",
+   "syntax": "VPADDW xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed doubleword integers from xmm2, and AVX512F) OR xmm3/m128/m32bcst and store in xmm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F.W0 FE /r",
+   "operands": "D",
+   "syntax": "VPADDD xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D4"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed quadword integers from xmm2, and AVX512F) OR xmm3/m128/m64bcst and store in xmm1 using AVX10.1 writemask k1. / 64/32 bit CPUID Feature Description Mode Support Flag",
+   "opcode": "EVEX.128.66.0F.W1 D4 /r",
+   "operands": "D",
+   "syntax": "VPADDQ xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst Opcode/                     Op Instruction                 En"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FC"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed byte integers from ymm2, and AVX512BW) OR ymm3/m256 and store in ymm1 using writemask AVX10.1 k1.",
+   "opcode": "EVEX.256.66.0F.WIG FC /r",
+   "operands": "C",
+   "syntax": "VPADDB ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FD"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed word integers from ymm2, and AVX512BW) OR ymm3/m256 and store in ymm1 using writemask AVX10.1 k1.",
+   "opcode": "EVEX.256.66.0F.WIG FD /r",
+   "operands": "C",
+   "syntax": "VPADDW ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed doubleword integers from ymm2, AVX512F) OR ymm3/m256/m32bcst and store in ymm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F.W0 FE /r",
+   "operands": "D",
+   "syntax": "VPADDD ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D4"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed quadword integers from ymm2, AVX512F) OR ymm3/m256/m64bcst and store in ymm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 D4 /r",
+   "operands": "D",
+   "syntax": "VPADDQ ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FC"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed byte integers from zmm2, and OR AVX10.1 zmm3/m512 and store in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.WIG FC /r",
+   "operands": "C",
+   "syntax": "VPADDB zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FD"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed word integers from zmm2, and OR AVX10.1 zmm3/m512 and store in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.WIG FD /r",
+   "operands": "C",
+   "syntax": "VPADDW zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "FE"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed doubleword integers from zmm2, OR AVX10.1 zmm3/m512/m32bcst and store in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W0 FE /r",
+   "operands": "D",
+   "syntax": "VPADDD zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D4"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed quadword integers from zmm2, OR AVX10.1 zmm3/m512/m64bcst and store in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 D4 /r",
+   "operands": "D",
+   "syntax": "VPADDQ zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "paddb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PADDB",
+   "VPADDB",
+   "PADDW",
+   "VPADDW",
+   "PADDD",
+   "VPADDD",
+   "PADDQ",
+   "VPADDQ"
+  ]
+ },
+ "mnemonics": [
+  "PADDB",
+  "PADDW",
+  "PADDD",
+  "PADDQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1490,
+    1496
+   ]
+  }
+ ],
+ "version": 1
+}

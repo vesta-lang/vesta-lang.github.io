@@ -1,0 +1,521 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "90"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 16 bits mask from k2/m16 and store the result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W0 90 /r",
+   "operands": "RM",
+   "syntax": "KMOVW k1, k2/m16"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "90"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 8 bits mask from k2/m8 and store the result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W0 90 /r",
+   "operands": "RM",
+   "syntax": "KMOVB k1, k2/m8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "90"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 64 bits mask from k2/m64 and store the result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W1 90 /r",
+   "operands": "RM",
+   "syntax": "KMOVQ k1, k2/m64"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "90"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 32 bits mask from k2/m32 and store the result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W1 90 /r",
+   "operands": "RM",
+   "syntax": "KMOVD k1, k2/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 16 bits mask from k1 and store the result in m16. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W0 91 /r",
+   "operands": "MR",
+   "syntax": "KMOVW m16, k1"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 8 bits mask from k1 and store the result in m8. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W0 91 /r",
+   "operands": "MR",
+   "syntax": "KMOVB m8, k1"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 64 bits mask from k1 and store the result in m64. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W1 91 /r",
+   "operands": "MR",
+   "syntax": "KMOVQ m64, k1"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 32 bits mask from k1 and store the result in m32. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W1 91 /r",
+   "operands": "MR",
+   "syntax": "KMOVD m32, k1"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "92"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 16 bits mask from r32 to k1. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W0 92 /r",
+   "operands": "RR",
+   "syntax": "KMOVW k1, r32"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "92"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 8 bits mask from r32 to k1. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W0 92 /r",
+   "operands": "RR",
+   "syntax": "KMOVB k1, r32"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "92"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.L0.F2.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Move 64 bits mask from r64 to k1. OR AVX10.1",
+   "opcode": "VEX.L0.F2.0F.W1 92 /r",
+   "operands": "RR",
+   "syntax": "KMOVQ k1, r64"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "92"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.L0.F2.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 32 bits mask from r32 to k1. OR AVX10.1",
+   "opcode": "VEX.L0.F2.0F.W0 92 /r",
+   "operands": "RR",
+   "syntax": "KMOVD k1, r32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "93"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 16 bits mask from k1 to r32. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W0 93 /r",
+   "operands": "RR",
+   "syntax": "KMOVW r32, k1"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "93"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 8 bits mask from k1 to r32. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W0 93 /r",
+   "operands": "RR",
+   "syntax": "KMOVB r32, k1"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "93"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.L0.F2.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Move 64 bits mask from k1 to r64. OR AVX10.1",
+   "opcode": "VEX.L0.F2.0F.W1 93 /r",
+   "operands": "RR",
+   "syntax": "KMOVQ r64, k1"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "93"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.L0.F2.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 32 bits mask from k1 to r32. OR AVX10.1",
+   "opcode": "VEX.L0.F2.0F.W0 93 /r",
+   "operands": "RR",
+   "syntax": "KMOVD r32, k1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "kmovw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KMOVW",
+   "KMOVB",
+   "KMOVQ",
+   "KMOVD"
+  ]
+ },
+ "mnemonics": [
+  "KMOVW",
+  "KMOVB",
+  "KMOVQ",
+  "KMOVD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RR",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1221,
+    1222
+   ]
+  }
+ ],
+ "version": 1
+}

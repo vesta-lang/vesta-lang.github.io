@@ -1,0 +1,131 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MPX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "1A"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "n.e."
+   },
+   "note": "Generate a #BR if the address in r/m32 is lower than the lower bound in bnd.LB.",
+   "opcode": "F3 0F 1A /r",
+   "operands": "RM",
+   "syntax": "BNDCL bnd, r/m32"
+  },
+  {
+   "cpuid": "MPX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "1A"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Generate a #BR if the address in r/m64 is lower than the lower bound in bnd.LB.",
+   "opcode": "F3 0F 1A /r",
+   "operands": "RM",
+   "syntax": "BNDCL bnd, r/m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#BR",
+   "when": "If lower bound check fails."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 67H prefix is not used and CS.D=0. If 67H prefix is used and CS.D=1."
+  },
+  {
+   "mode": "real",
+   "vector": "#BR",
+   "when": "If lower bound check fails."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 16-bit addressing is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#BR",
+   "when": "If lower bound check fails."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 16-bit addressing is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If ModRM.r/m and REX encodes BND4-BND15 when Intel MPX is enabled. Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "bndcl",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "BNDCL"
+  ]
+ },
+ "mnemonics": [
+  "BNDCL"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    794,
+    795
+   ]
+  }
+ ],
+ "version": 1
+}

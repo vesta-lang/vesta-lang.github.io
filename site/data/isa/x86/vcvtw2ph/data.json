@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed signed word integers from AND AVX512VL) xmm2/m128/m16bcst to FP16 values, and store OR AVX10.1 the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.F3.MAP5.W0 7D /r",
+   "operands": "A",
+   "syntax": "VCVTW2PH xmm1{k1}{z}, xmm2/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP5",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert sixteen packed signed word integers AND AVX512VL) from ymm2/m256/m16bcst to FP16 values, and OR AVX10.1 store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.F3.MAP5.W0 7D /r",
+   "operands": "A",
+   "syntax": "VCVTW2PH ymm1{k1}{z}, ymm2/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP5",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert thirty-two packed signed word integers OR AVX10.1 from zmm2/m512/m16bcst to FP16 values, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.F3.MAP5.W0 7D /r",
+   "operands": "A",
+   "syntax": "VCVTW2PH zmm1{k1}{z}, zmm2/m512/m16bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtw2ph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTW2PH"
+  ]
+ },
+ "mnemonics": [
+  "VCVTW2PH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2203,
+    2204
+   ]
+  }
+ ],
+ "version": 1
+}

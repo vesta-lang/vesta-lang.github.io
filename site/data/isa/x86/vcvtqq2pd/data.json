@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert two packed quadword integers from AVX512DQ) OR xmm2/m128/m64bcst to packed double precision AVX10.1 floating-point values in xmm1 with writemask k1.",
+   "opcode": "EVEX.128.F3.0F.W1 E6 /r",
+   "operands": "A",
+   "syntax": "VCVTQQ2PD xmm1 {k1}{z}, xmm2/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed quadword integers from AVX512DQ) OR ymm2/m256/m64bcst to packed double precision AVX10.1 floating-point values in ymm1 with writemask k1.",
+   "opcode": "EVEX.256.F3.0F.W1 E6 /r",
+   "operands": "A",
+   "syntax": "VCVTQQ2PD ymm1 {k1}{z}, ymm2/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed quadword integers from OR AVX10.1 zmm2/m512/m64bcst to eight packed double precision floating-point values in zmm1 with writemask k1.",
+   "opcode": "EVEX.512.F3.0F.W1 E6 /r",
+   "operands": "A",
+   "syntax": "VCVTQQ2PD zmm1 {k1}{z}, zmm2/m512/m64bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtqq2pd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTQQ2PD"
+  ]
+ },
+ "mnemonics": [
+  "VCVTQQ2PD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2132,
+    2133
+   ]
+  }
+ ],
+ "version": 1
+}

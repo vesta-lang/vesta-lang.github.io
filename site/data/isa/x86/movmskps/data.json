@@ -1,0 +1,121 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "50"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract 4-bit sign mask from  xmm and store in reg. The upper bits of r32 or r64  are filled with zeros.",
+   "opcode": "NP 0F 50 /r",
+   "operands": "RM",
+   "syntax": "MOVMSKPS reg, xmm"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "VEX.128.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract 4-bit sign mask from  xmm2 and store in reg. The upper bits of r32 or r64  are zeroed.",
+   "opcode": "VEX.128.0F.WIG 50 /r",
+   "operands": "RM",
+   "syntax": "VMOVMSKPS reg, xmm2"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "50"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "VEX.256.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract 8-bit sign mask from  ymm2 and store in reg. The upper bits of r32 or r64  are zeroed. Instr uction Operand Encoding 1 O perand 2 Operand 3                     Operand 4 ModRM :r/m (r) N/A                           N/A",
+   "opcode": "VEX.256.0F.WIG 50 /r",
+   "operands": "RM",
+   "syntax": "VMOVMSKPS reg, ymm2 Op/En            Operand 1 RM              ModRM:reg (w)"
+  }
+ ],
+ "format": "isadoc",
+ "id": "movmskps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVMSKPS",
+   "VMOVMSKPS"
+  ]
+ },
+ "mnemonics": [
+  "MOVMSKPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1376,
+    1377
+   ]
+  }
+ ],
+ "version": 1
+}

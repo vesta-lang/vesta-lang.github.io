@@ -1,0 +1,91 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "opcode": [
+     "B1"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.128.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load one BF16 floating-point element from CONVERT m16, convert to FP32 and store result in xmm1.",
+   "opcode": "VEX.128.F3.0F38.W0 B1",
+   "operands": "A",
+   "syntax": "!(11):rrr:bbb VBCSTNEBF162PS xmm1, m16"
+  },
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "opcode": [
+     "B1"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.256.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load one BF16 floating-point element from CONVERT m16, convert to FP32 and store result in ymm1.",
+   "opcode": "VEX.256.F3.0F38.W0 B1",
+   "operands": "A",
+   "syntax": "!(11):rrr:bbb VBCSTNEBF162PS ymm1, m16"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vbcstnebf162ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VBCSTNEBF162PS"
+  ]
+ },
+ "mnemonics": [
+  "VBCSTNEBF162PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2058,
+    2058
+   ]
+  }
+ ],
+ "version": 1
+}

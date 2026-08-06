@@ -1,0 +1,129 @@
+{
+ "encodings": [
+  {
+   "cpuid": "ENQCMD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F8"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Atomically enqueue 64-byte user command from source memory operand to destination offset in ES segment specified in register operand as offset in ES segment.",
+   "opcode": "F2 0F 38 F8 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "ENQCMD r32/r64, m512"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "For an illegal memory operand effective address in the CS, DS, ES, FS or GS segments. If destination linear address is not aligned to a 64-byte boundary. If the PASID Valid field (bit 31) is 0 in IA32_PASID MSR. If bits 31:0 of the source operand are not all zero."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.ENQCMD[29] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If any part of the operand lies outside the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If destination linear address is not aligned to a 64-byte boundary. If the PASID Valid field (bit 31) is 0 in IA32_PASID MSR. If bits 31:0 of the source operand are not all zero. If CPUID.07H.00H:ECX.ENQCMD[29] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real-address mode. Additionally:"
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in non-canonical form. If destination linear address is not aligned to a 64-byte boundary."
+  },
+  {
+   "mode": "long",
+   "vector": "#PF(fault-code)",
+   "when": "If the PASID Valid field (bit 31) is 0 in IA32_PASID MSR."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If bits 31:0 of the source operand are not all zero. For a page fault. If CPUID.07H.00H:ECX.ENQCMD[29]. If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "ZF"
+ ],
+ "format": "isadoc",
+ "id": "enqcmd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ENQCMD"
+  ]
+ },
+ "mnemonics": [
+  "ENQCMD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    993,
+    995
+   ]
+  }
+ ],
+ "version": 1
+}

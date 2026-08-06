@@ -1,0 +1,166 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "5F"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the maximum scalar single precision  floating-point value between xmm2/m32 and xmm1.",
+   "opcode": "F3 0F 5F /r",
+   "operands": "A",
+   "syntax": "MAXSS xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5F"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the maximum scalar single precision  floating-point value between xmm3/m32 and xmm2.",
+   "opcode": "VEX.LIG.F3.0F.WIG 5F /r",
+   "operands": "B",
+   "syntax": "VMAXSS xmm1, xmm2, xmm3/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5F"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Return the maximum scalar single precision  floating-point OR AVX10.1 value between xmm3/m32 and xmm2.",
+   "opcode": "EVEX.LLIG.F3.0F.W0 5F /r",
+   "operands": "C",
+   "syntax": "VMAXSS xmm1 {k1}{z}, xmm2, xmm3/m32{sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "maxss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MAXSS",
+   "VMAXSS"
+  ]
+ },
+ "mnemonics": [
+  "MAXSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1302,
+    1303
+   ]
+  }
+ ],
+ "version": 1
+}

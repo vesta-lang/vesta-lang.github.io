@@ -1,0 +1,61 @@
+{
+ "encodings": [
+  {
+   "cpuid": "RTM",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "C6",
+     "F8"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Causes an RTM abort if in RTM execution.",
+   "opcode": "C6 F8 ib",
+   "operands": "A",
+   "syntax": "XABORT imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "xabort",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XABORT"
+  ]
+ },
+ "mnemonics": [
+  "XABORT"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2848,
+    2849
+   ]
+  }
+ ],
+ "version": 1
+}

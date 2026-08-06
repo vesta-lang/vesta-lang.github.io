@@ -1,0 +1,126 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MPX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "1B"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "n.e."
+   },
+   "note": "Make lower and upper bounds from m32 and store them in bnd.",
+   "opcode": "F3 0F 1B /r",
+   "operands": "RM",
+   "syntax": "BNDMK bnd, m32"
+  },
+  {
+   "cpuid": "MPX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "1B"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Make lower and upper bounds from m64 and store them in bnd.",
+   "opcode": "F3 0F 1B /r",
+   "operands": "RM",
+   "syntax": "BNDMK bnd, m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 67H prefix is not used and CS.D=0. If 67H prefix is used and CS.D=1."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 16-bit addressing is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 16-bit addressing is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m and REX encodes BND4-BND15 when Intel MPX is enabled. If RIP-relative addressing is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "bndmk",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "BNDMK"
+  ]
+ },
+ "mnemonics": [
+  "BNDMK"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    801,
+    802
+   ]
+  }
+ ],
+ "version": 1
+}

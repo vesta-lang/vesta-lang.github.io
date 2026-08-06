@@ -1,0 +1,153 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "42"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute packed SAD word results of unsigned bytes in AVX512BW) OR dword block from xmm2 with unsigned bytes of dword AVX10.1 blocks transformed from xmm3/m128 using the shuffle controls in imm8. Results are written to xmm1 under the writemask k1.",
+   "opcode": "EVEX.128.66.0F3A.W0 42 /r ib",
+   "operands": "A",
+   "syntax": "VDBPSADBW xmm1 {k1}{z}, xmm2, xmm3/m128, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "42"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute packed SAD word results of unsigned bytes in AVX512BW) OR dword block from ymm2 with unsigned bytes of dword AVX10.1 blocks transformed from ymm3/m256 using the shuffle controls in imm8. Results are written to ymm1 under the writemask k1.",
+   "opcode": "EVEX.256.66.0F3A.W0 42 /r ib",
+   "operands": "A",
+   "syntax": "VDBPSADBW ymm1 {k1}{z}, ymm2, ymm3/m256, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "42"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute packed SAD word results of unsigned bytes in OR AVX10.1 dword block from zmm2 with unsigned bytes of dword blocks transformed from zmm3/m512 using the shuffle controls in imm8. Results are written to zmm1 under the writemask k1.",
+   "opcode": "EVEX.512.66.0F3A.W0 42 /r ib",
+   "operands": "A",
+   "syntax": "VDBPSADBW zmm1 {k1}{z}, zmm2, zmm3/m512, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vdbpsadbw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VDBPSADBW"
+  ]
+ },
+ "mnemonics": [
+  "VDBPSADBW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2205,
+    2207
+   ]
+  }
+ ],
+ "version": 1
+}

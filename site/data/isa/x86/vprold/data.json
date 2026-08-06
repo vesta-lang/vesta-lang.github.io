@@ -1,0 +1,442 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate doublewords in xmm2 left by count in the AVX512F) OR corresponding element of xmm3/m128/m32bcst. AVX10.1 Result written to xmm1 under writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 15 /r",
+   "operands": "B",
+   "syntax": "VPROLVD xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate doublewords in xmm2/m128/m32bcst AVX512F) OR left by imm8. Result written to xmm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F.W0 72 /1 ib",
+   "operands": "A",
+   "syntax": "VPROLD xmm1 {k1}{z}, xmm2/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate quadwords in xmm2 left by count in the AVX512F) OR corresponding element of xmm3/m128/m64bcst. AVX10.1 Result written to xmm1 under writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 15 /r",
+   "operands": "B",
+   "syntax": "VPROLVQ xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate quadwords in xmm2/m128/m64bcst left AVX512F) OR by imm8. Result written to xmm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F.W1 72 /1 ib",
+   "operands": "A",
+   "syntax": "VPROLQ xmm1 {k1}{z}, xmm2/m128/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate doublewords in ymm2 left by count in the AVX512F) OR corresponding element of ymm3/m256/m32bcst. AVX10.1 Result written to ymm1 under writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 15 /r",
+   "operands": "B",
+   "syntax": "VPROLVD ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate doublewords in ymm2/m256/m32bcst AVX512F) OR left by imm8. Result written to ymm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F.W0 72 /1 ib",
+   "operands": "A",
+   "syntax": "VPROLD ymm1 {k1}{z}, ymm2/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate quadwords in ymm2 left by count in the AVX512F) OR corresponding element of ymm3/m256/m64bcst. AVX10.1 Result written to ymm1 under writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 15 /r",
+   "operands": "B",
+   "syntax": "VPROLVQ ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate quadwords in ymm2/m256/m64bcst left AVX512F) OR by imm8. Result written to ymm1 using AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 72 /1 ib",
+   "operands": "A",
+   "syntax": "VPROLQ ymm1 {k1}{z}, ymm2/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F OR AVX10.11",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate left of doublewords in zmm2 by count in the corresponding element of zmm3/m512/m32bcst. Result written to zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 15 /r",
+   "operands": "B",
+   "syntax": "VPROLVD zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate left of doublewords in OR AVX10.1 zmm3/m512/m32bcst by imm8. Result written to zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W0 72 /1 ib",
+   "operands": "A",
+   "syntax": "VPROLD zmm1 {k1}{z}, zmm2/m512/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate quadwords in zmm2 left by count in the OR AVX10.1 corresponding element of zmm3/m512/m64bcst. Result written to zmm1under writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 15 /r",
+   "operands": "B",
+   "syntax": "VPROLVQ zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rotate quadwords in zmm2/m512/m64bcst left OR AVX10.1 by imm8. Result written to zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 72 /1 ib",
+   "operands": "A",
+   "syntax": "VPROLQ zmm1 {k1}{z}, zmm2/m512/m64bcst, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vprold",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPROLD",
+   "VPROLVD",
+   "VPROLQ",
+   "VPROLVQ"
+  ]
+ },
+ "mnemonics": [
+  "VPROLD",
+  "VPROLVD",
+  "VPROLQ",
+  "VPROLVQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "vex.vvvv",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2661,
+    2664
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,89 @@
+{
+ "encodings": [
+  {
+   "cpuid": "CLDEMOTE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "1C"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Hint to hardware to move the cache line containing m8 to a more distant level of the cache without writing back to mem- ory. In struction Opera nd Encoding1 1 Operand 2 Operand 3        Operand 4 /m (w) N/A N/A         N/A",
+   "opcode": "NP 0F 1C /0",
+   "operands": "A",
+   "syntax": "CLDEMOTE m8 Op/En             Operand A                 ModRM:r"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real address mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "cldemote",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CLDEMOTE"
+  ]
+ },
+ "mnemonics": [
+  "CLDEMOTE"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    846,
+    847
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,91 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "07"
+    ]
+   },
+   "modes": {
+    "legacy": "invalid",
+    "long": "valid"
+   },
+   "note": "Return to compatibility mode from fast system call.",
+   "opcode": "0F 07",
+   "operands": "ZO",
+   "syntax": "SYSRET"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "07"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "invalid",
+    "long": "valid"
+   },
+   "note": "Return to 64-bit mode from fast system call.",
+   "opcode": "REX.W + 0F 07",
+   "operands": "ZO",
+   "syntax": "SYSRET"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The SYSRET instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The SYSRET instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The SYSRET instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The SYSRET instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If IA32_EFER.SCE = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If CR4.FRED = 1. If CPL 0. If the return is to 64-bit mode and RCX contains a non-canonical address."
+  }
+ ],
+ "format": "isadoc",
+ "id": "sysret",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "SYSRET"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1997,
+    1999
+   ]
+  }
+ ],
+ "version": 1
+}

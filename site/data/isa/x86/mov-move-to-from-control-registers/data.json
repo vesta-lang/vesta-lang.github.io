@@ -1,0 +1,239 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "20"
+    ]
+   },
+   "modes": {
+    "legacy": "alid     m",
+    "long": ".e.            v"
+   },
+   "note": "ove control register to r32.",
+   "opcode": "0F 20/r",
+   "operands": "MR",
+   "syntax": "MOV r32, CR0CR7"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "20"
+    ]
+   },
+   "modes": {
+    "legacy": ".e.      m",
+    "long": "alid           n"
+   },
+   "note": "ove extended control register to r64.",
+   "opcode": "0F 20/r",
+   "operands": "MR",
+   "syntax": "MOV r64, CR0CR7"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "20"
+    ],
+    "rex": "R"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move extended CR8 to r64.1",
+   "opcode": "REX.R + 0F 20 /0",
+   "operands": "MR",
+   "syntax": "MOV r64, CR8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "22"
+    ]
+   },
+   "modes": {
+    "legacy": "alid     m",
+    "long": ".e.            v"
+   },
+   "note": "ove r32 to control register.",
+   "opcode": "0F 22 /r",
+   "operands": "RM",
+   "syntax": "MOV CR0CR7, r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "22"
+    ]
+   },
+   "modes": {
+    "legacy": ".e.      m",
+    "long": "alid           n"
+   },
+   "note": "ove r64 to extended control register.",
+   "opcode": "0F 22 /r",
+   "operands": "RM",
+   "syntax": "MOV CR0CR7, r64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "22"
+    ],
+    "rex": "R"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move r64 to extended CR8.1",
+   "opcode": "REX.R + 0F 22 /0",
+   "operands": "RM",
+   "syntax": "MOV CR8, r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0. If an attempt is made to write invalid bit combinations in CR0 (such as setting the PG flag to 1 when the PE flag is set to 0, or setting the CD flag to 0 when the NW flag is set to 1). If an attempt is made to write a 1 to any reserved bit in CR4. If an attempt is made to write 1 to CR4.PCIDE. If any of the reserved bits are set in the page-directory pointers table (PDPT) and the loading of a control register causes the PDPT to be loaded into the processor. If an attempt is made to activate IA-32e mode and either the current CS has the L-bit set or the TR references a 16-bit TSS."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If an attempt is made to access CR1, CR5, CR6, CR7, or CR9CR15."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If an attempt is made to write a 1 to any reserved bit in CR4. If an attempt is made to write 1 to CR4.PCIDE. If an attempt is made to write invalid bit combinations in CR0 (such as setting the PG flag to 1 when the PE flag is set to 0). If an attempt is made to activate IA-32e mode and either the current CS has the L-bit set or the TR references a 16-bit TSS."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If an attempt is made to access CR1, CR5, CR6, CR7, or CR9CR15."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "These instructions cannot be executed in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0. If an attempt is made to write invalid bit combinations in CR0 (such as setting the PG flag to 1 when the PE flag is set to 0, or setting the CD flag to 0 when the NW flag is set to 1). If an attempt is made to change CR4.PCIDE from 0 to 1 while CR3[11:0] 000H. If an attempt is made to clear CR0.PG[bit 31] while CR4.PCIDE = 1. If an attempt is made to leave IA-32e mode by clearing CR4.PAE[bit 5]."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If an attempt is made to access CR1, CR5, CR6, CR7, or CR9CR15."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0. If an attempt is made to write invalid bit combinations in CR0 (such as setting the PG flag to 1 when the PE flag is set to 0, or setting the CD flag to 0 when the NW flag is set to 1). If an attempt is made to change CR4.PCIDE from 0 to 1 while CR3[11:0] 000H. If an attempt is made to clear CR0.PG[bit 31]. If an attempt is made to write a 1 to any reserved bit in CR4. If an attempt is made to write a 1 to any reserved bit in CR8. If an attempt is made to write a 1 to any reserved bit in CR3[63:MAXPHYADDR]. If an attempt is made to leave IA-32e mode by clearing CR4.PAE[bit 5]."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If an attempt is made to access CR1, CR5, CR6, CR7, or CR9CR15. If the REX.R prefix is used to specify a register other than CR8."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "mov-move-to-from-control-registers",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOV",
+   "MOVD",
+   "MOVQ"
+  ]
+ },
+ "mnemonics": [
+  "MOV"
+ ],
+ "operand_encodings": [
+  {
+   "id": "MR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1321,
+    1323
+   ]
+  }
+ ],
+ "version": 1
+}

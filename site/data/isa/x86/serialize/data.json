@@ -1,0 +1,47 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SERIALIZE",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "E8"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Serialize instruction fetch and execution.",
+   "opcode": "NP 0F 01 E8",
+   "operands": "ZO",
+   "syntax": "SERIALIZE"
+  }
+ ],
+ "format": "isadoc",
+ "id": "serialize",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SERIALIZE"
+  ]
+ },
+ "mnemonics": [
+  "SERIALIZE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1910,
+    1910
+   ]
+  }
+ ],
+ "version": 1
+}

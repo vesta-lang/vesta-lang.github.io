@@ -1,0 +1,67 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SHA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "C9"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Performs an intermediate calculation for the next four SHA1 mes- sage dwords using previous message dwords from xmm1 and xmm2/m128, storing the result in xmm1.",
+   "opcode": "NP 0F 38 C9 /r",
+   "operands": "RM",
+   "syntax": "SHA1MSG1 xmm1, xmm2/m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "sha1msg1",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SHA1MSG1"
+  ]
+ },
+ "mnemonics": [
+  "SHA1MSG1"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1919,
+    1919
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,102 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "79"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v1",
+    "long": "v"
+   },
+   "note": "Convert the low FP16 element in xmm1/m16 to OR AVX10.1 an unsigned doubleword integer and store the result in r32.",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 79 /r",
+   "operands": "A",
+   "syntax": "VCVTSH2USI r32, xmm1/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "79"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Convert the low FP16 element in xmm1/m16 to OR AVX10.1 an unsigned quadword integer and store the result in r64.",
+   "opcode": "EVEX.LLIG.F3.MAP5.W1 79 /r",
+   "operands": "A",
+   "syntax": "VCVTSH2USI r64, xmm1/m16 {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtsh2usi",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTSH2USI"
+  ]
+ },
+ "mnemonics": [
+  "VCVTSH2USI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2145,
+    2146
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,28 @@
+---
+summary: Move Quadword from MMX Technology to XMM Register
+---
+
+## Description
+
+Moves the quadword from the source operand (second operand) to the low quadword of the destination operand (first operand). The source operand is an MMX technology register and the destination operand is an XMM register.
+
+This instruction causes a transition from x87 FPU to MMX technology operation (that is, the x87 FPU top-of-stack pointer is set to 0 and the x87 FPU tag word is set to all 0s [valid]). If this instruction is executed while an x87 FPU floating-point exception is pending, the exception is handled before the MOVQ2DQ instruction is executed.
+
+In 64-bit mode, use of the REX.R prefix permits this instruction to access additional registers (XMM8-XMM15).
+
+## Operation
+
+```text
+DEST[63:0] := SRC[63:0];
+DEST[127:64] := 00000000000000000H;
+```
+
+## Intel C/C++ compiler intrinsics
+
+```c
+MOVQ2DQ__128i _mm_movpi64_epi64 ( __m64 a);
+```
+
+## SIMD Floating-Point Exceptions
+
+None.

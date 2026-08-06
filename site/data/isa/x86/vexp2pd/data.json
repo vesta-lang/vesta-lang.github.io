@@ -1,0 +1,71 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512ER",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C8"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes approximations to the exponential 2^x (with less than 2^-23 of maximum relative error) of the packed double precision floating-point values from zmm2/m512/m64bcst and stores the floating-point result in zmm1with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 C8 /r",
+   "operands": "A",
+   "syntax": "VEXP2PD zmm1 {k1}{z}, zmm2/m512/m64bcst {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vexp2pd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VEXP2PD"
+  ]
+ },
+ "mnemonics": [
+  "VEXP2PD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2951,
+    2952
+   ]
+  }
+ ],
+ "version": 1
+}

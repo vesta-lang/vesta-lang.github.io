@@ -1,0 +1,101 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "B1"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load one FP16 element from m16,     convert CONVERT to FP32, and store result in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 B1 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "VBCSTNESH2PS xmm1, m16"
+  },
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "B1"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load one FP16 element from m16,     convert CONVERT to FP32, and store result in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 B1 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "VBCSTNESH2PS ymm1, m16"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vbcstnesh2ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VBCSTNESH2PS"
+  ]
+ },
+ "mnemonics": [
+  "VBCSTNESH2PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2059,
+    2059
+   ]
+  }
+ ],
+ "version": 1
+}

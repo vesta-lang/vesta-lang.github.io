@@ -1,0 +1,225 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AA"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, store AL at address ES:(E)DI; For 64-bit mode store AL at address RDI or EDI.",
+   "opcode": "AA",
+   "operands": "ZO",
+   "syntax": "STOS m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, store AX at address ES:(E)DI; For 64-bit mode store AX at address RDI or EDI.",
+   "opcode": "AB",
+   "operands": "ZO",
+   "syntax": "STOS m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, store EAX at address ES:(E)DI; For 64-bit mode store EAX at address RDI or EDI.",
+   "opcode": "AB",
+   "operands": "ZO",
+   "syntax": "STOS m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Store RAX at address RDI or EDI.",
+   "opcode": "REX.W + AB",
+   "operands": "ZO",
+   "syntax": "STOS m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AA"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, store AL at address ES:(E)DI; For 64-bit mode store AL at address RDI or EDI.",
+   "opcode": "AA",
+   "operands": "ZO",
+   "syntax": "STOSB"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, store AX at address ES:(E)DI; For 64-bit mode store AX at address RDI or EDI.",
+   "opcode": "AB",
+   "operands": "ZO",
+   "syntax": "STOSW"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, store EAX at address ES:(E)DI; For 64-bit mode store EAX at address RDI or EDI.",
+   "opcode": "AB",
+   "operands": "ZO",
+   "syntax": "STOSD"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Store RAX at address RDI or EDI.",
+   "opcode": "REX.W + AB",
+   "operands": "ZO",
+   "syntax": "STOSQ"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the destination is located in a non-writable segment. If a memory operand effective address is outside the limit of the ES segment. If the ES register contains a NULL segment selector. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the ES segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the ES segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "stos",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "STOSB",
+   "STOSW",
+   "STOSD",
+   "STOSQ"
+  ]
+ },
+ "mnemonics": [
+  "STOS",
+  "STOSB",
+  "STOSW",
+  "STOSD",
+  "STOSQ"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1965,
+    1967
+   ]
+  }
+ ],
+ "version": 1
+}

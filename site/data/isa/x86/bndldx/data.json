@@ -1,0 +1,124 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MPX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "1A"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load the bounds stored in a bound table entry (BTE) into bnd with address translation using the base of mib and conditional on the index of mib matching the pointer value in the BTE.",
+   "opcode": "NP 0F 1A /r",
+   "operands": "RM",
+   "syntax": "BNDLDX bnd, mib"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#BR",
+   "when": "If the bound directory entry is invalid."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 67H prefix is not used and CS.D=0. If 67H prefix is used and CS.D=1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a destination effective address of the Bound Table entry is outside the DS segment limit. If DS register contains a NULL segment selector. #PF(fault code) If a page fault occurs."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 16-bit addressing is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If a destination effective address of the Bound Table entry is outside the DS segment limit. 1. If CPL < 3, the supervisor MAWA (MAWAS) is used; this value is 0. If CPL = 3, the user MAWA (MAWAU) is used; this value is enumerated in CPUID.07H.00H:ECX.MPX_MAWAU[21:17]. See Appendix E.3.1 of Intel(R) 64 and IA-32 Architectures Software Developer's Manual, Volume 1."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If ModRM.r/m encodes BND4-BND7 when Intel MPX is enabled. If 16-bit addressing is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a destination effective address of the Bound Table entry is outside the DS segment limit. #PF(fault code) If a page fault occurs."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#BR",
+   "when": "If the bound directory entry is invalid."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If ModRM is RIP relative. If the LOCK prefix is used. If ModRM.r/m and REX encodes BND4-BND15 when Intel MPX is enabled."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address (A_BDE or A_BTE) is in a non-canonical form. #PF(fault code) If a page fault occurs."
+  }
+ ],
+ "format": "isadoc",
+ "id": "bndldx",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "BNDLDX"
+  ]
+ },
+ "mnemonics": [
+  "BNDLDX"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "SIB.base (r): Address of pointer",
+     "raw": "SIB.base (r): Address of pointer",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    798,
+    800
+   ]
+  }
+ ],
+ "version": 1
+}

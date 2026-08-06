@@ -1,0 +1,136 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "C9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set SP to BP, then pop BP.",
+   "opcode": "C9",
+   "operands": "ZO",
+   "syntax": "LEAVE"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "C9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Set ESP to EBP, then pop EBP.",
+   "opcode": "C9",
+   "operands": "ZO",
+   "syntax": "LEAVE"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "C9"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Set RSP to RBP, then pop RBP.",
+   "opcode": "C9",
+   "operands": "ZO",
+   "syntax": "LEAVE"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the EBP register points to a location that is not within the limits of the current stack segment. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If the EBP register points to a location outside of the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the EBP register points to a location outside of the effective address space from 0 to FFFFH. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "leave",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LEAVE"
+  ]
+ },
+ "mnemonics": [
+  "LEAVE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1254,
+    1255
+   ]
+  }
+ ],
+ "version": 1
+}

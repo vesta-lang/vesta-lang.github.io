@@ -1,0 +1,373 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "29"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512BW) OR AVX10.1 most significant bit of the corresponding byte in XMM1.",
+   "opcode": "EVEX.128.F3.0F38.W0 29 /r",
+   "operands": "RM",
+   "syntax": "VPMOVB2M k1, xmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "29"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512BW) OR AVX10.1 most significant bit of the corresponding byte in YMM1.",
+   "opcode": "EVEX.256.F3.0F38.W0 29 /r",
+   "operands": "RM",
+   "syntax": "VPMOVB2M k1, ymm1"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "29"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the OR AVX10.1 most significant bit of the corresponding byte in ZMM1.",
+   "opcode": "EVEX.512.F3.0F38.W0 29 /r",
+   "operands": "RM",
+   "syntax": "VPMOVB2M k1, zmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "29"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512BW) OR AVX10.1 most significant bit of the corresponding word in XMM1.",
+   "opcode": "EVEX.128.F3.0F38.W1 29 /r",
+   "operands": "RM",
+   "syntax": "VPMOVW2M k1, xmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "29"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512BW) OR AVX10.1 most significant bit of the corresponding word in YMM1.",
+   "opcode": "EVEX.256.F3.0F38.W1 29 /r",
+   "operands": "RM",
+   "syntax": "VPMOVW2M k1, ymm1"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "29"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the OR AVX10.1 most significant bit of the corresponding word in ZMM1.",
+   "opcode": "EVEX.512.F3.0F38.W1 29 /r",
+   "operands": "RM",
+   "syntax": "VPMOVW2M k1, zmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "39"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512DQ) OR AVX10.1 most significant bit of the corresponding doubleword in XMM1.",
+   "opcode": "EVEX.128.F3.0F38.W0 39 /r",
+   "operands": "RM",
+   "syntax": "VPMOVD2M k1, xmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "39"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512DQ) OR AVX10.1 most significant bit of the corresponding doubleword in YMM1.",
+   "opcode": "EVEX.256.F3.0F38.W0 39 /r",
+   "operands": "RM",
+   "syntax": "VPMOVD2M k1, ymm1"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "39"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the OR AVX10.1 most significant bit of the corresponding doubleword in ZMM1.",
+   "opcode": "EVEX.512.F3.0F38.W0 39 /r",
+   "operands": "RM",
+   "syntax": "VPMOVD2M k1, zmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "39"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512DQ) OR AVX10.1 most significant bit of the corresponding quadword in XMM1.",
+   "opcode": "EVEX.128.F3.0F38.W1 39 /r",
+   "operands": "RM",
+   "syntax": "VPMOVQ2M k1, xmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "39"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the AVX512DQ) OR AVX10.1 most significant bit of the corresponding quadword in YMM1.",
+   "opcode": "EVEX.256.F3.0F38.W1 39 /r",
+   "operands": "RM",
+   "syntax": "VPMOVQ2M k1, ymm1"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "39"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets each bit in k1 to 1 or 0 based on the value of the OR AVX10.1 most significant bit of the corresponding quadword in ZMM1.",
+   "opcode": "EVEX.512.F3.0F38.W1 39 /r",
+   "operands": "RM",
+   "syntax": "VPMOVQ2M k1, zmm1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpmovb2m",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPMOVB2M",
+   "VPMOVW2M",
+   "VPMOVD2M",
+   "VPMOVQ2M"
+  ]
+ },
+ "mnemonics": [
+  "VPMOVB2M",
+  "VPMOVW2M",
+  "VPMOVD2M",
+  "VPMOVQ2M"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2625,
+    2627
+   ]
+  }
+ ],
+ "version": 1
+}

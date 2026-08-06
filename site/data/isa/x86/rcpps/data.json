@@ -1,0 +1,121 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "53"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocals of the packed single precision floating-point values in xmm2/m128 and stores the results in xmm1.",
+   "opcode": "NP 0F 53 /r",
+   "operands": "RM",
+   "syntax": "RCPPS xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "53"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "VEX.128.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocals of packed single precision values in xmm2/mem and stores the results in xmm1.",
+   "opcode": "VEX.128.0F.WIG 53 /r",
+   "operands": "RM",
+   "syntax": "VRCPPS xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "53"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "VEX.256.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocals of packed single precision values in ymm2/mem and stores the results in ymm1.",
+   "opcode": "VEX.256.0F.WIG 53 /r",
+   "operands": "RM",
+   "syntax": "VRCPPS ymm1, ymm2/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "rcpps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RCPPS",
+   "VRCPPS"
+  ]
+ },
+ "mnemonics": [
+  "RCPPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1827,
+    1828
+   ]
+  }
+ ],
+ "version": 1
+}

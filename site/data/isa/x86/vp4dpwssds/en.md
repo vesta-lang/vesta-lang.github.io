@@ -1,0 +1,64 @@
+---
+summary: Dot Product of Signed Words With Dword Accumulation and Saturation
+---
+
+## Description
+
+This instruction computes 4 sequential register source-block dot-products of two signed word operands with doubleword accumulation and signed saturation. The memory operand is sequentially selected in each of the four steps.
+
+In the above box, the notation of "+3" is used to denote that the instruction accesses 4 source registers based on that operand; sources are consecutive, start in a multiple of 4 boundary, and contain the encoded register operand.
+
+This instruction supports memory fault suppression. The entire memory operand is loaded if any bit of the lowest 16-bits of the mask is set to 1 or if a "no masking" encoding is used.
+
+The tuple type Tuple1_4X implies that four 32-bit elements (16 bytes) are referenced by the memory operation portion of this instruction.
+
+## Operation
+
+```text
+src_reg_id is the 5 bit index of the vector register specified in the instruction as the src1 register.
+
+VP4DPWSSDS dest, src1, src2
+(KL,VL) = (16,512)
+N := 4
+
+ORIGDEST := DEST
+src_base := src_reg_id & ~ (N-1) // for src1 operand
+
+FOR i := 0 to KL-1:
+    IF k1[i] or *no writemask*:
+         FOR m := 0 to N-1:
+               t := SRC2.dword[m]
+               p1dword := reg[src_base+m].word[2*i] * t.word[0]
+               p2dword := reg[src_base+m].word[2*i+1] * t.word[1]
+               DEST.dword[i] := SIGNED_DWORD_SATURATE(DEST.dword[i] + p1dword + p2dword)
+    ELSE IF *zeroing*:
+         DEST.dword[i] := 0
+    ELSE
+         DEST.dword[i] := ORIGDEST.dword[i]
+
+DEST[MAX_VL-1:VL] := 0
+```
+
+## Intel C/C++ compiler intrinsics
+
+```c
+VP4DPWSSDS __m512i _mm512_4dpwssds_epi32(__m512i, __m512ix4, __m128i *);
+VP4DPWSSDS __m512i _mm512_mask_4dpwssds_epi32(__m512i, __mmask16, __m512ix4, __m128i *);
+VP4DPWSSDS __m512i _mm512_maskz_4dpwssds_epi32(__mmask16, __m512i, __m512ix4, __m128i *);
+```
+
+## SIMD Floating-Point Exceptions
+
+None.
+
+## Other Exceptions
+
+See Type E4; additionally:
+
+```text
+#UD               If the EVEX broadcast bit is set to 1.
+```
+
+```text
+#UD               If the MODRM.mod = 0b11.
+```

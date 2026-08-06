@@ -1,0 +1,69 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid1"
+   },
+   "note": "Load: AH := EFLAGS(SF:ZF:0:AF:0:PF:1:CF).",
+   "opcode": "9F",
+   "operands": "ZO",
+   "syntax": "LAHF"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.80000001H:ECX.LAHF_SAHF_64[0] = 0. If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "lahf",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LAHF"
+  ]
+ },
+ "mnemonics": [
+  "LAHF"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1236,
+    1236
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,67 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AMX_TILE",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true,
+     "reg": "000"
+    },
+    "opcode": [
+     "49"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "text": "VEX.128.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Load tile configuration as specified in m512.",
+   "opcode": "VEX.128.NP.0F38.W0 49 !(11):000:bbb",
+   "operands": "A",
+   "syntax": "LDTILECFG m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "ldtilecfg",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LDTILECFG"
+  ]
+ },
+ "mnemonics": [
+  "LDTILECFG"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1248,
+    1250
+   ]
+  }
+ ],
+ "version": 1
+}

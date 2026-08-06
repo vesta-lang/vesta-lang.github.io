@@ -1,0 +1,77 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "70"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Shuffle the words in mm2/m64 based on the encoding in imm8 and store the result in mm1.",
+   "opcode": "NP 0F 70 /r ib",
+   "operands": "RMI",
+   "syntax": "PSHUFW mm1, mm2/m64, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pshufw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PSHUFW"
+  ]
+ },
+ "mnemonics": [
+  "PSHUFW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1725,
+    1725
+   ]
+  }
+ ],
+ "version": 1
+}

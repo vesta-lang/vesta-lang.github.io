@@ -1,0 +1,166 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "51"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes square root of the low single precision floating- point value in xmm2/m32 and stores the results in xmm1.",
+   "opcode": "F3 0F 51 /r",
+   "operands": "A",
+   "syntax": "SQRTSS xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes square root of the low single precision floating- point value in xmm3/m32 and stores the results in xmm1. Also, upper single precision floating-point values (bits[127:32]) from xmm2 are copied to xmm1[127:32].",
+   "opcode": "VEX.LIG.F3.0F.WIG 51 /r",
+   "operands": "B",
+   "syntax": "VSQRTSS xmm1, xmm2, xmm3/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes square root of the low single precision floating- OR AVX10.1 point value in xmm3/m32 and stores the results in xmm1 under writemask k1. Also, upper single precision floating- point values (bits[127:32]) from xmm2 are copied to xmm1[127:32].",
+   "opcode": "EVEX.LLIG.F3.0F.W0 51 /r",
+   "operands": "C",
+   "syntax": "VSQRTSS xmm1 {k1}{z}, xmm2, xmm3/m32{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "sqrtss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SQRTSS",
+   "VSQRTSS"
+  ]
+ },
+ "mnemonics": [
+  "SQRTSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1957,
+    1958
+   ]
+  }
+ ],
+ "version": 1
+}

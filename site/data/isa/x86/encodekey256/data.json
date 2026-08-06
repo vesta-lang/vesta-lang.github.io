@@ -1,0 +1,168 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AESKLE",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "FB"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Wrap a 256-bit AES key from XMM1:XMM0 into a key handle and store it in XMM0--3.",
+   "opcode": "F3 0F 38 FB 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "ENCODEKEY256 r32, r32 <XMM0-6>"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If reserved bit is set in source register value."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP",
+   "when": "If reserved bit is set in source register value."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP",
+   "when": "If reserved bit is set in source register value."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP",
+   "when": "If reserved bit is set in source register value."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP",
+   "when": "If reserved bit is set in source register value."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "compat",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "encodekey256",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ENCODEKEY256"
+  ]
+ },
+ "mnemonics": [
+  "ENCODEKEY256"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "XMM0--1",
+     "implicit": true,
+     "raw": "XMM0--1",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "XMM2--6",
+     "implicit": true,
+     "raw": "XMM2--6",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    989,
+    990
+   ]
+  }
+ ],
+ "version": 1
+}

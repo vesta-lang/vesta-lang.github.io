@@ -1,0 +1,92 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "01"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Invalidate TLB entries for page containing m.",
+   "opcode": "0F 01/7",
+   "operands": "M",
+   "syntax": "INVLPG m"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "Operand is a register. If the LOCK prefix is used. 1. If the paging structures map the linear address using a page larger than 4 KBytes and there are multiple TLB entries for that page (see Section 5.10.2.3, \"Details of TLB Use,\" in the Intel(R) 64 and IA-32 Architectures Software Developer's Manual, Volume 3A), the instruction invalidates all of them."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "Operand is a register. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "The INVLPG instruction cannot be executed at the virtual-8086 mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "Operand is a register. If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "invlpg",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "INVLPG",
+   "INVLPGB"
+  ]
+ },
+ "mnemonics": [
+  "INVLPG"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1189,
+    1190
+   ]
+  }
+ ],
+ "version": 1
+}

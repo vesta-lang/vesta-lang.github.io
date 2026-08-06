@@ -1,0 +1,48 @@
+---
+summary: Packed Compare Explicit Length Strings, Return Index
+---
+
+## Description
+
+The instruction compares and processes data from two string fragments based on the encoded value in the imm8 control byte (see Section 4.1, "Imm8 Control Byte Operation for PCMPESTRI / PCMPESTRM / PCMPISTRI / PCMP- ISTRM"), and generates an index stored to the count register (ECX).
+
+Each string fragment is represented by two values. The first value is an xmm (or possibly m128 for the second operand) which contains the data elements of the string (byte or word data). The second value is stored in an input length register. The input length register is EAX/RAX (for xmm1) or EDX/RDX (for xmm2/m128). The length represents the number of bytes/words which are valid for the respective xmm/m128 data.
+
+The length of each input is interpreted as being the absolute-value of the value in the length register. The absolutevalue computation saturates to 16 (for bytes) and 8 (for words), based on the value of imm8[bit3] when the value in the length register is greater than 16 (8) or less than -16 (-8).
+
+The comparison and aggregation operations are performed according to the encoded value of imm8 bit fields (see Section 4.1). The index of the first (or last, according to imm8[6]) set bit of IntRes2 (see Section 4.1.4) is returned in ECX. If no bits are set in IntRes2, ECX is set to 16 (8).
+
+Note that the Arithmetic Flags are written in a non-standard manner in order to supply the most relevant information:
+
+```text
+    CFlag  Reset if IntRes2 is equal to zero, set otherwise
+    ZFlag  Set if absolute-value of EDX is < 16 (8), reset otherwise
+    SFlag  Set if absolute-value of EAX is < 16 (8), reset otherwise
+    OFlag  IntRes2[0]
+    AFlag  Reset
+    PFlag  Reset
+```
+
+Effective Operand Size  Operand 1  Operand 2                              Length 1        Length 2  Result Operating mode/size    xmm        xmm/m128                               EAX             EDX       ECX 16 bit                 xmm        xmm/m128                               EAX             EDX       ECX 32 bit                 xmm        xmm/m128                               EAX             EDX       ECX 64 bit                 xmm        xmm/m128                               RAX             RDX       ECX 64 bit + REX.W
+
+Intel C/C++ Compiler Intrinsic Equivalent For Returning Index int _mm_cmpestri (__m128i a, int la, __m128i b, int lb, const int mode);
+
+Intel C/C++ Compiler Intrinsics For Reading EFlag Results
+
+int _mm_cmpestra (__m128i a, int la, __m128i b, int lb, const int mode); int _mm_cmpestrc (__m128i a, int la, __m128i b, int lb, const int mode); int _mm_cmpestro (__m128i a, int la, __m128i b, int lb, const int mode); int _mm_cmpestrs (__m128i a, int la, __m128i b, int lb, const int mode); int _mm_cmpestrz (__m128i a, int la, __m128i b, int lb, const int mode);
+
+## SIMD Floating-Point Exceptions
+
+None.
+
+## Other Exceptions
+
+See Table 2-21, "Type 4 Class Exception Conditions," additionally, this instruction does not cause #GP if the memory operand is not aligned to 16 Byte boundary, and:
+
+```text
+#UD               If VEX.L = 1.
+```
+
+```text
+                  If VEX.vvvv  1111B.
+```

@@ -1,0 +1,72 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2F"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.NP.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare low FP16 values in xmm1 and OR AVX10.1 xmm2/m16, and set the EFLAGS flags accordingly.",
+   "opcode": "EVEX.LLIG.NP.MAP5.W0 2F /r",
+   "operands": "A",
+   "syntax": "VCOMISH xmm1, xmm2/m16 {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcomish",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCOMISH"
+  ]
+ },
+ "mnemonics": [
+  "VCOMISH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2075,
+    2076
+   ]
+  }
+ ],
+ "version": 1
+}

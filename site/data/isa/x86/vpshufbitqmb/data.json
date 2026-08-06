@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8F"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract values in xmm2 using control bits of AND AVX512VL) xmm3/m128 with writemask k2 and leave the OR AVX10.1 result in mask register k1.",
+   "opcode": "EVEX.128.66.0F38.W0 8F /r",
+   "operands": "A",
+   "syntax": "VPSHUFBITQMB k1{k2}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8F"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract values in ymm2 using control bits of AND AVX512VL) ymm3/m256 with writemask k2 and leave the OR AVX10.1 result in mask register k1.",
+   "opcode": "EVEX.256.66.0F38.W0 8F /r",
+   "operands": "A",
+   "syntax": "VPSHUFBITQMB k1{k2}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8F"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract values in zmm2 using control bits of OR AVX10.1 zmm3/m512 with writemask k2 and leave the result in mask register k1.",
+   "opcode": "EVEX.512.66.0F38.W0 8F /r",
+   "operands": "A",
+   "syntax": "VPSHUFBITQMB k1{k2}, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpshufbitqmb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPSHUFBITQMB"
+  ]
+ },
+ "mnemonics": [
+  "VPSHUFBITQMB"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2685,
+    2686
+   ]
+  }
+ ],
+ "version": 1
+}

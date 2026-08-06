@@ -1,0 +1,84 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "D0"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Reads an XCR specified by ECX into EDX:EAX.",
+   "opcode": "NP 0F 01 D0",
+   "operands": "ZO",
+   "syntax": "XGETBV"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": null,
+   "when": "#GP(0)If an invalid XCR is specified in ECX (includes ECX = 1 if CPUID.0DH.01H:EAX.XGETBV1[2] = 0)."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX[26, \"XSAVE\"] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "#GP(0)If an invalid XCR is specified in ECX (includes ECX = 1 if CPUID.0DH.01H:EAX.XGETBV1[2] = 0)."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX[26, \"XSAVE\"] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "xgetbv",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XGETBV"
+  ]
+ },
+ "mnemonics": [
+  "XGETBV"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2863,
+    2864
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,231 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "NDS"
+     ],
+     "text": "EVEX.NDS.128.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Store, in an even/odd pair of mask registers, AVX512_VP2INTERSECT the indicators of the locations of value matches between dwords in xmm3/m128/m32bcst and xmm2.",
+   "opcode": "EVEX.NDS.128.F2.0F38.W0 68 /r",
+   "operands": "A",
+   "syntax": "VP2INTERSECTD k1+1, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "NDS"
+     ],
+     "text": "EVEX.NDS.256.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Store, in an even/odd pair of mask registers, AVX512_VP2INTERSECT the indicators of the locations of value matches between dwords in ymm3/m256/m32bcst and ymm2.",
+   "opcode": "EVEX.NDS.256.F2.0F38.W0 68 /r",
+   "operands": "A",
+   "syntax": "VP2INTERSECTD k1+1, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "NDS"
+     ],
+     "text": "EVEX.NDS.512.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Store, in an even/odd pair of mask registers, AVX512_VP2INTERSECT the indicators of the locations of value matches between dwords in zmm3/m512/m32bcst and zmm2.",
+   "opcode": "EVEX.NDS.512.F2.0F38.W0 68 /r",
+   "operands": "A",
+   "syntax": "VP2INTERSECTD k1+1, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "NDS"
+     ],
+     "text": "EVEX.NDS.128.F2.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Store, in an even/odd pair of mask registers, AVX512_VP2INTERSECT the indicators of the locations of value matches between quadwords in xmm3/m128/m64bcst and xmm2.",
+   "opcode": "EVEX.NDS.128.F2.0F38.W1 68 /r",
+   "operands": "A",
+   "syntax": "VP2INTERSECTQ k1+1, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "NDS"
+     ],
+     "text": "EVEX.NDS.256.F2.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Store, in an even/odd pair of mask registers, AVX512_VP2INTERSECT the indicators of the locations of value matches between quadwords in ymm3/m256/m64bcst and ymm2.",
+   "opcode": "EVEX.NDS.256.F2.0F38.W1 68 /r",
+   "operands": "A",
+   "syntax": "VP2INTERSECTQ k1+1, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "NDS"
+     ],
+     "text": "EVEX.NDS.512.F2.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Store, in an even/odd pair of mask registers, AVX512_VP2INTERSECT the indicators of the locations of value matches between quadwords in zmm3/m512/m64bcst and zmm2.",
+   "opcode": "EVEX.NDS.512.F2.0F38.W1 68 /r",
+   "operands": "A",
+   "syntax": "VP2INTERSECTQ k1+1, zmm2, zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vp2intersectd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VP2INTERSECTD",
+   "VP2INTERSECTQ"
+  ]
+ },
+ "mnemonics": [
+  "VP2INTERSECTD",
+  "VP2INTERSECTQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2484,
+    2485
+   ]
+  }
+ ],
+ "version": 1
+}

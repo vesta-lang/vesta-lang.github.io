@@ -1,0 +1,23 @@
+---
+summary: Write FS/GS Segment Base
+---
+
+## Description
+
+Loads the FS or GS segment base address with the general-purpose register indicated by the modR/M:r/m field.
+
+The source operand may be either a 32-bit or a 64-bit general-purpose register. The REX.W prefix indicates the operand size is 64 bits. If no REX.W prefix is used, the operand size is 32 bits; the upper 32 bits of the source register are ignored and upper 32 bits of the base address (for FS or GS) are cleared. This instruction is supported only in 64-bit mode.
+
+## Operation
+
+```text
+FS/GS segment base address := SRC;
+```
+
+## Flags affected
+
+None.
+
+C/C++ Compiler Intrinsic Equivalent
+
+WRFSBASE void _writefsbase_u32( unsigned int ); WRFSBASE _writefsbase_u64( unsigned __int64 ); WRGSBASE void _writegsbase_u32( unsigned int ); WRGSBASE _writegsbase_u64( unsigned __int64 );

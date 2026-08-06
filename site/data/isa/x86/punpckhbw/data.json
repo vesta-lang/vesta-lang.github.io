@@ -1,0 +1,830 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "68"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack and interleave high-order bytes from mm and mm/m64 into mm.",
+   "opcode": "NP 0F 68 /r1",
+   "operands": "A",
+   "syntax": "PUNPCKHBW mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "68"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack and interleave high-order bytes from xmm1 and xmm2/m128 into xmm1.",
+   "opcode": "66 0F 68 /r",
+   "operands": "A",
+   "syntax": "PUNPCKHBW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "69"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack and interleave high-order words from mm and mm/m64 into mm.",
+   "opcode": "NP 0F 69 /r1",
+   "operands": "A",
+   "syntax": "PUNPCKHWD mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "69"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack and interleave high-order words from xmm1 and xmm2/m128 into xmm1.",
+   "opcode": "66 0F 69 /r",
+   "operands": "A",
+   "syntax": "PUNPCKHWD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "6A"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack and interleave high-order doublewords from mm and mm/m64 into mm.",
+   "opcode": "NP 0F 6A /r1",
+   "operands": "A",
+   "syntax": "PUNPCKHDQ mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "6A"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack and interleave high-order doublewords from xmm1 and xmm2/m128 into xmm1.",
+   "opcode": "66 0F 6A /r",
+   "operands": "A",
+   "syntax": "PUNPCKHDQ xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "6D"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpack and interleave high-order quadwords from xmm1 and xmm2/m128 into xmm1.",
+   "opcode": "66 0F 6D /r",
+   "operands": "A",
+   "syntax": "PUNPCKHQDQ xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order bytes from xmm2 and xmm3/m128 into xmm1.",
+   "opcode": "VEX.128.66.0F.WIG 68/r",
+   "operands": "B",
+   "syntax": "VPUNPCKHBW xmm1,xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order words from xmm2 and xmm3/m128 into xmm1.",
+   "opcode": "VEX.128.66.0F.WIG 69/r",
+   "operands": "B",
+   "syntax": "VPUNPCKHWD xmm1,xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order doublewords from xmm2 and xmm3/m128 into xmm1.",
+   "opcode": "VEX.128.66.0F.WIG 6A/r",
+   "operands": "B",
+   "syntax": "VPUNPCKHDQ xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order quadword from xmm2 and xmm3/m128 into xmm1 register.",
+   "opcode": "VEX.128.66.0F.WIG 6D/r",
+   "operands": "B",
+   "syntax": "VPUNPCKHQDQ xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order bytes from ymm2 and ymm3/m256 into ymm1 register.",
+   "opcode": "VEX.256.66.0F.WIG 68 /r",
+   "operands": "B",
+   "syntax": "VPUNPCKHBW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order words from ymm2 and ymm3/m256 into ymm1 register.",
+   "opcode": "VEX.256.66.0F.WIG 69 /r",
+   "operands": "B",
+   "syntax": "VPUNPCKHWD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order doublewords from ymm2 and ymm3/m256 into ymm1 register.",
+   "opcode": "VEX.256.66.0F.WIG 6A /r",
+   "operands": "B",
+   "syntax": "VPUNPCKHDQ ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order quadword from ymm2 and ymm3/m256 into ymm1 register.",
+   "opcode": "VEX.256.66.0F.WIG 6D /r",
+   "operands": "B",
+   "syntax": "VPUNPCKHQDQ ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order bytes from xmm2 and AVX512BW) OR xmm3/m128 into xmm1 register using k1 AVX10.1 write mask.",
+   "opcode": "EVEX.128.66.0F.WIG 68 /r",
+   "operands": "C",
+   "syntax": "VPUNPCKHBW xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order words from xmm2 and AVX512BW) OR xmm3/m128 into xmm1 register using k1 AVX10.1 write mask.",
+   "opcode": "EVEX.128.66.0F.WIG 69 /r",
+   "operands": "C",
+   "syntax": "VPUNPCKHWD xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order doublewords from AVX512F) OR xmm2 and xmm3/m128/m32bcst into xmm1 AVX10.1 register using k1 write mask.",
+   "opcode": "EVEX.128.66.0F.W0 6A /r",
+   "operands": "D",
+   "syntax": "VPUNPCKHDQ xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Interleave high-order quadword from xmm2 AVX512F) OR and xmm3/m128/m64bcst into xmm1 AVX10.1 register using k1 write mask. Op/  64/32 bit CPUID Feature Description En   Mode Support Flag",
+   "opcode": "EVEX.128.66.0F.W1 6D /r",
+   "operands": "D",
+   "syntax": "VPUNPCKHQDQ xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst Opcode/ Instruction"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "c    v"
+   },
+   "note": "Interleave high-order bytes from ymm2 and AVX512BW) OR ymm3/m256 into ymm1 register using k1 AVX10.1 write mask.",
+   "opcode": "EVEX.256.66.0F.WIG 68 /r",
+   "operands": "",
+   "syntax": "VPUNPCKHBW ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "c    v"
+   },
+   "note": "Interleave high-order words from ymm2 and AVX512BW) OR ymm3/m256 into ymm1 register using k1 AVX10.1 write mask.",
+   "opcode": "EVEX.256.66.0F.WIG 69 /r",
+   "operands": "",
+   "syntax": "VPUNPCKHWD ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Interleave high-order doublewords from AVX512F) OR ymm2 and ymm3/m256/m32bcst into ymm1 AVX10.1 register using k1 write mask.",
+   "opcode": "EVEX.256.66.0F.W0 6A /r",
+   "operands": "",
+   "syntax": "VPUNPCKHDQ ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Interleave high-order quadword from ymm2 AVX512F) OR and ymm3/m256/m64bcst into ymm1 AVX10.1 register using k1 write mask.",
+   "opcode": "EVEX.256.66.0F.W1 6D /r",
+   "operands": "",
+   "syntax": "VPUNPCKHQDQ ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "68"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "c    v"
+   },
+   "note": "Interleave high-order bytes from zmm2 and OR AVX10.1 zmm3/m512 into zmm1 register.",
+   "opcode": "EVEX.512.66.0F.WIG 68/r",
+   "operands": "",
+   "syntax": "VPUNPCKHBW zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "c    v"
+   },
+   "note": "Interleave high-order words from zmm2 and OR AVX10.1 zmm3/m512 into zmm1 register.",
+   "opcode": "EVEX.512.66.0F.WIG 69/r",
+   "operands": "",
+   "syntax": "VPUNPCKHWD zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Interleave high-order doublewords from OR AVX10.1 zmm2 and zmm3/m512/m32bcst into zmm1 register using k1 write mask.",
+   "opcode": "EVEX.512.66.0F.W0 6A /r",
+   "operands": "",
+   "syntax": "VPUNPCKHDQ zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6D"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Interleave high-order quadword from zmm2 OR AVX10.1 and zmm3/m512/m64bcst into zmm1 register using k1 write mask.",
+   "opcode": "EVEX.512.66.0F.W1 6D /r",
+   "operands": "",
+   "syntax": "VPUNPCKHQDQ zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "punpckhbw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PUNPCKHBW",
+   "VPUNPCKHBW",
+   "PUNPCKHWD",
+   "VPUNPCKHWD",
+   "PUNPCKHDQ",
+   "VPUNPCKHDQ",
+   "PUNPCKHQDQ",
+   "VPUNPCKHQDQ"
+  ]
+ },
+ "mnemonics": [
+  "PUNPCKHBW",
+  "PUNPCKHWD",
+  "PUNPCKHDQ",
+  "PUNPCKHQDQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1791,
+    1800
+   ]
+  }
+ ],
+ "version": 1
+}

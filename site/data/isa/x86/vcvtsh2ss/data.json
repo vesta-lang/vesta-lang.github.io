@@ -1,0 +1,77 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.NP.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert the low FP16 element in xmm3/m16 to OR AVX10.1 an FP32 value and store in the low element of xmm1 subject to writemask k1. Bits 127:32 of xmm2 are copied to xmm1[127:32].",
+   "opcode": "EVEX.LLIG.NP.MAP6.W0 13 /r",
+   "operands": "A",
+   "syntax": "VCVTSH2SS xmm1{k1}{z}, xmm2, xmm3/m16 {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtsh2ss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTSH2SS"
+  ]
+ },
+ "mnemonics": [
+  "VCVTSH2SS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2144,
+    2144
+   ]
+  }
+ ],
+ "version": 1
+}

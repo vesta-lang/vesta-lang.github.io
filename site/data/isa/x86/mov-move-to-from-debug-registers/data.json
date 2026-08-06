@@ -1,0 +1,200 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "21"
+    ]
+   },
+   "modes": {
+    "legacy": "alid     m",
+    "long": ".e.    v"
+   },
+   "note": "ove debug register to r32.",
+   "opcode": "0F 21/r",
+   "operands": "MR",
+   "syntax": "MOV r32, DR0DR7"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "21"
+    ]
+   },
+   "modes": {
+    "legacy": ".e.      m",
+    "long": "alid   n"
+   },
+   "note": "ove extended debug register to r64.",
+   "opcode": "0F 21/r",
+   "operands": "MR",
+   "syntax": "MOV r64, DR0DR7"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "23"
+    ]
+   },
+   "modes": {
+    "legacy": "alid     m",
+    "long": ".e.    v"
+   },
+   "note": "ove r32 to debug register.",
+   "opcode": "0F 23 /r",
+   "operands": "RM",
+   "syntax": "MOV DR0DR7, r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "23"
+    ]
+   },
+   "modes": {
+    "legacy": ".e.      m",
+    "long": "alid   n"
+   },
+   "note": "ove r64 to extended debug register.",
+   "opcode": "0F 23 /r",
+   "operands": "RM",
+   "syntax": "MOV DR0DR7, r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR4.DE[bit 3] = 1 (debug extensions) and a MOV instruction is executed involving DR4 or DR5. If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#DB",
+   "when": "If any debug register is accessed while the DR7.GD[bit 13] = 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR4.DE[bit 3] = 1 (debug extensions) and a MOV instruction is executed involving DR4 or DR5. If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#DB",
+   "when": "If any debug register is accessed while the DR7.GD[bit 13] = 1."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "The debug registers cannot be loaded or read when in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0. If an attempt is made to write a 1 to any of bits 63:32 in DR6. If an attempt is made to write a 1 to any of bits 63:32 in DR7."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CR4.DE[bit 3] = 1 (debug extensions) and a MOV instruction is executed involving DR4 or DR5. If the LOCK prefix is used. If the REX.R prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#DB",
+   "when": "If any debug register is accessed while the DR7.GD[bit 13] = 1."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "mov-move-to-from-debug-registers",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOV",
+   "MOVD",
+   "MOVQ"
+  ]
+ },
+ "mnemonics": [
+  "MOV"
+ ],
+ "operand_encodings": [
+  {
+   "id": "MR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1324,
+    1325
+   ]
+  }
+ ],
+ "version": 1
+}

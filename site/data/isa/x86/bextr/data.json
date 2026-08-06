@@ -1,0 +1,108 @@
+{
+ "encodings": [
+  {
+   "cpuid": "BMI1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Contiguous bitwise extract from r/m32 using r32b as control; store result in r32a.",
+   "opcode": "VEX.LZ.0F38.W0 F7 /r",
+   "operands": "RMV",
+   "syntax": "BEXTR r32a, r/m32, r32b"
+  },
+  {
+   "cpuid": "BMI1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Contiguous bitwise extract from r/m64 using r64b as control; store result in r64a.",
+   "opcode": "VEX.LZ.0F38.W1 F7 /r",
+   "operands": "RMV",
+   "syntax": "BEXTR r64a, r/m64, r64b"
+  }
+ ],
+ "flags": [
+  "PF",
+  "AF",
+  "ZF",
+  "SF"
+ ],
+ "format": "isadoc",
+ "id": "bextr",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "BEXTR"
+  ]
+ },
+ "mnemonics": [
+  "BEXTR"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMV",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    781,
+    781
+   ]
+  }
+ ],
+ "version": 1
+}

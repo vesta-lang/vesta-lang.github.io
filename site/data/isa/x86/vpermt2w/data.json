@@ -1,0 +1,480 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute word integers from two tables in AVX512BW) OR xmm3/m128 and xmm1 using indexes in xmm2 and AVX10.1 store the result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 7D /r",
+   "operands": "A",
+   "syntax": "VPERMT2W xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute word integers from two tables in AVX512BW) OR ymm3/m256 and ymm1 using indexes in ymm2 and AVX10.1 store the result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 7D /r",
+   "operands": "A",
+   "syntax": "VPERMT2W ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute word integers from two tables in OR AVX10.1 zmm3/m512 and zmm1 using indexes in zmm2 and store the result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 7D /r",
+   "operands": "A",
+   "syntax": "VPERMT2W zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double-words from two tables in AVX512F) OR xmm3/m128/m32bcst and xmm1 using indexes in AVX10.1 xmm2 and store the result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 7E /r",
+   "operands": "B",
+   "syntax": "VPERMT2D xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double-words from two tables in AVX512F) OR ymm3/m256/m32bcst and ymm1 using indexes in AVX10.1 ymm2 and store the result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 7E /r",
+   "operands": "B",
+   "syntax": "VPERMT2D ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double-words from two tables in OR AVX10.1 zmm3/m512/m32bcst and zmm1 using indices in zmm2 and store the result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 7E /r",
+   "operands": "B",
+   "syntax": "VPERMT2D zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute quad-words from two tables in AVX512F) OR xmm3/m128/m64bcst and xmm1 using indexes in AVX10.1 xmm2 and store the result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 7E /r",
+   "operands": "B",
+   "syntax": "VPERMT2Q xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute quad-words from two tables in AVX512F) OR ymm3/m256/m64bcst and ymm1 using indexes in AVX10.1 ymm2 and store the result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 7E /r",
+   "operands": "B",
+   "syntax": "VPERMT2Q ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute quad-words from two tables in OR AVX10.1 zmm3/m512/m64bcst and zmm1 using indices in zmm2 and store the result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 7E /r",
+   "operands": "B",
+   "syntax": "VPERMT2Q zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7F"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute single-precision floating-point values from AVX512F) OR two tables in xmm3/m128/m32bcst and xmm1 AVX10.1 using indexes in xmm2 and store the result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 7F /r",
+   "operands": "B",
+   "syntax": "VPERMT2PS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7F"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute single-precision floating-point values from AVX512F) OR two tables in ymm3/m256/m32bcst and ymm1 AVX10.1 using indexes in ymm2 and store the result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 7F /r",
+   "operands": "B",
+   "syntax": "VPERMT2PS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7F"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute single-precision floating-point values from OR AVX10.1 two tables in zmm3/m512/m32bcst and zmm1 using indices in zmm2 and store the result in zmm1 using writemask k1. / 6 4/32     CPUID Feature Description b S it Mode  Flag upport",
+   "opcode": "EVEX.512.66.0F38.W0 7F /r",
+   "operands": "B",
+   "syntax": "VPERMT2PS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst Opcode/                    Op Instruction                En"
+  },
+  {
+   "cpuid": "/V       (AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7F"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values from AVX512F) OR two tables in xmm3/m128/m64bcst and xmm1 AVX10.1 using indexes in xmm2 and store the result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 7F /r",
+   "operands": "B",
+   "syntax": "VPERMT2PD xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "/V       (AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7F"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values from AVX512F) OR two tables in ymm3/m256/m64bcst and ymm1 AVX10.1 using indexes in ymm2 and store the result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 7F /r",
+   "operands": "B",
+   "syntax": "VPERMT2PD ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "/V       AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7F"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values from OR AVX10.1 two tables in zmm3/m512/m64bcst and zmm1 using indices in zmm2 and store the result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 7F /r",
+   "operands": "B",
+   "syntax": "VPERMT2PD zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpermt2w",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPERMT2W",
+   "VPERMT2D",
+   "VPERMT2Q",
+   "VPERMT2PS",
+   "VPERMT2PD"
+  ]
+ },
+ "mnemonics": [
+  "VPERMT2W",
+  "VPERMT2D",
+  "VPERMT2Q",
+  "VPERMT2PS",
+  "VPERMT2PD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2586,
+    2591
+   ]
+  }
+ ],
+ "version": 1
+}

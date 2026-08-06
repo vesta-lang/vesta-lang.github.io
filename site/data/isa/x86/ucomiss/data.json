@@ -1,0 +1,139 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2E"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare low single precision floating-point values in xmm1 and xmm2/mem32 and set the EFLAGS flags accordingly.",
+   "opcode": "NP 0F 2E /r",
+   "operands": "A",
+   "syntax": "UCOMISS xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2E"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "text": "VEX.LIG.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare low single precision floating-point values in xmm1 and xmm2/mem32 and set the EFLAGS flags accordingly.",
+   "opcode": "VEX.LIG.0F.WIG 2E /r",
+   "operands": "A",
+   "syntax": "VUCOMISS xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2E"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare low single precision floating-point values in OR AVX10.1 xmm1 and xmm2/mem32 and set the EFLAGS flags accordingly.",
+   "opcode": "EVEX.LLIG.0F.W0 2E /r",
+   "operands": "B",
+   "syntax": "VUCOMISS xmm1, xmm2/m32{sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "ucomiss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "UCOMISS",
+   "VUCOMISS"
+  ]
+ },
+ "mnemonics": [
+  "UCOMISS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2023,
+    2024
+   ]
+  }
+ ],
+ "version": 1
+}

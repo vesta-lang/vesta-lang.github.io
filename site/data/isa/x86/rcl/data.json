@@ -1,0 +1,1224 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 9 bits (CF, r/m8) left once.",
+   "opcode": "D0 /2",
+   "operands": "M1",
+   "syntax": "RCL r/m8, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 9 bits (CF, r/m8) left CL times.",
+   "opcode": "D2 /2",
+   "operands": "MC",
+   "syntax": "RCL r/m8, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 9 bits (CF, r/m8) left imm8 times.",
+   "opcode": "C0 /2 ib",
+   "operands": "MI",
+   "syntax": "RCL r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 17 bits (CF, r/m16) left once.",
+   "opcode": "D1 /2",
+   "operands": "M1",
+   "syntax": "RCL r/m16, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 17 bits (CF, r/m16) left CL times.",
+   "opcode": "D3 /2",
+   "operands": "MC",
+   "syntax": "RCL r/m16, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 17 bits (CF, r/m16) left imm8 times.",
+   "opcode": "C1 /2 ib",
+   "operands": "MI",
+   "syntax": "RCL r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 33 bits (CF, r/m3) left once.",
+   "opcode": "D1 /2",
+   "operands": "M1",
+   "syntax": "RCL r/m3, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Rotate 65 bits (CF, r/m64) left once. Uses a 6 bit count.",
+   "opcode": "REX.W + D1 /2",
+   "operands": "M1",
+   "syntax": "RCL r/m64, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 33 bits (CF, r/m3) left CL times.",
+   "opcode": "D3 /2",
+   "operands": "MC",
+   "syntax": "RCL r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Rotate 65 bits (CF, r/m64) left CL times. Uses a 6 bit count.",
+   "opcode": "REX.W + D3 /2",
+   "operands": "MC",
+   "syntax": "RCL r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 33 bits (CF, r/m3) left imm8 times.",
+   "opcode": "C1 /2 ib",
+   "operands": "MI",
+   "syntax": "RCL r/m3, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Rotate 65 bits (CF, r/m64) left imm8 times. Uses a 6 bit count.",
+   "opcode": "REX.W + C1 /2 ib",
+   "operands": "MI",
+   "syntax": "RCL r/m64, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 9 bits (CF, r/m8) right once.",
+   "opcode": "D0 /3",
+   "operands": "M1",
+   "syntax": "RCR r/m8, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 9 bits (CF, r/m8) right CL times.",
+   "opcode": "D2 /3",
+   "operands": "MC",
+   "syntax": "RCR r/m8, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 9 bits (CF, r/m8) right imm8 times.",
+   "opcode": "C0 /3 ib",
+   "operands": "MI",
+   "syntax": "RCR r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 17 bits (CF, r/m16) right once.",
+   "opcode": "D1 /3",
+   "operands": "M1",
+   "syntax": "RCR r/m16, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 17 bits (CF, r/m16) right CL times.",
+   "opcode": "D3 /3",
+   "operands": "MC",
+   "syntax": "RCR r/m16, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 17 bits (CF, r/m16) right imm8 times.",
+   "opcode": "C1 /3 ib",
+   "operands": "MI",
+   "syntax": "RCR r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 33 bits (CF, r/m3) right once. Uses a 6 bit count.",
+   "opcode": "D1 /3",
+   "operands": "M1",
+   "syntax": "RCR r/m3, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Rotate 65 bits (CF, r/m64) right once. Uses a 6 bit count.",
+   "opcode": "REX.W + D1 /3",
+   "operands": "M1",
+   "syntax": "RCR r/m64, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 33 bits (CF, r/m3) right CL times.",
+   "opcode": "D3 /3",
+   "operands": "MC",
+   "syntax": "RCR r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Rotate 65 bits (CF, r/m64) right CL times. Uses a 6 bit count.",
+   "opcode": "REX.W + D3 /3",
+   "operands": "MC",
+   "syntax": "RCR r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 33 bits (CF, r/m3) right imm8 times.",
+   "opcode": "C1 /3 ib",
+   "operands": "MI",
+   "syntax": "RCR  r/m3,  imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Rotate 65 bits (CF, r/m64) right imm8 times. Uses a 6 bit count.",
+   "opcode": "REX.W + C1 /3 ib",
+   "operands": "MI",
+   "syntax": "RCR  r/m64,  imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 8 bits r/m8 left once.",
+   "opcode": "D0 /0",
+   "operands": "M1",
+   "syntax": "ROL  r/m8,2  1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 8 bits r/m8 left CL times.",
+   "opcode": "D2 /0",
+   "operands": "MC",
+   "syntax": "ROL  r/m8,  CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 8 bits r/m8 left imm8 times.",
+   "opcode": "C0 /0 ib",
+   "operands": "MI",
+   "syntax": "ROL  r/m8,  imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 16 bits r/m16 left once.",
+   "opcode": "D1 /0",
+   "operands": "M1",
+   "syntax": "ROL  r/m16,  1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 16 bits r/m16 left CL times.",
+   "opcode": "D3 /0",
+   "operands": "MC",
+   "syntax": "ROL  r/m16,  CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 16 bits r/m16 left imm8 times.",
+   "opcode": "C1 /0 ib",
+   "operands": "MI",
+   "syntax": "ROL  r/m16,  imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 32 bits r/m3 left once.",
+   "opcode": "D1 /0",
+   "operands": "M1",
+   "syntax": "ROL  r/m3,  1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Rotate 64 bits r/m64 left once. Uses a 6 bit count.",
+   "opcode": "REX.W + D1 /0",
+   "operands": "M1",
+   "syntax": "ROL  r/m64,  1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Rotate 32 bits r/m3 left CL times.",
+   "opcode": "D3 /0",
+   "operands": "MC",
+   "syntax": "ROL r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "mc   va"
+   },
+   "note": "lid           N.E.          Rotate 64 bits r/m64 left CL times. Uses a 6 bit count.",
+   "opcode": "REX.W + D3 /0",
+   "operands": "",
+   "syntax": "ROL r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "mi   va"
+   },
+   "note": "lid           Valid         Rotate 32 bits r/m3 left imm8 times.",
+   "opcode": "C1 /0 ib",
+   "operands": "",
+   "syntax": "ROL r/m3, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "mi   va"
+   },
+   "note": "lid           N.E.          Rotate 64 bits r/m64 left imm8 times. Uses a 6 bit count.",
+   "opcode": "REX.W + C1 /0 ib",
+   "operands": "",
+   "syntax": "ROL r/m64, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D0"
+    ]
+   },
+   "modes": {
+    "legacy": "m1   va"
+   },
+   "note": "lid           Valid         Rotate 8 bits r/m8 right once.",
+   "opcode": "D0 /1",
+   "operands": "",
+   "syntax": "ROR r/m8, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D2"
+    ]
+   },
+   "modes": {
+    "legacy": "mc   va"
+   },
+   "note": "lid           Valid         Rotate 8 bits r/m8 right CL times.",
+   "opcode": "D2 /1",
+   "operands": "",
+   "syntax": "ROR r/m8, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "C0"
+    ]
+   },
+   "modes": {
+    "legacy": "mi   va"
+   },
+   "note": "lid           Valid         Rotate 8 bits r/m16 right imm8 times.",
+   "opcode": "C0 /1 ib",
+   "operands": "",
+   "syntax": "ROR r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "m1   va"
+   },
+   "note": "lid           Valid         Rotate 16 bits r/m16 right once.",
+   "opcode": "D1 /1",
+   "operands": "",
+   "syntax": "ROR r/m16, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "mc   va"
+   },
+   "note": "lid           Valid         Rotate 16 bits r/m16 right CL times.",
+   "opcode": "D3 /1",
+   "operands": "",
+   "syntax": "ROR r/m16, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "mi   va"
+   },
+   "note": "lid           Valid         Rotate 16 bits r/m16 right imm8 times.",
+   "opcode": "C1 /1 ib",
+   "operands": "",
+   "syntax": "ROR r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D1"
+    ]
+   },
+   "modes": {
+    "legacy": "m1   va"
+   },
+   "note": "lid           Valid         Rotate 32 bits r/m3 right once.",
+   "opcode": "D1 /1",
+   "operands": "",
+   "syntax": "ROR r/m3, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "m1   va"
+   },
+   "note": "lid           N.E.          Rotate 64 bits r/m64 right once. Uses a 6 bit count.",
+   "opcode": "REX.W + D1 /1",
+   "operands": "",
+   "syntax": "ROR r/m64, 1"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D3"
+    ]
+   },
+   "modes": {
+    "legacy": "mc   va"
+   },
+   "note": "lid           Valid         Rotate 32 bits r/m3 right CL times.",
+   "opcode": "D3 /1",
+   "operands": "",
+   "syntax": "ROR r/m3, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "D3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "mc   va"
+   },
+   "note": "lid           N.E.          Rotate 64 bits r/m64 right CL times. Uses a 6 bit count.",
+   "opcode": "REX.W + D3 /1",
+   "operands": "",
+   "syntax": "ROR r/m64, CL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "C1"
+    ]
+   },
+   "modes": {
+    "legacy": "mi   va"
+   },
+   "note": "lid           Valid         Rotate 32 bits r/m3 right imm8 times.",
+   "opcode": "C1 /1 ib",
+   "operands": "",
+   "syntax": "ROR r/m3, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "C1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "mi   va"
+   },
+   "note": "lid           N.E.          Rotate 64 bits r/m64 right imm8 times. Uses a 6 bit count.",
+   "opcode": "REX.W + C1 /1 ib",
+   "operands": "",
+   "syntax": "ROR r/m64, imm8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the source operand is located in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the source operand is located in a nonwritable segment. If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "rcl",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RCL",
+   "RCR",
+   "ROL",
+   "ROR"
+  ]
+ },
+ "mnemonics": [
+  "RCL",
+  "RCR",
+  "ROL",
+  "ROR"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M1",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "1",
+     "raw": "1",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MC",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "CL",
+     "raw": "CL",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MI",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1822,
+    1826
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,974 @@
+{
+ "encodings": [
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If below or equal (CF=1 or ZF=1), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E6 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPBEXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If below or equal (CF=1 or ZF=1), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E6 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPBEXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E2"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If below (CF=1), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E2 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPBXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E2"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If below (CF=1), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E2 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPBXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If less or equal (ZF=1 or SFOF), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 EE !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPLEXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If less or equal (ZF=1 or SFOF), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 EE !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPLEXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If less (SFOF), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 EC !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPLXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If less (SFOF), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 EC !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPLXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E7"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not below or equal (CF=0 and ZF=0), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32. O p/  64/32 bit CPUID Feature Description E n   Mode Support Flag",
+   "opcode": "VEX.128.66.0F38.W0 E7 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNBEXADD m32, r32, r32 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E7"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not below or equal (CF=0 and ZF=0), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E7 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNBEXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E3"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not below (CF=0), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E3 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNBXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E3"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not below (CF=0), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E3 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNBXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EF"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not less or equal (ZF=0 and SF=OF), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 EF !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNLEXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EF"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not less or equal (ZF=0 and SF=OF), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 EF !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNLEXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "ED"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not less (SF=OF), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 ED !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNLXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "ED"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not less (SF=OF), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 ED !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNLXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E1"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not overflow (OF=0), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E1 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNOXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E1"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not overflow (OF=0), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64. O p/  64/32 bit CPUID Feature Description E n   Mode Support Flag",
+   "opcode": "VEX.128.66.0F38.W1 E1 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNOXADD m64, r64, r64 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EB"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not parity (PF=0), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 EB !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNPXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EB"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not parity (PF=0), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 EB !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNPXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E9"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not sign (SF=0), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E9 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNSXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E9"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not sign (SF=0), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E9 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNSXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E5"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If not zero (ZF=0), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E5 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNZXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E5"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If not zero (ZF=0), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E5 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPNZXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E0"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If overflow (OF=1), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E0 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPOXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E0"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If overflow (OF=1), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E0 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPOXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EA"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If parity (PF=1), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 EA !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPPXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "EA"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If parity (PF=1), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64. O p/  64/32 bit CPUID Feature Description E n   Mode Support Flag",
+   "opcode": "VEX.128.66.0F38.W1 EA !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPPXADD m64, r64, r64 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E8"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If sign (SF=1), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E8 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPSXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E8"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If sign (SF=1), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64.",
+   "opcode": "VEX.128.66.0F38.W1 E8 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPSXADD m64, r64, r64"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E4"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r32 (second operand) with value in m32. If zero (ZF=1), add value from r32 (third operand) to m32 and write new value in m32. The second operand is always updated with the original value from m32.",
+   "opcode": "VEX.128.66.0F38.W0 E4 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPZXADD m32, r32, r32"
+  },
+  {
+   "cpuid": "CMPCCXADD",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "E4"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Compare value in r64 (second operand) with value in m64. If zero (ZF=1), add value from r64 (third operand) to m64 and write new value in m64. The second operand is always updated with the original value from m64. Instructio n Operand Encod ing1 Op erand 2 Operand 3     Operand 4 w) ModRM:reg (r, w) VEX.vvvv (r)                       N/A",
+   "opcode": "VEX.128.66.0F38.W1 E4 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "CMPZXADD m64, r64, r64 Op/En    Tuple Type         Operand 1 A            N/A        ModRM:r/m (r,"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cmpccxadd",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "CMPccXADD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    867,
+    871
+   ]
+  }
+ ],
+ "version": 1
+}

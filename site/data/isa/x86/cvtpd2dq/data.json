@@ -1,0 +1,220 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "E6"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert two packed double precision floating-point values in xmm2/mem to two signed doubleword integers in xmm1.",
+   "opcode": "F2 0F E6 /r",
+   "operands": "A",
+   "syntax": "CVTPD2DQ xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert two packed double precision floating-point values in xmm2/mem to two signed doubleword integers in xmm1.",
+   "opcode": "VEX.128.F2.0F.WIG E6 /r",
+   "operands": "A",
+   "syntax": "VCVTPD2DQ xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed double precision floating-point values in ymm2/mem to four signed doubleword integers in xmm1.",
+   "opcode": "VEX.256.F2.0F.WIG E6 /r",
+   "operands": "A",
+   "syntax": "VCVTPD2DQ xmm1, ymm2/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "EVEX.128.F2.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert two packed double precision floating-point AVX512F) OR values in xmm2/m128/m64bcst to two signed AVX10.1 doubleword integers in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.F2.0F.W1 E6 /r",
+   "operands": "B",
+   "syntax": "VCVTPD2DQ xmm1 {k1}{z}, xmm2/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "EVEX.256.F2.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed double precision floating-point AVX512F) OR values in ymm2/m256/m64bcst to four signed AVX10.1 doubleword integers in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.256.F2.0F.W1 E6 /r",
+   "operands": "B",
+   "syntax": "VCVTPD2DQ xmm1 {k1}{z}, ymm2/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E6"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "EVEX.512.F2.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed double precision floating- OR AVX10.1 point values in zmm2/m512/m64bcst to eight signed doubleword integers in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.512.F2.0F.W1 E6 /r",
+   "operands": "B",
+   "syntax": "VCVTPD2DQ ymm1 {k1}{z}, zmm2/m512/m64bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cvtpd2dq",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CVTPD2DQ",
+   "VCVTPD2DQ"
+  ]
+ },
+ "mnemonics": [
+  "CVTPD2DQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    918,
+    921
+   ]
+  }
+ ],
+ "version": 1
+}

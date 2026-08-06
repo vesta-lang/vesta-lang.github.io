@@ -1,0 +1,114 @@
+{
+ "encodings": [
+  {
+   "cpuid": "WAITPKG",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "A hint that allows the processor to stop instruction execution and enter an implementation-dependent optimized state until occurrence of a class of events. In struction O perand Enc oding1 Opera nd 2 Operand 3              Operand 4 N/A N/A               N/A",
+   "opcode": "F2 0F AE /6",
+   "operands": "A",
+   "syntax": "UMWAIT r32, <edx>, <eax> Op/En    Tuple               Operand 1 A        N/A                 ModRM:r/m (r)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If src[31:1] != 0. If CR4.TSD = 1 and CPL != 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If src[31:1] != 0. If CR4.TSD = 1 and CPL != 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If src[31:1] != 0. If CR4.TSD = 1 and CPL != 0."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP(0)",
+   "when": "If src[31:1] != 0. If CR4.TSD = 1 and CPL != 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If src[31:1] != 0. If CR4.TSD = 1 and CPL != 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5] = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5] = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5] = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5] = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5] = 0."
+  }
+ ],
+ "format": "isadoc",
+ "id": "umwait",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "UMWAIT"
+  ]
+ },
+ "mnemonics": [
+  "UMWAIT"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2030,
+    2031
+   ]
+  }
+ ],
+ "version": 1
+}

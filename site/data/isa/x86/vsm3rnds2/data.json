@@ -1,0 +1,86 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Performs two rounds of SM3 operation using SM3 the initial SM3 states from xmm1 and xmm2, and pre-computed words from xmm3/m128, storing the result in xmm1.",
+   "opcode": "VEX.128.66.0F3A.W0 DE /r /ib",
+   "operands": "A",
+   "syntax": "VSM3RNDS2 xmm1, xmm2, xmm3/m128, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsm3rnds2",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSM3RNDS2"
+  ]
+ },
+ "mnemonics": [
+  "VSM3RNDS2"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2810,
+    2811
+   ]
+  }
+ ],
+ "version": 1
+}

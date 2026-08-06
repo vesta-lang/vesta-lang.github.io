@@ -1,0 +1,160 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DD",
+     "E0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(i).",
+   "opcode": "DD E0+i",
+   "operands": "",
+   "syntax": "FUCOM ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DD",
+     "E1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(1).",
+   "opcode": "DD E1",
+   "operands": "",
+   "syntax": "FUCOM"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DD",
+     "E8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(i) and pop register stack.",
+   "opcode": "DD E8+i",
+   "operands": "",
+   "syntax": "FUCOMP ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DD",
+     "E9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(1) and pop register stack.",
+   "opcode": "DD E9",
+   "operands": "",
+   "syntax": "FUCOMP"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DA",
+     "E9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(1) and pop register stack twice.",
+   "opcode": "DA E9",
+   "operands": "",
+   "syntax": "FUCOMPP"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#MF",
+   "when": "If there is a pending x87 FPU exception."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "fucom",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FUCOM",
+   "FUCOMP",
+   "FUCOMPP"
+  ]
+ },
+ "mnemonics": [
+  "FUCOM",
+  "FUCOMP",
+  "FUCOMPP"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1106,
+    1108
+   ]
+  }
+ ],
+ "version": 1
+}
