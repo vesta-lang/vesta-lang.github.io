@@ -1,0 +1,110 @@
+{
+ "encodings": [
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F5"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Zero bits in r/m32 starting with the position in r32b, write result to r32a.",
+   "opcode": "VEX.LZ.0F38.W0 F5 /r",
+   "operands": "RMV",
+   "syntax": "BZHI r32a, r/m32, r32b"
+  },
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F5"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Zero bits in r/m64 starting with the position in r64b, write result to r64a.",
+   "opcode": "VEX.LZ.0F38.W1 F5 /r",
+   "operands": "RMV",
+   "syntax": "BZHI r64a, r/m64, r64b"
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "bzhi",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "BZHI"
+  ]
+ },
+ "mnemonics": [
+  "BZHI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMV",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    824,
+    824
+   ]
+  }
+ ],
+ "version": 1
+}

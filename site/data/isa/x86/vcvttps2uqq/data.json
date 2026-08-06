@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert two packed single precision floating-point AVX512DQ) OR values from xmm2/m64/m32bcst to two packed AVX10.1 unsigned quadword values in xmm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F.W0 78 /r",
+   "operands": "A",
+   "syntax": "VCVTTPS2UQQ xmm1 {k1}{z}, xmm2/m64/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed single precision floating-point AVX512DQ) OR values from xmm2/m128/m32bcst to four packed AVX10.1 unsigned quadword values in ymm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F.W0 78 /r",
+   "operands": "A",
+   "syntax": "VCVTTPS2UQQ ymm1 {k1}{z}, xmm2/m128/m32bcst"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "78"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed single precision floating-point OR AVX10.1 values from ymm2/m256/m32bcst to eight packed unsigned quadword values in zmm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F.W0 78 /r",
+   "operands": "A",
+   "syntax": "VCVTTPS2UQQ zmm1 {k1}{z}, ymm2/m256/m32bcst {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvttps2uqq",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTTPS2UQQ"
+  ]
+ },
+ "mnemonics": [
+  "VCVTTPS2UQQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Half"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2174,
+    2175
+   ]
+  }
+ ],
+ "version": 1
+}

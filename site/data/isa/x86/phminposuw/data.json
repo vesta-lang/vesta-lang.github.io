@@ -1,0 +1,96 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "41"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Find the minimum unsigned word in xmm2/m128 and place its value in the low word of xmm1 and its index in the second-lowest word of xmm1.",
+   "opcode": "66 0F 38 41 /r",
+   "operands": "RM",
+   "syntax": "PHMINPOSUW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "41"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Find the minimum unsigned word in xmm2/m128 and place its value in the low word of xmm1 and its index in the second-lowest word of xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 41 /r",
+   "operands": "RM",
+   "syntax": "VPHMINPOSUW xmm1, xmm2/m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "phminposuw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PHMINPOSUW",
+   "VPHMINPOSUW"
+  ]
+ },
+ "mnemonics": [
+  "PHMINPOSUW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1587,
+    1588
+   ]
+  }
+ ],
+ "version": 1
+}

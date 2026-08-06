@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512ER",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "CD"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes approximate reciprocal square root (<2^-28 relative error) of the scalar single precision floating-point value from xmm3/m32 and stores result in xmm1with writemask k1. Also, upper 3 single precision floating-point value (bits[127:32]) from xmm2 is copied to xmm1[127:32].",
+   "opcode": "EVEX.LLIG.66.0F38.W0 CD /r",
+   "operands": "A",
+   "syntax": "VRSQRT28SS xmm1 {k1}{z}, xmm2, xmm3/m32 {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrsqrt28ss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRSQRT28SS"
+  ]
+ },
+ "mnemonics": [
+  "VRSQRT28SS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2977,
+    2982
+   ]
+  }
+ ],
+ "version": 1
+}

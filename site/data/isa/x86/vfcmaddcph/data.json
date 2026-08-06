@@ -1,0 +1,213 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "F2",
+     "text": "EVEX.128.F2.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from AND AVX512VL) xmm2 and xmm3/m128/m32bcst, add to xmm1 OR AVX10.1 and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.F2.MAP6.W0 56 /r",
+   "operands": "A",
+   "syntax": "VFCMADDCPH xmm1{k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "F2",
+     "text": "EVEX.256.F2.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from AND AVX512VL) ymm2 and ymm3/m256/m32bcst, add to ymm1 OR AVX10.1 and store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.F2.MAP6.W0 56 /r",
+   "operands": "A",
+   "syntax": "VFCMADDCPH ymm1{k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "F2",
+     "text": "EVEX.512.F2.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from OR AVX10.1 zmm2 and zmm3/m512/m32bcst, add to zmm1 and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.F2.MAP6.W0 56 /r",
+   "operands": "A",
+   "syntax": "VFCMADDCPH zmm1{k1}{z}, zmm2, zmm3/m512/m32bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from AND AVX512VL) xmm2 and the complex conjugate of OR AVX10.1 xmm3/m128/m32bcst, add to xmm1 and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.F3.MAP6.W0 56 /r",
+   "operands": "A",
+   "syntax": "VFMADDCPH xmm1{k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from AND AVX512VL) ymm2 and the complex conjugate of OR AVX10.1 ymm3/m256/m32bcst, add to ymm1 and store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.F3.MAP6.W0 56 /r",
+   "operands": "A",
+   "syntax": "VFMADDCPH ymm1{k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from OR AVX10.1 zmm2 and the complex conjugate of zmm3/m512/m32bcst, add to zmm1 and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.F3.MAP6.W0 56 /r",
+   "operands": "A",
+   "syntax": "VFMADDCPH zmm1{k1}{z}, zmm2, zmm3/m512/m32bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfcmaddcph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFCMADDCPH",
+   "VFMADDCPH"
+  ]
+ },
+ "mnemonics": [
+  "VFCMADDCPH",
+  "VFMADDCPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2231,
+    2233
+   ]
+  }
+ ],
+ "version": 1
+}

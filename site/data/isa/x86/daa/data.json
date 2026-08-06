@@ -1,0 +1,75 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "27"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Decimal adjust AL after addition.",
+   "opcode": "27",
+   "operands": "ZO",
+   "syntax": "DAA"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If in 64-bit mode."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "daa",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "DAA"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    962,
+    963
+   ]
+  }
+ ],
+ "version": 1
+}

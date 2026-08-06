@@ -1,0 +1,143 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Tests the input for the following categories: NaN, +0, - AVX512DQ) OR 0, +Infinity, -Infinity, denormal, finite negative. The AVX10.1 immediate field provides a mask bit for each of these category tests. The masked test results are OR-ed together to form a mask result.",
+   "opcode": "EVEX.128.66.0F3A.W0 66 /r ib",
+   "operands": "A",
+   "syntax": "VFPCLASSPS k2 {k1}, xmm2/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Tests the input for the following categories: NaN, +0, - AVX512DQ) OR 0, +Infinity, -Infinity, denormal, finite negative. The AVX10.1 immediate field provides a mask bit for each of these category tests. The masked test results are OR-ed together to form a mask result.",
+   "opcode": "EVEX.256.66.0F3A.W0 66 /r ib",
+   "operands": "A",
+   "syntax": "VFPCLASSPS k2 {k1}, ymm2/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Tests the input for the following categories: NaN, +0, - OR AVX10.1 0, +Infinity, -Infinity, denormal, finite negative. The immediate field provides a mask bit for each of these category tests. The masked test results are OR-ed together to form a mask result.",
+   "opcode": "EVEX.512.66.0F3A.W0 66 /r ib",
+   "operands": "A",
+   "syntax": "VFPCLASSPS k2 {k1}, zmm2/m512/m32bcst, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfpclassps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFPCLASSPS"
+  ]
+ },
+ "mnemonics": [
+  "VFPCLASSPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2402,
+    2403
+   ]
+  }
+ ],
+ "version": 1
+}

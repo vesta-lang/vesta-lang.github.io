@@ -1,0 +1,47 @@
+{
+ "encodings": [
+  {
+   "cpuid": "RTM",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "D5"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Specifies the end of an RTM code region.",
+   "opcode": "NP 0F 01 D5",
+   "operands": "A",
+   "syntax": "XEND"
+  }
+ ],
+ "format": "isadoc",
+ "id": "xend",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XEND"
+  ]
+ },
+ "mnemonics": [
+  "XEND"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2861,
+    2862
+   ]
+  }
+ ],
+ "version": 1
+}

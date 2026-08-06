@@ -1,0 +1,146 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D7"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move a byte mask of mm to reg. The upper bits of r32 or r64 are zeroed",
+   "opcode": "NP 0F D7 /r1",
+   "operands": "RM",
+   "syntax": "PMOVMSKB reg, mm"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D7"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move a byte mask of xmm to reg. The upper bits of r32 or r64 are zeroed",
+   "opcode": "66 0F D7 /r",
+   "operands": "RM",
+   "syntax": "PMOVMSKB reg, xmm"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D7"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move a byte mask of xmm1 to reg. The upper bits of r32 or r64 are filled with zeros.",
+   "opcode": "VEX.128.66.0F.WIG D7 /r",
+   "operands": "RM",
+   "syntax": "VPMOVMSKB reg, xmm1"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D7"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move a 32-bit mask of ymm1 to reg. The upper bits of r64 are filled with zeros.",
+   "opcode": "VEX.256.66.0F.WIG D7 /r",
+   "operands": "RM",
+   "syntax": "VPMOVMSKB reg, ymm1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pmovmskb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PMOVMSKB",
+   "VPMOVMSKB"
+  ]
+ },
+ "mnemonics": [
+  "PMOVMSKB"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1639,
+    1640
+   ]
+  }
+ ],
+ "version": 1
+}

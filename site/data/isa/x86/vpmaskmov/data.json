@@ -1,0 +1,285 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally load dword values from m128 using mask in xmm2 and store in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 8C /r",
+   "operands": "RVM",
+   "syntax": "VPMASKMOVD xmm1, xmm2, m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally load dword values from m256 using mask in ymm2 and store in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 8C /r",
+   "operands": "RVM",
+   "syntax": "VPMASKMOVD ymm1, ymm2, m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally load qword values from m128 using mask in xmm2 and store in xmm1.",
+   "opcode": "VEX.128.66.0F38.W1 8C /r",
+   "operands": "RVM",
+   "syntax": "VPMASKMOVQ xmm1, xmm2, m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally load qword values from m256 using mask in ymm2 and store in ymm1.",
+   "opcode": "VEX.256.66.0F38.W1 8C /r",
+   "operands": "RVM",
+   "syntax": "VPMASKMOVQ ymm1, ymm2, m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally store dword values from xmm2 using mask in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 8E /r",
+   "operands": "MVR",
+   "syntax": "VPMASKMOVD m128, xmm1, xmm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally store dword values from ymm2 using mask in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 8E /r",
+   "operands": "MVR",
+   "syntax": "VPMASKMOVD m256, ymm1, ymm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally store qword values from xmm2 using mask in xmm1.",
+   "opcode": "VEX.128.66.0F38.W1 8E /r",
+   "operands": "MVR",
+   "syntax": "VPMASKMOVQ m128, xmm1, xmm2"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Conditionally store qword values from ymm2 using mask in ymm1.",
+   "opcode": "VEX.256.66.0F38.W1 8E /r",
+   "operands": "MVR",
+   "syntax": "VPMASKMOVQ m256, ymm1, ymm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpmaskmov",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPMASKMOVD",
+   "VPMASKMOVQ"
+  ]
+ },
+ "mnemonics": [
+  "VPMASKMOV"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MVR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2622,
+    2624
+   ]
+  }
+ ],
+ "version": 1
+}

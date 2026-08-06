@@ -1,0 +1,168 @@
+{
+ "encodings": [
+  {
+   "cpuid": "KEY_LOCK",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "DC"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load internal wrapping key from xmm1, xmm2, and ER XMM0.",
+   "opcode": "F3 0F 38 DC 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "LOADIWKEY xmm1, xmm2, <EAX>, <XMM0>"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If CPL > 0. (Does not apply in real-address mode.) If EAX[4:1] > 1. If EAX[31:5] != 0. If (EAX[0] == 1) AND (CPUID.19H:ECX[0] == 0). If (EAX[4:1] == 1) AND (CPUID.19H:ECX[1] == 0)."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP",
+   "when": "If CPL > 0. (Does not apply in real-address mode.) If EAX[4:1] > 1. If EAX[31:5] != 0. If (EAX[0] == 1) AND (CPUID.19H:ECX[0] == 0). If (EAX[4:1] == 1) AND (CPUID.19H:ECX[1] == 0)."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP",
+   "when": "If CPL > 0. (Does not apply in real-address mode.) If EAX[4:1] > 1. If EAX[31:5] != 0. If (EAX[0] == 1) AND (CPUID.19H:ECX[0] == 0). If (EAX[4:1] == 1) AND (CPUID.19H:ECX[1] == 0)."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP",
+   "when": "If CPL > 0. (Does not apply in real-address mode.) If EAX[4:1] > 1. If EAX[31:5] != 0. If (EAX[0] == 1) AND (CPUID.19H:ECX[0] == 0). If (EAX[4:1] == 1) AND (CPUID.19H:ECX[1] == 0)."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP",
+   "when": "If CPL > 0. (Does not apply in real-address mode.) If EAX[4:1] > 1. If EAX[31:5] != 0. If (EAX[0] == 1) AND (CPUID.19H:ECX[0] == 0). If (EAX[4:1] == 1) AND (CPUID.19H:ECX[1] == 0)."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "compat",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "loadiwkey",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LOADIWKEY"
+  ]
+ },
+ "mnemonics": [
+  "LOADIWKEY"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "EAX",
+     "implicit": true,
+     "raw": "EAX",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "XMM0",
+     "implicit": true,
+     "raw": "XMM0",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1266,
+    1268
+   ]
+  }
+ ],
+ "version": 1
+}

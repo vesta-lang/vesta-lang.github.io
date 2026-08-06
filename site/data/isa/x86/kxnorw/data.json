@@ -1,0 +1,164 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "46"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise XNOR 16-bit masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.0F.W0 46 /r",
+   "operands": "RVR",
+   "syntax": "KXNORW k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "46"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L1.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise XNOR 8-bit masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.66.0F.W0 46 /r",
+   "operands": "RVR",
+   "syntax": "KXNORB k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "46"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise XNOR 64-bit masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.0F.W1 46 /r",
+   "operands": "RVR",
+   "syntax": "KXNORQ k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "46"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L1.66.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise XNOR 32-bit masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.66.0F.W1 46 /r",
+   "operands": "RVR",
+   "syntax": "KXNORD k1, k2, k3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "kxnorw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KXNORW",
+   "KXNORB",
+   "KXNORQ",
+   "KXNORD"
+  ]
+ },
+ "mnemonics": [
+  "KXNORW",
+  "KXNORB",
+  "KXNORQ",
+  "KXNORD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVR",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1234,
+    1234
+   ]
+  }
+ ],
+ "version": 1
+}

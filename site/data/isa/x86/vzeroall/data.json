@@ -1,0 +1,50 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "opcode": [
+     "77"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "VEX.256.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Zero some of the XMM, YMM, and ZMM registers.",
+   "opcode": "VEX.256.0F.WIG 77",
+   "operands": "ZO",
+   "syntax": "VZEROALL"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vzeroall",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VZEROALL"
+  ]
+ },
+ "mnemonics": [
+  "VZEROALL"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2826,
+    2826
+   ]
+  }
+ ],
+ "version": 1
+}

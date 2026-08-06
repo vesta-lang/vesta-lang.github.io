@@ -1,0 +1,291 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "C2"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed single precision floating-point values in xmm2/m128 and xmm1 using bits 2:0 of imm8 as a comparison predicate.",
+   "opcode": "NP 0F C2 /r ib",
+   "operands": "A",
+   "syntax": "CMPPS xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "VEX.128.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed single precision floating-point values in xmm3/m128 and xmm2 using bits 4:0 of imm8 as a comparison predicate.",
+   "opcode": "VEX.128.0F.WIG C2 /r ib",
+   "operands": "B",
+   "syntax": "VCMPPS xmm1, xmm2, xmm3/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "VEX.256.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed single precision floating-point values in ymm3/m256 and ymm2 using bits 4:0 of imm8 as a comparison predicate.",
+   "opcode": "VEX.256.0F.WIG C2 /r ib",
+   "operands": "B",
+   "syntax": "VCMPPS ymm1, ymm2, ymm3/m256, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "EVEX.128.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed single precision floating-point values in AVX512F) OR xmm3/m128/m32bcst and xmm2 using bits 4:0 of AVX10.1 imm8 as a comparison predicate with writemask k2 and leave the result in mask register k1.",
+   "opcode": "EVEX.128.0F.W0 C2 /r ib",
+   "operands": "C",
+   "syntax": "VCMPPS k1 {k2}, xmm2, xmm3/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "text": "EVEX.256.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed single precision floating-point values in AVX512F) OR ymm3/m256/m32bcst and ymm2 using bits 4:0 of AVX10.1 imm8 as a comparison predicate with writemask k2 and leave the result in mask register k1.",
+   "opcode": "EVEX.256.0F.W0 C2 /r ib",
+   "operands": "C",
+   "syntax": "VCMPPS k1 {k2}, ymm2, ymm3/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "text": "EVEX.512.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed single precision floating-point values in OR AVX10.1 zmm3/m512/m32bcst and zmm2 using bits 4:0 of imm8 as a comparison predicate with writemask k2 and leave the result in mask register k1.",
+   "opcode": "EVEX.512.0F.W0 C2 /r ib",
+   "operands": "C",
+   "syntax": "VCMPPS k1 {k2}, zmm2, zmm3/m512/m32bcst {sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cmpps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CMPPS",
+   "VCMPPS"
+  ]
+ },
+ "mnemonics": [
+  "CMPPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    879,
+    884
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,148 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform reduction transformation on packed single- AND AVX512DQ) precision floating-point values in OR AVX10.1 xmm2/m128/m32bcst by subtracting a number of fraction bits specified by the imm8 field. Stores the result in xmm1 register under writemask k1.",
+   "opcode": "EVEX.128.66.0F3A.W0 56 /r ib",
+   "operands": "A",
+   "syntax": "VREDUCEPS xmm1 {k1}{z}, xmm2/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform reduction transformation on packed single- AND AVX512DQ) precision floating-point values in OR AVX10.1 ymm2/m256/m32bcst by subtracting a number of fraction bits specified by the imm8 field. Stores the result in ymm1 register under writemask k1.",
+   "opcode": "EVEX.256.66.0F3A.W0 56 /r ib",
+   "operands": "A",
+   "syntax": "VREDUCEPS ymm1 {k1}{z}, ymm2/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform reduction transformation on packed single- OR AVX10.1 precision floating-point values in zmm2/m512/m32bcst by subtracting a number of fraction bits specified by the imm8 field. Stores the result in zmm1 register under writemask k1.",
+   "opcode": "EVEX.512.66.0F3A.W0 56 /r ib",
+   "operands": "A",
+   "syntax": "VREDUCEPS zmm1 {k1}{z}, zmm2/m512/m32bcst{sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vreduceps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VREDUCEPS"
+  ]
+ },
+ "mnemonics": [
+  "VREDUCEPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2742,
+    2743
+   ]
+  }
+ ],
+ "version": 1
+}

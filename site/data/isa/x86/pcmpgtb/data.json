@@ -1,0 +1,667 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "64"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed byte integers in mm and mm/m64 for greater than.",
+   "opcode": "NP 0F 64 /r1",
+   "operands": "A",
+   "syntax": "PCMPGTB mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "64"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed byte integers in xmm1 and xmm2/m128 for greater than.",
+   "opcode": "66 0F 64 /r",
+   "operands": "A",
+   "syntax": "PCMPGTB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "65"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed word integers in mm and mm/m64 for greater than.",
+   "opcode": "NP 0F 65 /r1",
+   "operands": "A",
+   "syntax": "PCMPGTW mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "65"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed word integers in xmm1 and xmm2/m128 for greater than.",
+   "opcode": "66 0F 65 /r",
+   "operands": "A",
+   "syntax": "PCMPGTW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "66"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed doubleword integers in mm and mm/m64 for greater than.",
+   "opcode": "NP 0F 66 /r1",
+   "operands": "A",
+   "syntax": "PCMPGTD mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "66"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed doubleword integers in xmm1 and xmm2/m128 for greater than.",
+   "opcode": "66 0F 66 /r",
+   "operands": "A",
+   "syntax": "PCMPGTD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "64"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed byte integers in xmm2 and xmm3/m128 for greater than.",
+   "opcode": "VEX.128.66.0F.WIG 64 /r",
+   "operands": "B",
+   "syntax": "VPCMPGTB xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed word integers in xmm2 and xmm3/m128 for greater than.",
+   "opcode": "VEX.128.66.0F.WIG 65 /r",
+   "operands": "B",
+   "syntax": "VPCMPGTW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed doubleword integers in xmm2 and xmm3/m128 for greater than.",
+   "opcode": "VEX.128.66.0F.WIG 66 /r",
+   "operands": "B",
+   "syntax": "VPCMPGTD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "64"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed byte integers in ymm2 and ymm3/m256 for greater than.",
+   "opcode": "VEX.256.66.0F.WIG 64 /r",
+   "operands": "B",
+   "syntax": "VPCMPGTB ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed word integers in ymm2 and ymm3/m256 for greater than.",
+   "opcode": "VEX.256.66.0F.WIG 65 /r",
+   "operands": "B",
+   "syntax": "VPCMPGTW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed doubleword integers in ymm2 and ymm3/m256 for greater than.",
+   "opcode": "VEX.256.66.0F.WIG 66 /r",
+   "operands": "B",
+   "syntax": "VPCMPGTD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare Greater between int32 vector xmm2 and AVX512F) OR int32 vector xmm3/m128/m32bcst, and set AVX10.1 vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.128.66.0F.W0 66 /r",
+   "operands": "C",
+   "syntax": "VPCMPGTD k1 {k2}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare Greater between int32 vector ymm2 and AVX512F) OR int32 vector ymm3/m256/m32bcst, and set AVX10.1 vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.256.66.0F.W0 66 /r",
+   "operands": "C",
+   "syntax": "VPCMPGTD k1 {k2}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare Greater between int32 elements in OR AVX10.1 zmm2 and zmm3/m512/m32bcst, and set destination k1 according to the comparison results under writemask. k2.",
+   "opcode": "EVEX.512.66.0F.W0 66 /r",
+   "operands": "C",
+   "syntax": "VPCMPGTD k1 {k2}, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "64"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed byte integers in xmm2 AVX512BW) OR AVX10.1 and xmm3/m128 for greater than, and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.128.66.0F.WIG 64 /r",
+   "operands": "D",
+   "syntax": "VPCMPGTB k1 {k2}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "64"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed byte integers in ymm2 AVX512BW) OR AVX10.1 and ymm3/m256 for greater than, and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask. Op/  64/32 bit  CPUID Feature Description En   Mode Suppor Flag t",
+   "opcode": "EVEX.256.66.0F.WIG 64 /r",
+   "operands": "D",
+   "syntax": "VPCMPGTB k1 {k2}, ymm2, ymm3/m256 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "64"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Compare packed signed byte integers in zmm2 and OR AVX10.1 zmm3/m512 for greater than, and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.512.66.0F.WIG 64 /r",
+   "operands": "",
+   "syntax": "VPCMPGTB k1 {k2}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Compare packed signed word integers in xmm2 AVX512BW) OR AVX10.1 and xmm3/m128 for greater than, and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.128.66.0F.WIG 65 /r",
+   "operands": "",
+   "syntax": "VPCMPGTW k1 {k2}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Compare packed signed word integers in ymm2 AVX512BW) OR AVX10.1 and ymm3/m256 for greater than, and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.256.66.0F.WIG 65 /r",
+   "operands": "",
+   "syntax": "VPCMPGTW k1 {k2}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "d    v"
+   },
+   "note": "Compare packed signed word integers in zmm2 OR AVX10.1 and zmm3/m512 for greater than, and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.512.66.0F.WIG 65 /r",
+   "operands": "",
+   "syntax": "VPCMPGTW k1 {k2}, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pcmpgtb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PCMPGTB",
+   "VPCMPGTB",
+   "PCMPGTW",
+   "VPCMPGTW",
+   "PCMPGTD",
+   "VPCMPGTD"
+  ]
+ },
+ "mnemonics": [
+  "PCMPGTB",
+  "PCMPGTW",
+  "PCMPGTD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1547,
+    1552
+   ]
+  }
+ ],
+ "version": 1
+}

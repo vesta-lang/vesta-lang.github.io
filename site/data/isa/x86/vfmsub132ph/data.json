@@ -1,0 +1,545 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm3/m128/m16bcst, subtract xmm2, and store OR AVX10.1 the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 9A /r",
+   "operands": "A",
+   "syntax": "VFMSUB132PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm3/m256/m16bcst, subtract ymm2, and store OR AVX10.1 the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 9A /r",
+   "operands": "A",
+   "syntax": "VFMSUB132PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm1 and OR AVX10.1 zmm3/m512/m16bcst, subtract zmm2, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 9A /r",
+   "operands": "A",
+   "syntax": "VFMSUB132PH zmm1{k1}{z},   zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AA"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm2, subtract xmm3/m128/m16bcst, and store OR AVX10.1 the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 AA /r",
+   "operands": "A",
+   "syntax": "VFMSUB213PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AA"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm2, subtract ymm3/m256/m16bcst, and store OR AVX10.1 the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 AA /r",
+   "operands": "A",
+   "syntax": "VFMSUB213PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AA"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm1 and OR AVX10.1 zmm2, subtract zmm3/m512/m16bcst, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 AA /r",
+   "operands": "A",
+   "syntax": "VFMSUB213PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BA"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm2 and AND AVX512VL) xmm3/m128/m16bcst, subtract xmm1, and store OR AVX10.1 the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 BA /r",
+   "operands": "A",
+   "syntax": "VFMSUB231PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BA"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm2 and AND AVX512VL) ymm3/m256/m16bcst, subtract ymm1, and store OR AVX10.1 the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 BA /r",
+   "operands": "A",
+   "syntax": "VFMSUB231PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BA"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm2 and OR AVX10.1 zmm3/m512/m16bcst, subtract zmm1, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 BA /r",
+   "operands": "A",
+   "syntax": "VFMSUB231PH zmm1{k1}{z},   zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm3/m128/m16bcst, and negate the value. OR AVX10.1 Subtract xmm2 from this value, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 9E /r",
+   "operands": "A",
+   "syntax": "VFNMSUB132PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm3/m256/m16bcst, and negate the value. OR AVX10.1 Subtract ymm2 from this value, and store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 9E /r",
+   "operands": "A",
+   "syntax": "VFNMSUB132PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm1 and OR AVX10.1 zmm3/m512/m16bcst, and negate the value. Subtract zmm2 from this value, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 9E /r",
+   "operands": "A",
+   "syntax": "VFNMSUB132PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm2, and negate the value. Subtract OR AVX10.1 xmm3/m128/m16bcst from this value, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 AE /r",
+   "operands": "A",
+   "syntax": "VFNMSUB213PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm2, and negate the value. Subtract OR AVX10.1 ymm3/m256/m16bcst from this value, and store the result in ymm1 subject to writemask k1. Op/   64/3 2     CPUID Feature       Des cription En    Bit Supp Mode  Flag ort",
+   "opcode": "EVEX.256.66.MAP6.W0 AE /r",
+   "operands": "A",
+   "syntax": "VFNMSUB213PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst Opcode/ Instruction"
+  },
+  {
+   "cpuid": "AVX512_FP16         Mul",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "a     v"
+   },
+   "note": "tiply packed FP16 values from zmm1 and OR AVX10.1          zmm 2, and negate the value. Subtract zmm the 3/m512/m16bcst from this value, and store result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 AE /r",
+   "operands": "",
+   "syntax": "VFNMSUB213PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16        Mul",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "a     v"
+   },
+   "note": "tiply packed FP16 values from xmm2 and AND AVX512VL)       xmm 3/m128/m16bcst, and negate the value. OR AVX10.1          Sub res tract xmm1 from this value, and store the ult in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 BE /r",
+   "operands": "",
+   "syntax": "VFNMSUB231PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16        Mul",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "a     v"
+   },
+   "note": "tiply packed FP16 values from ymm2 and AND AVX512VL)       ymm 3/m256/m16bcst, and negate the value. OR AVX10.1          Sub res tract ymm1 from this value, and store the ult in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 BE /r",
+   "operands": "",
+   "syntax": "VFNMSUB231PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16         Mul",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "a     v"
+   },
+   "note": "tiply packed FP16 values from zmm2 and OR AVX10.1          zmm 3/m512/m16bcst, and negate the value. Sub res tract zmm1 from this value, and store the ult in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 BE /r",
+   "operands": "",
+   "syntax": "VFNMSUB231PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfmsub132ph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFMSUB132PH",
+   "VFMSUB213PH",
+   "VFMSUB231PH",
+   "VFNMSUB132PH",
+   "VFNMSUB213PH",
+   "VFNMSUB231PH"
+  ]
+ },
+ "mnemonics": [
+  "VFMSUB132PH",
+  "VFMSUB213PH",
+  "VFMSUB231PH",
+  "VFNMSUB132PH",
+  "VFNMSUB213PH",
+  "VFNMSUB231PH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2314,
+    2319
+   ]
+  }
+ ],
+ "version": 1
+}

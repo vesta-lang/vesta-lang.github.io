@@ -1,0 +1,216 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move FP16 value from m16 to xmm1 subject to OR AVX10.1 writemask k1.",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 10 /r",
+   "operands": "A",
+   "syntax": "VMOVSH xmm1{k1}{z}, m16"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move low FP16 value from xmm1 to m16 subject OR AVX10.1 to writemask k1.",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 11 /r",
+   "operands": "B",
+   "syntax": "VMOVSH m16{k1}, xmm1"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move low FP16 values from xmm3 to xmm1 OR AVX10.1 subject to writemask k1. Bits 127:16 of xmm2 are copied to xmm1[127:16].",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 10 /r",
+   "operands": "C",
+   "syntax": "VMOVSH xmm1{k1}{z}, xmm2, xmm3"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move low FP16 values from xmm3 to xmm1 OR AVX10.1 subject to writemask k1. Bits 127:16 of xmm2 are copied to xmm1[127:16].",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 11 /r",
+   "operands": "D",
+   "syntax": "VMOVSH xmm1{k1}{z}, xmm2, xmm3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vmovsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VMOVSH"
+  ]
+ },
+ "mnemonics": [
+  "VMOVSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2478,
+    2479
+   ]
+  }
+ ],
+ "version": 1
+}

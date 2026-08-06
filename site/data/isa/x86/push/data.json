@@ -1,0 +1,425 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push r/m16.",
+   "opcode": "FF /6",
+   "operands": "M",
+   "syntax": "PUSH r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Push r/m32.",
+   "opcode": "FF /6",
+   "operands": "M",
+   "syntax": "PUSH r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Push r/m64.",
+   "opcode": "FF /6",
+   "operands": "M",
+   "syntax": "PUSH r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "50"
+    ],
+    "opcode_register": {
+     "marker": "+rw",
+     "width": 2
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push r16.",
+   "opcode": "50+rw",
+   "operands": "O",
+   "syntax": "PUSH r16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "50"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Push r32.",
+   "opcode": "50+rd",
+   "operands": "O",
+   "syntax": "PUSH r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "50"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Push r64.",
+   "opcode": "50+rd",
+   "operands": "O",
+   "syntax": "PUSH r64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "6A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push imm8.",
+   "opcode": "6A ib",
+   "operands": "I",
+   "syntax": "PUSH imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "opcode": [
+     "68"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push imm16.",
+   "opcode": "68 iw",
+   "operands": "I",
+   "syntax": "PUSH imm16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "opcode": [
+     "68"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push imm32.",
+   "opcode": "68 id",
+   "operands": "I",
+   "syntax": "PUSH imm32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Push CS.",
+   "opcode": "0E",
+   "operands": "ZO",
+   "syntax": "PUSH CS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "16"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Push SS.",
+   "opcode": "16",
+   "operands": "ZO",
+   "syntax": "PUSH SS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "1E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Push DS.",
+   "opcode": "1E",
+   "operands": "ZO",
+   "syntax": "PUSH DS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "06"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Push ES.",
+   "opcode": "06",
+   "operands": "ZO",
+   "syntax": "PUSH ES"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push FS.",
+   "opcode": "0F A0",
+   "operands": "ZO",
+   "syntax": "PUSH FS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A8"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push GS.",
+   "opcode": "0F A8",
+   "operands": "ZO",
+   "syntax": "PUSH GS"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit. If the new value of the SP or ESP register is outside the stack segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If the PUSH is of CS, SS, DS, or ES."
+  }
+ ],
+ "format": "isadoc",
+ "id": "push",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PUSH"
+  ]
+ },
+ "mnemonics": [
+  "PUSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "O",
+   "operands": [
+    {
+     "field": "opcode.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "I",
+   "operands": [
+    {
+     "field": "imm8/16/32",
+     "raw": "imm8/16/32",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1811,
+    1814
+   ]
+  }
+ ],
+ "version": 1
+}

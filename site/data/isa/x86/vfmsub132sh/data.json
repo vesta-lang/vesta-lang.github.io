@@ -1,0 +1,233 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9B"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and OR AVX10.1 xmm3/m16, subtract xmm2, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 9B /r",
+   "operands": "A",
+   "syntax": "VFMSUB132SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AB"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and xmm2, OR AVX10.1 subtract xmm3/m16, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 AB /r",
+   "operands": "A",
+   "syntax": "VFMSUB213SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BB"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm2 and OR AVX10.1 xmm3/m16, subtract xmm1, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 BB /r",
+   "operands": "A",
+   "syntax": "VFMSUB231SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9F"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and OR AVX10.1 xmm3/m16, and negate the value. Subtract xmm2 from this value, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 9F /r",
+   "operands": "A",
+   "syntax": "VFNMSUB132SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AF"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm1 and xmm2, and OR AVX10.1 negate the value. Subtract xmm3/m16 from this value, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 AF /r",
+   "operands": "A",
+   "syntax": "VFNMSUB213SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BF"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply FP16 values from xmm2 and OR AVX10.1 xmm3/m16, and negate the value. Subtract xmm1 from this value, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 BF /r",
+   "operands": "A",
+   "syntax": "VFNMSUB231SH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfmsub132sh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFMSUB132SH",
+   "VFMSUB213SH",
+   "VFMSUB231SH",
+   "VFNMSUB132SH",
+   "VFNMSUB213SH",
+   "VFNMSUB231SH"
+  ]
+ },
+ "mnemonics": [
+  "VFMSUB132SH",
+  "VFMSUB213SH",
+  "VFMSUB231SH",
+  "VFNMSUB132SH",
+  "VFNMSUB213SH",
+  "VFNMSUB231SH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2330,
+    2332
+   ]
+  }
+ ],
+ "version": 1
+}

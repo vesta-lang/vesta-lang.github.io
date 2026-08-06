@@ -1,0 +1,143 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D0"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add/subtract double precision floating-point values from xmm2/m128 to xmm1.",
+   "opcode": "66 0F D0 /r",
+   "operands": "RM",
+   "syntax": "ADDSUBPD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D0"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add/subtract packed double precision floating-point values from xmm3/mem to xmm2 and stores result in xmm1.",
+   "opcode": "VEX.128.66.0F.WIG D0 /r",
+   "operands": "RVM",
+   "syntax": "VADDSUBPD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D0"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add / subtract packed double precision floating-point values from ymm3/mem to ymm2 and stores result in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG D0 /r",
+   "operands": "RVM",
+   "syntax": "VADDSUBPD ymm1, ymm2, ymm3/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "addsubpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ADDSUBPD",
+   "VADDSUBPD"
+  ]
+ },
+ "mnemonics": [
+  "ADDSUBPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    730,
+    731
+   ]
+  }
+ ],
+ "version": 1
+}

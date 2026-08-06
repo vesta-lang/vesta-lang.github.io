@@ -1,0 +1,84 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "27"
+    ],
+    "vector_prefix": {
+     "map": "0F 3A",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Extract the normalized mantissa of the low float64 OR AVX10.1 element in xmm3/m64 using imm8 for sign control and mantissa interval normalization. Store the mantissa to xmm1 under the writemask k1 and merge with the other elements of xmm2.",
+   "opcode": "EVEX.LLIG.66.0F3A.W1 27 /r ib",
+   "operands": "A",
+   "syntax": "VGETMANTSD xmm1 {k1}{z}, xmm2, xmm3/m64{sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vgetmantsd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VGETMANTSD"
+  ]
+ },
+ "mnemonics": [
+  "VGETMANTSD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2451,
+    2452
+   ]
+  }
+ ],
+ "version": 1
+}

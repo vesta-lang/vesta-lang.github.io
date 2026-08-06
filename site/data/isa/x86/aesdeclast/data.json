@@ -1,0 +1,249 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "DF"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the last round of an AES decryption flow, using the Equivalent Inverse Cipher, using one 128- bit data (state) from xmm1 with one 128-bit round key from xmm2/m128.",
+   "opcode": "66 0F 38 DF /r",
+   "operands": "A",
+   "syntax": "AESDECLAST xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DF"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the last round of an AES decryption flow, AVX using the Equivalent Inverse Cipher, using one 128- bit data (state) from xmm2 with one 128-bit round key from xmm3/m128; store the result in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG DF /r",
+   "operands": "B",
+   "syntax": "VAESDECLAST xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "VAES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DF"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the last round of an AES decryption flow, using the Equivalent Inverse Cipher, using two 128- bit data (state) from ymm2 with two 128-bit round keys from ymm3/m256; store the result in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG DF /r",
+   "operands": "B",
+   "syntax": "VAESDECLAST ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "VAES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DF"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the last round of an AES decryption flow, (AVX512VL OR AVX10.1) using the Equivalent Inverse Cipher, using one 128- bit data (state) from xmm2 with one 128-bit round key from xmm3/m128; store the result in xmm1.",
+   "opcode": "EVEX.128.66.0F38.WIG DF /r",
+   "operands": "C",
+   "syntax": "VAESDECLAST xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "VAES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DF"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the last round of an AES decryption flow, (AVX512VL OR AVX10.1) using the Equivalent Inverse Cipher, using two 128- bit data (state) from ymm2 with two 128-bit round keys from ymm3/m256; store the result in ymm1.",
+   "opcode": "EVEX.256.66.0F38.WIG DF /r",
+   "operands": "C",
+   "syntax": "VAESDECLAST ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "VAES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DF"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the last round of an AES decryption flow, (AVX512F OR AVX10.1) using the Equivalent Inverse Cipher, using four128- bit data (state) from zmm2 with four 128-bit round keys from zmm3/m512; store the result in zmm1.",
+   "opcode": "EVEX.512.66.0F38.WIG DF /r",
+   "operands": "C",
+   "syntax": "VAESDECLAST zmm1, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "aesdeclast",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "AESDECLAST",
+   "VAESDECLAST"
+  ]
+ },
+ "mnemonics": [
+  "AESDECLAST"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    743,
+    744
+   ]
+  }
+ ],
+ "version": 1
+}

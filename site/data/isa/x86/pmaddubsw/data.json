@@ -1,0 +1,273 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "04"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed and unsigned bytes, add horizontal pair of signed words, pack saturated signed-words to mm1.",
+   "opcode": "NP 0F 38 04 /r1",
+   "operands": "A",
+   "syntax": "PMADDUBSW mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "04"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed and unsigned bytes, add horizontal pair of signed words, pack saturated signed-words to xmm1.",
+   "opcode": "66 0F 38 04 /r",
+   "operands": "A",
+   "syntax": "PMADDUBSW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "04"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed and unsigned bytes, add horizontal pair of signed words, pack saturated signed-words to xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 04 /r",
+   "operands": "B",
+   "syntax": "VPMADDUBSW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "04"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed and unsigned bytes, add horizontal pair of signed words, pack saturated signed-words to ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 04 /r",
+   "operands": "B",
+   "syntax": "VPMADDUBSW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "04"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed and unsigned bytes, add AVX512BW) OR horizontal pair of signed words, pack saturated AVX10.1 signed-words to xmm1 under writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 04 /r",
+   "operands": "C",
+   "syntax": "VPMADDUBSW xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "04"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed and unsigned bytes, add AVX512BW) OR horizontal pair of signed words, pack saturated AVX10.1 signed-words to ymm1 under writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 04 /r",
+   "operands": "C",
+   "syntax": "VPMADDUBSW ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "04"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed and unsigned bytes, add OR AVX10.1 horizontal pair of signed words, pack saturated signed-words to zmm1 under writemask k1.",
+   "opcode": "EVEX.512.66.0F38.WIG 04 /r",
+   "operands": "C",
+   "syntax": "VPMADDUBSW zmm1 {k1}{z}, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pmaddubsw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PMADDUBSW",
+   "VPMADDUBSW"
+  ]
+ },
+ "mnemonics": [
+  "PMADDUBSW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1599,
+    1601
+   ]
+  }
+ ],
+ "version": 1
+}

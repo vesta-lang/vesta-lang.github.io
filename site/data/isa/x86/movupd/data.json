@@ -1,0 +1,411 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "10"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision floating-point from xmm2/mem to xmm1.",
+   "opcode": "66 0F 10 /r",
+   "operands": "A",
+   "syntax": "MOVUPD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "11"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision floating-point from xmm1 to xmm2/mem.",
+   "opcode": "66 0F 11 /r",
+   "operands": "B",
+   "syntax": "MOVUPD xmm2/m128, xmm1"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision floating-point from xmm2/mem to xmm1.",
+   "opcode": "VEX.128.66.0F.WIG 10 /r",
+   "operands": "A",
+   "syntax": "VMOVUPD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision floating-point from xmm1 to xmm2/mem.",
+   "opcode": "VEX.128.66.0F.WIG 11 /r",
+   "operands": "B",
+   "syntax": "VMOVUPD xmm2/m128, xmm1"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision floating-point from ymm2/mem to ymm1.",
+   "opcode": "VEX.256.66.0F.WIG 10 /r",
+   "operands": "A",
+   "syntax": "VMOVUPD ymm1, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision floating-point from ymm1 to ymm2/mem.",
+   "opcode": "VEX.256.66.0F.WIG 11 /r",
+   "operands": "B",
+   "syntax": "VMOVUPD ymm2/m256, ymm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision AVX512F) OR AVX10.1 floating-point from xmm2/m128 to xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F.W1 10 /r",
+   "operands": "C",
+   "syntax": "VMOVUPD xmm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision AVX512F) OR AVX10.1 floating-point from xmm1 to xmm2/m128 using writemask k1.",
+   "opcode": "EVEX.128.66.0F.W1 11 /r",
+   "operands": "D",
+   "syntax": "VMOVUPD xmm2/m128 {k1}{z}, xmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision AVX512F) OR AVX10.1 floating-point from ymm2/m256 to ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 10 /r",
+   "operands": "C",
+   "syntax": "VMOVUPD ymm1 {k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision AVX512F) OR AVX10.1 floating-point from ymm1 to ymm2/m256 using writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 11 /r",
+   "operands": "D",
+   "syntax": "VMOVUPD ymm2/m256 {k1}{z}, ymm1"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision OR AVX10.1 floating-point values from zmm2/m512 to zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 10 /r",
+   "operands": "C",
+   "syntax": "VMOVUPD zmm1 {k1}{z}, zmm2/m512"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move unaligned packed double precision OR AVX10.1 floating-point values from zmm1 to zmm2/m512 using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 11 /r",
+   "operands": "D",
+   "syntax": "VMOVUPD zmm2/m512 {k1}{z}, zmm1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "movupd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVUPD",
+   "VMOVUPD"
+  ]
+ },
+ "mnemonics": [
+  "MOVUPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1412,
+    1415
+   ]
+  }
+ ],
+ "version": 1
+}

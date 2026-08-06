@@ -1,0 +1,110 @@
+{
+ "encodings": [
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F6"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.LZ.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unsigned multiply of r/m32 with EDX without affecting arithmetic flags.",
+   "opcode": "VEX.LZ.F2.0F38.W0 F6 /r",
+   "operands": "RVM",
+   "syntax": "MULX r32a, r32b, r/m32"
+  },
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F6"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.LZ.F2.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Unsigned multiply of r/m64 with RDX without affecting arithmetic flags.",
+   "opcode": "VEX.LZ.F2.0F38.W1 F6 /r",
+   "operands": "RVM",
+   "syntax": "MULX r64a, r64b, r/m64"
+  }
+ ],
+ "format": "isadoc",
+ "id": "mulx",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MULX"
+  ]
+ },
+ "mnemonics": [
+  "MULX"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "RDX/EDX is implied 64/32 bits",
+     "raw": "RDX/EDX is implied 64/32 bits",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1442,
+    1443
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,105 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "00"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Load GS using r/m16, placing the base address instead in the IA32_KERNEL_GS_BASE MSR.",
+   "opcode": "F2 0F 00 /6",
+   "operands": "A",
+   "syntax": "LKGS r/m16"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The LKGS instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The LKGS instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The LKGS instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The LKGS instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPL > 0. If CPUID.07H.01H:EAX.LKGS[18] is not 1. If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(selector)",
+   "when": "If segment selector index is outside descriptor table limits. If the memory access to the descriptor table is non-canonical. If the referenced descriptor is not for a data or readable code segment or the selector RPL is greater than the descriptor DPL."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  }
+ ],
+ "format": "isadoc",
+ "id": "lkgs",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LKGS"
+  ]
+ },
+ "mnemonics": [
+  "LKGS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "16-bit selector",
+     "raw": "16-bit selector",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1260,
+    1261
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,80 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "D9",
+     "FD"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Scale ST(0) by ST(1).",
+   "opcode": "D9 FD",
+   "operands": "",
+   "syntax": "FSCALE"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#MF",
+   "when": "If there is a pending x87 FPU exception."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "fscale",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FSCALE"
+  ]
+ },
+ "mnemonics": [
+  "FSCALE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1082,
+    1083
+   ]
+  }
+ ],
+ "version": 1
+}

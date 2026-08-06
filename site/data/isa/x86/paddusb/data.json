@@ -1,0 +1,461 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "DC"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned byte integers from mm/m64 and mm and saturate the results.",
+   "opcode": "NP 0F DC /r1",
+   "operands": "A",
+   "syntax": "PADDUSB mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "DC"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned byte integers from xmm2/m128 and xmm1 saturate the results.",
+   "opcode": "66 0F DC /r",
+   "operands": "A",
+   "syntax": "PADDUSB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "DD"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned word integers from mm/m64 and mm and saturate the results.",
+   "opcode": "NP 0F DD /r1",
+   "operands": "A",
+   "syntax": "PADDUSW mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "DD"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned word integers from xmm2/m128 to xmm1 and saturate the results.",
+   "opcode": "66 0F DD /r",
+   "operands": "A",
+   "syntax": "PADDUSW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "rest": [
+      "660F"
+     ],
+     "text": "VEX.128.660F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned byte integers from xmm3/m128 to xmm2 and saturate the results.",
+   "opcode": "VEX.128.660F.WIG DC /r",
+   "operands": "B",
+   "syntax": "VPADDUSB xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DD"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned word integers from xmm3/m128 to xmm2 and saturate the results.",
+   "opcode": "VEX.128.66.0F.WIG DD /r",
+   "operands": "B",
+   "syntax": "VPADDUSW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DC"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned byte integers from ymm2, and ymm3/m256 and store the saturated results in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG DC /r",
+   "operands": "B",
+   "syntax": "VPADDUSB ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DD"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned word integers from ymm2, and ymm3/m256 and store the saturated results in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG DD /r",
+   "operands": "B",
+   "syntax": "VPADDUSW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned byte integers from xmm2, AVX512BW) OR and xmm3/m128 and store the saturated AVX10.1 results in xmm1 under writemask k1.",
+   "opcode": "EVEX.128.66.0F.WIG DC /r",
+   "operands": "C",
+   "syntax": "VPADDUSB xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DC"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned byte integers from ymm2, AVX512BW) OR and ymm3/m256 and store the saturated AVX10.1 results in ymm1 under writemask k1.",
+   "opcode": "EVEX.256.66.0F.WIG DC /r",
+   "operands": "C",
+   "syntax": "VPADDUSB ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DC"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned byte integers from zmm2, OR AVX10.1 and zmm3/m512 and store the saturated results in zmm1 under writemask k1.",
+   "opcode": "EVEX.512.66.0F.WIG DC /r",
+   "operands": "C",
+   "syntax": "VPADDUSB zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DD"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned word integers from xmm2, AVX512BW) OR and xmm3/m128 and store the saturated AVX10.1 results in xmm1 under writemask k1.",
+   "opcode": "EVEX.128.66.0F.WIG DD /r",
+   "operands": "C",
+   "syntax": "VPADDUSW xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DD"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned word integers from ymm2, AVX512BW) OR and ymm3/m256 and store the saturated AVX10.1 results in ymm1 under writemask k1.",
+   "opcode": "EVEX.256.66.0F.WIG DD /r",
+   "operands": "C",
+   "syntax": "VPADDUSW ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DD"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed unsigned word integers from zmm2, OR AVX10.1 and zmm3/m512 and store the saturated results in zmm1 under writemask k1.",
+   "opcode": "EVEX.512.66.0F.WIG DD /r",
+   "operands": "C",
+   "syntax": "VPADDUSW zmm1 {k1}{z}, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "paddusb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PADDUSB",
+   "VPADDUSB",
+   "PADDUSW",
+   "VPADDUSW"
+  ]
+ },
+ "mnemonics": [
+  "PADDUSB",
+  "PADDUSW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1501,
+    1504
+   ]
+  }
+ ],
+ "version": 1
+}

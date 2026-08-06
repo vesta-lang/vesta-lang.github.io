@@ -1,0 +1,68 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AMX_TILE",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false,
+     "rm": "000"
+    },
+    "opcode": [
+     "49"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Zero the destination tile.",
+   "opcode": "VEX.128.F2.0F38.W0 49 11:rrr:000",
+   "operands": "A",
+   "syntax": "TILEZERO tmm1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "tilezero",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "TILEZERO"
+  ]
+ },
+ "mnemonics": [
+  "TILEZERO"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2016,
+    2016
+   ]
+  }
+ ],
+ "version": 1
+}

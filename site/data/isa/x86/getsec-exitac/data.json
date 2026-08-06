@@ -1,0 +1,102 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "37"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {},
+   "note": "Exit authenticated code execution mode.",
+   "opcode": "NP 0F 37",
+   "operands": "",
+   "syntax": "GETSEC[EXITAC]"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "leaf": {
+     "register": "EAX",
+     "value": "3"
+    }
+   },
+   "modes": {},
+   "note": "RBX holds the Near Absolute Indirect jump target and EDX hold the exit parameter flags.",
+   "opcode": "(EAX=3)",
+   "operands": "",
+   "syntax": ""
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[EXITAC] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If CR0.PE = 0 or CPL>0 or EFLAGS.VM =1. If in VMX root operation. If the processor is not currently in authenticated code execution mode. If the processor is in SMM. If any reserved bit position is set in the EDX parameter register."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[EXITAC] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "GETSEC[EXITAC] is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[EXITAC] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "GETSEC[EXITAC] is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the target address in RBX is not in a canonical form. VM-Exit Condition Reason (GETSEC) If in VMX non-root operation."
+  }
+ ],
+ "format": "isadoc",
+ "id": "getsec-exitac",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "GETSEC[EXITAC]"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2918,
+    2921
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,107 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "37"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {},
+   "note": "Enter authenticated code execution mode.",
+   "opcode": "NP 0F 37",
+   "operands": "",
+   "syntax": "GETSEC[ENTERACCS]"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "leaf": {
+     "register": "EAX",
+     "value": "2"
+    }
+   },
+   "modes": {},
+   "note": "EBX holds the authenticated code module physical base address. ECX holds the authenticated code module size (bytes).",
+   "opcode": "(EAX = 2)",
+   "operands": "",
+   "syntax": ""
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[ENTERACCS] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If CR0.CD = 1 or CR0.NW = 1 or CR0.NE = 0 or CR0.PE = 0 or CPL > 0 or EFLAGS.VM = 1. If a Intel(R) TXT-capable chipset is not present. If in VMX root operation. If the initiating processor is not designated as the bootstrap processor via the MSR bit IA32_APIC_BASE.BSP. If the processor is already in authenticated code execution mode. If the processor is in SMM. If a valid uncorrectable machine check error is logged in IA32_MC[I]_STATUS. If the authenticated code base is not on a 4096 byte boundary. If the authenticated code size > processor internal authenticated code area capacity. If the authenticated code size is not modulo 64. If other enabled logical processor(s) of the same package CR0.CD = 1. If other enabled logical processor(s) of the same package are not in the wait-for-SIPI or SENTER sleep state."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[ENTERACCS] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "GETSEC[ENTERACCS] is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[ENTERACCS] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "GETSEC[ENTERACCS] is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP",
+   "when": "If AC code module does not reside in physical address below 2^32 -1."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP",
+   "when": "If AC code module does not reside in physical address below 2^32 -1. VM-exit Condition Reason (GETSEC) If in VMX non-root operation."
+  }
+ ],
+ "format": "isadoc",
+ "id": "getsec-enteraccs",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "GETSEC[ENTERACCS]"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2910,
+    2917
+   ]
+  }
+ ],
+ "version": 1
+}

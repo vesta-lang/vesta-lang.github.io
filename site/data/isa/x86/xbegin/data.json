@@ -1,0 +1,109 @@
+{
+ "encodings": [
+  {
+   "cpuid": "RTM",
+   "layout": {
+    "opcode": [
+     "C7",
+     "F8"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Specifies the start of an RTM region. Provides a 16-bit relative offset to compute the address of the fallback instruction address at which execution resumes following an RTM abort.",
+   "opcode": "C7 F8",
+   "operands": "A",
+   "syntax": "XBEGIN rel16"
+  },
+  {
+   "cpuid": "RTM",
+   "layout": {
+    "opcode": [
+     "C7",
+     "F8"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Specifies the start of an RTM region. Provides a 32-bit relative offset to compute the address of the fallback instruction address at which execution resumes following an RTM abort.",
+   "opcode": "C7 F8",
+   "operands": "A",
+   "syntax": "XBEGIN rel32"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": null,
+   "when": "#UDCPUID.07H.00H:EBX.RTM[11] = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the fallback address is outside the CS segment."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If the fallback address is outside the address space 0000H and FFFFH. #UDCPUID.07H.00H:EBX.RTM[11] = 0. If LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the fallback address is outside the address space 0000H and FFFFH. #UDCPUID.07H.00H:EBX.RTM[11] = 0. If LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "#UDCPUID.07H.00H:EBX.RTM[11] = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the fallback address is non-canonical."
+  }
+ ],
+ "format": "isadoc",
+ "id": "xbegin",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XBEGIN"
+  ]
+ },
+ "mnemonics": [
+  "XBEGIN"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "offset",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2856,
+    2858
+   ]
+  }
+ ],
+ "version": 1
+}

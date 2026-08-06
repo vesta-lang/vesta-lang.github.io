@@ -1,0 +1,149 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "E2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Decrement count; jump short if count  0.",
+   "opcode": "E2 cb",
+   "operands": "D",
+   "syntax": "LOOP rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "E1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Decrement count; jump short if count  0 and ZF = 1.",
+   "opcode": "E1 cb",
+   "operands": "D",
+   "syntax": "LOOPE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "E0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Decrement count; jump short if count  0 and ZF = 0.",
+   "opcode": "E0 cb",
+   "operands": "D",
+   "syntax": "LOOPNE rel8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the offset being jumped to is beyond the limits of the CS segment."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If the offset being jumped to is beyond the limits of the CS segment or is outside of the effective address space from 0 to FFFFH. This condition can occur if a 32-bit address size override prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real address mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the offset being jumped to is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "loop",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LOOP",
+   "LOOPE",
+   "LOOPNE"
+  ]
+ },
+ "mnemonics": [
+  "LOOP",
+  "LOOPcc"
+ ],
+ "operand_encodings": [
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "offset",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1274,
+    1276
+   ]
+  }
+ ],
+ "version": 1
+}

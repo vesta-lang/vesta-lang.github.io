@@ -1,0 +1,480 @@
+{
+ "encodings": [
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single precision floating-point values from xmm1 and xmm3/mem, negate the multiplication result and subtract xmm2 and put result in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 9E /r",
+   "operands": "A",
+   "syntax": "VFNMSUB132PS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single precision floating-point values from xmm1 and xmm2, negate the multiplication result and subtract xmm3/mem and put result in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 AE /r",
+   "operands": "A",
+   "syntax": "VFNMSUB213PS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single precision floating-point values from xmm2 and xmm3/mem, negate the multiplication result and subtract xmm1 and put result in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 BE /r",
+   "operands": "A",
+   "syntax": "VFNMSUB231PS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single precision floating-point values from ymm1 and ymm3/mem, negate the multiplication result and subtract ymm2 and put result in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 9E /r",
+   "operands": "A",
+   "syntax": "VFNMSUB132PS ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single precision floating-point values from ymm1 and ymm2, negate the multiplication result and subtract ymm3/mem and put result in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 AE /r",
+   "operands": "A",
+   "syntax": "VFNMSUB213PS ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "0"
+     ],
+     "text": "VEX.256.66.0F38.0",
+     "type": "VEX"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single precision floating-point values from ymm2 and ymm3/mem, negate the multiplication result and subtract ymm1 and put result in ymm1.",
+   "opcode": "VEX.256.66.0F38.0 BE /r",
+   "operands": "A",
+   "syntax": "VFNMSUB231PS ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single-precision floating-point values AVX512F) OR from xmm1 and xmm3/m128/m32bcst, negate the AVX10.1 multiplication result and subtract xmm2 and put result in xmm1.",
+   "opcode": "EVEX.128.66.0F38.W0 9E /r",
+   "operands": "B",
+   "syntax": "VFNMSUB132PS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single-precision floating-point values AVX512F) OR from xmm1 and xmm2, negate the multiplication AVX10.1 result and subtract xmm3/m128/m32bcst and put result in xmm1.",
+   "opcode": "EVEX.128.66.0F38.W0 AE /r",
+   "operands": "B",
+   "syntax": "VFNMSUB213PS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single-precision floating-point values AVX512F) OR from xmm2 and xmm3/m128/m32bcst, negate the AVX10.1 multiplication result subtract add to xmm1 and put result in xmm1.",
+   "opcode": "EVEX.128.66.0F38.W0 BE /r",
+   "operands": "B",
+   "syntax": "VFNMSUB231PS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single-precision floating-point values AVX512F) OR from ymm1 and ymm3/m256/m32bcst, negate the AVX10.1 multiplication result and subtract ymm2 and put result in ymm1.",
+   "opcode": "EVEX.256.66.0F38.W0 9E /r",
+   "operands": "B",
+   "syntax": "VFNMSUB132PS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single-precision floating-point values AVX512F) OR from ymm1 and ymm2, negate the multiplication AVX10.1 result and subtract ymm3/m256/m32bcst and put result in ymm1.",
+   "opcode": "EVEX.256.66.0F38.W0 AE /r",
+   "operands": "B",
+   "syntax": "VFNMSUB213PS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single-precision floating-point values AVX512F) OR from ymm2 and ymm3/m256/m32bcst, negate the AVX10.1 multiplication result subtract add to ymm1 and put result in ymm1. Op/  64/3 2     CPUID Fea ture       Description En   Bit Supp Mode  Flag ort",
+   "opcode": "EVEX.256.66.0F38.W0 BE /r",
+   "operands": "B",
+   "syntax": "VFNMSUB231PS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst Opcode/ Instruction"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "b    v"
+   },
+   "note": "Multiply packed single-precision floating-point values OR AVX10. 1          from zmm1 and zmm3/m512/m32bcst, negate the multiplication result and subtract zmm2 and put result in zmm1.",
+   "opcode": "EVEX.512.66.0F38.W0 9E /r",
+   "operands": "",
+   "syntax": "VFNMSUB132PS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst{er}"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AE"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "b    v"
+   },
+   "note": "Multiply packed single-precision floating-point values OR AVX10. 1          from zmm1 and zmm2, negate the multiplication result and subtract zmm3/m512/m32bcst and put result in zmm1.",
+   "opcode": "EVEX.512.66.0F38.W0 AE /r",
+   "operands": "",
+   "syntax": "VFNMSUB213PS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst{er}"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BE"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "b    v"
+   },
+   "note": "Multiply packed single-precision floating-point values OR AVX10. 1          from zmm2 and zmm3/m512/m32bcst, negate the multiplication result subtract add to zmm1 and put result in zmm1.",
+   "opcode": "EVEX.512.66.0F38.W0 BE /r",
+   "operands": "",
+   "syntax": "VFNMSUB231PS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfnmsub132ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFNMSUB132PS",
+   "VFNMSUB213PS",
+   "VFNMSUB231PS"
+  ]
+ },
+ "mnemonics": [
+  "VFNMSUB132PS",
+  "VFNMSUB213PS",
+  "VFNMSUB231PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2383,
+    2389
+   ]
+  }
+ ],
+ "version": 1
+}

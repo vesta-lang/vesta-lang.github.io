@@ -1,0 +1,36 @@
+---
+summary: Resume From System Management Mode
+---
+
+## Description
+
+Returns program control from system management mode (SMM) to the application program or operating-system procedure that was interrupted when the processor received an SMM interrupt. The processor's state is restored from the dump created upon entering SMM. If the processor detects invalid state information during state restoration, it enters the shutdown state. The following invalid information can cause a shutdown:
+
+* Any reserved bit of CR4 is set to 1. * Any illegal combination of bits in CR0, such as (PG=1 and PE=0) or (NW=1 and CD=0). * (Intel Pentium and Intel486TM processors only.) The value stored in the state dump base field is not a 32-KByte
+
+aligned address.
+
+The contents of the model-specific registers are not affected by a return from SMM.
+
+The SMM state map used by RSM supports resuming processor context for non-64-bit modes and 64-bit mode.
+
+See Chapter 34, "System Management Mode," in the Intel(R) 64 and IA-32 Architectures Software Developer's Manual, Volume 3C, for more information about SMM and the behavior of the RSM instruction.
+
+## Operation
+
+```text
+ReturnFromSMM;
+IF (IA-32e mode supported) or (CPUID DisplayFamily_DisplayModel = 06H_0CH )
+
+    THEN
+          ProcessorState := Restore(SMMDump(IA-32e SMM STATE MAP));
+
+    Else
+          ProcessorState := Restore(SMMDump(Non-32-Bit-Mode SMM STATE MAP));
+
+FI
+```
+
+## Flags affected
+
+All.

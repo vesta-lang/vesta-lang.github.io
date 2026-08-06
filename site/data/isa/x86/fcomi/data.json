@@ -1,0 +1,153 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DB",
+     "F0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(i) and set status flags accordingly.",
+   "opcode": "DB F0+i",
+   "operands": "",
+   "syntax": "FCOMI ST, ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DF",
+     "F0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(i), set status flags accordingly, and pop register stack.",
+   "opcode": "DF F0+i",
+   "operands": "",
+   "syntax": "FCOMIP ST, ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DB",
+     "E8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(i), check for ordered values, and set status flags accordingly.",
+   "opcode": "DB E8+i",
+   "operands": "",
+   "syntax": "FUCOMI ST, ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DF",
+     "E8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with ST(i), check for ordered values, set status flags accordingly, and pop register stack.",
+   "opcode": "DF E8+i",
+   "operands": "",
+   "syntax": "FUCOMIP ST, ST(i)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#MF",
+   "when": "If there is a pending x87 FPU exception."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "fcomi",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FCOMI",
+   "FCOMIP",
+   "FUCOMI",
+   "FUCOMIP"
+  ]
+ },
+ "mnemonics": [
+  "FCOMI",
+  "FCOMIP",
+  "FUCOMI",
+  "FUCOMIP"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1031,
+    1033
+   ]
+  }
+ ],
+ "version": 1
+}

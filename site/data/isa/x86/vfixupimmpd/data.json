@@ -1,0 +1,153 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Fix up special numbers in float64 vector xmm1, AVX512F) OR float64 vector xmm2 and int64 vector AVX10.1 xmm3/m128/m64bcst and store the result in xmm1, under writemask.",
+   "opcode": "EVEX.128.66.0F3A.W1 54 /r ib",
+   "operands": "A",
+   "syntax": "VFIXUPIMMPD xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Fix up special numbers in float64 vector ymm1, AVX512F) OR float64 vector ymm2 and int64 vector AVX10.1 ymm3/m256/m64bcst and store the result in ymm1, under writemask.",
+   "opcode": "EVEX.256.66.0F3A.W1 54 /r ib",
+   "operands": "A",
+   "syntax": "VFIXUPIMMPD ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Fix up elements of float64 vector in zmm2 using OR AVX10.1 int64 vector table in zmm3/m512/m64bcst, combine with preserved elements from zmm1, and store the result in zmm1.",
+   "opcode": "EVEX.512.66.0F3A.W1 54 /r ib",
+   "operands": "A",
+   "syntax": "VFIXUPIMMPD zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst{sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfixupimmpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFIXUPIMMPD"
+  ]
+ },
+ "mnemonics": [
+  "VFIXUPIMMPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2242,
+    2245
+   ]
+  }
+ ],
+ "version": 1
+}

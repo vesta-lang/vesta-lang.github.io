@@ -1,0 +1,80 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "32"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Read MSR specified by ECX into EDX:EAX.",
+   "opcode": "0F 32",
+   "operands": "ZO",
+   "syntax": "RDMSR"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0. If the value in ECX specifies a reserved or unimplemented MSR address."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If the value in ECX specifies a reserved or unimplemented MSR address."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "The RDMSR instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rdmsr",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDMSR"
+  ]
+ },
+ "mnemonics": [
+  "RDMSR"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1833,
+    1834
+   ]
+  }
+ ],
+ "version": 1
+}

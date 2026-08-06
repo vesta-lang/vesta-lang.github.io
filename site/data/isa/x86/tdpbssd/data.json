@@ -1,0 +1,169 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AMX_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "5E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Matrix multiply signed byte elements from tmm2 by signed byte elements from tmm3 and accumulate the dword elements in tmm1.",
+   "opcode": "VEX.128.F2.0F38.W0 5E 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "TDPBSSD tmm1, tmm2, tmm3"
+  },
+  {
+   "cpuid": "AMX_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "5E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.128.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Matrix multiply signed byte elements from tmm2 by unsigned byte elements from tmm3 and accumulate the dword elements in tmm1.",
+   "opcode": "VEX.128.F3.0F38.W0 5E 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "TDPBSUD tmm1, tmm2, tmm3"
+  },
+  {
+   "cpuid": "AMX_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "5E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Matrix multiply unsigned byte elements from tmm2 by signed byte elements from tmm3 and accumulate the dword elements in tmm1.",
+   "opcode": "VEX.128.66.0F38.W0 5E 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "TDPBUSD tmm1, tmm2, tmm3"
+  },
+  {
+   "cpuid": "AMX_INT8",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": false
+    },
+    "opcode": [
+     "5E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "text": "VEX.128.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Matrix multiply unsigned byte elements from tmm2 by unsigned byte elements from tmm3 and accumulate the dword elements in tmm1.",
+   "opcode": "VEX.128.NP.0F38.W0 5E 11:rrr:bbb",
+   "operands": "A",
+   "syntax": "TDPBUUD tmm1, tmm2, tmm3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "tdpbssd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "TDPBSSD",
+   "TDPBSUD",
+   "TDPBUSD",
+   "TDPBUUD"
+  ]
+ },
+ "mnemonics": [
+  "TDPBSSD",
+  "TDPBSUD",
+  "TDPBUSD",
+  "TDPBUUD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2005,
+    2006
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,458 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "F6"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "AX:= AL  r/m byte.",
+   "opcode": "F6 /5",
+   "operands": "M",
+   "syntax": "IMUL r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "F7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "DX:AX := AX  r/m word.",
+   "opcode": "F7 /5",
+   "operands": "M",
+   "syntax": "IMUL r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "F7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "EDX:EAX := EAX  r/m32.",
+   "opcode": "F7 /5",
+   "operands": "M",
+   "syntax": "IMUL r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "F7"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "RDX:RAX := RAX  r/m64.",
+   "opcode": "REX.W + F7 /5",
+   "operands": "M",
+   "syntax": "IMUL r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "AF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Word register := word register  r/m16.",
+   "opcode": "0F AF /r",
+   "operands": "RM",
+   "syntax": "IMUL r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "AF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Doubleword register := doubleword register r/m32.",
+   "opcode": "0F AF /r",
+   "operands": "RM",
+   "syntax": "IMUL r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "AF"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Quadword register := Quadword register r/m64.",
+   "opcode": "REX.W + 0F AF /r",
+   "operands": "RM",
+   "syntax": "IMUL r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Word register := r/m16  sign-extended immediate byte.",
+   "opcode": "6B /r ib",
+   "operands": "RMI",
+   "syntax": "IMUL r16, r/m16,  imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Doubleword register := r/m32  signextended immediate byte.",
+   "opcode": "6B /r ib",
+   "operands": "RMI",
+   "syntax": "IMUL r32, r/m32,  imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Quadword register := r/m64  sign-extended immediate byte.",
+   "opcode": "REX.W + 6B /r ib",
+   "operands": "RMI",
+   "syntax": "IMUL r64, r/m64,  imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Word register := r/m16  immediate word.",
+   "opcode": "69 /r iw",
+   "operands": "RMI",
+   "syntax": "IMUL r16, r/m16,  imm16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Doubleword register := r/m32  immediate doubleword.",
+   "opcode": "69 /r id",
+   "operands": "RMI",
+   "syntax": "IMUL r32, r/m32,  imm32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "69"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Quadword register := r/m64  immediate doubleword.",
+   "opcode": "REX.W + 69 /r id",
+   "operands": "RMI",
+   "syntax": "IMUL r64, r/m64,  imm32"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "imul",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "IMUL"
+  ]
+ },
+ "mnemonics": [
+  "IMUL"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    }
+   ]
+  },
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8/16/32",
+     "raw": "imm8/16/32",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1155,
+    1158
+   ]
+  }
+ ],
+ "version": 1
+}

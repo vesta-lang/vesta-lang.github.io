@@ -35,10 +35,26 @@ import { highlight } from './tools/highlight.mjs';
 import { renderPage } from './tools/layout.mjs';
 import { socialCard } from './tools/og-image.mjs';
 import { insertTabs, tabStyles } from './tools/tabs.mjs';
-import { pager, sidebar, tableOfContents } from './tools/docs.mjs';
+import {
+    bookIndex,
+    pager,
+    referenceSidebar,
+    sidebar,
+    tableOfContents,
+} from './tools/docs.mjs';
 import { LEARN, chapterHref, flatChapters } from './site/content/learn.mjs';
+import { DOCS, bookHref, docsHref, flatPages, instructionHref } from './site/content/docs.mjs';
+import {
+    loadInstructions,
+    loadTranslations,
+    renderInstruction,
+    renderInstructionIndex,
+} from './tools/isa.mjs';
+import { renderOpcodeMap } from './tools/opcode-map.mjs';
+import { renderTagLegend, renderTags, tagStylesheet } from './site/content/tags.mjs';
 import { parseFrontMatter, render } from './tools/markdown.mjs';
-import { LANGUAGES, SITE_URL, urlFor } from './tools/site.mjs';
+import { pageSource, sourceUrlFor } from './tools/page-source.mjs';
+import { LANGUAGES, SITE_URL, siteLanguages, urlFor } from './tools/site.mjs';
 import { renderSnippetFile } from './tools/snippet.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -91,6 +107,50 @@ function canonicalPath(file, langDir) {
 }
 
 /**
+ * Construye el indice de rutas equivalentes entre idiomas.
+ *
+ * Devuelve, para cada ruta canonica, la identidad de la pagina a la que
+ * pertenece. Dos rutas con la misma identidad son la misma pagina escrita en
+ * dos idiomas, aunque su ultimo segmento no se parezca en nada.
+ *
+ * La informacion no se inventa aqui: los indices de Learn y de la referencia
+ * ya declaran el slug de cada idioma, de modo que ellos son quienes emparejan.
+ * Deducirlo del nombre del fichero era el defecto que esto corrige, porque un
+ * slug traducido dejaba a cada version huerfana de la otra.
+ *
+ * Las paginas que no estan en ningun indice (portada, descarga, error) usan su
+ * propia ruta como identidad, que es correcto: su ultimo segmento no se
+ * traduce.
+ *
+ * @returns {Map<string,string>} Ruta canonica -> identidad.
+ */
+function translationIndex() {
+    const map = new Map();
+    const langs = siteLanguages();
+
+    for (const { chapter } of flatChapters()) {
+        // Los capitulos que apuntan a otra seccion no tienen pagina propia.
+        if (chapter.path) continue;
+        for (const lang of langs) {
+            map.set(chapterHref(chapter, lang).href, `learn:${chapter.id}`);
+        }
+    }
+
+    for (const book of DOCS) {
+        for (const lang of langs) {
+            map.set(bookHref(book, lang), `docs:${book.id}`);
+        }
+        for (const page of book.pages) {
+            for (const lang of langs) {
+                map.set(docsHref(book, page, lang), `docs:${book.id}/${page.id}`);
+            }
+        }
+    }
+
+    return map;
+}
+
+/**
  * Indica si una ruta corresponde a la pagina de error.
  *
  * Se comprueba en varios sitios (nombre del fichero de salida, sitemap,
@@ -122,6 +182,38 @@ function insertSnippets(markdown) {
         }
         return renderSnippetFile(index, { source: `site/snippets/${name}.vx` });
     });
+}
+
+/**
+ * Sustituye los marcadores de etiquetas por su fila.
+ *
+ * Las etiquetas van en un marcador dentro del texto y no en el front matter
+ * porque **cada entrada tiene las suyas**. Una pagina de la referencia agrupa
+ * muchas construcciones, y decir que la pagina entera es `estable` cuando una
+ * de sus entradas no lo es seria justo el tipo de afirmacion que la seccion no
+ * puede permitirse.
+ *
+ * El vocabulario esta cerrado: `renderTags` lanza ante una etiqueta que no
+ * conozca, y eso detiene el build. Es deliberado. Una etiqueta mal escrita no
+ * se ve en la pagina -- sale una mas o sale una menos -- pero parte en dos los
+ * indices cruzados, que es donde se nota cuando ya nadie recuerda por que.
+ *
+ * @param {string} markdown Contenido de la pagina.
+ * @param {string} lang Idioma de la pagina.
+ * @param {string} file Fichero de origen, para el mensaje de error.
+ * @returns {string} Contenido con los marcadores resueltos.
+ */
+function insertTags(markdown, lang, file) {
+    return markdown
+        .replace(/<!--\s*TAGLEGEND\s*-->/g, () => renderTagLegend(lang))
+        .replace(/<!--\s*TAGS:([^>]*?)-->/g, (_, list) => {
+            const tags = list.trim().split(/[\s,]+/).filter(Boolean);
+            try {
+                return renderTags(tags, lang);
+            } catch (error) {
+                throw new Error(`${file}: ${error.message}`);
+            }
+        });
 }
 
 /**
@@ -205,33 +297,34 @@ function homeJsonLd(lang) {
 /**
  * Genera el sitemap.
  *
- * Se incluyen todas las variantes de idioma con sus enlaces reciprocos, que es
- * lo que permite al buscador entender que son la misma pagina en dos lenguas y
- * no contenido duplicado.
+ * Se listan todas las variantes de idioma como URLs independientes, sin mas.
  *
- * @param {Array<{path: string, available: string[]}>} pages Paginas generadas.
+ * NO se anotan aqui los `hreflang`. Habia dos motivos para quitarlos. El
+ * esquema oficial de sitemaps.org define `<url>` como una secuencia cerrada de
+ * `loc`, `lastmod`, `changefreq` y `priority`, sin punto de extension, asi que
+ * los `<xhtml:link>` -- pese a estar documentados por Google -- hacen que el
+ * fichero no valide. Y ademas sobran: cada pagina ya declara sus `hreflang`
+ * reciprocos en su propia cabecera, que es uno de los metodos admitidos.
+ * Anotarlos tambien aqui seria mantener la misma verdad en dos sitios.
+ *
+ * Tampoco se emite `lastmod`: sin fechas reales de cambio por pagina, poner la
+ * del build haria que todas las URLs se declararan modificadas en cada
+ * publicacion, que es peor que no decir nada.
+ *
+ * @param {Array<Object<string,string>>} pages Rutas por idioma de cada pagina.
  * @returns {string} XML del sitemap.
  */
 function sitemap(pages) {
     const entries = [];
-    for (const page of pages) {
-        for (const lang of page.available) {
-            const links = page.available
-                .map(
-                    (other) =>
-                        `        <xhtml:link rel="alternate" hreflang="${other}" ` +
-                        `href="${SITE_URL}${urlFor(other, page.path)}"/>`
-                )
-                .join('\n');
+    for (const versions of pages) {
+        for (const [lang, path] of Object.entries(versions)) {
             entries.push(
-                `    <url>\n        <loc>${SITE_URL}${urlFor(lang, page.path)}</loc>\n` +
-                    `${links}\n    </url>`
+                `    <url>\n        <loc>${SITE_URL}${urlFor(lang, path)}</loc>\n    </url>`
             );
         }
     }
     return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries.join('\n')}
 </urlset>
 `;
@@ -252,13 +345,13 @@ ${entries.join('\n')}
  * @param {Map<string, {path: string}>} pages Paginas generadas.
  * @returns {number} Numero de destinos distintos que no resuelven.
  */
-function checkLinks(pages) {
+function checkLinks(pages, extra = []) {
     // Rutas que el sitio sirve de verdad, en la forma en que se escriben en un
     // enlace.
-    const known = new Set(['/404.html']);
+    const known = new Set(['/404.html', ...extra]);
     for (const page of pages.values()) {
-        for (const lang of Object.keys(page.versions)) {
-            known.add(urlFor(lang, page.path));
+        for (const [lang, { path }] of Object.entries(page.versions)) {
+            known.add(urlFor(lang, path));
         }
     }
 
@@ -292,6 +385,238 @@ ${missing.size} enlaces internos sin destino:`);
 }
 
 /**
+ * Contrasta el estado declarado de cada capitulo con lo que hay escrito.
+ *
+ * El indice de Learn marca con `draft` los capitulos aun por escribir, y la
+ * barra lateral los muestra como texto muerto en lugar de enlazarlos. Eso hace
+ * que las dos formas de equivocarse sean invisibles, cada una a su manera:
+ *
+ * - Un capitulo escrito que sigue marcado como borrador **se publica pero no
+ *   se enlaza desde ninguna parte**. La pagina existe, responde 200 y nadie
+ *   llega a ella. Es el fallo que motivo esta comprobacion.
+ * - Un capitulo sin marcar del que no hay texto se enlaza hacia el vacio. Eso
+ *   lo caza `checkLinks`, pero lo dice como un `href` roto mas, sin explicar
+ *   que el problema esta en el indice.
+ *
+ * Avisa en lugar de fallar porque escribir un capitulo primero en un idioma y
+ * luego en el otro es trabajo normal, y el estado intermedio es legitimo.
+ *
+ * @param {Map} pages Paginas encontradas, indexadas por ruta canonica.
+ * @returns {void}
+ */
+function checkChapters(pages) {
+    const huerfanos = [];
+    const vacios = [];
+
+    // Dos capitulos con el mismo slug producen la misma URL, y el segundo
+    // sobrescribe al primero sin que nada lo diga. Ademas el `pager` localiza
+    // el capitulo actual comparando rutas, asi que la navegacion de la pagina
+    // afectada apunta al vecino equivocado. Salio de un slug copiado y pegado
+    // entre dos capitulos que hablan de control de flujo.
+    // Un capitulo cuyo slug no se traduce genera la misma ruta en los dos
+    // idiomas, y eso es correcto: la ruta canonica es una sola. Solo importa
+    // que dos capitulos DISTINTOS acaben en la misma.
+    const vistos = new Map();
+    for (const { chapter } of flatChapters()) {
+        if (chapter.path) continue;
+        for (const lang of siteLanguages()) {
+            const { href } = chapterHref(chapter, lang);
+            const duenyo = vistos.get(href);
+            if (duenyo && duenyo !== chapter.id) {
+                console.warn(
+                    `Slug duplicado: ${href} lo usan "${duenyo}" y "${chapter.id}".`
+                );
+            }
+            vistos.set(href, chapter.id);
+        }
+    }
+
+    for (const { chapter } of flatChapters()) {
+        // Los capitulos que apuntan a una pagina de otra seccion, como la de
+        // instalacion, no tienen fuente propia en Learn.
+        if (chapter.path) continue;
+
+        const versions = pages.get(`learn:${chapter.id}`)?.versions || {};
+        for (const lang of siteLanguages()) {
+            const { href } = chapterHref(chapter, lang);
+            const escrito = Boolean(versions[lang]);
+
+            if (escrito && chapter.draft) huerfanos.push(`${href} [${lang}]`);
+            if (!escrito && !chapter.draft) vacios.push(`${href} [${lang}]`);
+        }
+    }
+
+    if (huerfanos.length > 0) {
+        console.warn(`
+${huerfanos.length} capitulos escritos que siguen marcados como borrador ` +
+            '(se publican sin enlace):');
+        for (const entry of huerfanos) console.warn(`  ${entry}`);
+        console.warn('');
+    }
+    if (vacios.length > 0) {
+        console.warn(`
+${vacios.length} capitulos enlazados sin texto (quitar el enlace o escribirlos):`);
+        for (const entry of vacios) console.warn(`  ${entry}`);
+        console.warn('');
+    }
+}
+
+/**
+ * Emite la referencia de instrucciones de un juego.
+ *
+ * Estas paginas no tienen fichero de contenido: son ochocientas y pico, y
+ * escribirlas a mano no es que fuera trabajoso, es que garantizaria que la
+ * mitad quedaran desactualizadas. Se generan desde los datos importados, que
+ * es lo unico que escala a un juego de instrucciones entero.
+ *
+ * No entran en la barra lateral por la misma razon: se llega a ellas por el
+ * indice del juego o por el buscador.
+ *
+ * @param {string} isa Identificador del juego.
+ * @param {string} title Titulo de la portada, por idioma.
+ * @returns {Array<string>} Rutas publicas emitidas, para el comprobador de enlaces.
+ */
+function emitInstructionReference(isa) {
+    const entries = loadInstructions(join(ROOT, 'site', 'data', 'isa', isa));
+    if (entries.length === 0) return [];
+
+    // La prosa que vive en los datos -- la condicion de cada excepcion, la
+    // descripcion de cada forma -- se traduce con la misma memoria que genera
+    // los documentos, no con una copia.
+    loadTranslations(join(ROOT, 'site', 'data', 'isa'));
+
+    const emitted = [];
+    const book = DOCS.find((b) => b.id === 'encoding');
+    const page = book.pages.find((p) => p.index === isa);
+
+    // Aqui SI entran los idiomas parciales: la referencia es lo unico que esta
+    // traducido a ellos, y es justo lo que los hace publicables.
+    const langs = Object.keys(LANGUAGES).filter(
+        (code) => code === 'en' || entries.some((e) => e.docs[code])
+    );
+
+    for (const lang of langs) {
+        const hrefFor = (slug, code) => urlFor(code, instructionHref(isa, slug, code));
+
+        // En un idioma parcial solo esta traducida ESTA seccion, asi que la
+        // barra lateral enlaza el resto en ingles. Sin esto, cada pagina china
+        // ofrecia cuatro enlaces a portadas de libro que no se emiten.
+        const reference = docsHref(book, page, lang);
+        const linkTo = LANGUAGES[lang].partial
+            ? (path) => urlFor(path === reference ? lang : 'en', path)
+            : (path) => urlFor(lang, path);
+
+        // Portada del juego: el indice por inicial.
+        const indexPath = docsHref(book, page, lang);
+        const indexVersions = Object.fromEntries(
+            langs.map((code) => [code, docsHref(book, page, code)])
+        );
+        emit(
+            join(OUT, urlFor(lang, indexPath).replace(/^\//, ''), 'index.html'),
+            renderPage({
+                lang,
+                path: indexPath,
+                title: `${page.title[lang] || page.title.en} - Vesta`,
+                description: page.title[lang] || page.title.en,
+                content:
+                    `<h1>${page.title[lang] || page.title.en}</h1>` +
+                    renderInstructionIndex(entries, lang, hrefFor,
+                                           renderOpcodeMap(entries, lang, hrefFor)),
+                versions: indexVersions,
+                section: 'docs',
+                // Lleva el mapa de opcodes, que son 16 columnas: necesita el
+                // ancho igual que las paginas de instruccion.
+                bodyClass: 'isa-page',
+                docs: {
+                    sidebar: referenceSidebar(DOCS, lang, indexPath, bookHref, docsHref, linkTo),
+                    toc: '',
+                    pager: '',
+                },
+            })
+        );
+        emitted.push(urlFor(lang, indexPath));
+
+        for (const entry of entries) {
+            const path = instructionHref(isa, entry.path, lang);
+            const versions = Object.fromEntries(
+                langs.map((code) => [code, instructionHref(isa, entry.path, code)])
+            );
+            const { title, description, html } = renderInstruction(entry, lang);
+
+            emit(
+                join(OUT, urlFor(lang, path).replace(/^\//, ''), 'index.html'),
+                renderPage({
+                    lang,
+                    path,
+                    title: `${title} - Vesta`,
+                    description,
+                    content: html,
+                    versions,
+                    section: 'docs',
+                    // La pagina es sobre todo tablas y necesita el ancho.
+                    bodyClass: 'isa-page',
+                    docs: {
+                        sidebar: referenceSidebar(DOCS, lang, path, bookHref, docsHref, linkTo),
+                        toc: '',
+                        pager: '',
+                    },
+                })
+            );
+            emitted.push(urlFor(lang, path));
+        }
+    }
+
+    return emitted;
+}
+
+/**
+ * Contrasta el indice de la referencia con las paginas escritas.
+ *
+ * Es la misma comprobacion que `checkChapters` hace sobre Learn, y existe por
+ * el mismo motivo: la barra lateral no enlaza lo marcado como borrador, asi
+ * que una pagina escrita a la que se le olvido quitar la marca se publica sin
+ * que nada apunte a ella.
+ *
+ * Comprueba ademas la portada de cada libro. Un libro sin portada deja un
+ * agujero en la navegacion justo en el nivel intermedio, que es el que el
+ * lector usa para orientarse entre los cuatro.
+ *
+ * @param {Map} pages Paginas encontradas, indexadas por ruta canonica.
+ * @returns {void}
+ */
+function checkReference(pages) {
+    const problemas = [];
+
+    for (const lang of siteLanguages()) {
+        for (const book of DOCS) {
+            const home = bookHref(book, lang);
+            if (!pages.get(`docs:${book.id}`)?.versions[lang]) {
+                problemas.push(`${home} [${lang}]: portada del libro sin escribir`);
+            }
+        }
+
+        for (const { book, page } of flatPages()) {
+            const href = docsHref(book, page, lang);
+            const id = `docs:${book.id}/${page.id}`;
+            const escrita = Boolean(pages.get(id)?.versions[lang]);
+
+            if (escrita && page.draft) {
+                problemas.push(`${href} [${lang}]: escrita pero marcada como borrador`);
+            }
+            if (!escrita && !page.draft) {
+                problemas.push(`${href} [${lang}]: enlazada pero sin texto`);
+            }
+        }
+    }
+
+    if (problemas.length > 0) {
+        console.warn(`\n${problemas.length} paginas de la referencia sin cuadrar:`);
+        for (const p of problemas) console.warn(`  ${p}`);
+        console.warn('');
+    }
+}
+
+/**
  * Escribe un fichero creando los directorios intermedios.
  *
  * @param {string} path Ruta absoluta de destino.
@@ -310,24 +635,38 @@ async function build() {
     rmSync(OUT, { recursive: true, force: true });
     mkdirSync(OUT, { recursive: true });
 
-    // Primera pasada: leer todas las paginas para saber en que idiomas existe
-    // cada ruta. Sin esto no se pueden emitir los `hreflang`, que deben ser
-    // reciprocos: una pagina solo anuncia las traducciones que existen.
+    // Primera pasada: agrupar las versiones de cada pagina para saber en que
+    // idiomas existe. Sin esto no se pueden emitir los `hreflang`, que deben
+    // ser reciprocos: una pagina solo anuncia las traducciones que existen.
+    //
+    // Se agrupa por IDENTIDAD y no por ruta. La diferencia importa en cuanto
+    // un ultimo segmento se traduce: `/learn/control-flow/` y
+    // `/learn/control-de-flujo/` son la misma pagina en dos idiomas, pero
+    // como rutas no se parecen en nada. Agrupando por ruta, cada una quedaba
+    // sola y se publicaba sin `hreflang` a su traduccion ni `x-default`, de
+    // modo que un buscador las tomaba por dos paginas distintas y el selector
+    // de idioma desaparecia justamente donde mas falta hace.
+    const identities = translationIndex();
     const pages = new Map();
-    for (const lang of Object.keys(LANGUAGES)) {
+    for (const lang of siteLanguages()) {
         const langDir = join(CONTENT, lang);
         for (const file of walk(langDir, (n) => n.endsWith('.md'))) {
             const path = canonicalPath(file, langDir);
-            if (!pages.has(path)) pages.set(path, { path, versions: {} });
-            pages.get(path).versions[lang] = file;
+            const id = identities.get(path) || path;
+            if (!pages.has(id)) pages.set(id, { id, versions: {} });
+            pages.get(id).versions[lang] = { file, path };
         }
     }
 
     let count = 0;
     for (const page of pages.values()) {
-        const available = Object.keys(page.versions);
+        // Rutas por idioma, para los `hreflang` y el selector: cada idioma
+        // enlaza a SU ruta, no a la del idioma que se este generando.
+        const versions = Object.fromEntries(
+            Object.entries(page.versions).map(([code, v]) => [code, v.path])
+        );
 
-        for (const [lang, file] of Object.entries(page.versions)) {
+        for (const [lang, { file, path }] of Object.entries(page.versions)) {
             const raw = readFileSync(file, 'utf8');
             const { meta, body } = parseFrontMatter(raw);
 
@@ -336,48 +675,92 @@ async function build() {
             // marcadores son comentarios, de modo que el contenido de cada una
             // se procesa como texto normal y conserva encabezados, listas y
             // bloques de codigo resaltados.
+            // La portada de un libro lista sus paginas desde el indice, para
+            // que no haya que mantener la misma lista en dos sitios.
+            const libro = DOCS.find((b) => bookHref(b, lang) === path);
+            const conIndice = libro
+                ? body.replace(
+                      /<!--\s*BOOKINDEX\s*-->/g,
+                      () => bookIndex(libro, lang, docsHref)
+                  )
+                : body;
+
             const html = insertTabs(
-                render(insertDiagrams(insertSnippets(body), lang), {
+                render(insertTags(insertDiagrams(insertSnippets(conIndice), lang), lang, file), {
                     highlight,
                     headings,
                 })
             );
 
+            // Las paginas de la referencia llevan la barra lateral de tres
+            // niveles y el indice de la propia pagina, pero NO navegacion de
+            // anterior y siguiente: la referencia no se lee en orden, y un pie
+            // que invita a continuar sugiere un recorrido que no existe.
+            let docs = null;
+            if (path.startsWith('/docs/')) {
+                docs = {
+                    sidebar: referenceSidebar(
+                        DOCS, lang, path, bookHref, docsHref
+                    ),
+                    toc: tableOfContents(headings, lang),
+                    pager: '',
+                };
+            }
+
             // Las paginas de Learn llevan barra lateral, indice y navegacion
             // de anterior y siguiente. Las tres salen del mismo indice, asi que
             // no pueden contradecirse entre si.
-            let docs = null;
-            if (page.path.startsWith('/learn/')) {
+            if (path.startsWith('/learn/')) {
                 const flat = flatChapters();
                 const position = flat.findIndex(
-                    (entry) => chapterHref(entry.chapter, lang).href === page.path
+                    (entry) => chapterHref(entry.chapter, lang).href === path
                 );
+
+                // El fuente descargable se emite junto a la pagina. Solo en
+                // Learn: son capitulos que se leen enteros y que alguien puede
+                // querer llevarse para anotarlos o traducirlos. Una pagina de
+                // consulta o la portada no tienen ese uso.
+                const url = urlFor(lang, path);
+                const sourceUrl = sourceUrlFor(url);
+                emit(
+                    join(OUT, sourceUrl.replace(/^\//, '')),
+                    pageSource({
+                        body,
+                        title: meta.title || 'Vesta',
+                        url: `${SITE_URL}${url}`,
+                        lang,
+                        snippetsDir: SNIPPETS,
+                        siteUrl: SITE_URL,
+                    })
+                );
+
                 docs = {
-                    sidebar: sidebar(LEARN, lang, page.path),
+                    sidebar: sidebar(LEARN, lang, path),
                     toc: tableOfContents(headings, lang),
                     pager: position === -1 ? '' : pager(flat, position, lang),
+                    sourceUrl,
                 };
             }
 
             const document = renderPage({
                 lang,
-                path: page.path,
+                path: path,
                 title: meta.title || 'Vesta',
                 description: meta.description || '',
                 content: html,
-                available,
+                versions,
                 section: meta.section || '',
                 bodyClass: meta.layout ? `layout-${meta.layout}` : '',
                 robots: meta.robots || '',
-                jsonLd: page.path === '/' ? homeJsonLd(lang) : '',
+                jsonLd: path === '/' ? homeJsonLd(lang) : '',
                 head: tabStyles(html),
                 docs,
             });
 
             // La pagina de error se escribe como fichero suelto; el resto, como
             // indice de su directorio, para que las URLs acaben en barra.
-            const target = urlFor(lang, page.path).replace(/^\//, '');
-            const outPath = isErrorPage(page.path)
+            const target = urlFor(lang, path).replace(/^\//, '');
+            const outPath = isErrorPage(path)
                 ? join(OUT, target)
                 : join(OUT, target, 'index.html');
             emit(outPath, document);
@@ -390,9 +773,15 @@ async function build() {
         cpSync(ASSETS, join(OUT, 'assets'), { recursive: true });
     }
 
+    // Colores de las etiquetas. Se generan desde el vocabulario en lugar de
+    // escribirse a mano porque el color de una etiqueta ya esta declarado
+    // alli: mantenerlo tambien en un `.css` seria pedir que las dos copias se
+    // separen a la primera etiqueta nueva.
+    emit(join(OUT, 'assets', 'css', 'tags.css'), tagStylesheet());
+
     // Tarjeta social por idioma. Se genera en cada build para que no pueda
     // quedarse diciendo un titular que la portada ya cambio.
-    for (const lang of Object.keys(LANGUAGES)) {
+    for (const lang of siteLanguages()) {
         emit(
             join(OUT, 'assets', `og-${lang}.svg`),
             socialCard(lang, join(ASSETS, 'img', 'logo.png'))
@@ -403,21 +792,53 @@ async function build() {
         join(OUT, 'sitemap.xml'),
         sitemap(
             [...pages.values()]
+                .map((p) =>
+                    Object.fromEntries(
+                        Object.entries(p.versions).map(([lang, v]) => [lang, v.path])
+                    )
+                )
                 // La pagina de error no se indexa: anunciarla en el sitemap
                 // invitaria al buscador a rastrear justamente lo que no existe.
-                .filter((p) => !isErrorPage(p.path))
-                .map((p) => ({ path: p.path, available: Object.keys(p.versions) }))
+                .filter((v) => !Object.values(v).some(isErrorPage))
         )
     );
+    // El fichero se GENERA y no se versiona, porque lleva el dominio dentro:
+    // escrito a mano se quedaria desactualizado en cuanto cambiara.
+    //
+    // La pagina de error se excluye del rastreo. Ya lleva `noindex`, pero eso
+    // solo evita que se indexe DESPUES de pedirla; decirlo aqui ahorra la
+    // peticion y, sobre todo, evita que el buscador la trate como una pagina
+    // mas del sitio.
     emit(
         join(OUT, 'robots.txt'),
-        `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
+        [
+            'User-agent: *',
+            'Allow: /',
+            'Disallow: /404.html',
+            'Disallow: /es/404.html',
+            // Los `.md` descargables son el mismo texto que su pagina HTML.
+            // Rastrearlos no aporta nada al buscador y le da dos direcciones
+            // para el mismo contenido, que es justo lo que hay que evitar.
+            'Disallow: /*.md$',
+            '',
+            `Sitemap: ${SITE_URL}/sitemap.xml`,
+            '',
+        ].join('\n')
     );
     // Pages sirve rutas con guion bajo inicial solo si el sitio no pasa por
     // Jekyll; este fichero lo desactiva.
     emit(join(OUT, '.nojekyll'), '');
 
-    const broken = checkLinks(pages);
+    // La referencia de instrucciones se genera desde los datos importados, no
+    // desde ficheros de contenido. Va despues del bucle de paginas porque no
+    // participa en el emparejado de traducciones: el mnemonico es el mismo en
+    // los dos idiomas y su ruta se construye directamente.
+    const generated = emitInstructionReference('x86');
+    count += generated.length;
+
+    checkChapters(pages);
+    checkReference(pages);
+    const broken = checkLinks(pages, generated);
     console.log(
         `${count} paginas en ${Date.now() - started} ms -> dist/` +
             (broken > 0 ? ` (${broken} enlaces pendientes)` : '')
@@ -439,6 +860,7 @@ async function serve() {
         '.json': 'application/json; charset=utf-8',
         '.xml': 'application/xml; charset=utf-8',
         '.txt': 'text/plain; charset=utf-8',
+        '.md': 'text/markdown; charset=utf-8',
         '.png': 'image/png',
         '.jpg': 'image/jpeg',
         '.webp': 'image/webp',

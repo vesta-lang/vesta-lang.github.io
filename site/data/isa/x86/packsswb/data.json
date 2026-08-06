@@ -1,0 +1,478 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "63"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 4 packed signed word integers from mm1 and from mm2/m64 into 8 packed signed byte integers in mm1 using signed saturation.",
+   "opcode": "NP 0F 63 /r1",
+   "operands": "A",
+   "syntax": "PACKSSWB mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "63"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed signed word integers from xmm1 and from xmm2/m128 into 16 packed signed byte integers in xmm1 using signed saturation.",
+   "opcode": "66 0F 63 /r",
+   "operands": "A",
+   "syntax": "PACKSSWB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "6B"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 2 packed signed doubleword integers from mm1 and from mm2/m64 into 4 packed signed word integers in mm1 using signed saturation.",
+   "opcode": "NP 0F 6B /r1",
+   "operands": "A",
+   "syntax": "PACKSSDW mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "6B"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 4 packed signed doubleword integers from xmm1 and from xmm2/m128 into 8 packed signed word integers in xmm1 using signed saturation.",
+   "opcode": "66 0F 6B /r",
+   "operands": "A",
+   "syntax": "PACKSSDW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed signed word integers from xmm2 and from xmm3/m128 into 16 packed signed byte integers in xmm1 using signed saturation.",
+   "opcode": "VEX.128.66.0F.WIG 63 /r",
+   "operands": "B",
+   "syntax": "VPACKSSWB xmm1,xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 4 packed signed doubleword integers from xmm2 and from xmm3/m128 into 8 packed signed word integers in xmm1 using signed saturation.",
+   "opcode": "VEX.128.66.0F.WIG 6B /r",
+   "operands": "B",
+   "syntax": "VPACKSSDW xmm1,xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 16 packed signed word integers from ymm2 and from ymm3/m256 into 32 packed signed byte integers in ymm1 using signed saturation.",
+   "opcode": "VEX.256.66.0F.WIG 63 /r",
+   "operands": "B",
+   "syntax": "VPACKSSWB ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed signed doubleword integers from ymm2 and from ymm3/m256 into 16 packed signed word integers in ymm1using signed saturation.",
+   "opcode": "VEX.256.66.0F.WIG 6B /r",
+   "operands": "B",
+   "syntax": "VPACKSSDW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts packed signed word integers from AVX512BW) OR xmm2 and from xmm3/m128 into packed signed AVX10.1 byte integers in xmm1 using signed saturation under writemask k1.",
+   "opcode": "EVEX.128.66.0F.WIG 63 /r",
+   "operands": "C",
+   "syntax": "VPACKSSWB xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts packed signed word integers from AVX512BW) OR ymm2 and from ymm3/m256 into packed signed AVX10.1 byte integers in ymm1 using signed saturation under writemask k1.",
+   "opcode": "EVEX.256.66.0F.WIG 63 /r",
+   "operands": "C",
+   "syntax": "VPACKSSWB ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts packed signed word integers from OR AVX10.1 zmm2 and from zmm3/m512 into packed signed byte integers in zmm1 using signed saturation under writemask k1.",
+   "opcode": "EVEX.512.66.0F.WIG 63 /r",
+   "operands": "C",
+   "syntax": "VPACKSSWB zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts packed signed doubleword integers AVX512BW) OR from xmm2 and from xmm3/m128/m32bcst into AVX10.1 packed signed word integers in xmm1 using signed saturation under writemask k1. Op/ 64/32 bit CPUID Fe ature   Description En Mode Support Flag",
+   "opcode": "EVEX.128.66.0F.W0 6B /r",
+   "operands": "D",
+   "syntax": "VPACKSSDW xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst Opcode/ Instruction"
+  },
+  {
+   "cpuid": "(AVX512V",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "L AND   Converts packed signed doubleword integers AVX512BW ) OR    from ymm2 and from ymm3/m256/m32bcst into AVX10.1 packed signed word integers in ymm1 using signed saturation under writemask k1.",
+   "opcode": "EVEX.256.66.0F.W0 6B /r",
+   "operands": "D",
+   "syntax": "VPACKSSDW ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "6B"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts packed signed doubleword integers OR AVX10 .1      from zmm2 and from zmm3/m512/m32bcst into packed signed word integers in zmm1 using signed saturation under writemask k1.",
+   "opcode": "EVEX.512.66.0F.W0 6B /r",
+   "operands": "D",
+   "syntax": "VPACKSSDW zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "packsswb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PACKSSWB",
+   "VPACKSSWB",
+   "PACKSSDW",
+   "VPACKSSDW"
+  ]
+ },
+ "mnemonics": [
+  "PACKSSWB",
+  "PACKSSDW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1472,
+    1479
+   ]
+  }
+ ],
+ "version": 1
+}

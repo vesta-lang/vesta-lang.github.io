@@ -1,0 +1,74 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SHA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "CB"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform 2 rounds of SHA256 operation using an initial SHA256 state (C,D,G,H) from xmm1, an initial SHA256 state (A,B,E,F) from xmm2/m128, and a pre-computed sum of the next 2 round mes- sage dwords and the corresponding round constants from the implicit operand XMM0, storing the updated SHA256 state (A,B,E,F) result in xmm1.",
+   "opcode": "NP 0F 38 CB /r",
+   "operands": "RMI",
+   "syntax": "SHA256RNDS2 xmm1, xmm2/m128, <XMM0>"
+  }
+ ],
+ "format": "isadoc",
+ "id": "sha256rnds2",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SHA256RNDS2"
+  ]
+ },
+ "mnemonics": [
+  "SHA256RNDS2"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "XMM0",
+     "implicit": true,
+     "raw": "XMM0",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1926,
+    1927
+   ]
+  }
+ ],
+ "version": 1
+}

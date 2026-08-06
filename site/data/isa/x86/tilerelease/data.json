@@ -1,0 +1,50 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AMX_TILE",
+   "layout": {
+    "opcode": [
+     "49",
+     "C0"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "text": "VEX.128.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Initialize TILECFG and TILEDATA.",
+   "opcode": "VEX.128.NP.0F38.W0 49 C0",
+   "operands": "A",
+   "syntax": "TILERELEASE"
+  }
+ ],
+ "format": "isadoc",
+ "id": "tilerelease",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "TILERELEASE"
+  ]
+ },
+ "mnemonics": [
+  "TILERELEASE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2014,
+    2014
+   ]
+  }
+ ],
+ "version": 1
+}

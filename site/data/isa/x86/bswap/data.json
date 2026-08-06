@@ -1,0 +1,108 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "C8"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid*"
+   },
+   "note": "Reverses the byte order of a 32-bit register.",
+   "opcode": "0F C8+rd",
+   "operands": "O",
+   "syntax": "BSWAP r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "C8"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    },
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Reverses the byte order of a 64-bit register.",
+   "opcode": "REX.W + 0F C8+rd",
+   "operands": "O",
+   "syntax": "BSWAP r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "bswap",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "BSWAP"
+  ]
+ },
+ "mnemonics": [
+  "BSWAP"
+ ],
+ "operand_encodings": [
+  {
+   "id": "O",
+   "operands": [
+    {
+     "field": "opcode.reg",
+     "read": true,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    815,
+    815
+   ]
+  }
+ ],
+ "version": 1
+}

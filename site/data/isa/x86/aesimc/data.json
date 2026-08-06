@@ -1,0 +1,96 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "DB"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the InvMixColumn transformation on a 128-bit round key from xmm2/m128 and store the result in xmm1.",
+   "opcode": "66 0F 38 DB /r",
+   "operands": "RM",
+   "syntax": "AESIMC xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "Both AES",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DB"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform the InvMixColumn transformation on and AVX flags a 128-bit round key from xmm2/m128 and store the result in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG DB /r",
+   "operands": "RM",
+   "syntax": "VAESIMC xmm1, xmm2/m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "aesimc",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "AESIMC",
+   "VAESIMC"
+  ]
+ },
+ "mnemonics": [
+  "AESIMC"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    761,
+    761
+   ]
+  }
+ ],
+ "version": 1
+}

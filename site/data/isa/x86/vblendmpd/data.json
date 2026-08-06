@@ -1,0 +1,213 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend double precision vector xmm2 and double AVX512F) OR precision vector xmm3/m128/m64bcst and store the AVX10.1 result in xmm1, under control mask.",
+   "opcode": "EVEX.128.66.0F38.W1 65 /r",
+   "operands": "A",
+   "syntax": "VBLENDMPD xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend double precision vector ymm2 and double AVX512F) OR precision vector ymm3/m256/m64bcst and store the AVX10.1 result in ymm1, under control mask.",
+   "opcode": "EVEX.256.66.0F38.W1 65 /r",
+   "operands": "A",
+   "syntax": "VBLENDMPD ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend double precision vector zmm2 and double OR AVX10.1 precision vector zmm3/m512/m64bcst and store the result in zmm1, under control mask.",
+   "opcode": "EVEX.512.66.0F38.W1 65 /r",
+   "operands": "A",
+   "syntax": "VBLENDMPD zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend single precision vector xmm2 and single AVX512F) OR precision vector xmm3/m128/m32bcst and store the AVX10.1 result in xmm1, under control mask.",
+   "opcode": "EVEX.128.66.0F38.W0 65 /r",
+   "operands": "A",
+   "syntax": "VBLENDMPS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend single precision vector ymm2 and single AVX512F) OR precision vector ymm3/m256/m32bcst and store the AVX10.1 result in ymm1, under control mask.",
+   "opcode": "EVEX.256.66.0F38.W0 65 /r",
+   "operands": "A",
+   "syntax": "VBLENDMPS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "65"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend single precision vector zmm2 and single OR AVX10.1 precision vector zmm3/m512/m32bcst using k1 as select control and store the result in zmm1.",
+   "opcode": "EVEX.512.66.0F38.W0 65 /r",
+   "operands": "A",
+   "syntax": "VBLENDMPS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vblendmpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VBLENDMPD",
+   "VBLENDMPS"
+  ]
+ },
+ "mnemonics": [
+  "VBLENDMPD",
+  "VBLENDMPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2060,
+    2062
+   ]
+  }
+ ],
+ "version": 1
+}

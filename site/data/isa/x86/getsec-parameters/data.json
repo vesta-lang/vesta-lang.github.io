@@ -1,0 +1,82 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "37"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {},
+   "note": "Report the SMX parameters.",
+   "opcode": "NP 0F 37",
+   "operands": "",
+   "syntax": "GETSEC[PARAMETERS]"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "leaf": {
+     "register": "EAX",
+     "value": "6"
+    }
+   },
+   "modes": {},
+   "note": "The parameters index is input in EBX with the result returned in EAX, EBX, and ECX.",
+   "opcode": "(EAX=6)",
+   "operands": "",
+   "syntax": ""
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[PARAMETERS] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[PARAMETERS] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[PARAMETERS] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  }
+ ],
+ "format": "isadoc",
+ "id": "getsec-parameters",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "GETSEC[PARAMETERS]"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2934,
+    2937
+   ]
+  }
+ ],
+ "version": 1
+}

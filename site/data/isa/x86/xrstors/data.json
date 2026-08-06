@@ -1,0 +1,154 @@
+{
+ "encodings": [
+  {
+   "cpuid": "XSS",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Restore state  components  specified  by  EDX:EAX   from mem.",
+   "opcode": "NP 0F C7 /3",
+   "operands": "M",
+   "syntax": "XRSTORS mem"
+  },
+  {
+   "cpuid": "XSS",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NP"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Restore state  components  specified  by  EDX:EAX   from mem.",
+   "opcode": "NP REX.W + 0F C7 /3",
+   "operands": "M",
+   "syntax": "XRSTORS64 mem"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If CPL > 0. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If a memory operand is not aligned on a 64-byte boundary, regardless of segment. If bit 63 of the XCOMP_BV field of the XSAVE header is 0. If a bit in XCR0|IA32_XSS is 0 and the corresponding bit in the XCOMP_BV field of the XSAVE header is 1. If a bit in the XCOMP_BV field in the XSAVE header is 0 and the corresponding bit in the XSTATE_BV field is 1. If bytes 63:16 of the XSAVE header are not all zero. If attempting to write any reserved bits of the MXCSR register with 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.XSAVE[26] = 0 or CPUID.0DH.01H:EAX.XSAVES[3] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand is not aligned on a 64-byte boundary, regardless of segment. If any part of the operand lies outside the effective address space from 0 to FFFFH. If bit 63 of the XCOMP_BV field of the XSAVE header is 0. If a bit in XCR0|IA32_XSS is 0 and the corresponding bit in the XCOMP_BV field of the XSAVE header is 1. If a bit in the XCOMP_BV field in the XSAVE header is 0 and the corresponding bit in the XSTATE_BV field is 1. If bytes 63:16 of the XSAVE header are not all zero. If attempting to write any reserved bits of the MXCSR register with 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.XSAVE[26] = 0 or CPUID.0DH.01H:EAX.XSAVES[3] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If CPL > 0. If a memory address is in a non-canonical form. If a memory operand is not aligned on a 64-byte boundary, regardless of segment. If bit 63 of the XCOMP_BV field of the XSAVE header is 0. If a bit in XCR0|IA32_XSS is 0 and the corresponding bit in the XCOMP_BV field of the XSAVE header is 1. If a bit in the XCOMP_BV field in the XSAVE header is 0 and the corresponding bit in the XSTATE_BV field is 1. If bytes 63:16 of the XSAVE header are not all zero. If attempting to write any reserved bits of the MXCSR register with 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.XSAVE[26] = 0 or CPUID.0DH.01H:EAX.XSAVES[3] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "xrstors",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XRSTORS"
+  ]
+ },
+ "mnemonics": [
+  "XRSTORS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2881,
+    2884
+   ]
+  }
+ ],
+ "version": 1
+}

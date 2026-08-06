@@ -1,0 +1,92 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "CA"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Event return for events occurring in ring 3.",
+   "opcode": "F3 0F 01 CA",
+   "operands": "ZO",
+   "syntax": "ERETU"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The ERETU instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The ERETU instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The ERETU instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The ERETU instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CR4.FRED = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If CPL > 0. If the LOCK prefix is used. If CSL > 0. If the return is to 64-bit mode and the RIP image on the stack is not paging canonical. If the return is to compatibility mode and the low 32 bits of the RIP image on the stack is not within the CS.limit being established. If the RFLAGS image on the stack sets reserved bits or the VM bit (or fails to set bit 1). If bits 13:12 of the RFLAGS image on the stack (corresponding to IOPL) are not zero. If the value of bits 1:0 of the CS image on the stack (the target CPL) is not 3. If the value of bits 63:16 of the CS image on the stack is not zero. If the value of bits 1:0 of the SS image on the stack (the target CPL) is not 3. If the SS image on the stack sets undefined bits (bits 31:19). If the return is to compatibility mode and would load SSP with a value that sets any of bits 63:32. If ERETU is loading CS and SS from descriptor tables (see Operation section) and either of the following apply: * If the value of bits 15:2 of the CS image on the stack is 0. * If the value of bits 15:2 of the SS image on the stack is 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(selector)",
+   "when": "If ERETU is loading CS and SS from descriptor tables (see Operation section) and any of the following apply: * A segment selector index is outside its descriptor table limits. * A segment descriptor memory address is not paging canonical. * The segment descriptor for CS does not indicate that it is a code segment. * The segment descriptor for CS has both the D-bit and L-bit set. * The segment descriptor for CS is non-conforming and its DPL is not 3. * The segment descriptor for SS does not indicate that it is a writable data segment."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "* The DPL of the segment descriptor for SS is not 3. If an ordinary stack access would use an address that is not paging canonical or would cause a LASS violation. #CP(FAR-RET/IRET) If the value in SSP differs from that in IA32_FRED_SSP0."
+  }
+ ],
+ "flags": [
+  "VM"
+ ],
+ "format": "isadoc",
+ "id": "eretu",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ERETU"
+  ]
+ },
+ "mnemonics": [
+  "ERETU"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1005,
+    1008
+   ]
+  }
+ ],
+ "version": 1
+}

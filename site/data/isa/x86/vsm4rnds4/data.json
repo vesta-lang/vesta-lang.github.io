@@ -1,0 +1,102 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DA"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Performs four rounds of SM4 encryption. SM4",
+   "opcode": "VEX.128.F2.0F38.W0 DA /r",
+   "operands": "A",
+   "syntax": "VSM4RNDS4 xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DA"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Performs four rounds of SM4 encryption. SM4",
+   "opcode": "VEX.256.F2.0F38.W0 DA /r",
+   "operands": "A",
+   "syntax": "VSM4RNDS4 ymm1, ymm2, ymm3/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsm4rnds4",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSM4RNDS4"
+  ]
+ },
+ "mnemonics": [
+  "VSM4RNDS4"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2814,
+    2815
+   ]
+  }
+ ],
+ "version": 1
+}

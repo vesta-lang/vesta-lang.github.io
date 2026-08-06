@@ -1,0 +1,387 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR xmm2/m128 and puts the result in xmm1 with AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 54 /r",
+   "operands": "A",
+   "syntax": "VPOPCNTB xmm1{k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR ymm2/m256 and puts the result in ymm1 with AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 54 /r",
+   "operands": "A",
+   "syntax": "VPOPCNTB ymm1{k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in OR AVX10.1 zmm2/m512 and puts the result in zmm1 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 54 /r",
+   "operands": "A",
+   "syntax": "VPOPCNTB zmm1{k1}{z}, zmm2/m512"
+  },
+  {
+   "cpuid": "(AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR xmm2/m128 and puts the result in xmm1 with AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 54 /r",
+   "operands": "A",
+   "syntax": "VPOPCNTW xmm1{k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR ymm2/m256 and puts the result in ymm1 with AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 54 /r",
+   "operands": "A",
+   "syntax": "VPOPCNTW ymm1{k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX512_BITALG",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "54"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in OR AVX10.1 zmm2/m512 and puts the result in zmm1 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 54 /r",
+   "operands": "A",
+   "syntax": "VPOPCNTW zmm1{k1}{z}, zmm2/m512"
+  },
+  {
+   "cpuid": "(AVX512_VPOPCNTDQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "55"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR xmm2/m128/m32bcst and puts the result in AVX10.1 xmm1 with writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 55 /r",
+   "operands": "B",
+   "syntax": "VPOPCNTD xmm1{k1}{z}, xmm2/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_VPOPCNTDQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "55"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR ymm2/m256/m32bcst and puts the result in AVX10.1 ymm1 with writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 55 /r",
+   "operands": "B",
+   "syntax": "VPOPCNTD ymm1{k1}{z}, ymm2/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512_VPOPCNTDQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "55"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in OR AVX10.1 zmm2/m512/m32bcst and puts the result in zmm1 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 55 /r",
+   "operands": "B",
+   "syntax": "VPOPCNTD zmm1{k1}{z}, zmm2/m512/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_VPOPCNTDQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "55"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR xmm2/m128/m32bcst and puts the result in AVX10.1 xmm1 with writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 55 /r",
+   "operands": "B",
+   "syntax": "VPOPCNTQ xmm1{k1}{z}, xmm2/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512_VPOPCNTDQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "55"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in AND AVX512VL) OR ymm2/m256/m32bcst and puts the result in AVX10.1 ymm1 with writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 55 /r",
+   "operands": "B",
+   "syntax": "VPOPCNTQ ymm1{k1}{z}, ymm2/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512_VPOPCNTDQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "55"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Counts the number of bits set to one in OR AVX10.1 zmm2/m512/m64bcst and puts the result in zmm1 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 55 /r",
+   "operands": "B",
+   "syntax": "VPOPCNTQ zmm1{k1}{z}, zmm2/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpopcnt",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPOPCNTB",
+   "VPOPCNTW",
+   "VPOPCNTD",
+   "VPOPCNTQ"
+  ]
+ },
+ "mnemonics": [
+  "VPOPCNT"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2657,
+    2660
+   ]
+  }
+ ],
+ "version": 1
+}

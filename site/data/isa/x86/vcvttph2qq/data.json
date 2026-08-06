@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert two packed FP16 values in AND AVX512VL) xmm2/m32/m16bcst to two signed quadword OR AVX10.1 integers, and store the result in xmm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP5.W0 7A /r",
+   "operands": "A",
+   "syntax": "VCVTTPH2QQ xmm1{k1}{z}, xmm2/m32/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed FP16 values in AND AVX512VL) xmm2/m64/m16bcst to four signed quadword OR AVX10.1 integers, and store the result in ymm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP5.W0 7A /r",
+   "operands": "A",
+   "syntax": "VCVTTPH2QQ ymm1{k1}{z}, xmm2/m64/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed FP16 values in OR AVX10.1 xmm2/m128/m16bcst to eight signed quadword integers, and store the result in zmm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP5.W0 7A /r",
+   "operands": "A",
+   "syntax": "VCVTTPH2QQ zmm1{k1}{z}, xmm2/m128/m16bcst {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvttph2qq",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTTPH2QQ"
+  ]
+ },
+ "mnemonics": [
+  "VCVTTPH2QQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "Quarter",
+     "raw": "Quarter",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2160,
+    2161
+   ]
+  }
+ ],
+ "version": 1
+}

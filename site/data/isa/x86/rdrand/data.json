@@ -1,0 +1,146 @@
+{
+ "encodings": [
+  {
+   "cpuid": "RDRAND",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NFX"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Read a 16-bit random number and store in the destination register.",
+   "opcode": "NFx 0F C7 /6",
+   "operands": "M",
+   "syntax": "RDRAND r16"
+  },
+  {
+   "cpuid": "RDRAND",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NFX"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Read a 32-bit random number and store in the destination register.",
+   "opcode": "NFx 0F C7 /6",
+   "operands": "M",
+   "syntax": "RDRAND r32"
+  },
+  {
+   "cpuid": "RDRAND",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NFX"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Read a 64-bit random number and store in the destination register.",
+   "opcode": "NFx REX.W + 0F C7 /6",
+   "operands": "M",
+   "syntax": "RDRAND r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.01H:ECX.RDRAND[30] = 0."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "rdrand",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDRAND"
+  ]
+ },
+ "mnemonics": [
+  "RDRAND"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1843,
+    1844
+   ]
+  }
+ ],
+ "version": 1
+}

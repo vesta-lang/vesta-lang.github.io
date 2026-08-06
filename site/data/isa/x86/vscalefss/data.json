@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2D"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the scalar single-precision floating-point value in OR AVX10.1 xmm2 using floating-point value from xmm3/m32. Under writemask k1.",
+   "opcode": "EVEX.LLIG.66.0F38.W0 2D /r",
+   "operands": "A",
+   "syntax": "VSCALEFSS xmm1 {k1}{z}, xmm2, xmm3/m32{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vscalefss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSCALEFSS"
+  ]
+ },
+ "mnemonics": [
+  "VSCALEFSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2789,
+    2794
+   ]
+  }
+ ],
+ "version": 1
+}

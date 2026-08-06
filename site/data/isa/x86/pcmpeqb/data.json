@@ -1,0 +1,667 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "74"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed bytes in mm/m64 and mm for equality.",
+   "opcode": "NP 0F 74 /r1",
+   "operands": "A",
+   "syntax": "PCMPEQB mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "74"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed bytes in xmm2/m128 and xmm1 for equality.",
+   "opcode": "66 0F 74 /r",
+   "operands": "A",
+   "syntax": "PCMPEQB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "75"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed words in mm/m64 and mm for equality.",
+   "opcode": "NP 0F 75 /r1",
+   "operands": "A",
+   "syntax": "PCMPEQW mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "75"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed words in xmm2/m128 and xmm1 for equality.",
+   "opcode": "66 0F 75 /r",
+   "operands": "A",
+   "syntax": "PCMPEQW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "76"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed doublewords in mm/m64 and mm for equality.",
+   "opcode": "NP 0F 76 /r1",
+   "operands": "A",
+   "syntax": "PCMPEQD mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "76"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed doublewords in xmm2/m128 and xmm1 for equality.",
+   "opcode": "66 0F 76 /r",
+   "operands": "A",
+   "syntax": "PCMPEQD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "74"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed bytes in xmm3/m128 and xmm2 for equality.",
+   "opcode": "VEX.128.66.0F.WIG 74 /r",
+   "operands": "B",
+   "syntax": "VPCMPEQB xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed words in xmm3/m128 and xmm2 for equality.",
+   "opcode": "VEX.128.66.0F.WIG 75 /r",
+   "operands": "B",
+   "syntax": "VPCMPEQW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "76"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed doublewords in xmm3/m128 and xmm2 for equality.",
+   "opcode": "VEX.128.66.0F.WIG 76 /r",
+   "operands": "B",
+   "syntax": "VPCMPEQD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "74"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed bytes in ymm3/m256 and ymm2 for equality.",
+   "opcode": "VEX.256.66.0F.WIG 74 /r",
+   "operands": "B",
+   "syntax": "VPCMPEQB ymm1, ymm2, ymm3 /m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed words in ymm3/m256 and ymm2 for equality.",
+   "opcode": "VEX.256.66.0F.WIG 75 /r",
+   "operands": "B",
+   "syntax": "VPCMPEQW ymm1, ymm2, ymm3 /m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "76"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed doublewords in ymm3/m256 and ymm2 for equality.",
+   "opcode": "VEX.256.66.0F.WIG 76 /r",
+   "operands": "B",
+   "syntax": "VPCMPEQD ymm1, ymm2, ymm3 /m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "76"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare Equal between int32 vector xmm2 AVX512F) OR and int32 vector xmm3/m128/m32bcst, and AVX10.1 set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.128.66.0F.W0 76 /r",
+   "operands": "C",
+   "syntax": "VPCMPEQD k1 {k2}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "76"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare Equal between int32 vector ymm2 AVX512F) OR and int32 vector ymm3/m256/m32bcst, and AVX10.1 set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.256.66.0F.W0 76 /r",
+   "operands": "C",
+   "syntax": "VPCMPEQD k1 {k2}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "76"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare Equal between int32 vectors in OR AVX10.1 zmm2 and zmm3/m512/m32bcst, and set destination k1 according to the comparison results under writemask k2.",
+   "opcode": "EVEX.512.66.0F.W0 76 /r",
+   "operands": "C",
+   "syntax": "VPCMPEQD k1 {k2}, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "74"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed bytes in xmm3/m128 and AVX512BW) OR AVX10.1 xmm2 for equality and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask. Op/ En 64/32 bit CPUID Feature Description Mode Support Flag",
+   "opcode": "EVEX.128.66.0F.WIG 74 /r",
+   "operands": "D",
+   "syntax": "VPCMPEQB k1 {k2}, xmm2, xmm3 /m128 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "74"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed bytes in ymm3/m256 and AVX512BW) OR AVX10.1 ymm2 for equality and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.256.66.0F.WIG 74 /r",
+   "operands": "D",
+   "syntax": "VPCMPEQB k1 {k2}, ymm2, ymm3 /m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "74"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed bytes in zmm3/m512 and OR AVX10.1 zmm2 for equality and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.512.66.0F.WIG 74 /r",
+   "operands": "D",
+   "syntax": "VPCMPEQB k1 {k2}, zmm2, zmm3 /m512"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed words in xmm3/m128 and AVX512BW) OR AVX10.1 xmm2 for equality and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.128.66.0F.WIG 75 /r",
+   "operands": "D",
+   "syntax": "VPCMPEQW k1 {k2}, xmm2, xmm3 /m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed words in ymm3/m256 and AVX512BW) OR AVX10.1 ymm2 for equality and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.256.66.0F.WIG 75 /r",
+   "operands": "D",
+   "syntax": "VPCMPEQW k1 {k2}, ymm2, ymm3 /m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "75"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed words in zmm3/m512 and OR AVX10.1 zmm2 for equality and set vector mask k1 to reflect the zero/nonzero status of each element of the result, under writemask.",
+   "opcode": "EVEX.512.66.0F.WIG 75 /r",
+   "operands": "D",
+   "syntax": "VPCMPEQW k1 {k2}, zmm2, zmm3 /m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pcmpeqb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PCMPEQB",
+   "VPCMPEQB",
+   "PCMPEQW",
+   "VPCMPEQW",
+   "PCMPEQD",
+   "VPCMPEQD"
+  ]
+ },
+ "mnemonics": [
+  "PCMPEQB",
+  "PCMPEQW",
+  "PCMPEQD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1534,
+    1539
+   ]
+  }
+ ],
+ "version": 1
+}

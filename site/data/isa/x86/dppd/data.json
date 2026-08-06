@@ -1,0 +1,138 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "41"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Selectively multiply packed double precision floating-point values from xmm1 with packed double precision floating-point values from xmm2, add and selectively store the packed double precision floating-point values to xmm1.",
+   "opcode": "66 0F 3A 41 /r ib",
+   "operands": "RMI",
+   "syntax": "DPPD xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "41"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Selectively multiply packed double precision floating-point values from xmm2 with packed double precision floating-point values from xmm3, add and selectively store the packed double precision floating-point values to xmm1.",
+   "opcode": "VEX.128.66.0F3A.WIG 41 /r ib",
+   "operands": "RVMI",
+   "syntax": "VDPPD xmm1,xmm2, xmm3/m128, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "dppd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "DPPD",
+   "VDPPD"
+  ]
+ },
+ "mnemonics": [
+  "DPPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    981,
+    982
+   ]
+  }
+ ],
+ "version": 1
+}

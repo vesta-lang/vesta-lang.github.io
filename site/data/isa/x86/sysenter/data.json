@@ -1,0 +1,99 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "34"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Fast call to privilege level 0 system procedures.",
+   "opcode": "0F 34",
+   "operands": "ZO",
+   "syntax": "SYSENTER"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If IA32_SYSENTER_CS[15:2] = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "The SYSENTER instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP(0)",
+   "when": "If CR4.FRED = 0 and IA32_SYSENTER_CS[15:2] = 0. If FRED event delivery of SYSENTER would load RIP with a non-canonical address. If FRED event delivery of SYSENTER would load SSP with an address that is not 8-byte aligned. If a shadow-stack access performed by FRED event delivery of SYSENTER uses a non-canonical address or causes a LASS violation."
+  },
+  {
+   "mode": "compat",
+   "vector": "#SS(0)",
+   "when": "If an ordinary stack access performed by FRED event delivery of SYSENTER uses a non-canonical address or causes a LASS violation."
+  },
+  {
+   "mode": "compat",
+   "vector": "#PF",
+   "when": "If a memory access performed by FRED event delivery of SYSENTER causes a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in compatibility mode."
+  }
+ ],
+ "flags": [
+  "IF",
+  "VM"
+ ],
+ "format": "isadoc",
+ "id": "sysenter",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SYSENTER"
+  ]
+ },
+ "mnemonics": [
+  "SYSENTER"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1990,
+    1993
+   ]
+  }
+ ],
+ "version": 1
+}

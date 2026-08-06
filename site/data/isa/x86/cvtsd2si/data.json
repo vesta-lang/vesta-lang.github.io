@@ -1,0 +1,221 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2D"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value from xmm1/m64 to one signed doubleword integer r32.",
+   "opcode": "F2 0F 2D /r",
+   "operands": "A",
+   "syntax": "CVTSD2SI r3, xmm1/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2D"
+    ],
+    "prefixes": [
+     "F2"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value from xmm1/m64 to one signed quadword integer sign- extended into r64.",
+   "opcode": "F2 REX.W 0F 2D /r",
+   "operands": "A",
+   "syntax": "CVTSD2SI r64, xmm1/m64"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2D"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.LIG.F2.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value from xmm1/m64 to one signed doubleword integer r32.",
+   "opcode": "VEX.LIG.F2.0F.W0 2D /r 1",
+   "operands": "A",
+   "syntax": "VCVTSD2SI r3, xmm1/m64"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2D"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.LIG.F2.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.2",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value from xmm1/m64 to one signed quadword integer sign- extended into r64.",
+   "opcode": "VEX.LIG.F2.0F.W1 2D /r 1",
+   "operands": "A",
+   "syntax": "VCVTSD2SI r64, xmm1/m64"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2D"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F2",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F2.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value from OR AVX10.1 xmm1/m64 to one signed doubleword integer r32.",
+   "opcode": "EVEX.LLIG.F2.0F.W0 2D /r",
+   "operands": "B",
+   "syntax": "VCVTSD2SI r3, xmm1/m64{er}"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2D"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F2",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F2.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.2",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value from OR AVX10.1 xmm1/m64 to one signed quadword integer sign- extended into r64.",
+   "opcode": "EVEX.LLIG.F2.0F.W1 2D /r",
+   "operands": "B",
+   "syntax": "VCVTSD2SI r64, xmm1/m64{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cvtsd2si",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CVTSD2SI",
+   "VCVTSD2SI"
+  ]
+ },
+ "mnemonics": [
+  "CVTSD2SI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Fixed"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    936,
+    937
+   ]
+  }
+ ],
+ "version": 1
+}

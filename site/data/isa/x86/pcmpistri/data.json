@@ -1,0 +1,113 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "63"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform a packed comparison of string data with implicit lengths, generating an index, and storing the result in ECX.",
+   "opcode": "66 0F 3A 63 /r imm8",
+   "operands": "RM",
+   "syntax": "PCMPISTRI xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform a packed comparison of string data with implicit lengths, generating an index, and storing the result in ECX.",
+   "opcode": "VEX.128.66.0F3A.WIG 63 /r ib",
+   "operands": "RM",
+   "syntax": "VPCMPISTRI xmm1, xmm2/m128, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pcmpistri",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PCMPISTRI",
+   "VPCMPISTRI"
+  ]
+ },
+ "mnemonics": [
+  "PCMPISTRI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1556,
+    1557
+   ]
+  }
+ ],
+ "version": 1
+}

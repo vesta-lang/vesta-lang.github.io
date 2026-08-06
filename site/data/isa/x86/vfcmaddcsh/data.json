@@ -1,0 +1,109 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "F2",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F2.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from OR AVX10.1 xmm2 and xmm3/m32, add to xmm1 and store the result in xmm1 subject to writemask k1. Bits 127:32 of xmm2 are copied to xmm1[127:32].",
+   "opcode": "EVEX.LLIG.F2.MAP6.W0 57 /r",
+   "operands": "A",
+   "syntax": "VFCMADDCSH xmm1{k1}{z}, xmm2, xmm3/m32 {er}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Complex multiply a pair of FP16 values from OR AVX10.1 xmm2 and the complex conjugate of xmm3/m32, add to xmm1 and store the result in xmm1 subject to writemask k1. Bits 127:32 of xmm2 are copied to xmm1[127:32].",
+   "opcode": "EVEX.LLIG.F3.MAP6.W0 57 /r",
+   "operands": "A",
+   "syntax": "VFMADDCSH xmm1{k1}{z}, xmm2, xmm3/m32 {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfcmaddcsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFCMADDCSH",
+   "VFMADDCSH"
+  ]
+ },
+ "mnemonics": [
+  "VFCMADDCSH",
+  "VFMADDCSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2234,
+    2235
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the approximate reciprocals of the AND AVX512VL) square roots of packed FP16 values in OR AVX10.1 xmm2/m128/m16bcst and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP6.W0 4E /r",
+   "operands": "A",
+   "syntax": "VRSQRTPH xmm1{k1}{z}, xmm2/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the approximate reciprocals of the AND AVX512VL) square roots of packed FP16 values in OR AVX10.1 ymm2/m256/m16bcst and store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP6.W0 4E /r",
+   "operands": "A",
+   "syntax": "VRSQRTPH ymm1{k1}{z}, ymm2/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the approximate reciprocals of the OR AVX10.1 square roots of packed FP16 values in zmm2/m512/m16bcst and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP6.W0 4E /r",
+   "operands": "A",
+   "syntax": "VRSQRTPH zmm1{k1}{z}, zmm2/m512/m16bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrsqrtph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRSQRTPH"
+  ]
+ },
+ "mnemonics": [
+  "VRSQRTPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2773,
+    2774
+   ]
+  }
+ ],
+ "version": 1
+}

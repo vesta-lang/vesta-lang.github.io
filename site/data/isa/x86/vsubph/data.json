@@ -1,0 +1,127 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "text": "EVEX.128.NP.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Subtract packed FP16 values from AND AVX512VL) xmm3/m128/m16bcst to xmm2, and store the OR AVX10.1 result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.NP.MAP5.W0 5C /r",
+   "operands": "A",
+   "syntax": "VSUBPH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP5",
+     "text": "EVEX.256.NP.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Subtract packed FP16 values from AND AVX512VL) OR AVX10.11 ymm3/m256/m16bcst to ymm2, and store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.NP.MAP5.W0 5C /r",
+   "operands": "A",
+   "syntax": "VSUBPH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16 OR AVX10.11",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP5",
+     "text": "EVEX.512.NP.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Subtract packed FP16 values from zmm3/m512/m16bcst to zmm2, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.NP.MAP5.W0 5C /r",
+   "operands": "A",
+   "syntax": "VSUBPH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsubph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSUBPH"
+  ]
+ },
+ "mnemonics": [
+  "VSUBPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2819,
+    2820
+   ]
+  }
+ ],
+ "version": 1
+}

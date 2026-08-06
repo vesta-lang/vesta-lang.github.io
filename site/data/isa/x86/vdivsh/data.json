@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5E"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Divide low FP16 value in xmm2 by low FP16 OR AVX10.1 value in xmm3/m16, and store the result in xmm1 subject to writemask k1. Bits 127:16 of xmm2 are copied to xmm1[127:16].",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 5E /r",
+   "operands": "A",
+   "syntax": "VDIVSH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vdivsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VDIVSH"
+  ]
+ },
+ "mnemonics": [
+  "VDIVSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2210,
+    2210
+   ]
+  }
+ ],
+ "version": 1
+}

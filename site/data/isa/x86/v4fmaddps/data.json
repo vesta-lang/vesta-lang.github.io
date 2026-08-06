@@ -1,0 +1,110 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_4FMAPS",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "EVEX.512.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed single precision floating-point values from source register block indicated by zmm2 by values from m128 and accumulate the result in zmm1.",
+   "opcode": "EVEX.512.F2.0F38.W0 9A /r",
+   "operands": "A",
+   "syntax": "V4FMADDPS zmm1{k1}{z}, zmm2+3, m128"
+  },
+  {
+   "cpuid": "AVX512_4FMAPS",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AA"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "EVEX.512.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply and negate packed single precision floating-point values from source register block indicated by zmm2 by values from m128 and accumulate the result in zmm1.",
+   "opcode": "EVEX.512.F2.0F38.W0 AA /r",
+   "operands": "A",
+   "syntax": "V4FNMADDPS zmm1{k1}{z}, zmm2+3, m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "v4fmaddps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "V4FMADDPS",
+   "V4FNMADDPS"
+  ]
+ },
+ "mnemonics": [
+  "V4FMADDPS",
+  "V4FNMADDPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "Tuple1_4X",
+     "raw": "Tuple1_4X",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2947,
+    2948
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,291 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "30"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed word integers from xmm2 AVX512BW) OR AVX10.1 into 8 packed bytes in xmm1/m64 with truncation under writemask k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 30 /r",
+   "operands": "A",
+   "syntax": "VPMOVWB xmm1/m64 {k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed signed word integers from AVX512BW) OR xmm2 into 8 packed signed bytes in xmm1/m64 AVX10.1 using signed saturation under writemask k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 20 /r",
+   "operands": "A",
+   "syntax": "VPMOVSWB xmm1/m64 {k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed unsigned word integers from AVX512BW) OR xmm2 into 8 packed unsigned bytes in AVX10.1 8mm1/m64 using unsigned saturation under writemask k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 10 /r",
+   "operands": "A",
+   "syntax": "VPMOVUSWB xmm1/m64 {k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "30"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 16 packed word integers from ymm2 AVX512BW) OR into 16 packed bytes in xmm1/m128 with AVX10.1 truncation under writemask k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 30 /r",
+   "operands": "A",
+   "syntax": "VPMOVWB xmm1/m128 {k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 16 packed signed word integers from AVX512BW) OR ymm2 into 16 packed signed bytes in AVX10.1 xmm1/m128 using signed saturation under writemask k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 20 /r",
+   "operands": "A",
+   "syntax": "VPMOVSWB xmm1/m128 {k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 16 packed unsigned word integers AVX512BW) OR from ymm2 into 16 packed unsigned bytes in AVX10.1 xmm1/m128 using unsigned saturation under writemask k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 10 /r",
+   "operands": "A",
+   "syntax": "VPMOVUSWB xmm1/m128 {k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "30"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 32 packed word integers from zmm2 OR AVX10.1 into 32 packed bytes in ymm1/m256 with truncation under writemask k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 30 /r",
+   "operands": "A",
+   "syntax": "VPMOVWB ymm1/m256 {k1}{z}, zmm2"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 32 packed signed word integers from OR AVX10.1 zmm2 into 32 packed signed bytes in ymm1/m256 using signed saturation under writemask k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 20 /r",
+   "operands": "A",
+   "syntax": "VPMOVSWB ymm1/m256 {k1}{z}, zmm2"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 32 packed unsigned word integers OR AVX10.1 from zmm2 into 32 packed unsigned bytes in ymm1/m256 using unsigned saturation under writemask k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 10 /r",
+   "operands": "A",
+   "syntax": "VPMOVUSWB ymm1/m256 {k1}{z}, zmm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpmovwb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPMOVWB",
+   "VPMOVSWB",
+   "VPMOVUSWB"
+  ]
+ },
+ "mnemonics": [
+  "VPMOVWB",
+  "VPMOVSWB",
+  "VPMOVUSWB"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Half Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2651,
+    2654
+   ]
+  }
+ ],
+ "version": 1
+}

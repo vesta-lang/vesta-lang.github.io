@@ -1,0 +1,82 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "FB"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set interrupt flag; external, maskable interrupts enabled at the end of the next instruction.",
+   "opcode": "FB",
+   "operands": "ZO",
+   "syntax": "STI"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If CPL is greater than IOPL and PVI mode is not active. If CPL is greater than IOPL and EFLAGS.VIP = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If IOPL is less than 3 and VME mode is not active. If IOPL is less than 3 and EFLAGS.VIP = 1."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "flags": [
+  "IF"
+ ],
+ "format": "isadoc",
+ "id": "sti",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "STI"
+  ]
+ },
+ "mnemonics": [
+  "STI"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1962,
+    1963
+   ]
+  }
+ ],
+ "version": 1
+}

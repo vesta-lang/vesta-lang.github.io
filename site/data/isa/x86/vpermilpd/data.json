@@ -1,0 +1,400 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values in xmm2 using controls from xmm3/m128 and store result in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 0D /r",
+   "operands": "A",
+   "syntax": "VPERMILPD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values in ymm2 using controls from ymm3/m256 and store result in ymm1.",
+   "opcode": "VEX.256.66.0F38.W0 0D /r",
+   "operands": "A",
+   "syntax": "VPERMILPD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values AVX512F) OR in xmm2 using control from AVX10.1 xmm3/m128/m64bcst and store the result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 0D /r",
+   "operands": "C",
+   "syntax": "VPERMILPD xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values AVX512F) OR in ymm2 using control from AVX10.1 ymm3/m256/m64bcst and store the result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 0D /r",
+   "operands": "C",
+   "syntax": "VPERMILPD ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0D"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values OR AVX10.1 in zmm2 using control from zmm3/m512/m64bcst and store the result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 0D /r",
+   "operands": "C",
+   "syntax": "VPERMILPD zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "05"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values in xmm2/m128 using controls from imm8.",
+   "opcode": "VEX.128.66.0F3A.W0 05 /r ib",
+   "operands": "B",
+   "syntax": "VPERMILPD xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "05"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.256.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values in ymm2/m256 using controls from imm8.",
+   "opcode": "VEX.256.66.0F3A.W0 05 /r ib",
+   "operands": "B",
+   "syntax": "VPERMILPD ymm1, ymm2/m256, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "05"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values AVX512F) OR in xmm2/m128/m64bcst using controls from AVX10.1 imm8 and store the result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F3A.W1 05 /r ib",
+   "operands": "D",
+   "syntax": "VPERMILPD xmm1 {k1}{z}, xmm2/m128/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "05"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values AVX512F) OR in ymm2/m256/m64bcst using controls from AVX10.1 imm8 and store the result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F3A.W1 05 /r ib",
+   "operands": "D",
+   "syntax": "VPERMILPD ymm1 {k1}{z}, ymm2/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "05"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point values OR AVX10.1 in zmm2/m512/m64bcst using controls from imm8 and store the result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F3A.W1 05 /r ib",
+   "operands": "D",
+   "syntax": "VPERMILPD zmm1 {k1}{z}, zmm2/m512/m64bcst, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpermilpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPERMILPD"
+  ]
+ },
+ "mnemonics": [
+  "VPERMILPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2562,
+    2567
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,102 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v1",
+    "long": "v"
+   },
+   "note": "Convert FP16 value in the low element of OR AVX10.1 xmm1/m16 to a signed doubleword integer and store the result in r32 using truncation.",
+   "opcode": "EVEX.LLIG.F3.MAP5.W0 2C /r",
+   "operands": "A",
+   "syntax": "VCVTTSH2SI r32, xmm1/m16        {sae}"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "map": "MAP5",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.MAP5.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Convert FP16 value in the low element of OR AVX10.1 xmm1/m16 to a signed quadword integer and store the result in r64 using truncation.",
+   "opcode": "EVEX.LLIG.F3.MAP5.W1 2C /r",
+   "operands": "A",
+   "syntax": "VCVTTSH2SI r64, xmm1/m16        {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvttsh2si",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTTSH2SI"
+  ]
+ },
+ "mnemonics": [
+  "VCVTTSH2SI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2178,
+    2178
+   ]
+  }
+ ],
+ "version": 1
+}

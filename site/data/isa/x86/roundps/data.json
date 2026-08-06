@@ -1,0 +1,138 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "opcode": [
+     "0F",
+     "3A",
+     "08"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Round packed single precision floating-point values in xmm2/m128 and place the result in xmm1. The rounding mode is determined by imm8.",
+   "opcode": "66 0F 3A 08",
+   "operands": "RMI",
+   "syntax": "/r ib ROUNDPS xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "08"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Round packed single precision floating-point values in xmm2/m128 and place the result in xmm1. The rounding mode is determined by imm8.",
+   "opcode": "VEX.128.66.0F3A.WIG 08 /r ib",
+   "operands": "RMI",
+   "syntax": "VROUNDPS xmm1, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "08"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.256.66.0F3A.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Round packed single precision floating-point values in ymm2/m256 and place the result in ymm1. The rounding mode is determined by imm8.",
+   "opcode": "VEX.256.66.0F3A.WIG 08 /r ib",
+   "operands": "RMI",
+   "syntax": "VROUNDPS ymm1, ymm2/m256, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "roundps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ROUNDPS",
+   "VROUNDPS"
+  ]
+ },
+ "mnemonics": [
+  "ROUNDPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1875,
+    1876
+   ]
+  }
+ ],
+ "version": 1
+}

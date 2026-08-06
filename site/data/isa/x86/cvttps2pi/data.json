@@ -1,0 +1,66 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2C"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Convert two single precision floating-point values from xmm/m64 to two signed doubleword signed integers in mm using truncation.",
+   "opcode": "NP 0F 2C /r",
+   "operands": "RM",
+   "syntax": "CVTTPS2PI mm, xmm/m64"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cvttps2pi",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CVTTPS2PI"
+  ]
+ },
+ "mnemonics": [
+  "CVTTPS2PI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    956,
+    956
+   ]
+  }
+ ],
+ "version": 1
+}

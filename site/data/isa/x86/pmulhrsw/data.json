@@ -1,0 +1,273 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "0B"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply 16-bit signed words, scale and round signed doublewords, pack high 16 bits to mm1.",
+   "opcode": "NP 0F 38 0B /r1",
+   "operands": "A",
+   "syntax": "PMULHRSW mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "0B"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply 16-bit signed words, scale and round signed doublewords, pack high 16 bits to xmm1.",
+   "opcode": "66 0F 38 0B /r",
+   "operands": "A",
+   "syntax": "PMULHRSW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply 16-bit signed words, scale and round signed doublewords, pack high 16 bits to xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 0B /r",
+   "operands": "B",
+   "syntax": "VPMULHRSW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0B"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply 16-bit signed words, scale and round signed doublewords, pack high 16 bits to ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 0B /r",
+   "operands": "B",
+   "syntax": "VPMULHRSW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply 16-bit signed words, scale and AVX512BW) OR AVX10.1 round signed doublewords, pack high 16 bits to xmm1 under writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 0B /r",
+   "operands": "C",
+   "syntax": "VPMULHRSW xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0B"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply 16-bit signed words, scale and AVX512BW) OR AVX10.1 round signed doublewords, pack high 16 bits to ymm1 under writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 0B /r",
+   "operands": "C",
+   "syntax": "VPMULHRSW ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0B"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply 16-bit signed words, scale and OR AVX10.1 round signed doublewords, pack high 16 bits to zmm1 under writemask k1.",
+   "opcode": "EVEX.512.66.0F38.WIG 0B /r",
+   "operands": "C",
+   "syntax": "VPMULHRSW zmm1 {k1}{z}, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pmulhrsw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PMULHRSW",
+   "VPMULHRSW"
+  ]
+ },
+ "mnemonics": [
+  "PMULHRSW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1664,
+    1667
+   ]
+  }
+ ],
+ "version": 1
+}

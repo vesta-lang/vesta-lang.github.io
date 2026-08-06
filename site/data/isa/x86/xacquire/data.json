@@ -1,0 +1,57 @@
+{
+ "encodings": [
+  {
+   "cpuid": "HLE1",
+   "layout": {
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "A hint used with an \"XACQUIRE-enabled\" instruction to start lock elision on the instruction memory operand address.",
+   "opcode": "F2",
+   "operands": "",
+   "syntax": "XACQUIRE"
+  },
+  {
+   "cpuid": "HLE",
+   "layout": {
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "A hint used with an \"XRELEASE-enabled\" instruction to end lock elision on the instruction memory operand address.",
+   "opcode": "F3",
+   "operands": "",
+   "syntax": "XRELEASE"
+  }
+ ],
+ "format": "isadoc",
+ "id": "xacquire",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "XACQUIRE",
+  "XRELEASE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2850,
+    2853
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,1420 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D1"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in mm right by amount specified in mm/m64 while shifting in 0s.",
+   "opcode": "NP 0F D1 /r1",
+   "operands": "A",
+   "syntax": "PSRLW mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D1"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in xmm1 right by amount specified in xmm2/m128 while shifting in 0s.",
+   "opcode": "66 0F D1 /r",
+   "operands": "A",
+   "syntax": "PSRLW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "71"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in mm right by imm8 while shifting in 0s.",
+   "opcode": "NP 0F 71 /2 ib1",
+   "operands": "B",
+   "syntax": "PSRLW mm, imm8"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "71"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in xmm1 right by imm8 while shifting in 0s.",
+   "opcode": "66 0F 71 /2 ib",
+   "operands": "B",
+   "syntax": "PSRLW xmm1, imm8"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D2"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in mm right by amount specified in mm/m64 while shifting in 0s.",
+   "opcode": "NP 0F D2 /r1",
+   "operands": "A",
+   "syntax": "PSRLD mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D2"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in xmm1 right by amount specified in xmm2 /m128 while shifting in 0s.",
+   "opcode": "66 0F D2 /r",
+   "operands": "A",
+   "syntax": "PSRLD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "72"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in mm right by imm8 while shifting in 0s.",
+   "opcode": "NP 0F 72 /2 ib1",
+   "operands": "B",
+   "syntax": "PSRLD mm, imm8"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "72"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in xmm1 right by imm8 while shifting in 0s.",
+   "opcode": "66 0F 72 /2 ib",
+   "operands": "B",
+   "syntax": "PSRLD xmm1, imm8"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D3"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift mm right by amount specified in mm/m64 while shifting in 0s.",
+   "opcode": "NP 0F D3 /r1",
+   "operands": "A",
+   "syntax": "PSRLQ mm, mm/m64"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D3"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in xmm1 right by amount specified in xmm2/m128 while shifting in 0s.",
+   "opcode": "66 0F D3 /r",
+   "operands": "A",
+   "syntax": "PSRLQ xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "MMX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "73"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift mm right by imm8 while shifting in 0s.",
+   "opcode": "NP 0F 73 /2 ib1",
+   "operands": "B",
+   "syntax": "PSRLQ mm, imm8"
+  },
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "73"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in xmm1 right by imm8 while shifting in 0s.",
+   "opcode": "66 0F 73 /2 ib",
+   "operands": "B",
+   "syntax": "PSRLQ xmm1, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D1"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in xmm2 right by amount specified in xmm3/m128 while shifting in 0s.",
+   "opcode": "VEX.128.66.0F.WIG D1 /r",
+   "operands": "C",
+   "syntax": "VPSRLW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in xmm2 right by imm8 while shifting in 0s.",
+   "opcode": "VEX.128.66.0F.WIG 71 /2 ib",
+   "operands": "D",
+   "syntax": "VPSRLW xmm1, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D2"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in xmm2 right by amount specified in xmm3/m128 while shifting in 0s.",
+   "opcode": "VEX.128.66.0F.WIG D2 /r",
+   "operands": "C",
+   "syntax": "VPSRLD xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in xmm2 right by imm8 while shifting in 0s.",
+   "opcode": "VEX.128.66.0F.WIG 72 /2 ib",
+   "operands": "D",
+   "syntax": "VPSRLD xmm1, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D3"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in xmm2 right by amount specified in xmm3/m128 while shifting in 0s.",
+   "opcode": "VEX.128.66.0F.WIG D3 /r",
+   "operands": "C",
+   "syntax": "VPSRLQ xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in xmm2 right by imm8 while shifting in 0s.",
+   "opcode": "VEX.128.66.0F.WIG 73 /2 ib",
+   "operands": "D",
+   "syntax": "VPSRLQ xmm1, xmm2, imm8"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D1"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in ymm2 right by amount specified in xmm3/m128 while shifting in 0s.",
+   "opcode": "VEX.256.66.0F.WIG D1 /r",
+   "operands": "C",
+   "syntax": "VPSRLW ymm1, ymm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in ymm2 right by imm8 while shifting in 0s. Op/ 64/32 bit CPUID Feature Description En Mode Support Flag",
+   "opcode": "VEX.256.66.0F.WIG 71 /2 ib",
+   "operands": "D",
+   "syntax": "VPSRLW ymm1, ymm2, imm8 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D2"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in ymm2 right by amount specified in xmm3/m128 while shifting in 0s.",
+   "opcode": "VEX.256.66.0F.WIG D2 /r",
+   "operands": "C",
+   "syntax": "VPSRLD ymm1, ymm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in ymm2 right by imm8 while shifting in 0s.",
+   "opcode": "VEX.256.66.0F.WIG 72 /2 ib",
+   "operands": "D",
+   "syntax": "VPSRLD ymm1, ymm2, imm8"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D3"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in ymm2 right by amount specified in xmm3/m128 while shifting in 0s.",
+   "opcode": "VEX.256.66.0F.WIG D3 /r",
+   "operands": "C",
+   "syntax": "VPSRLQ ymm1, ymm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in ymm2 right by imm8 while shifting in 0s.",
+   "opcode": "VEX.256.66.0F.WIG 73 /2 ib",
+   "operands": "D",
+   "syntax": "VPSRLQ ymm1, ymm2, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D1"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in xmm2 right by amount specified AVX512BW) OR AVX10.1 in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.128.66.0F.WIG D1 /r",
+   "operands": "G",
+   "syntax": "VPSRLW xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D1"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in ymm2 right by amount specified AVX512BW) OR AVX10.1 in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.256.66.0F.WIG D1 /r",
+   "operands": "G",
+   "syntax": "VPSRLW ymm1 {k1}{z}, ymm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX512BW OR",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D1"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in zmm2 right by amount specified AVX10.1 in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.512.66.0F.WIG D1 /r",
+   "operands": "G",
+   "syntax": "VPSRLW zmm1 {k1}{z}, zmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in xmm2/m128 right by imm8 AVX512BW) OR AVX10.1 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.128.66.0F.WIG 71 /2 ib",
+   "operands": "E",
+   "syntax": "VPSRLW xmm1 {k1}{z}, xmm2/m128, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in ymm2/m256 right by imm8 AVX512BW) OR AVX10.1 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.256.66.0F.WIG 71 /2 ib",
+   "operands": "E",
+   "syntax": "VPSRLW ymm1 {k1}{z}, ymm2/m256, imm8"
+  },
+  {
+   "cpuid": "AVX512BW OR",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "71"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift words in zmm2/m512 right by imm8 AVX10.1 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.512.66.0F.WIG 71 /2 ib",
+   "operands": "E",
+   "syntax": "VPSRLW zmm1 {k1}{z}, zmm2/m512, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D2"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in xmm2 right by amount AVX512F) OR AVX10.1 specified in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.128.66.0F.W0 D2 /r",
+   "operands": "G",
+   "syntax": "VPSRLD xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D2"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in ymm2 right by amount AVX512F) OR AVX10.1 specified in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.256.66.0F.W0 D2 /r",
+   "operands": "G",
+   "syntax": "VPSRLD ymm1 {k1}{z}, ymm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D2"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in zmm2 right by amount OR AVX10.1 specified in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W0 D2 /r",
+   "operands": "G",
+   "syntax": "VPSRLD zmm1 {k1}{z}, zmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in xmm2/m128/m32bcst AVX512F) OR right by imm8 while shifting in 0s using AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F.W0 72 /2 ib",
+   "operands": "F",
+   "syntax": "VPSRLD xmm1 {k1}{z}, xmm2/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in ymm2/m256/m32bcst AVX512F) OR right by imm8 while shifting in 0s using AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F.W0 72 /2 ib",
+   "operands": "F",
+   "syntax": "VPSRLD ymm1 {k1}{z}, ymm2/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift doublewords in zmm2/m512/m32bcst OR AVX10.1 right by imm8 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W0 72 /2 ib",
+   "operands": "F",
+   "syntax": "VPSRLD zmm1 {k1}{z}, zmm2/m512/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D3"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in xmm2 right by amount AVX512F) OR AVX10.1 specified in xmm3/m128 while shifting in 0s using writemask k1. Op/ 64/32 bit CPUID Feature Description En Mode Support Flag",
+   "opcode": "EVEX.128.66.0F.W1 D3 /r",
+   "operands": "G",
+   "syntax": "VPSRLQ xmm1 {k1}{z}, xmm2, xmm3/m128 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D3"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in ymm2 right by amount AVX512F) OR AVX10.1 specified in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 D3 /r",
+   "operands": "G",
+   "syntax": "VPSRLQ ymm1 {k1}{z}, ymm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "D3"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in zmm2 right by amount OR AVX10.1 specified in xmm3/m128 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 D3 /r",
+   "operands": "G",
+   "syntax": "VPSRLQ zmm1 {k1}{z}, zmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in xmm2/m128/m64bcst AVX512F) OR right by imm8 while shifting in 0s using AVX10.1 writemask k1.",
+   "opcode": "EVEX.128.66.0F.W1 73 /2 ib",
+   "operands": "F",
+   "syntax": "VPSRLQ xmm1 {k1}{z}, xmm2/m128/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in ymm2/m256/m64bcst AVX512F) OR right by imm8 while shifting in 0s using AVX10.1 writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 73 /2 ib",
+   "operands": "F",
+   "syntax": "VPSRLQ ymm1 {k1}{z}, ymm2/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift quadwords in zmm2/m512/m64bcst OR AVX10.1 right by imm8 while shifting in 0s using writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 73 /2 ib",
+   "operands": "F",
+   "syntax": "VPSRLQ zmm1 {k1}{z}, zmm2/m512/m64bcst, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "psrlw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PSRLW",
+   "VPSRLW",
+   "PSRLD",
+   "PSRLDQ",
+   "VPSRLD",
+   "PSRLQ",
+   "VPSRLQ"
+  ]
+ },
+ "mnemonics": [
+  "PSRLW",
+  "PSRLD",
+  "PSRLQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "vex.vvvv",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "operands": [
+    {
+     "field": "evex.vvvv",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "F",
+   "operands": [
+    {
+     "field": "evex.vvvv",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  },
+  {
+   "id": "G",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Mem128"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1756,
+    1767
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,165 @@
+{
+ "encodings": [
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the 32-bit destination register with the FS base address.",
+   "opcode": "F3 0F AE /0",
+   "operands": "M",
+   "syntax": "RDFSBASE r32"
+  },
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the 64-bit destination register with the FS base address.",
+   "opcode": "F3 REX.W 0F AE /0",
+   "operands": "M",
+   "syntax": "RDFSBASE r64"
+  },
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the 32-bit destination register with the GS base address.",
+   "opcode": "F3 0F AE /1",
+   "operands": "M",
+   "syntax": "RDGSBASE r32"
+  },
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the 64-bit destination register with the GS base address.",
+   "opcode": "F3 REX.W 0F AE /1",
+   "operands": "M",
+   "syntax": "RDGSBASE r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The RDFSBASE and RDGSBASE instructions are not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The RDFSBASE and RDGSBASE instructions are not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The RDFSBASE and RDGSBASE instructions are not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The RDFSBASE and RDGSBASE instructions are not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CR4.FSGSBASE[bit 16] = 0. If CPUID.07H.00H:EBX.FSGSBASE[0] = 0."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rdfsbase",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDFSBASE",
+   "RDGSBASE"
+  ]
+ },
+ "mnemonics": [
+  "RDFSBASE",
+  "RDGSBASE"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1831,
+    1832
+   ]
+  }
+ ],
+ "version": 1
+}

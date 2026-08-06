@@ -1,0 +1,80 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "D9",
+     "E4"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare ST(0) with 0.0.",
+   "opcode": "D9 E4",
+   "operands": "",
+   "syntax": "FTST"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#MF",
+   "when": "If there is a pending x87 FPU exception."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "ftst",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FTST"
+  ]
+ },
+ "mnemonics": [
+  "FTST"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1104,
+    1105
+   ]
+  }
+ ],
+ "version": 1
+}

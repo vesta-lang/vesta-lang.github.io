@@ -1,0 +1,119 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "02"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Select dwords from xmm2 and xmm3/m128 from mask specified in imm8 and store the values into xmm1.",
+   "opcode": "VEX.128.66.0F3A.W0 02 /r ib",
+   "operands": "RVMI",
+   "syntax": "VPBLENDD xmm1, xmm2, xmm3/m128, imm8"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "02"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.256.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Select dwords from ymm2 and ymm3/m256 from mask specified in imm8 and store the values into ymm1.",
+   "opcode": "VEX.256.66.0F3A.W0 02 /r ib",
+   "operands": "RVMI",
+   "syntax": "VPBLENDD ymm1, ymm2, ymm3/m256, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpblendd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPBLENDD"
+  ]
+ },
+ "mnemonics": [
+  "VPBLENDD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVMI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2486,
+    2487
+   ]
+  }
+ ],
+ "version": 1
+}

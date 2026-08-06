@@ -1,0 +1,291 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "35"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 2 packed quad-word integers from AVX512F) OR AVX10.1 xmm2 into 2 packed double-word integers in xmm1/m128 with truncation subject to writemask k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 35 /r",
+   "operands": "A",
+   "syntax": "VPMOVQD xmm1/m128 {k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 2 packed signed quad-word integers AVX512F) OR AVX10.1 from xmm2 into 2 packed signed double-word integers in xmm1/m64 using signed saturation subject to writemask k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 25 /r",
+   "operands": "A",
+   "syntax": "VPMOVSQD xmm1/m64 {k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 2 packed unsigned quad-word integers AVX512F) OR from xmm2 into 2 packed unsigned double-word AVX10.1 integers in xmm1/m64 using unsigned saturation subject to writemask k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 15 /r",
+   "operands": "A",
+   "syntax": "VPMOVUSQD xmm1/m64 {k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "35"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 4 packed quad-word integers from AVX512F) OR AVX10.1 ymm2 into 4 packed double-word integers in xmm1/m128 with truncation subject to writemask k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 35 /r",
+   "operands": "A",
+   "syntax": "VPMOVQD xmm1/m128 {k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 4 packed signed quad-word integers AVX512F) OR AVX10.1 from ymm2 into 4 packed signed double-word integers in xmm1/m128 using signed saturation subject to writemask k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 25 /r",
+   "operands": "A",
+   "syntax": "VPMOVSQD xmm1/m128 {k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 4 packed unsigned quad-word integers AVX512F) OR from ymm2 into 4 packed unsigned double-word AVX10.1 integers in xmm1/m128 using unsigned saturation subject to writemask k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 15 /r",
+   "operands": "A",
+   "syntax": "VPMOVUSQD xmm1/m128 {k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "35"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed quad-word integers from OR AVX10.1 zmm2 into 8 packed double-word integers in ymm1/m256 with truncation subject to writemask k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 35 /r",
+   "operands": "A",
+   "syntax": "VPMOVQD ymm1/m256 {k1}{z}, zmm2"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed signed quad-word integers OR AVX10.1 from zmm2 into 8 packed signed double-word integers in ymm1/m256 using signed saturation subject to writemask k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 25 /r",
+   "operands": "A",
+   "syntax": "VPMOVSQD ymm1/m256 {k1}{z}, zmm2"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Converts 8 packed unsigned quad-word integers OR AVX10.1 from zmm2 into 8 packed unsigned double-word integers in ymm1/m256 using unsigned saturation subject to writemask k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 15 /r",
+   "operands": "A",
+   "syntax": "VPMOVUSQD ymm1/m256 {k1}{z}, zmm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpmovqd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPMOVQD",
+   "VPMOVSQD",
+   "VPMOVUSQD"
+  ]
+ },
+ "mnemonics": [
+  "VPMOVQD",
+  "VPMOVSQD",
+  "VPMOVUSQD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Half Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2643,
+    2646
+   ]
+  }
+ ],
+ "version": 1
+}

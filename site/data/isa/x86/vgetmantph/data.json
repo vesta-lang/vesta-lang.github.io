@@ -1,0 +1,145 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "26"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "text": "EVEX.128.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Get normalized mantissa from FP16 vector AND AVX512VL) xmm2/m128/m16bcst and store the result in OR AVX10.1 xmm1, using imm8 for sign control and mantissa interval normalization, subject to writemask k1.",
+   "opcode": "EVEX.128.NP.0F3A.W0 26 /r /ib",
+   "operands": "A",
+   "syntax": "VGETMANTPH xmm1{k1}{z}, xmm2/m128/m16bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "26"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "text": "EVEX.256.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Get normalized mantissa from FP16 vector AND AVX512VL) ymm2/m256/m16bcst and store the result in OR AVX10.1 ymm1, using imm8 for sign control and mantissa interval normalization, subject to writemask k1.",
+   "opcode": "EVEX.256.NP.0F3A.W0 26 /r /ib",
+   "operands": "A",
+   "syntax": "VGETMANTPH ymm1{k1}{z}, ymm2/m256/m16bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "26"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "text": "EVEX.512.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Get normalized mantissa from FP16 vector OR AVX10.1 zmm2/m512/m16bcst and store the result in zmm1, using imm8 for sign control and mantissa interval normalization, subject to writemask k1.",
+   "opcode": "EVEX.512.NP.0F3A.W0 26 /r /ib",
+   "operands": "A",
+   "syntax": "VGETMANTPH zmm1{k1}{z}, zmm2/m512/m16bcst {sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vgetmantph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VGETMANTPH"
+  ]
+ },
+ "mnemonics": [
+  "VGETMANTPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2444,
+    2447
+   ]
+  }
+ ],
+ "version": 1
+}

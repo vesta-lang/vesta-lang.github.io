@@ -1,0 +1,107 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "37"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {},
+   "note": "Launch a measured environment.",
+   "opcode": "NP 0F 37",
+   "operands": "",
+   "syntax": "GETSEC[SENTER]"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "leaf": {
+     "register": "EAX",
+     "value": "4"
+    }
+   },
+   "modes": {},
+   "note": "EBX holds the SINIT authenticated code module physical base address. ECX holds the SINIT authenticated code module size (bytes). EDX controls the level of functionality supported by the measured environment launch.",
+   "opcode": "(EAX=4)",
+   "operands": "",
+   "syntax": ""
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[SENTER] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If CR0.CD = 1 or CR0.NW = 1 or CR0.NE = 0 or CR0.PE = 0 or CPL > 0 or EFLAGS.VM = 1. If in VMX root operation. If the initiating processor is not designated as the bootstrap processor via the MSR bit IA32_APIC_BASE.BSP. If an Intel(R) TXT-capable chipset is not present. If an Intel(R) TXT-capable chipset interface to TPM is not detected as present. If a protected partition is already active or the processor is already in authenticated code mode. If the processor is in SMM. If a valid uncorrectable machine check error is logged in IA32_MC[I]_STATUS. If the authenticated code base is not on a 4096 byte boundary. If the authenticated code size > processor's authenticated code execution area storage capacity. If the authenticated code size is not modulo 64."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[SENTER] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "GETSEC[SENTER] is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[SENTER] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "GETSEC[SENTER] is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP",
+   "when": "If AC code module does not reside in physical address below 2^32 -1."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP",
+   "when": "If AC code module does not reside in physical address below 2^32 -1. VM-Exit Condition Reason (GETSEC) If in VMX non-root operation."
+  }
+ ],
+ "format": "isadoc",
+ "id": "getsec-senter",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "GETSEC[SENTER]"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2922,
+    2930
+   ]
+  }
+ ],
+ "version": 1
+}

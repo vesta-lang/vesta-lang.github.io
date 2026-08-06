@@ -1,0 +1,74 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "AE",
+     "F8"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Serializes store operations.",
+   "opcode": "NP 0F AE F8",
+   "operands": "ZO",
+   "syntax": "SFENCE"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.SSE[25] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.SSE[25] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.SSE[25] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.SSE[25] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.SSE[25] = 0. If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "sfence",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SFENCE"
+  ]
+ },
+ "mnemonics": [
+  "SFENCE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1916,
+    1916
+   ]
+  }
+ ],
+ "version": 1
+}

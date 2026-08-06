@@ -1,0 +1,231 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DA",
+     "C0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if below (CF=1).",
+   "opcode": "DA C0+i",
+   "operands": "",
+   "syntax": "FCMOVB ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DA",
+     "C8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if equal (ZF=1).",
+   "opcode": "DA C8+i",
+   "operands": "",
+   "syntax": "FCMOVE ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DA",
+     "D0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if below or equal (CF=1 or ZF=1).",
+   "opcode": "DA D0+i",
+   "operands": "",
+   "syntax": "FCMOVBE ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DA",
+     "D8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if unordered (PF=1).",
+   "opcode": "DA D8+i",
+   "operands": "",
+   "syntax": "FCMOVU ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DB",
+     "C0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not below (CF=0).",
+   "opcode": "DB C0+i",
+   "operands": "",
+   "syntax": "FCMOVNB ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DB",
+     "C8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not equal (ZF=0).",
+   "opcode": "DB C8+i",
+   "operands": "",
+   "syntax": "FCMOVNE ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DB",
+     "D0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not below or equal (CF=0 and ZF=0).",
+   "opcode": "DB D0+i",
+   "operands": "",
+   "syntax": "FCMOVNBE ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DB",
+     "D8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not unordered (PF=0).",
+   "opcode": "DB D8+i",
+   "operands": "",
+   "syntax": "FCMOVNU ST(0), ST(i)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "fcmovcc",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FCMOVB",
+   "FCMOVBE",
+   "FCMOVE",
+   "FCMOVNB",
+   "FCMOVNBE",
+   "FCMOVNE"
+  ]
+ },
+ "mnemonics": [
+  "FCMOVcc"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1026,
+    1027
+   ]
+  }
+ ],
+ "version": 1
+}

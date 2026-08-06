@@ -1,0 +1,220 @@
+{
+ "encodings": [
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.LZ.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift r/m32 arithmetically right with count specified in r32b and load into r32a.",
+   "opcode": "VEX.LZ.F3.0F38.W0 F7 /r",
+   "operands": "RMV",
+   "syntax": "SARX r32a, r/m32, r32b"
+  },
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.LZ.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift r/m32 logically left with count specified in r32b and load into r32a.",
+   "opcode": "VEX.LZ.66.0F38.W0 F7 /r",
+   "operands": "RMV",
+   "syntax": "SHLX r32a, r/m32, r32b"
+  },
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.LZ.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift r/m32 logically right with count specified in r32b and load into r32a.",
+   "opcode": "VEX.LZ.F2.0F38.W0 F7 /r",
+   "operands": "RMV",
+   "syntax": "SHRX r32a, r/m32, r32b"
+  },
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.LZ.F3.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Shift r/m64 arithmetically right with count specified in r64b and load into r64a.",
+   "opcode": "VEX.LZ.F3.0F38.W1 F7 /r",
+   "operands": "RMV",
+   "syntax": "SARX r64a, r/m64, r64b"
+  },
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.LZ.66.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Shift r/m64 logically left with count specified in r64b and load into r64a.",
+   "opcode": "VEX.LZ.66.0F38.W1 F7 /r",
+   "operands": "RMV",
+   "syntax": "SHLX r64a, r/m64, r64b"
+  },
+  {
+   "cpuid": "BMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "F7"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.LZ.F2.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Shift r/m64 logically right with count specified in r64b and load into r64a.",
+   "opcode": "VEX.LZ.F2.0F38.W1 F7 /r",
+   "operands": "RMV",
+   "syntax": "SHRX r64a, r/m64, r64b"
+  }
+ ],
+ "format": "isadoc",
+ "id": "sarx",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SARX",
+   "SHLX",
+   "SHRX"
+  ]
+ },
+ "mnemonics": [
+  "SARX",
+  "SHLX",
+  "SHRX"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RMV",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1897,
+    1898
+   ]
+  }
+ ],
+ "version": 1
+}

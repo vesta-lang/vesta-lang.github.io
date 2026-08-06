@@ -1,0 +1,161 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "62"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Check if r16 (array index) is within bounds specified by m16&16.",
+   "opcode": "62 /r",
+   "operands": "RM",
+   "syntax": "BOUND r16, m16&16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "62"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Check if r32 (array index) is within bounds specified by m32&32.",
+   "opcode": "62 /r",
+   "operands": "RM",
+   "syntax": "BOUND r32, m32&32"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#BR",
+   "when": "If the bounds test fails."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If second operand is not a memory location. If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "real",
+   "vector": "#BR",
+   "when": "If the bounds test fails."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If second operand is not a memory location. If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#BR",
+   "when": "If the bounds test fails."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If second operand is not a memory location. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If in 64-bit mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "bound",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "BOUND"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    809,
+    810
+   ]
+  }
+ ],
+ "version": 1
+}

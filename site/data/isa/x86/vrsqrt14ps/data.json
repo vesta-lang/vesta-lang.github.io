@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocal square roots of AVX512F) OR the packed single-precision floating-point values in AVX10.1 xmm2/m128/m32bcst and stores the results in xmm1. Under writemask.",
+   "opcode": "EVEX.128.66.0F38.W0 4E /r",
+   "operands": "A",
+   "syntax": "VRSQRT14PS xmm1 {k1}{z}, xmm2/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocal square roots of AVX512F) OR the packed single-precision floating-point values in AVX10.1 ymm2/m256/m32bcst and stores the results in ymm1. Under writemask.",
+   "opcode": "EVEX.256.66.0F38.W0 4E /r",
+   "operands": "A",
+   "syntax": "VRSQRT14PS ymm1 {k1}{z}, ymm2/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocal square roots of OR AVX10.1 the packed single-precision floating-point values in zmm2/m512/m32bcst and stores the results in zmm1. Under writemask.",
+   "opcode": "EVEX.512.66.0F38.W0 4E /r",
+   "operands": "A",
+   "syntax": "VRSQRT14PS zmm1 {k1}{z}, zmm2/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrsqrt14ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRSQRT14PS"
+  ]
+ },
+ "mnemonics": [
+  "VRSQRT14PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2767,
+    2768
+   ]
+  }
+ ],
+ "version": 1
+}

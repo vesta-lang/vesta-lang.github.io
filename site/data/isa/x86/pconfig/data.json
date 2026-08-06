@@ -1,0 +1,89 @@
+{
+ "encodings": [
+  {
+   "cpuid": "PCONFIG",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "C5"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "This instruction is used to execute functions for configuring platform features.",
+   "opcode": "NP 0F 01 C5",
+   "operands": "A",
+   "syntax": "PCONFIG"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If input value in EAX encodes an unsupported leaf function. If a memory operand effective address is outside the relevant segment limit. MKTME_KEY_PROGRAM leaf function: If CPUID function 1BH does not enumerate support for the TME-MK target (value 1). If IA32_TME_ACTIVATE MSR is not locked. If hardware encryption and TME-MK capability are not enabled in IA32_TME_ACTIVATE MSR. If the memory operand is not 256B aligned. If any of the reserved bits in the KEYID_CTRL field of the MKTME_KEY_PROGRAM_STRUCT are set or that field indicates an unsupported KeyID, key-programming command, or encryption algorithm. TSE_KEY_PROGRAM leaf function: The TSE_KEY_PROGRAM leaf function is not supported in protected mode. TSE_KEY_PROGRAM_WRAPPED leaf function: The TSE_KEY_PROGRAM_WRAPPED leaf function is not supported in protected mode. #PF(fault-code) If a page fault occurs in accessing memory operands."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If any of the LOCK/REP/Operand Size/VEX prefixes are used. If current privilege level is not 0. If CPUID.07H.00H:EDX.PCONFIG[18] = 0"
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If input value in EAX encodes an unsupported leaf function. MKTME_KEY_PROGRAM leaf function: If CPUID function 1BH does not enumerate support for the TME-MK target (value 1). If IA32_TME_ACTIVATE MSR is not locked. If hardware encryption and TME-MK capability are not enabled in IA32_TME_ACTIVATE MSR. If a memory operand is not 256B aligned. If any of the reserved bits in the KEYID_CTRL field of the MKTME_KEY_PROGRAM_STRUCT are set or that field indicates an unsupported KeyID, key-programming command, or encryption algorithm."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "TSE_KEY_PROGRAM leaf function: The TSE_KEY_PROGRAM leaf function is not supported in protected mode. TSE_KEY_PROGRAM_WRAPPED leaf function: The TSE_KEY_PROGRAM_WRAPPED leaf function is not supported in protected mode. If any of the LOCK/REP/Operand Size/VEX prefixes are used. If current privilege level is not 0. If CPUID.07H.00H:EDX.PCONFIG[18] = 0"
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "PCONFIG instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If input value in EAX encodes an unsupported leaf function. If a memory operand is non-canonical form. MKTME_KEY_PROGRAM leaf function: If CPUID function 1BH does not enumerate support for the TME-MK target (value 1). If IA32_TME_ACTIVATE MSR is not locked. If hardware encryption and TME-MK capability are not enabled in IA32_TME_ACTIVATE MSR. If a memory operand is not 256B aligned. If any of the reserved bits in the KEYID_CTRL field of the MKTME_KEY_PROGRAM_STRUCT are set or that field indicates an unsupported KeyID, key-programming command, or encryption algorithm. TSE_KEY_PROGRAM leaf function: IF CPUID function 1BH does not enumerate support for the TSE target (value 2). If RBX is not 256-byte aligned. If any of the reserved bits in the KEYID_CTRL field of the TMP_KEY_STRUCT are set or that field indicates an unsupported KeyID, key-programming command, or encryption algorithm. TSE_KEY_PROGRAM_WRAPPED leaf function: IF CPUID function 1BH does not enumerate support for the TSE target (value 2). If RCX is not 256-byte aligned. If any of the reserved bits in RBX are set or that register indicates an unsupported KeyID or encryption algorithm. If any of the reserved bytes in the TSE_BIND_STRUCT are set (including bytes in BTDATA). #PF(fault-code) If a page fault occurs in accessing memory operands."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If any of the LOCK/REP/Operand Size/VEX prefixes are used. If the current privilege level is not 0. If CPUID.07H.00H:EDX.PCONFIG[18] = 0."
+  }
+ ],
+ "format": "isadoc",
+ "id": "pconfig",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PCONFIG"
+  ]
+ },
+ "mnemonics": [
+  "PCONFIG"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1560,
+    1570
+   ]
+  }
+ ],
+ "version": 1
+}

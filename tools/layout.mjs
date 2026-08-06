@@ -31,21 +31,26 @@ import {
  * traduccion que no se ha escrito manda al buscador a un 404 y perjudica a las
  * dos versiones.
  *
- * @param {string} path Ruta canonica de la pagina.
- * @param {string[]} available Idiomas en los que existe la pagina.
+ * Recibe la ruta de CADA idioma y no una sola, porque el ultimo segmento se
+ * traduce: `/learn/control-flow/` y `/learn/control-de-flujo/` son la misma
+ * pagina, y construir la segunda anteponiendo el prefijo a la primera daria
+ * una URL que no existe.
+ *
+ * @param {Object<string,string>} versions Ruta canonica por idioma.
  * @returns {string} Etiquetas `<link rel="alternate">`.
  */
-function alternates(path, available) {
+function alternates(versions) {
     const links = [];
-    for (const lang of available) {
+    for (const [lang, path] of Object.entries(versions)) {
         links.push(
             `<link rel="alternate" hreflang="${lang}" href="${SITE_URL}${urlFor(lang, path)}">`
         );
     }
     // El ingles hace de version por defecto para cualquier otro idioma.
-    if (available.includes('en')) {
+    if (versions.en) {
         links.push(
-            `<link rel="alternate" hreflang="x-default" href="${SITE_URL}${urlFor('en', path)}">`
+            `<link rel="alternate" hreflang="x-default" ` +
+                `href="${SITE_URL}${urlFor('en', versions.en)}">`
         );
     }
     return links.join('\n    ');
@@ -59,9 +64,17 @@ function alternates(path, available) {
  * @returns {string} HTML de la navegacion.
  */
 function nav(lang, current) {
+    // Un idioma parcial solo cubre una seccion, asi que sus enlaces de
+    // navegacion llevan a la version que SI existe, la inglesa. Apuntarlos a su
+    // propio prefijo daba siete enlaces rotos por pagina, hacia una traduccion
+    // que nadie ha escrito. El rotulo si va en su idioma: se entiende adonde
+    // lleva antes de pulsarlo.
+    const partial = Boolean(LANGUAGES[lang].partial);
+
     const items = NAV.map((item) => {
         const active = item.id === current ? ' aria-current="page"' : '';
-        return `<a href="${urlFor(lang, item.path)}"${active}>${item[lang]}</a>`;
+        const href = urlFor(partial ? 'en' : lang, item.path);
+        return `<a href="${href}"${active}>${item[lang] || item.en}</a>`;
     });
     return items.join('\n            ');
 }
@@ -74,20 +87,31 @@ function nav(lang, current) {
  * Si la traduccion no existe, el enlace no se muestra.
  *
  * @param {string} lang Idioma actual.
- * @param {string} path Ruta canonica de la pagina.
- * @param {string[]} available Idiomas en los que existe la pagina.
+ * @param {Object<string,string>} versions Ruta canonica por idioma.
  * @returns {string} HTML del selector.
  */
-function languageSwitch(lang, path, available) {
-    const others = available.filter((code) => code !== lang);
+function languageSwitch(lang, versions) {
+    const others = Object.keys(versions).filter((code) => code !== lang);
     if (others.length === 0) return '';
 
     const links = others.map(
         (code) =>
-            `<a href="${urlFor(code, path)}" hreflang="${code}" lang="${code}">` +
-            `${LANGUAGES[code].label}</a>`
+            `<li><a href="${urlFor(code, versions[code])}" hreflang="${code}" ` +
+            `lang="${code}">${LANGUAGES[code].label}</a></li>`
     );
-    return `<span class="lang-switch" aria-label="${UI[lang].langLabel}">${links.join('')}</span>`;
+
+    // Desplegable, no una fila de enlaces. Con dos idiomas la fila cabia; con
+    // once seria una barra de etiquetas que empuja la navegacion fuera de la
+    // pantalla. Se hace con `details`, que despliega sin JavaScript y llega
+    // con teclado: un menu que necesita un script deja fuera a quien no lo
+    // ejecuta, y aqui no hace ninguna falta.
+    return (
+        `<details class="lang-switch">` +
+        `<summary aria-label="${UI[lang].langLabel}">` +
+        `<span lang="${lang}">${LANGUAGES[lang].label}</span></summary>` +
+        `<ul>${links.join('')}</ul>` +
+        `</details>`
+    );
 }
 
 /**
@@ -99,7 +123,7 @@ function languageSwitch(lang, path, available) {
  * @param {string} page.title Titulo unico de la pagina.
  * @param {string} page.description Descripcion para buscadores y redes.
  * @param {string} page.content HTML del cuerpo.
- * @param {string[]} page.available Idiomas en los que existe la pagina.
+ * @param {Object<string,string>} page.versions Ruta canonica por idioma.
  * @param {string} [page.section] Identificador de la seccion activa.
  * @param {string} [page.bodyClass] Clase extra para el `<body>`.
  * @param {string} [page.jsonLd] Bloque JSON-LD ya serializado.
@@ -112,7 +136,7 @@ export function renderPage(page) {
         title,
         description,
         content,
-        available,
+        versions,
         section = '',
         bodyClass = '',
         jsonLd = '',
@@ -141,7 +165,7 @@ export function renderPage(page) {
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="canonical" href="${canonical}">
     ${robots ? `<meta name="robots" content="${escapeHtml(robots)}">` : ''}
-    ${alternates(path, available)}
+    ${alternates(versions)}
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vesta">
@@ -160,6 +184,7 @@ export function renderPage(page) {
     <link rel="apple-touch-icon" href="/assets/img/logo.png">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/code.css">
+    <link rel="stylesheet" href="/assets/css/tags.css">
     ${jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : ''}
     ${head}
 </head>
@@ -167,7 +192,7 @@ export function renderPage(page) {
     <a class="skip-link" href="#content">${ui.skip}</a>
 
     <header class="site-header">
-        <a class="brand" href="${urlFor(lang, '/')}">
+        <a class="brand" href="${urlFor(LANGUAGES[lang].partial ? 'en' : lang, '/')}">
             <img src="/assets/img/logo.png" alt="" width="32" height="32">
             <span>Vesta</span>
         </a>
@@ -175,7 +200,7 @@ export function renderPage(page) {
             ${nav(lang, section)}
         </nav>
         <div class="header-aux">
-            ${languageSwitch(lang, path, available)}
+            ${languageSwitch(lang, versions)}
             <a class="repo-link" href="${REPO_URL}" rel="noopener">${ui.repo}</a>
         </div>
     </header>
@@ -187,7 +212,12 @@ ${docs
 ${content}
 ${docs.pager}
         </main>
-        ${docs.toc}
+        <aside class="doc-aside">
+${docs.toc}
+${docs.sourceUrl
+              ? `            <a class="doc-source" href="${docs.sourceUrl}" download>${ui.downloadMd}</a>`
+              : ''}
+        </aside>
     </div>`
         : `    <main id="content">
 ${content}
@@ -216,6 +246,8 @@ ${content}
 
     <script type="module" src="/assets/js/lang.mjs"></script>
     <script type="module" src="/assets/js/flame.mjs"></script>
+    <script type="module" src="/assets/js/copy-code.mjs"></script>
+    <script type="module" src="/assets/js/isa-runtime.mjs"></script>
     ${bodyClass.includes('layout-error')
         ? '<script type="module" src="/assets/js/error-path.mjs"></script>'
         : ''}

@@ -1,0 +1,297 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "D8"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(0) by m32fp and store result in ST(0).",
+   "opcode": "D8 /6",
+   "operands": "",
+   "syntax": "FDIV m32fp"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "DC"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(0) by m64fp and store result in ST(0).",
+   "opcode": "DC /6",
+   "operands": "",
+   "syntax": "FDIV m64fp"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "D8",
+     "F0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(0) by ST(i) and store result in ST(0).",
+   "opcode": "D8 F0+i",
+   "operands": "",
+   "syntax": "FDIV ST(0), ST(i)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DC",
+     "F8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(i) by ST(0) and store result in ST(i).",
+   "opcode": "DC F8+i",
+   "operands": "",
+   "syntax": "FDIV ST(i), ST(0)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DE",
+     "F8"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(i) by ST(0), store result in ST(i), and pop the register stack.",
+   "opcode": "DE F8+i",
+   "operands": "",
+   "syntax": "FDIVP ST(i), ST(0)"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DE",
+     "F9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(1) by ST(0), store result in ST(1), and pop the register stack.",
+   "opcode": "DE F9",
+   "operands": "",
+   "syntax": "FDIVP"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "DA"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(0) by m32int and store result in ST(0).",
+   "opcode": "DA /6",
+   "operands": "",
+   "syntax": "FIDIV m32int"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "DE"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Divide ST(0) by m16int and store result in ST(0).",
+   "opcode": "DE /6",
+   "operands": "",
+   "syntax": "FIDIV m16int"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#MF",
+   "when": "If there is a pending x87 FPU exception. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "fdiv",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FDIV",
+   "FDIVP",
+   "FIDIV"
+  ]
+ },
+ "mnemonics": [
+  "FDIV",
+  "FDIVP",
+  "FIDIV"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1037,
+    1039
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,82 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "37"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {},
+   "note": "Report the SMX capabilities.",
+   "opcode": "NP 0F 37",
+   "operands": "",
+   "syntax": "GETSEC[CAPABILITIES]"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "leaf": {
+     "register": "EAX",
+     "value": "0"
+    }
+   },
+   "modes": {},
+   "note": "The capabilities index is input in EBX with the result returned in EAX.",
+   "opcode": "(EAX = 0)",
+   "operands": "",
+   "syntax": ""
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. VM-exit Condition Reason (GETSEC) If in VMX non-root operation."
+  }
+ ],
+ "format": "isadoc",
+ "id": "getsec-capabilities",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "GETSEC[CAPABILITIES]"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2907,
+    2909
+   ]
+  }
+ ],
+ "version": 1
+}

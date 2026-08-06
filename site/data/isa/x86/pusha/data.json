@@ -1,0 +1,109 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "60"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Push AX, CX, DX, BX, original SP, BP, SI, and DI.",
+   "opcode": "60",
+   "operands": "ZO",
+   "syntax": "PUSHA"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "60"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Push EAX, ECX, EDX, EBX, original ESP, EBP, ESI, and EDI.",
+   "opcode": "60",
+   "operands": "ZO",
+   "syntax": "PUSHAD"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the starting or ending stack address is outside the stack segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while the current privilege level is 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If the ESP or SP register contains 7, 9, 11, 13, or 15."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the ESP or SP register contains 7, 9, 11, 13, or 15. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while alignment checking is enabled."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If in 64-bit mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "pusha",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "PUSHA",
+  "PUSHAD"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1815,
+    1816
+   ]
+  }
+ ],
+ "version": 1
+}

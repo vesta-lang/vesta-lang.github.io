@@ -1,0 +1,145 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "text": "EVEX.128.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform reduction transformation on packed AND AVX512VL) FP16 values in xmm2/m128/m16bcst by OR AVX10.1 subtracting a number of fraction bits specified by the imm8 field. Store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.NP.0F3A.W0 56 /r /ib",
+   "operands": "A",
+   "syntax": "VREDUCEPH    xmm1{k1}{z}, xmm2/m128/m16bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "text": "EVEX.256.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform reduction transformation on packed AND AVX512VL) FP16 values in ymm2/m256/m16bcst by OR AVX10.1 subtracting a number of fraction bits specified by the imm8 field. Store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.NP.0F3A.W0 56 /r /ib",
+   "operands": "A",
+   "syntax": "VREDUCEPH    ymm1{k1}{z}, ymm2/m256/m16bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "56"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "text": "EVEX.512.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform reduction transformation on packed OR AVX10.1 FP16 values in zmm2/m512/m16bcst by subtracting a number of fraction bits specified by the imm8 field. Store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.NP.0F3A.W0 56 /r /ib",
+   "operands": "A",
+   "syntax": "VREDUCEPH zmm1{k1}{z}, zmm2/m512/m16bcst {sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vreduceph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VREDUCEPH"
+  ]
+ },
+ "mnemonics": [
+  "VREDUCEPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2739,
+    2741
+   ]
+  }
+ ],
+ "version": 1
+}

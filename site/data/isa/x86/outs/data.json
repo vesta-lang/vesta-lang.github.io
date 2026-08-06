@@ -1,0 +1,199 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output byte from memory location specified in DS:(E)SI or RSI to I/O port specified in DX2.",
+   "opcode": "6E",
+   "operands": "ZO",
+   "syntax": "OUTS DX, m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output word from memory location specified in DS:(E)SI or RSI to I/O port specified in DX2.",
+   "opcode": "6F",
+   "operands": "ZO",
+   "syntax": "OUTS DX, m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output doubleword from memory location specified in DS:(E)SI or RSI to I/O port specified in DX2.",
+   "opcode": "6F",
+   "operands": "ZO",
+   "syntax": "OUTS DX, m3"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output byte from memory location specified in DS:(E)SI or RSI to I/O port specified in DX2.",
+   "opcode": "6E",
+   "operands": "ZO",
+   "syntax": "OUTSB"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output word from memory location specified in DS:(E)SI or RSI to I/O port specified in DX2.",
+   "opcode": "6F",
+   "operands": "ZO",
+   "syntax": "OUTSW"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output doubleword from memory location specified in DS:(E)SI or RSI to I/O port specified in DX2.",
+   "opcode": "6F",
+   "operands": "ZO",
+   "syntax": "OUTSD"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the CPL is greater than (has less privilege) the I/O privilege level (IOPL) and any of the corresponding I/O permission bits in TSS for the I/O port being accessed is 1. If a memory operand effective address is outside the limit of the CS, DS, ES, FS, or GS segment. If the segment register contains a NULL segment selector. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If any of the I/O permission bits in the TSS for the I/O port being accessed is 1. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same as for protected mode exceptions."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the CPL is greater than (has less privilege) the I/O privilege level (IOPL) and any of the corresponding I/O permission bits in TSS for the I/O port being accessed is 1. If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "outs",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "OUTSB",
+   "OUTSW",
+   "OUTSD"
+  ]
+ },
+ "mnemonics": [
+  "OUTS",
+  "OUTSB",
+  "OUTSW",
+  "OUTSD"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1462,
+    1465
+   ]
+  }
+ ],
+ "version": 1
+}

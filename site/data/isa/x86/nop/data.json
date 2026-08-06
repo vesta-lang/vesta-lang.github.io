@@ -1,0 +1,132 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "90"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "One byte no-operation instruction.",
+   "opcode": "NP 90",
+   "operands": "ZO",
+   "syntax": "NOP"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "1F"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multi-byte no-operation instruction.",
+   "opcode": "NP 0F 1F /0",
+   "operands": "M",
+   "syntax": "NOP r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "1F"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Multi-byte no-operation instruction.",
+   "opcode": "NP 0F 1F /0",
+   "operands": "M",
+   "syntax": "NOP r/m32"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "nop",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "NOP"
+  ]
+ },
+ "mnemonics": [
+  "NOP"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1449,
+    1449
+   ]
+  }
+ ],
+ "version": 1
+}

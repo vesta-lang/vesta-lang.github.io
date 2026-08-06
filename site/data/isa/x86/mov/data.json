@@ -1,0 +1,856 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "88"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move r8 to r/m8.",
+   "opcode": "88 /r",
+   "operands": "MR",
+   "syntax": "MOV  r/m8, r8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "89"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move r16 to r/m16.",
+   "opcode": "89 /r",
+   "operands": "MR",
+   "syntax": "MOV  r/m16, r16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "89"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move r3 to r/m32.",
+   "opcode": "89 /r",
+   "operands": "MR",
+   "syntax": "MOV  r/m3, r3"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "89"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move r64 to r/m64.",
+   "opcode": "REX.W + 89 /r",
+   "operands": "MR",
+   "syntax": "MOV  r/m64, r64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move r/m8 to r8.",
+   "opcode": "8A /r",
+   "operands": "RM",
+   "syntax": "MOV  r8, r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move r/m16 to r16.",
+   "opcode": "8B /r",
+   "operands": "RM",
+   "syntax": "MOV  r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move r/m3 to r32.",
+   "opcode": "8B /r",
+   "operands": "RM",
+   "syntax": "MOV  r3, r/m3"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8B"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move r/m64 to r64.",
+   "opcode": "REX.W + 8B /r",
+   "operands": "RM",
+   "syntax": "MOV  r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move segment register to r/m16.",
+   "opcode": "8C /r",
+   "operands": "MR",
+   "syntax": "MOV  r/m16, Sreg2"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move zero extended 16-bit segment register to r16/r32/m16.",
+   "opcode": "8C /r",
+   "operands": "MR",
+   "syntax": "MOV  r16/r32/m16,   Sreg2"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8C"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move zero extended 16-bit segment register to r64/m16.",
+   "opcode": "REX.W + 8C /r",
+   "operands": "MR",
+   "syntax": "MOV r64/m16, Sreg2"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move r/m16 to segment register.",
+   "opcode": "8E /r",
+   "operands": "RM",
+   "syntax": "MOV Sreg, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8E"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move lower 16 bits of r/m64 to segment register.",
+   "opcode": "REX.W + 8E /r",
+   "operands": "RM",
+   "syntax": "MOV Sreg, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A0"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move byte at (seg:offset) to AL.",
+   "opcode": "A0",
+   "operands": "FD",
+   "syntax": "MOV  AL, moffs8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A0"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move byte at (offset) to AL.",
+   "opcode": "REX.W + A0",
+   "operands": "FD",
+   "syntax": "MOV  AL, moffs8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move word at (seg:offset) to AX.",
+   "opcode": "A1",
+   "operands": "FD",
+   "syntax": "MOV  AX, moffs16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move doubleword at (seg:offset) to EAX.",
+   "opcode": "A1",
+   "operands": "FD",
+   "syntax": "MOV  EAX, moffs32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move quadword at (offset) to RAX.",
+   "opcode": "REX.W + A1",
+   "operands": "FD",
+   "syntax": "MOV  RAX, moffs64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move AL to (seg:offset).",
+   "opcode": "A2",
+   "operands": "TD",
+   "syntax": "MOV  moffs8, AL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A2"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move AL to (offset).",
+   "opcode": "REX.W + A2",
+   "operands": "TD",
+   "syntax": "MOV  moffs8, AL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move AX to (seg:offset).",
+   "opcode": "A3",
+   "operands": "TD",
+   "syntax": "MOV  moffs16, AX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move EAX to (seg:offset).",
+   "opcode": "A3",
+   "operands": "TD",
+   "syntax": "MOV  moffs32, EAX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move RAX to (offset).",
+   "opcode": "REX.W + A3",
+   "operands": "TD",
+   "syntax": "MOV  moffs64, RAX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "B0"
+    ],
+    "opcode_register": {
+     "marker": "+rb",
+     "width": 1
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move imm8 to r8.",
+   "opcode": "B0+ rb ib",
+   "operands": "OI",
+   "syntax": "MOV  r8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "opcode": [
+     "B8"
+    ],
+    "opcode_register": {
+     "marker": "+rw",
+     "width": 2
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move imm16 to r16.",
+   "opcode": "B8+ rw iw",
+   "operands": "OI",
+   "syntax": "MOV  r16, imm16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "opcode": [
+     "B8"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move imm3 to r32.",
+   "opcode": "B8+ rd id",
+   "operands": "OI",
+   "syntax": "MOV  r3, imm3"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 8,
+      "marker": "io"
+     }
+    ],
+    "opcode": [
+     "B8"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    },
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move imm64 to r64.",
+   "opcode": "REX.W + B8+ rd io",
+   "operands": "OI",
+   "syntax": "MOV  r64, imm64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C6"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move imm8 to r/m8.",
+   "opcode": "C6 /0 ib",
+   "operands": "MI",
+   "syntax": "MOV  r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move imm16 to r/m16.",
+   "opcode": "C7 /0 iw",
+   "operands": "MI",
+   "syntax": "MOV  r/m16, imm16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move imm3 to r/m32.",
+   "opcode": "C7 /0 id",
+   "operands": "MI",
+   "syntax": "MOV  r/m3, imm3"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "C7"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move imm3 sign extended to 64-bits to r/m64.",
+   "opcode": "REX.W + C7 /0 id",
+   "operands": "MI",
+   "syntax": "MOV  r/m64, imm3"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If attempt is made to load SS register with NULL segment selector. If the destination operand is in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(selector)",
+   "when": "If segment selector index is outside descriptor table limits. If the SS register is being loaded and the segment selector's RPL and the segment descriptor's DPL are not equal to the CPL. If the SS register is being loaded and the segment pointed to is a non-writable data segment. If the DS, ES, FS, or GS register is being loaded and the segment pointed to is not a data or readable code segment. If the DS, ES, FS, or GS register is being loaded and the segment pointed to is a data or nonconforming code segment, and either the RPL or the CPL is greater than the DPL."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(selector)",
+   "when": "If the SS register is being loaded and the segment pointed to is marked not present."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NP",
+   "when": "If the DS, ES, FS, or GS register is being loaded and the segment pointed to is marked not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If attempt is made to load the CS register. If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If attempt is made to load the CS register. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If attempt is made to load the CS register. If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. If an attempt is made to load SS register with NULL segment selector when CPL = 3. If an attempt is made to load SS register with NULL segment selector when CPL < 3 and CPL RPL."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(selector)",
+   "when": "If segment selector index is outside descriptor table limits. If the memory access to the descriptor table is non-canonical. If the SS register is being loaded and the segment selector's RPL and the segment descriptor's DPL are not equal to the CPL. If the SS register is being loaded and the segment pointed to is a nonwritable data segment. If the DS, ES, FS, or GS register is being loaded and the segment pointed to is not a data or readable code segment. If the DS, ES, FS, or GS register is being loaded and the segment pointed to is a data or nonconforming code segment, but both the RPL and the CPL are greater than the DPL."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(selector)",
+   "when": "If the SS register is being loaded and the segment pointed to is marked not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If attempt is made to load the CS register. If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "mov",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOV",
+   "MOVD",
+   "MOVQ"
+  ]
+ },
+ "mnemonics": [
+  "MOV"
+ ],
+ "operand_encodings": [
+  {
+   "id": "MR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "FD",
+   "operands": [
+    {
+     "field": "AL/AX/EAX/RAX",
+     "raw": "AL/AX/EAX/RAX",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "moffs",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "TD",
+   "operands": [
+    {
+     "field": "moffs",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "AL/AX/EAX/RAX",
+     "raw": "AL/AX/EAX/RAX",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "OI",
+   "operands": [
+    {
+     "field": "opcode.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "imm8/16/32/64",
+     "raw": "imm8/16/32/64",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MI",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "imm8/16/32/64",
+     "raw": "imm8/16/32/64",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1317,
+    1320
+   ]
+  }
+ ],
+ "version": 1
+}

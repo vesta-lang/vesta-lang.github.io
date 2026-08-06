@@ -1,0 +1,635 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "97"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if above (CF=0 and ZF=0).",
+   "opcode": "0F 97",
+   "operands": "M",
+   "syntax": "SETA r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "93"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if above or equal (CF=0).",
+   "opcode": "0F 93",
+   "operands": "M",
+   "syntax": "SETAE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "92"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if below (CF=1).",
+   "opcode": "0F 92",
+   "operands": "M",
+   "syntax": "SETB r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "96"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if below or equal (CF=1 or ZF=1).",
+   "opcode": "0F 96",
+   "operands": "M",
+   "syntax": "SETBE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "92"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if carry (CF=1).",
+   "opcode": "0F 92",
+   "operands": "M",
+   "syntax": "SETC r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "94"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if equal (ZF=1).",
+   "opcode": "0F 94",
+   "operands": "M",
+   "syntax": "SETE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if greater (ZF=0 and SF=OF).",
+   "opcode": "0F 9F",
+   "operands": "M",
+   "syntax": "SETG r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if greater or equal (SF=OF).",
+   "opcode": "0F 9D",
+   "operands": "M",
+   "syntax": "SETGE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if less (SF OF).",
+   "opcode": "0F 9C",
+   "operands": "M",
+   "syntax": "SETL r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if less or equal (ZF=1 or SF OF).",
+   "opcode": "0F 9E",
+   "operands": "M",
+   "syntax": "SETLE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "96"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not above (CF=1 or ZF=1).",
+   "opcode": "0F 96",
+   "operands": "M",
+   "syntax": "SETNA r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "92"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not above or equal (CF=1).",
+   "opcode": "0F 92",
+   "operands": "M",
+   "syntax": "SETNAE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "93"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not below (CF=0).",
+   "opcode": "0F 93",
+   "operands": "M",
+   "syntax": "SETNB r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "97"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not below or equal (CF=0 and ZF=0).",
+   "opcode": "0F 97",
+   "operands": "M",
+   "syntax": "SETNBE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "93"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not carry (CF=0).",
+   "opcode": "0F 93",
+   "operands": "M",
+   "syntax": "SETNC r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "95"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not equal (ZF=0).",
+   "opcode": "0F 95",
+   "operands": "M",
+   "syntax": "SETNE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not greater (ZF=1 or SF OF)",
+   "opcode": "0F 9E",
+   "operands": "M",
+   "syntax": "SETNG r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not greater or equal (SF OF).",
+   "opcode": "0F 9C",
+   "operands": "M",
+   "syntax": "SETNGE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not less (SF=OF).",
+   "opcode": "0F 9D",
+   "operands": "M",
+   "syntax": "SETNL r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not less or equal (ZF=0 and SF=OF).",
+   "opcode": "0F 9F",
+   "operands": "M",
+   "syntax": "SETNLE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "91"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not overflow (OF=0).",
+   "opcode": "0F 91",
+   "operands": "M",
+   "syntax": "SETNO r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not parity (PF=0).",
+   "opcode": "0F 9B",
+   "operands": "M",
+   "syntax": "SETNP r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "99"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not sign (SF=0).",
+   "opcode": "0F 99",
+   "operands": "M",
+   "syntax": "SETNS r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "95"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if not zero (ZF=0).",
+   "opcode": "0F 95",
+   "operands": "M",
+   "syntax": "SETNZ r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "90"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if overflow (OF=1)",
+   "opcode": "0F 90",
+   "operands": "M",
+   "syntax": "SETO r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if parity (PF=1).",
+   "opcode": "0F 9A",
+   "operands": "M",
+   "syntax": "SETP r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if parity even (PF=1).",
+   "opcode": "0F 9A",
+   "operands": "M",
+   "syntax": "SETPE r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "9B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if parity odd (PF=0).",
+   "opcode": "0F 9B",
+   "operands": "M",
+   "syntax": "SETPO r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "98"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if sign (SF=1).",
+   "opcode": "0F 98",
+   "operands": "M",
+   "syntax": "SETS r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "94"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Set byte if zero (ZF=1).",
+   "opcode": "0F 94",
+   "operands": "M",
+   "syntax": "SETZ r/m8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the destination is located in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#PF(fault-code)",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "setcc",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SETB",
+   "SETBE",
+   "SETL",
+   "SETLE",
+   "SETNB",
+   "SETNBE",
+   "SETNL",
+   "SETNLE",
+   "SETNO",
+   "SETNP",
+   "SETNS",
+   "SETNZ",
+   "SETO",
+   "SETP",
+   "SETS",
+   "SETZ"
+  ]
+ },
+ "mnemonics": [
+  "SETcc"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1911,
+    1913
+   ]
+  }
+ ],
+ "version": 1
+}

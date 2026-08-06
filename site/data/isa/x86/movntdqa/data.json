@@ -1,0 +1,221 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "2A"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move double quadword from m128 to xmm1 using non- temporal hint if WC memory type.",
+   "opcode": "66 0F 38 2A /r",
+   "operands": "A",
+   "syntax": "MOVNTDQA xmm1, m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move double quadword from m128 to xmm1 using non- temporal hint if WC memory type.",
+   "opcode": "VEX.128.66.0F38.WIG 2A /r",
+   "operands": "A",
+   "syntax": "VMOVNTDQA xmm1, m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 256-bit data from m256 to ymm1 using non- temporal hint if WC memory type.",
+   "opcode": "VEX.256.66.0F38.WIG 2A /r",
+   "operands": "A",
+   "syntax": "VMOVNTDQA ymm1, m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 128-bit data from m128 to xmm1 using non- AVX512F) OR AVX10.1 temporal hint if WC memory type.",
+   "opcode": "EVEX.128.66.0F38.W0 2A /r",
+   "operands": "B",
+   "syntax": "VMOVNTDQA xmm1, m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 256-bit data from m256 to ymm1 using non- AVX512F) OR AVX10.1 temporal hint if WC memory type.",
+   "opcode": "EVEX.256.66.0F38.W0 2A /r",
+   "operands": "B",
+   "syntax": "VMOVNTDQA ymm1, m256"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move 512-bit data from m512 to zmm1 using non- Instruction Opera OR AVX10.1 nd Encoding1 temporal hint if WC memory type. Operand 1 Operan d 2          Operand 3            Operand 4 ModRM:reg (w) ModRM:r/m (r)         N/A                  N/A ModRM:reg (w) ModRM:r/m (r)         N/A                  N/A",
+   "opcode": "EVEX.512.66.0F38.W0 2A /r",
+   "operands": "B",
+   "syntax": "VMOVNTDQA zmm1, m512 Op/En       Tuple Type A           N/A B           Full Mem"
+  }
+ ],
+ "format": "isadoc",
+ "id": "movntdqa",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVNTDQA",
+   "VMOVNTDQA"
+  ]
+ },
+ "mnemonics": [
+  "MOVNTDQA"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1380,
+    1381
+   ]
+  }
+ ],
+ "version": 1
+}

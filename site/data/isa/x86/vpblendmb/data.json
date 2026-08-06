@@ -1,0 +1,213 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend byte integer vector xmm2 and byte vector AVX512BW) OR xmm3/m128 and store the result in xmm1, under AVX10.1 control mask.",
+   "opcode": "EVEX.128.66.0F38.W0 66 /r",
+   "operands": "A",
+   "syntax": "VPBLENDMB xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend byte integer vector ymm2 and byte vector AVX512BW) OR ymm3/m256 and store the result in ymm1, under AVX10.1 control mask.",
+   "opcode": "EVEX.256.66.0F38.W0 66 /r",
+   "operands": "A",
+   "syntax": "VPBLENDMB ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend byte integer vector zmm2 and byte vector OR AVX10.1 zmm3/m512 and store the result in zmm1, under control mask.",
+   "opcode": "EVEX.512.66.0F38.W0 66 /r",
+   "operands": "A",
+   "syntax": "VPBLENDMB zmm1 {k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend word integer vector xmm2 and word vector AVX512BW) OR xmm3/m128 and store the result in xmm1, under AVX10.1 control mask.",
+   "opcode": "EVEX.128.66.0F38.W1 66 /r",
+   "operands": "A",
+   "syntax": "VPBLENDMW xmm1 {k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend word integer vector ymm2 and word vector AVX512BW) OR ymm3/m256 and store the result in ymm1, under AVX10.1 control mask.",
+   "opcode": "EVEX.256.66.0F38.W1 66 /r",
+   "operands": "A",
+   "syntax": "VPBLENDMW ymm1 {k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "66"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Blend word integer vector zmm2 and word vector OR AVX10.1 zmm3/m512 and store the result in zmm1, under control mask.",
+   "opcode": "EVEX.512.66.0F38.W1 66 /r",
+   "operands": "A",
+   "syntax": "VPBLENDMW zmm1 {k1}{z}, zmm2, zmm3/m512"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpblendmb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPBLENDMB",
+   "VPBLENDMW"
+  ]
+ },
+ "mnemonics": [
+  "VPBLENDMB",
+  "VPBLENDMW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2488,
+    2489
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,244 @@
+{
+ "encodings": [
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "99"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.LIG.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply scalar single precision floating-point value from xmm1 and xmm3/m32, add to xmm2 and put result in xmm1.",
+   "opcode": "VEX.LIG.66.0F38.W0 99 /r",
+   "operands": "A",
+   "syntax": "VFMADD132SS xmm1, xmm2, xmm3/m32"
+  },
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "A9"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.LIG.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply scalar single precision floating-point value from xmm1 and xmm2, add to xmm3/m32 and put result in xmm1.",
+   "opcode": "VEX.LIG.66.0F38.W0 A9 /r",
+   "operands": "A",
+   "syntax": "VFMADD213SS xmm1, xmm2, xmm3/m32"
+  },
+  {
+   "cpuid": "FMA",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "B9"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.LIG.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply scalar single precision floating-point value from xmm2 and xmm3/m32, add to xmm1 and put result in xmm1.",
+   "opcode": "VEX.LIG.66.0F38.W0 B9 /r",
+   "operands": "A",
+   "syntax": "VFMADD231SS xmm1, xmm2, xmm3/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "99"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply scalar single precision floating-point OR AVX10.1 value from xmm1 and xmm3/m32, add to xmm2 and put result in xmm1.",
+   "opcode": "EVEX.LLIG.66.0F38.W0 99 /r",
+   "operands": "B",
+   "syntax": "VFMADD132SS xmm1 {k1}{z}, xmm2, xmm3/m32{er}"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "A9"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply scalar single precision floating-point OR AVX10.1 value from xmm1 and xmm2, add to xmm3/m32 and put result in xmm1.",
+   "opcode": "EVEX.LLIG.66.0F38.W0 A9 /r",
+   "operands": "B",
+   "syntax": "VFMADD213SS xmm1 {k1}{z}, xmm2, xmm3/m32{er}"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "B9"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply scalar single precision floating-point OR AVX10.1 value from xmm2 and xmm3/m32, add to xmm1 and put result in xmm1.",
+   "opcode": "EVEX.LLIG.66.0F38.W0 B9 /r",
+   "operands": "B",
+   "syntax": "VFMADD231SS xmm1 {k1}{z}, xmm2, xmm3/m32{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfmadd132ss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFMADD132SS",
+   "VFMADD213SS",
+   "VFMADD231SS"
+  ]
+ },
+ "mnemonics": [
+  "VFMADD132SS",
+  "VFMADD213SS",
+  "VFMADD231SS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2283,
+    2306
+   ]
+  }
+ ],
+ "version": 1
+}

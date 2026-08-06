@@ -1,0 +1,166 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "5A"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value in xmm2/m64 to one single precision floating-point value in xmm1.",
+   "opcode": "F2 0F 5A /r",
+   "operands": "A",
+   "syntax": "CVTSD2SS xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5A"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.LIG.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value in xmm3/m64 to one single precision floating-point value and merge with high bits in xmm2.",
+   "opcode": "VEX.LIG.F2.0F.WIG 5A /r",
+   "operands": "B",
+   "syntax": "VCVTSD2SS xmm1,xmm2, xmm3/m64"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5A"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F2",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F2.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one double precision floating-point value in OR AVX10.1 xmm3/m64 to one single precision floating-point value and merge with high bits in xmm2 under writemask k1.",
+   "opcode": "EVEX.LLIG.F2.0F.W1 5A /r",
+   "operands": "C",
+   "syntax": "VCVTSD2SS xmm1 {k1}{z}, xmm2, xmm3/m64{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cvtsd2ss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CVTSD2SS",
+   "VCVTSD2SS"
+  ]
+ },
+ "mnemonics": [
+  "CVTSD2SS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    938,
+    939
+   ]
+  }
+ ],
+ "version": 1
+}

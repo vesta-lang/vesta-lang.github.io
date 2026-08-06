@@ -1,0 +1,86 @@
+{
+ "encodings": [
+  {
+   "cpuid": "PREFETCHW",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 1
+    },
+    "opcode": [
+     "0F",
+     "0D"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move data from m8 closer to the processor in anticipation of a write.",
+   "opcode": "0F 0D /1",
+   "operands": "M",
+   "syntax": "PREFETCHW m8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "prefetchw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PREFETCHW"
+  ]
+ },
+ "mnemonics": [
+  "PREFETCHW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1705,
+    1706
+   ]
+  }
+ ],
+ "version": 1
+}

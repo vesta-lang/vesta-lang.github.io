@@ -1,0 +1,159 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "99"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of 16 bits mask OR AVX10.1 register sources.",
+   "opcode": "VEX.L0.0F.W0 99 /r",
+   "operands": "RR",
+   "syntax": "KTESTW k1, k2"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "99"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of 8 bits mask reg- OR AVX10.1 ister sources.",
+   "opcode": "VEX.L0.66.0F.W0 99 /r",
+   "operands": "RR",
+   "syntax": "KTESTB k1, k2"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "99"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of 64 bits mask OR AVX10.1 register sources.",
+   "opcode": "VEX.L0.0F.W1 99 /r",
+   "operands": "RR",
+   "syntax": "KTESTQ k1, k2"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "99"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Set ZF and CF depending on sign bit AND and ANDN of 32 bits mask OR AVX10.1 register sources.",
+   "opcode": "VEX.L0.66.0F.W1 99 /r",
+   "operands": "RR",
+   "syntax": "KTESTD k1, k2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "ktestw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KTESTW",
+   "KTESTB",
+   "KTESTQ",
+   "KTESTD"
+  ]
+ },
+ "mnemonics": [
+  "KTESTW",
+  "KTESTB",
+  "KTESTQ",
+  "KTESTD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RR",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1231,
+    1232
+   ]
+  }
+ ],
+ "version": 1
+}

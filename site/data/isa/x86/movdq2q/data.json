@@ -1,0 +1,103 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "D6"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move low quadword from xmm to mmx register.",
+   "opcode": "F2 0F D6 /r",
+   "operands": "RM",
+   "syntax": "MOVDQ2Q mm, xmm"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR0.EM[bit 2] = 1. If CR4.OSFXSR[bit 9] = 0. If CPUID.01H:EDX.SSE2[26] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#MF",
+   "when": "If there is a pending x87 FPU exception."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "movdq2q",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVDQ2Q"
+  ]
+ },
+ "mnemonics": [
+  "MOVDQ2Q"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1348,
+    1348
+   ]
+  }
+ ],
+ "version": 1
+}

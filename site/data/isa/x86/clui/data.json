@@ -1,0 +1,74 @@
+{
+ "encodings": [
+  {
+   "cpuid": "UINTR",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "EE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Clear user interrupt flag; user interrupts blocked when user interrupt flag cleared.",
+   "opcode": "F3 0F 01 EE",
+   "operands": "ZO",
+   "syntax": "CLUI"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The CLUI instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The CLUI instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The CLUI instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The CLUI instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If executed inside an enclave. If CR4.UINTR = 0. If CPUID.07H.00H:EDX.UINTR[5] = 0."
+  }
+ ],
+ "format": "isadoc",
+ "id": "clui",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CLUI"
+  ]
+ },
+ "mnemonics": [
+  "CLUI"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    857,
+    857
+   ]
+  }
+ ],
+ "version": 1
+}

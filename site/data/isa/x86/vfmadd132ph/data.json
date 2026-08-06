@@ -1,0 +1,545 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "98"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm3/m128/m16bcst, add to xmm2, and store OR AVX10.1 the result in xmm1.",
+   "opcode": "EVEX.128.66.MAP6.W0 98 /r",
+   "operands": "A",
+   "syntax": "VFMADD132PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "98"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm3/m256/m16bcst, add to ymm2, and store OR AVX10.1 the result in ymm1.",
+   "opcode": "EVEX.256.66.MAP6.W0 98 /r",
+   "operands": "A",
+   "syntax": "VFMADD132PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "98"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm1 and OR AVX10.1 zmm3/m512/m16bcst, add to zmm2, and store the result in zmm1.",
+   "opcode": "EVEX.512.66.MAP6.W0 98 /r",
+   "operands": "A",
+   "syntax": "VFMADD132PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "A8"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm2, add to xmm3/m128/m16bcst, and store OR AVX10.1 the result in xmm1.",
+   "opcode": "EVEX.128.66.MAP6.W0 A8 /r",
+   "operands": "A",
+   "syntax": "VFMADD213PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "A8"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm2, add to ymm3/m256/m16bcst, and store OR AVX10.1 the result in ymm1.",
+   "opcode": "EVEX.256.66.MAP6.W0 A8 /r",
+   "operands": "A",
+   "syntax": "VFMADD213PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "A8"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm1 and OR AVX10.1 zmm2, add to zmm3/m512/m16bcst, and store the result in zmm1.",
+   "opcode": "EVEX.512.66.MAP6.W0 A8 /r",
+   "operands": "A",
+   "syntax": "VFMADD213PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "B8"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm2 and AND AVX512VL) xmm3/m128/m16bcst, add to xmm1, and store OR AVX10.1 the result in xmm1.",
+   "opcode": "EVEX.128.66.MAP6.W0 B8 /r",
+   "operands": "A",
+   "syntax": "VFMADD231PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "B8"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm2 and AND AVX512VL) ymm3/m256/m16bcst, add to ymm1, and store OR AVX10.1 the result in ymm1.",
+   "opcode": "EVEX.256.66.MAP6.W0 B8 /r",
+   "operands": "A",
+   "syntax": "VFMADD231PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "B8"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm2 and OR AVX10.1 zmm3/m512/m16bcst, add to zmm1, and store the result in zmm1.",
+   "opcode": "EVEX.512.66.MAP6.W0 B8 /r",
+   "operands": "A",
+   "syntax": "VFMADD231PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm3/m128/m16bcst, and negate the value. OR AVX10.1 Add this value to xmm2, and store the result in xmm1.",
+   "opcode": "EVEX.128.66.MAP6.W0 9C /r",
+   "operands": "A",
+   "syntax": "VFNMADD132PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm3/m256/m16bcst, and negate the value. OR AVX10.1 Add this value to ymm2, and store the result in ymm1.",
+   "opcode": "EVEX.256.66.MAP6.W0 9C /r",
+   "operands": "A",
+   "syntax": "VFNMADD132PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from zmm1 and OR AVX10.1 zmm3/m512/m16bcst, and negate the value. Add this value to zmm2, and store the result in zmm1.",
+   "opcode": "EVEX.512.66.MAP6.W0 9C /r",
+   "operands": "A",
+   "syntax": "VFNMADD132PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from xmm1 and AND AVX512VL) xmm2, and negate the value. Add this value to OR AVX10.1 xmm3/m128/m16bcst, and store the result in xmm1.",
+   "opcode": "EVEX.128.66.MAP6.W0 AC /r",
+   "operands": "A",
+   "syntax": "VFNMADD213PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AC"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply packed FP16 values from ymm1 and AND AVX512VL) ymm2, and negate the value. Add this value to OR AVX10.1 ymm3/m256/m16bcst, and store the result in ymm1. Op/   64 /32     CPUID Feature Description En    Bi Su t Mode  Flag pport",
+   "opcode": "EVEX.256.66.MAP6.W0 AC /r",
+   "operands": "A",
+   "syntax": "VFNMADD213PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst Opcode/ Instruction"
+  },
+  {
+   "cpuid": "V       AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AC"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "",
+    "long": "a     v"
+   },
+   "note": "Multiply packed FP16 values from zmm1 and OR AVX10.1 zmm2, and negate the value. Add this value to zmm3/m512/m16bcst, and store the result in zmm1.",
+   "opcode": "EVEX.512.66.MAP6.W0 AC /r",
+   "operands": "",
+   "syntax": "VFNMADD213PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  },
+  {
+   "cpuid": "V       (AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BC"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "",
+    "long": "a     v"
+   },
+   "note": "Multiply packed FP16 values from xmm2 and AND AVX512VL) xmm3/m128/m16bcst, and negate the value. OR AVX10.1 Add this value to xmm1, and store the result in xmm1.",
+   "opcode": "EVEX.128.66.MAP6.W0 BC /r",
+   "operands": "",
+   "syntax": "VFNMADD231PH xmm1{k1}{z}, xmm2, xmm3/m128/m16bcst"
+  },
+  {
+   "cpuid": "V       (AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BC"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "",
+    "long": "a     v"
+   },
+   "note": "Multiply packed FP16 values from ymm2 and AND AVX512VL) ymm3/m256/m16bcst, and negate the value. OR AVX10.1 Add this value to ymm1, and store the result in ymm1.",
+   "opcode": "EVEX.256.66.MAP6.W0 BC /r",
+   "operands": "",
+   "syntax": "VFNMADD231PH ymm1{k1}{z}, ymm2, ymm3/m256/m16bcst"
+  },
+  {
+   "cpuid": "V       AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "BC"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP6",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "",
+    "long": "a     v"
+   },
+   "note": "Multiply packed FP16 values from zmm2 and OR AVX10.1 zmm3/m512/m16bcst, and negate the value. Add this value to zmm1, and store the result in zmm1.",
+   "opcode": "EVEX.512.66.MAP6.W0 BC /r",
+   "operands": "",
+   "syntax": "VFNMADD231PH zmm1{k1}{z}, zmm2, zmm3/m512/m16bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfmadd132ph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFMADD132PH",
+   "VFMADD213PH",
+   "VFMADD231PH",
+   "VFNMADD132PH",
+   "VFNMADD213PH",
+   "VFNMADD231PH"
+  ]
+ },
+ "mnemonics": [
+  "VFMADD132PH",
+  "VFMADD213PH",
+  "VFMADD231PH",
+  "VFNMADD132PH",
+  "VFNMADD213PH",
+  "VFNMADD231PH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2265,
+    2270
+   ]
+  }
+ ],
+ "version": 1
+}

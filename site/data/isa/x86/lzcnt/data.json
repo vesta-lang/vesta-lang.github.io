@@ -1,0 +1,203 @@
+{
+ "encodings": [
+  {
+   "cpuid": "LZCNT",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "BD"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Count the number  of  leading  zero  bits  in  r/m16,  return  result  in  r16.",
+   "opcode": "F3 0F BD /r",
+   "operands": "RM",
+   "syntax": "LZCNT r16, r/m16"
+  },
+  {
+   "cpuid": "LZCNT",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "BD"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Count the number  of  leading  zero  bits  in  r/m32,  return  result  in  r32.",
+   "opcode": "F3 0F BD /r",
+   "operands": "RM",
+   "syntax": "LZCNT r32, r/m32"
+  },
+  {
+   "cpuid": "LZCNT",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "BD"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Count the number  of  leading  zero  bits  in  r/m64,  return  result  in  r64.",
+   "opcode": "F3 REX.W 0F BD /r",
+   "operands": "RM",
+   "syntax": "LZCNT r64, r/m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "For an illegal memory operand effective address in the CS, DS, ES, FS or GS segments. If the DS, ES, FS, or GS register is used to access memory and it contains a null segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If any part of the operand lies outside of the effective address space from 0 to 0FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If LOCK prefix is used. Virtual 8086 Mode Exceptions"
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If any part of the operand lies outside of the effective address space from 0 to 0FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "real",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in Protected Mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If LOCK prefix is used. CHAPTER 4 4.1 IMM8 CONTROL BYTE OPERATION FOR PCMPESTRI / PCMPESTRM / PCMPISTRI / PCMPISTRM The notations introduced in this section are referenced in the reference pages of PCMPESTRI, PCMPESTRM, PCMP- ISTRI, PCMPISTRM. The operation of the immediate control byte is common to these four string text processing instructions of SSE4.2. This section describes the common operations. 4.1.1 General Description The operation of PCMPESTRI, PCMPESTRM, PCMPISTRI, PCMPISTRM is defined by the combination of the respective opcode and the interpretation of an immediate control byte that is part of the instruction encoding. The opcode controls the relationship of input bytes/words to each other (determines whether the inputs terminated strings or whether lengths are expressed explicitly) as well as the desired output (index or mask). The imm8 control byte for PCMPESTRM/PCMPESTRI/PCMPISTRM/PCMPISTRI encodes a significant amount of programmable control over the functionality of those instructions. Some functionality is unique to each instruction while some is common across some or all of the four instructions. This section describes functionality which is common across the four instructions. The arithmetic flags (ZF, CF, SF, OF, AF, PF) are set as a result of these instructions. However, the meanings of the flags have been overloaded from their typical meanings in order to provide additional information regarding the relationships of the two inputs. PCMPxSTRx instructions perform arithmetic comparisons between all possible pairs of bytes or words, one from each packed input source operand. The boolean results of those comparisons are then aggregated in order to produce meaningful results. The imm8 control byte is used to affect the interpretation of individual input elements as well as control the arithmetic comparisons used and the specific aggregation scheme. Specifically, the imm8 Control Byte consists of bit fields that control the following attributes: * Source data format -- Byte/word data element granularity, signed or unsigned elements. * Aggregation operation -- Encodes the mode of per-element comparison operation and the aggregation of per-element comparisons into an intermediate result. * Polarity -- Specifies intermediate processing to be performed on the intermediate result. * Output selection -- Specifies final operation to produce the output (depending on index or mask) from the intermediate result. 4.1.2 Source Data Format Table 4-1. Source Data Format Imm8[1:0] Meaning Description 00b Unsigned bytes Both 128-bit sources are treated as packed, unsigned bytes. 01b Unsigned words Both 128-bit sources are treated as packed, unsigned words. 10b Signed bytes Both 128-bit sources are treated as packed, signed bytes. 11b Signed words Both 128-bit sources are treated as packed, signed words. If the imm8 control byte has bit[0] cleared, each source contains 16 packed bytes. If the bit is set each source contains 8 packed words. If the imm8 control byte has bit[1] cleared, each input contains unsigned data. If the bit is set each source contains signed data. 4.1.3 Aggregation Operation Table 4-2. Aggregation Operation Imm8[3:2] Mode Comparison 00b Equal any The arithmetic comparison is \"equal.\" 01b Ranges Arithmetic comparison is \"greater than or equal\" between even indexed bytes/words of reg and each byte/word of reg/mem. Arithmetic comparison is \"less than or equal\" between odd indexed bytes/words of reg and each byte/word of reg/mem. (reg/mem[m] >= reg[n] for n = even, reg/mem[m] <= reg[n] for n = odd) 10b Equal each The arithmetic comparison is \"equal.\" 11b Equal ordered The arithmetic comparison is \"equal.\" All 256 (64) possible comparisons are always performed. The individual Boolean results of those comparisons are referred by \"BoolRes[Reg/Mem element index, Reg element index].\" Comparisons evaluating to \"True\" are represented with a 1, False with a 0 (positive logic). The initial results are then aggregated into a 16-bit (8-bit) intermediate result (IntRes1) using one of the modes described in the table below, as determined by imm8 control byte bits[3:2]. See Section 4.1.6 for a description of the overrideIfDataInvalid() function used in Table 4-3. Table 4-3. Aggregation Operation Mode Pseudocode Equal any UpperBound = imm8[0] ? 7 : 15; (find characters from a set) IntRes1 = 0; For j = 0 to UpperBound, j++ For i = 0 to UpperBound, i++ IntRes1[j] OR= overrideIfDataInvalid(BoolRes[j,i]) Ranges UpperBound = imm8[0] ? 7 : 15; (find characters from ranges) IntRes1 = 0; For j = 0 to UpperBound, j++ For i = 0 to UpperBound, i+=2 IntRes1[j] OR= (overrideIfDataInvalid(BoolRes[j,i]) AND overrideIfDataInvalid(BoolRes[j,i+1])) Equal each UpperBound = imm8[0] ? 7 : 15; (string compare) IntRes1 = 0; For i = 0 to UpperBound, i++ IntRes1[i] = overrideIfDataInvalid(BoolRes[i,i]) Equal ordered UpperBound = imm8[0] ? 7 :15; (substring search) IntRes1 = imm8[0] ? FFH : FFFFH For j = 0 to UpperBound, j++ For i = 0 to UpperBound-j, k=j to UpperBound, k++, i++ IntRes1[j] AND= overrideIfDataInvalid(BoolRes[k,i]) 4.1.4 Polarity IntRes1 may then be further modified by performing a 1's complement, according to the value of the imm8 control byte bit[4]. Optionally, a mask may be used such that only those IntRes1 bits which correspond to \"valid\" reg/mem input elements are complemented (note that the definition of a valid input element is dependent on the specific opcode and is defined in each opcode's description). The result of the possible negation is referred to as IntRes2. Imm8[5:4] Operation Table 4-4. Polarity 00b Positive Polarity (+) Description 01b Negative Polarity (-) IntRes2 = IntRes1 10b Masked (+) IntRes2 = -1 XOR IntRes1 11b Masked (-) IntRes2 = IntRes1 IntRes2[i] = IntRes1[i] if reg/mem[i] invalid, else = ~IntRes1[i] 4.1.5 Output Selection Table 4-5. Output Selection Imm8[6] Operation Description 0b Least significant index The index returned to ECX is of the least significant set bit in IntRes2. 1b Most significant index The index returned to ECX is of the most significant set bit in IntRes2. For PCMPESTRI/PCMPISTRI, the imm8 control byte bit[6] is used to determine if the index is of the least significant or most significant bit of IntRes2. Imm8[6] Operation Table 4-6. Output Selection 0b Bit mask Description 1b Byte/word mask IntRes2 is returned as the mask to the least significant bits of XMM0 with zero extension to 128 bits. IntRes2 is expanded into a byte/word mask (based on imm8[1]) and placed in XMM0. The expansion is performed by replicating each bit into all of the bits of the byte/word of the same index. Specifically for PCMPESTRM/PCMPISTRM, the imm8 control byte bit[6] is used to determine if the mask is a 16 (8) bit mask or a 128 bit byte/word mask. 4.1.6 Valid/Invalid Override of Comparisons PCMPxSTRx instructions allow for the possibility that an end-of-string (EOS) situation may occur within the 128-bit packed data value (see the instruction descriptions below for details). Any data elements on either source that are determined to be past the EOS are considered to be invalid, and the treatment of invalid data within a comparison pair varies depending on the aggregation function being performed. In general, the individual comparison result for each element pair BoolRes[i.j] can be forced true or false if one or more elements in the pair are invalid. See Table 4-7. Table 4-7. Comparison Result for Each Element Pair BoolRes[i.j] xmm1 xmm2/ m128 Imm8[3:2] = 00b Imm8[3:2] = 01b Imm8[3:2] = 10b Imm8[3:2] = 11b byte/ word byte/word (equal any) (ranges) (equal each) (equal ordered) Invalid Invalid Force false Force false Force true Force true Invalid Valid Force false Force false Force false Force true Valid Invalid Force false Force false Force false Force false Valid Valid Do not force Do not force Do not force Do not force 4.1.7 Summary of Im8 Control byte Imm8 Table 4-8. Summary of Imm8 Control Byte -------0b Description -------1b 128-bit sources treated as 16 packed bytes. ------0-b 128-bit sources treated as 8 packed words. ------1-b Packed bytes/words are unsigned. ----00--b Packed bytes/words are signed. ----01--b Mode is equal any. ----10--b Mode is ranges. ----11--b Mode is equal each. ---0----b Mode is equal ordered. ---1----b IntRes1 is unmodified. --0-----b IntRes1 is negated (1's complement). --1-----b Negation of IntRes1 is for all 16 (8) bits. -0------b Negation of IntRes1 is masked by reg/mem validity. Index of the least significant, set, bit is used (regardless of corresponding input element validity). -1------b IntRes2 is returned in least significant bits of XMM0. Index of the most significant, set, bit is used (regardless of corresponding input element validity). 0-------b Each bit of IntRes2 is expanded to byte/word. 1-------b This bit currently has no defined effect, should be 0. This bit currently has no defined effect, should be 0. 4.1.8 Diagram Comparison and Aggregation Process Figure 4-1. Operation of PCMPSTRx and PCMPESTRx 4.2 COMMON TRANSFORMATION AND PRIMITIVE FUNCTIONS FOR SHA1XXX AND SHA256XXX The following primitive functions and transformations are used in the algorithmic descriptions of SHA1 and SHA256 instruction extensions SHA1NEXTE, SHA1RNDS4, SHA1MSG1, SHA1MSG2, SHA256RNDS4, SHA256MSG1, and SHA256MSG2. The operands of these primitives and transformation are generally 32-bit DWORD integers. * f0(): A bit oriented logical operation that derives a new dword from three SHA1 state variables (dword). This function is used in SHA1 round 1 to 20 processing. f0(B,C,D) := (B AND C) XOR ((NOT(B) AND D) * f1(): A bit oriented logical operation that derives a new dword from three SHA1 state variables (dword). This function is used in SHA1 round 21 to 40 processing. f1(B,C,D) := B XOR C XOR D * f2(): A bit oriented logical operation that derives a new dword from three SHA1 state variables (dword). This function is used in SHA1 round 41 to 60 processing. f2(B,C,D) := (B AND C) XOR (B AND D) XOR (C AND D) * f3(): A bit oriented logical operation that derives a new dword from three SHA1 state variables (dword). This function is used in SHA1 round 61 to 80 processing. It is the same as f1(). f3(B,C,D) := B XOR C XOR D * Ch(): A bit oriented logical operation that derives a new dword from three SHA256 state variables (dword). Ch(E,F,G) := (E AND F) XOR ((NOT E) AND G) * Maj(): A bit oriented logical operation that derives a new dword from three SHA256 state variables (dword). Maj(A,B,C) := (A AND B) XOR (A AND C) XOR (B AND C) ROR is rotate right operation (A ROR N) := A[N-1:0] || A[Width-1:N] ROL is rotate left operation (A ROL N) := A ROR (Width-N) SHR is the right shift operation (A SHR N) := ZEROES[N-1:0] || A[Width-1:N] * 0( ): A bit oriented logical and rotational transformation performed on a dword SHA256 state variable. 0(A) := (A ROR 2) XOR (A ROR 13) XOR (A ROR 22) * 1( ): A bit oriented logical and rotational transformation performed on a dword SHA256 state variable. 1(E) := (E ROR 6) XOR (E ROR 11) XOR (E ROR 25) * 0( ): A bit oriented logical and rotational transformation performed on a SHA256 message dword used in the message scheduling. 0(W) := (W ROR 7) XOR (W ROR 18) XOR (W SHR 3) * 1( ): A bit oriented logical and rotational transformation performed on a SHA256 message dword used in the message scheduling. 1(W) := (W ROR 17) XOR (W ROR 19) XOR (W SHR 10) * Ki: SHA1 Constants dependent on immediate i. K0 = 0x5A827999 K1 = 0x6ED9EBA1 K2 = 0X8F1BBCDC K3 = 0xCA62C1D6 4.3 INSTRUCTIONS (M-U) Chapter 4 continues an alphabetical discussion of Intel(R) 64 and IA-32 instructions (M-U). See also: Chapter 3, \"Instruction Set Reference, A-L,\" in the Intel(R) 64 and IA-32 Architectures Software Developer's Manual, Volume 2A; Chapter 4, \"Instruction Set Reference, M-U,\" in the Intel(R) 64 and IA-32 Architectures Software Developer's Manual, Volume 2C; and Chapter 4, \"Instruction Set Reference, M-U,\" in the Intel(R) 64 and IA-32 Architectures Software Developer's Manual, Volume 2D."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "lzcnt",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LZCNT"
+  ]
+ },
+ "mnemonics": [
+  "LZCNT"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1282,
+    1289
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,726 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "1C"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of bytes in mm2/m64 and store UNSIGNED result in mm1.",
+   "opcode": "NP 0F 38 1C /r1",
+   "operands": "A",
+   "syntax": "PABSB mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "1C"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of bytes in xmm2/m128 and store UNSIGNED result in xmm1.",
+   "opcode": "66 0F 38 1C /r",
+   "operands": "A",
+   "syntax": "PABSB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "1D"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 16-bit integers in mm2/m64 and store UNSIGNED result in mm1.",
+   "opcode": "NP 0F 38 1D /r1",
+   "operands": "A",
+   "syntax": "PABSW mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "1D"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 16-bit integers in xmm2/m128 and store UNSIGNED result in xmm1.",
+   "opcode": "66 0F 38 1D /r",
+   "operands": "A",
+   "syntax": "PABSW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "1E"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 32-bit integers in mm2/m64 and store UNSIGNED result in mm1.",
+   "opcode": "NP 0F 38 1E /r1",
+   "operands": "A",
+   "syntax": "PABSD mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "1E"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 32-bit integers in xmm2/m128 and store UNSIGNED result in xmm1.",
+   "opcode": "66 0F 38 1E /r",
+   "operands": "A",
+   "syntax": "PABSD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of bytes in xmm2/m128 and store UNSIGNED result in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 1C /r",
+   "operands": "A",
+   "syntax": "VPABSB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 16-bit integers in xmm2/m128 and store UNSIGNED result in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 1D /r",
+   "operands": "A",
+   "syntax": "VPABSW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 32-bit integers in xmm2/m128 and store UNSIGNED result in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 1E /r",
+   "operands": "A",
+   "syntax": "VPABSD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of bytes in ymm2/m256 and store UNSIGNED result in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 1C /r",
+   "operands": "A",
+   "syntax": "VPABSB ymm1, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 16-bit integers in ymm2/m256 and store UNSIGNED result in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 1D /r",
+   "operands": "A",
+   "syntax": "VPABSW ymm1, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 32-bit integers in ymm2/m256 and store UNSIGNED result in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 1E /r",
+   "operands": "A",
+   "syntax": "VPABSD ymm1, ymm2/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of bytes in AVX512BW) OR AVX10.1 xmm2/m128 and store UNSIGNED result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 1C /r",
+   "operands": "B",
+   "syntax": "VPABSB xmm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of bytes in AVX512BW) OR AVX10.1 ymm2/m256 and store UNSIGNED result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 1C /r",
+   "operands": "B",
+   "syntax": "VPABSB ymm1 {k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX512BW OR",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of bytes in AVX10.1 zmm2/m512 and store UNSIGNED result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.WIG 1C /r",
+   "operands": "B",
+   "syntax": "VPABSB zmm1 {k1}{z}, zmm2/m512"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 16-bit integers in AVX512BW) OR AVX10.1 xmm2/m128 and store UNSIGNED result in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 1D /r",
+   "operands": "B",
+   "syntax": "VPABSW xmm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 16-bit integers in AVX512BW) OR AVX10.1 ymm2/m256 and store UNSIGNED result in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 1D /r",
+   "operands": "B",
+   "syntax": "VPABSW ymm1 {k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "AVX512BW OR",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1D"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 16-bit integers in AVX10.1 zmm2/m512 and store UNSIGNED result in zmm1 using writemask k1. 64/32 bit CPUID Feature Description Mode Support Flag",
+   "opcode": "EVEX.512.66.0F38.WIG 1D /r",
+   "operands": "B",
+   "syntax": "VPABSW zmm1 {k1}{z}, zmm2/m512 Opcode/                    Op/ Instruction                En"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 32-bit integers in AVX512F) OR xmm2/m128/m32bcst and store UNSIGNED result AVX10.1 in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 1E /r",
+   "operands": "C",
+   "syntax": "VPABSD xmm1 {k1}{z}, xmm2/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 32-bit integers in AVX512F) OR ymm2/m256/m32bcst and store UNSIGNED result AVX10.1 in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 1E /r",
+   "operands": "C",
+   "syntax": "VPABSD ymm1 {k1}{z}, ymm2/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 32-bit integers in OR AVX10.1 zmm2/m512/m32bcst and store UNSIGNED result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 1E /r",
+   "operands": "C",
+   "syntax": "VPABSD zmm1 {k1}{z}, zmm2/m512/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1F"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 64-bit integers in AVX512F) OR xmm2/m128/m64bcst and store UNSIGNED result AVX10.1 in xmm1 using writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 1F /r",
+   "operands": "C",
+   "syntax": "VPABSQ xmm1 {k1}{z}, xmm2/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1F"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 64-bit integers in AVX512F) OR ymm2/m256/m64bcst and store UNSIGNED result AVX10.1 in ymm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 1F /r",
+   "operands": "C",
+   "syntax": "VPABSQ ymm1 {k1}{z}, ymm2/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "1F"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the absolute value of 64-bit integers in OR AVX10.1 zmm2/m512/m64bcst and store UNSIGNED result in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 1F /r",
+   "operands": "C",
+   "syntax": "VPABSQ zmm1 {k1}{z}, zmm2/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pabsb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PABSB",
+   "VPABSB",
+   "PABSW",
+   "VPABSW",
+   "PABSD",
+   "VPABSD",
+   "VPABSQ"
+  ]
+ },
+ "mnemonics": [
+  "PABSB",
+  "PABSW",
+  "PABSD",
+  "PABSQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1466,
+    1471
+   ]
+  }
+ ],
+ "version": 1
+}

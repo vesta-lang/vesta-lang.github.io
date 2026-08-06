@@ -1,0 +1,234 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "F6"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide AX by r/m8, with result stored in: AL := Quotient, AH := Remainder.",
+   "opcode": "F6 /7",
+   "operands": "M",
+   "syntax": "IDIV r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "F7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide DX:AX by r/m16, with result stored in AX := Quotient, DX := Remainder.",
+   "opcode": "F7 /7",
+   "operands": "M",
+   "syntax": "IDIV r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "F7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Signed divide EDX:EAX by r/m32, with result stored in EAX := Quotient, EDX := Remainder.",
+   "opcode": "F7 /7",
+   "operands": "M",
+   "syntax": "IDIV r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "F7"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Signed divide RDX:RAX by r/m64, with result stored in RAX := Quotient, RDX := Remainder.",
+   "opcode": "REX.W + F7 /7",
+   "operands": "M",
+   "syntax": "IDIV r/m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#DE",
+   "when": "If the source operand (divisor) is 0. The signed result (quotient) is too large for the destination."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#DE",
+   "when": "If the source operand (divisor) is 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "The signed result (quotient) is too large for the destination."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If a memory operand effective address is outside the SS segment limit. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#DE",
+   "when": "If the source operand (divisor) is 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "The signed result (quotient) is too large for the destination."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#PF(fault-code)",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made. If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#DE",
+   "when": "If the source operand (divisor) is 0 If the quotient is too large for the designated register. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "idiv",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "IDIV"
+  ]
+ },
+ "mnemonics": [
+  "IDIV"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1152,
+    1154
+   ]
+  }
+ ],
+ "version": 1
+}

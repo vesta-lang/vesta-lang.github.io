@@ -1,0 +1,107 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7B"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one unsigned doubleword integer from OR AVX10.1 r/m32 to one single precision floating-point value  in xmm1.",
+   "opcode": "EVEX.LLIG.F3.0F.W0 7B /r",
+   "operands": "A",
+   "syntax": "VCVTUSI2SS xmm1, xmm2, r/m32{er}"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7B"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.1",
+    "long": "v"
+   },
+   "note": "Convert one unsigned quadword integer from OR AVX10.1 r/m64 to one single precision floating-point value  in xmm1.",
+   "opcode": "EVEX.LLIG.F3.0F.W1 7B /r",
+   "operands": "A",
+   "syntax": "VCVTUSI2SS xmm1, xmm2, r/m64{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtusi2ss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTUSI2SS"
+  ]
+ },
+ "mnemonics": [
+  "VCVTUSI2SS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2199,
+    2200
+   ]
+  }
+ ],
+ "version": 1
+}

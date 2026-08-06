@@ -1,0 +1,242 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AE"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare AL with byte at ES:(E)DI or RDI, then set status flags.1",
+   "opcode": "AE",
+   "operands": "ZO",
+   "syntax": "SCAS m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare AX with word at ES:(E)DI or RDI, then set status flags.1",
+   "opcode": "AF",
+   "operands": "ZO",
+   "syntax": "SCAS m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare EAX with doubleword at ES(E)DI or RDI then set status flags.1",
+   "opcode": "AF",
+   "operands": "ZO",
+   "syntax": "SCAS m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AF"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Compare RAX with quadword at RDI or EDI then set status flags.",
+   "opcode": "REX.W + AF",
+   "operands": "ZO",
+   "syntax": "SCAS m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AE"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare AL with byte at ES:(E)DI or RDI then set status flags.1",
+   "opcode": "AE",
+   "operands": "ZO",
+   "syntax": "SCASB"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare AX with word at ES:(E)DI or RDI then set status flags.1",
+   "opcode": "AF",
+   "operands": "ZO",
+   "syntax": "SCASW"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Compare EAX with doubleword at ES:(E)DI or RDI then set status flags.1",
+   "opcode": "AF",
+   "operands": "ZO",
+   "syntax": "SCASD"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AF"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Compare RAX with quadword at RDI or EDI then set status flags.",
+   "opcode": "REX.W + AF",
+   "operands": "ZO",
+   "syntax": "SCASQ"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the limit of the ES segment. If the ES register contains a NULL segment selector. If an illegal memory operand effective address in the ES segment is given. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "scas",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SCASB",
+   "SCASW",
+   "SCASD",
+   "SCASQ"
+  ]
+ },
+ "mnemonics": [
+  "SCAS",
+  "SCASB",
+  "SCASW",
+  "SCASD"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1904,
+    1907
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,134 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Push lower 16 bits of EFLAGS.",
+   "opcode": "9C",
+   "operands": "ZO",
+   "syntax": "PUSHF"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Push EFLAGS.",
+   "opcode": "9C",
+   "operands": "ZO",
+   "syntax": "PUSHFD"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9C"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Push RFLAGS.",
+   "opcode": "9C",
+   "operands": "ZO",
+   "syntax": "PUSHFQ"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the new value of the ESP register is outside the stack segment boundary. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while CPL = 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the I/O privilege level is less than 3. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while alignment checking is enabled."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while CPL = 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "pushf",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PUSHF",
+   "PUSHFQ"
+  ]
+ },
+ "mnemonics": [
+  "PUSHF",
+  "PUSHFD",
+  "PUSHFQ"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1817,
+    1818
+   ]
+  }
+ ],
+ "version": 1
+}

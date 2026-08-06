@@ -1,0 +1,99 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "B0"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "text": "VEX.128.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert odd elements of packed FP16 values CONVERT from m128 to FP32 values and store in xmm1.",
+   "opcode": "VEX.128.NP.0F38.W0 B0 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "VCVTNEOPH2PS xmm1, m128"
+  },
+  {
+   "cpuid": "AVX_NE_",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "B0"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "text": "VEX.256.NP.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert odd elements of packed FP16 values CONVERT from m256 to FP32 values and store in ymm1.",
+   "opcode": "VEX.256.NP.0F38.W0 B0 !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "VCVTNEOPH2PS ymm1, m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtneoph2ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTNEOPH2PS"
+  ]
+ },
+ "mnemonics": [
+  "VCVTNEOPH2PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2088,
+    2088
+   ]
+  }
+ ],
+ "version": 1
+}

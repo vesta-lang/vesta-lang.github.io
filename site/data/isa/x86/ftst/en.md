@@ -1,0 +1,52 @@
+---
+summary: TEST
+---
+
+## Description
+
+Compares the value in the ST(0) register with 0.0 and sets the condition code flags C0, C2, and C3 in the FPU status word according to the results (see table below).
+
+**FTST Results**
+
+| Condition | C3 | C2 | C0 |
+| --- | --- | --- | --- |
+| ST(0) > 0.0 | 0 | 0 | 0 |
+| ST(0) < 0.0 | 0 | 0 | 1 |
+| ST(0) = 0.0 | 1 | 0 | 0 |
+| Unordered | 1 | 1 | 1 |
+
+## Operation
+
+```text
+CASE (relation of operands) OF
+
+    Not comparable: C3, C2, C0 := 111;
+
+    ST(0) > 0.0:  C3, C2, C0 := 000;
+
+    ST(0) < 0.0:  C3, C2, C0 := 001;
+
+    ST(0) = 0.0:  C3, C2, C0 := 100;
+
+ESAC;
+
+FPU Flags Affected
+
+C1                  Set to 0.
+
+C0, C2, C3          See Table 3-42.
+```
+
+## Floating-Point Exceptions
+
+```text
+#IS                 Stack underflow occurred.
+```
+
+```text
+#IA                 The source operand is a NaN value or is in an unsupported format.
+```
+
+```text
+#D                  The source operand is a denormal value.
+```

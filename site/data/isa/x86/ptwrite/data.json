@@ -1,0 +1,169 @@
+{
+ "encodings": [
+  {
+   "cpuid": "PTWRITE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e",
+    "long": "v"
+   },
+   "note": "Reads the data from r64/m64 to encode into a PTW packet if dependencies are met (see details below).",
+   "opcode": "F3 REX.W 0F AE /4",
+   "operands": "RM",
+   "syntax": "PTWRITE r64/m64"
+  },
+  {
+   "cpuid": "PTWRITE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Reads the data from r32/m32 to encode into a PTW packet if dependencies are met (see details below).",
+   "opcode": "F3 0F AE /4",
+   "operands": "RM",
+   "syntax": "PTWRITE r32/m32"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS or GS segments."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while the current privilege level is 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.14H.00H:EBX.PTWRITE[4] = 0. If LOCK prefix is used. If 66H prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If any part of the operand lies outside of the effective address space from 0 to 0FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.14H.00H:EBX.PTWRITE[4] = 0. If LOCK prefix is used. If 66H prefix is used. Virtual 8086 Mode Exceptions"
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If any part of the operand lies outside of the effective address space from 0 to 0FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "real",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while alignment checking is enabled."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.14H.00H:EBX.PTWRITE[4] = 0. If LOCK prefix is used. If 66H prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in Protected Mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form. #PF (fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.14H.00H:EBX.PTWRITE[4] = 0. If LOCK prefix is used. If 66H prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "ptwrite",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PTWRITE"
+  ]
+ },
+ "mnemonics": [
+  "PTWRITE"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1789,
+    1790
+   ]
+  }
+ ],
+ "version": 1
+}

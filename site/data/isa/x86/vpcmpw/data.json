@@ -1,0 +1,249 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3F"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed word integers in AVX512BW) OR xmm3/m128 and xmm2 using bits 2:0 of    imm8 as a AVX10.1 comparison predicate with writemask k2  and leave the result in mask register k1.",
+   "opcode": "EVEX.128.66.0F3A.W1 3F /r ib",
+   "operands": "A",
+   "syntax": "VPCMPW k1 {k2}, xmm2, xmm3/m128, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3F"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed word integers in AVX512BW) OR ymm3/m256 and ymm2 using bits 2:0 of    imm8 as a AVX10.1 comparison predicate with writemask k2  and leave the result in mask register k1.",
+   "opcode": "EVEX.256.66.0F3A.W1 3F /r ib",
+   "operands": "A",
+   "syntax": "VPCMPW k1 {k2}, ymm2, ymm3/m256, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3F"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed signed word integers in OR AVX10.1 zmm3/m512 and zmm2 using bits 2:0 of    imm8 as a comparison predicate with writemask k2  and leave the result in mask register k1.",
+   "opcode": "EVEX.512.66.0F3A.W1 3F /r ib",
+   "operands": "A",
+   "syntax": "VPCMPW k1 {k2}, zmm2, zmm3/m512, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3E"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed unsigned word integers   in AVX512BW) OR xmm3/m128 and xmm2 using bits 2:0 of    imm8 as a AVX10.1 comparison predicate with writemask k2  and leave the result in mask register k1.",
+   "opcode": "EVEX.128.66.0F3A.W1 3E /r ib",
+   "operands": "A",
+   "syntax": "VPCMPUW k1 {k2}, xmm2, xmm3/m128, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3E"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed unsigned word integers   in AVX512BW) OR ymm3/m256 and ymm2 using bits 2:0 of    imm8 as a AVX10.1 comparison predicate with writemask k2  and leave the result in mask register k1.",
+   "opcode": "EVEX.256.66.0F3A.W1 3E /r ib",
+   "operands": "A",
+   "syntax": "VPCMPUW k1 {k2}, ymm2, ymm3/m256, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3E"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed unsigned word integers   in OR AVX10.1 zmm3/m512 and zmm2 using bits 2:0 of    imm8 as a comparison predicate with writemask k2  and leave the result in mask register k1.",
+   "opcode": "EVEX.512.66.0F3A.W1 3E /r ib",
+   "operands": "A",
+   "syntax": "VPCMPUW k1 {k2}, zmm2, zmm3/m512, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpcmpw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPCMPW",
+   "VPCMPUW"
+  ]
+ },
+ "mnemonics": [
+  "VPCMPW",
+  "VPCMPUW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2516,
+    2518
+   ]
+  }
+ ],
+ "version": 1
+}

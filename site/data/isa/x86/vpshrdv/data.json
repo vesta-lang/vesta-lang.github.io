@@ -1,0 +1,315 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate xmm1 and xmm2, extract result AND AVX512VL) shifted to the right by value in xmm3/m128 OR AVX10.1 into xmm1.",
+   "opcode": "EVEX.128.66.0F38.W1 72 /r",
+   "operands": "A",
+   "syntax": "VPSHRDVW xmm1{k1}{z}, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate ymm1 and ymm2, extract result AND AVX512VL) shifted to the right by value in xmm3/m256 OR AVX10.1 into ymm1.",
+   "opcode": "EVEX.256.66.0F38.W1 72 /r",
+   "operands": "A",
+   "syntax": "VPSHRDVW ymm1{k1}{z}, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate zmm1 and zmm2, extract result OR AVX10.1 shifted to the right by value in zmm3/m512 into zmm1.",
+   "opcode": "EVEX.512.66.0F38.W1 72 /r",
+   "operands": "A",
+   "syntax": "VPSHRDVW zmm1{k1}{z}, zmm2, zmm3/m512"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate xmm1 and xmm2, extract result AND AVX512VL) shifted to the right by value in xmm3/m128 OR AVX10.1 into xmm1.",
+   "opcode": "EVEX.128.66.0F38.W0 73 /r",
+   "operands": "B",
+   "syntax": "VPSHRDVD xmm1{k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate ymm1 and ymm2, extract result AND AVX512VL) shifted to the right by value in xmm3/m256 OR AVX10.1 into ymm1.",
+   "opcode": "EVEX.256.66.0F38.W0 73 /r",
+   "operands": "B",
+   "syntax": "VPSHRDVD ymm1{k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate zmm1 and zmm2, extract result OR AVX10.1 shifted to the right by value in zmm3/m512 into zmm1.",
+   "opcode": "EVEX.512.66.0F38.W0 73 /r",
+   "operands": "B",
+   "syntax": "VPSHRDVD zmm1{k1}{z}, zmm2, zmm3/m512/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate xmm1 and xmm2, extract result AND AVX512VL) shifted to the right by value in xmm3/m128 OR AVX10.1 into xmm1.",
+   "opcode": "EVEX.128.66.0F38.W1 73 /r",
+   "operands": "B",
+   "syntax": "VPSHRDVQ xmm1{k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate ymm1 and ymm2, extract result AND AVX512VL) shifted to the right by value in xmm3/m256 OR AVX10.1 into ymm1.",
+   "opcode": "EVEX.256.66.0F38.W1 73 /r",
+   "operands": "B",
+   "syntax": "VPSHRDVQ ymm1{k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "73"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Concatenate zmm1 and zmm2, extract result OR AVX10.1 shifted to the right by value in zmm3/m512 into zmm1.",
+   "opcode": "EVEX.512.66.0F38.W1 73 /r",
+   "operands": "B",
+   "syntax": "VPSHRDVQ zmm1{k1}{z}, zmm2, zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpshrdv",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPSHRDVW",
+   "VPSHRDVD",
+   "VPSHRDVQ"
+  ]
+ },
+ "mnemonics": [
+  "VPSHRDV"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2682,
+    2684
+   ]
+  }
+ ],
+ "version": 1
+}

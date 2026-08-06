@@ -1,0 +1,89 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "55"
+    ],
+    "vector_prefix": {
+     "map": "0F 3A",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Fix up a float64 number in the low quadword element OR AVX10.1 of xmm2 using scalar int32 table in xmm3/m64 and store the result in xmm1.",
+   "opcode": "EVEX.LLIG.66.0F3A.W1 55 /r ib",
+   "operands": "A",
+   "syntax": "VFIXUPIMMSD xmm1 {k1}{z}, xmm2, xmm3/m64{sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfixupimmsd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFIXUPIMMSD"
+  ]
+ },
+ "mnemonics": [
+  "VFIXUPIMMSD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2250,
+    2253
+   ]
+  }
+ ],
+ "version": 1
+}

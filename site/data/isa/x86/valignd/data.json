@@ -1,0 +1,249 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift right and merge vectors xmm2 and AVX512F) OR xmm3/m128/m32bcst with double-word granularity AVX10.1 using imm8 as number of elements to shift, and store the final result in xmm1, under writemask.",
+   "opcode": "EVEX.128.66.0F3A.W0 03 /r ib",
+   "operands": "A",
+   "syntax": "VALIGND xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift right and merge vectors xmm2 and AVX512F) OR xmm3/m128/m64bcst with quad-word granularity AVX10.1 using imm8 as number of elements to shift, and store the final result in xmm1, under writemask.",
+   "opcode": "EVEX.128.66.0F3A.W1 03 /r ib",
+   "operands": "A",
+   "syntax": "VALIGNQ xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift right and merge vectors ymm2 and AVX512F) OR ymm3/m256/m32bcst with double-word granularity AVX10.1 using imm8 as number of elements to shift, and store the final result in ymm1, under writemask.",
+   "opcode": "EVEX.256.66.0F3A.W0 03 /r ib",
+   "operands": "A",
+   "syntax": "VALIGND ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift right and merge vectors ymm2 and AVX512F) OR ymm3/m256/m64bcst with quad-word granularity AVX10.1 using imm8 as number of elements to shift, and store the final result in ymm1, under writemask.",
+   "opcode": "EVEX.256.66.0F3A.W1 03 /r ib",
+   "operands": "A",
+   "syntax": "VALIGNQ ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift right and merge vectors zmm2 and OR AVX10.1 zmm3/m512/m32bcst with double-word granularity using imm8 as number of elements to shift, and store the final result in zmm1, under writemask.",
+   "opcode": "EVEX.512.66.0F3A.W0 03 /r ib",
+   "operands": "A",
+   "syntax": "VALIGND zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift right and merge vectors zmm2 and OR AVX10.1 zmm3/m512/m64bcst with quad-word granularity using imm8 as number of elements to shift, and store the final result in zmm1, under writemask.",
+   "opcode": "EVEX.512.66.0F3A.W1 03 /r ib",
+   "operands": "A",
+   "syntax": "VALIGNQ zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "valignd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VALIGND",
+   "VALIGNQ"
+  ]
+ },
+ "mnemonics": [
+  "VALIGND",
+  "VALIGNQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2055,
+    2057
+   ]
+  }
+ ],
+ "version": 1
+}

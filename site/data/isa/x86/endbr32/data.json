@@ -1,0 +1,47 @@
+{
+ "encodings": [
+  {
+   "cpuid": "CET_IBT",
+   "layout": {
+    "opcode": [
+     "0F",
+     "1E",
+     "FB"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Terminate indirect branch in 32-bit and compatibility mode.",
+   "opcode": "F3 0F 1E FB",
+   "operands": "ZO",
+   "syntax": "ENDBR32"
+  }
+ ],
+ "format": "isadoc",
+ "id": "endbr32",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ENDBR32"
+  ]
+ },
+ "mnemonics": [
+  "ENDBR32"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    991,
+    991
+   ]
+  }
+ ],
+ "version": 1
+}

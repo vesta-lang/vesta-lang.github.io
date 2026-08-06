@@ -75,13 +75,11 @@ export const LEARN = [
                 id: 'operators',
                 title: { en: 'Operators and casts', es: 'Operadores y casts' },
                 slug: { en: 'operators', es: 'operadores' },
-                draft: true,
             },
             {
                 id: 'control-flow',
                 title: { en: 'Control flow', es: 'Control de flujo' },
                 slug: { en: 'control-flow', es: 'control-de-flujo' },
-                draft: true,
             },
             {
                 id: 'functions',
@@ -254,7 +252,7 @@ export const LEARN = [
             {
                 id: 'comptime-fn',
                 title: { en: 'Compile-time functions', es: 'Funciones comptime' },
-                slug: { en: 'functions', es: 'funciones' },
+                slug: { en: 'comptime-functions', es: 'funciones-comptime' },
                 draft: true,
             },
             {
@@ -278,18 +276,24 @@ export const LEARN = [
             {
                 id: 'comptime-strings',
                 title: { en: 'Strings at compile time', es: 'Cadenas en compile-time' },
-                slug: { en: 'strings', es: 'cadenas' },
+                slug: { en: 'comptime-strings', es: 'cadenas-comptime' },
                 draft: true,
             },
             {
                 id: 'introspect-layout',
-                title: { en: 'Introspection: size and identity', es: 'Introspeccion: tamano e identidad' },
+                title: {
+                    en: 'Introspection: size and identity',
+                    es: 'Introspeccion: tamano e identidad',
+                },
                 slug: { en: 'introspection-layout', es: 'introspeccion-layout' },
                 draft: true,
             },
             {
                 id: 'introspect-members',
-                title: { en: 'Introspection: fields and methods', es: 'Introspeccion: campos y metodos' },
+                title: {
+                    en: 'Introspection: fields and methods',
+                    es: 'Introspeccion: campos y metodos',
+                },
                 slug: { en: 'introspection-members', es: 'introspeccion-miembros' },
                 draft: true,
             },
@@ -308,12 +312,15 @@ export const LEARN = [
             {
                 id: 'comptime-control',
                 title: { en: 'comptime if and comptime for', es: 'comptime if y comptime for' },
-                slug: { en: 'control-flow', es: 'control-de-flujo' },
+                slug: { en: 'comptime-control-flow', es: 'control-de-flujo-comptime' },
                 draft: true,
             },
             {
                 id: 'comptime-data',
-                title: { en: 'Compile-time data structures', es: 'Estructuras de datos en compile-time' },
+                title: {
+                    en: 'Compile-time data structures',
+                    es: 'Estructuras de datos en compile-time',
+                },
                 slug: { en: 'data-structures', es: 'estructuras-de-datos' },
                 draft: true,
             },
@@ -325,7 +332,10 @@ export const LEARN = [
             },
             {
                 id: 'comptime-ffi',
-                title: { en: 'Calling the system at build time', es: 'Llamar al sistema al compilar' },
+                title: {
+                    en: 'Calling the system at build time',
+                    es: 'Llamar al sistema al compilar',
+                },
                 slug: { en: 'compile-time-ffi', es: 'ffi-en-compilacion' },
                 draft: true,
             },
@@ -343,13 +353,19 @@ export const LEARN = [
             },
             {
                 id: 'brainfuck',
-                title: { en: 'A compiler inside the compiler', es: 'Un compilador dentro del compilador' },
+                title: {
+                    en: 'A compiler inside the compiler',
+                    es: 'Un compilador dentro del compilador',
+                },
                 slug: { en: 'compiler-in-a-compiler', es: 'compilador-en-el-compilador' },
                 draft: true,
             },
             {
                 id: 'ctpe',
-                title: { en: 'CTPE: the whole program, precomputed', es: 'CTPE: el programa precalculado' },
+                title: {
+                    en: 'CTPE: the whole program, precomputed',
+                    es: 'CTPE: el programa precalculado',
+                },
                 slug: { en: 'ctpe', es: 'ctpe' },
                 draft: true,
             },
@@ -415,7 +431,10 @@ export const LEARN = [
             },
             {
                 id: 'std-binary',
-                title: { en: 'Binary formats: PE, ELF, BMP', es: 'Formatos binarios: PE, ELF, BMP' },
+                title: {
+                    en: 'Binary formats: PE, ELF, BMP',
+                    es: 'Formatos binarios: PE, ELF, BMP',
+                },
                 slug: { en: 'binary-formats', es: 'formatos-binarios' },
                 draft: true,
             },
@@ -433,13 +452,19 @@ export const LEARN = [
         chapters: [
             {
                 id: 'runtime-why',
-                title: { en: 'Why the runtime is written in the language', es: 'Por que el runtime esta en el lenguaje' },
+                title: {
+                    en: 'Why the runtime is written in the language',
+                    es: 'Por que el runtime esta en el lenguaje',
+                },
                 slug: { en: 'why', es: 'por-que' },
                 draft: true,
             },
             {
                 id: 'runtime-mem',
-                title: { en: 'Memory: arenas and the slab allocator', es: 'Memoria: arenas y allocator slab' },
+                title: {
+                    en: 'Memory: arenas and the slab allocator',
+                    es: 'Memoria: arenas y allocator slab',
+                },
                 slug: { en: 'memory', es: 'memoria' },
                 draft: true,
             },
@@ -451,8 +476,8 @@ export const LEARN = [
             },
             {
                 id: 'runtime-exc',
-                title: { en: 'Exceptions', es: 'Excepciones' },
-                slug: { en: 'exceptions', es: 'excepciones' },
+                title: { en: 'Exceptions in the runtime', es: 'Excepciones en el runtime' },
+                slug: { en: 'runtime-exceptions', es: 'excepciones-runtime' },
                 draft: true,
             },
             {
@@ -535,7 +560,10 @@ export const LEARN = [
             },
             {
                 id: 'native',
-                title: { en: 'From bytecode to a native binary', es: 'Del bytecode al binario nativo' },
+                title: {
+                    en: 'From bytecode to a native binary',
+                    es: 'Del bytecode al binario nativo',
+                },
                 slug: { en: 'native-binaries', es: 'binarios-nativos' },
                 draft: true,
             },

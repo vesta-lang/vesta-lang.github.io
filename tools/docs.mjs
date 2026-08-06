@@ -12,7 +12,7 @@
  * distintas, y quien lee no sabe cual creer.
  */
 
-import { escapeHtml } from './markdown.mjs';
+import { escapeHtml, renderInline } from './markdown.mjs';
 import { chapterHref } from '../site/content/learn.mjs';
 import { urlFor } from './site.mjs';
 
@@ -37,6 +37,23 @@ const UI = {
 };
 
 /**
+ * Devuelve un rotulo en el idioma pedido, cayendo al ingles.
+ *
+ * Los indices de la doc declaran sus titulos en los idiomas que cubren el
+ * sitio entero. Un idioma parcial -- que solo traduce una seccion -- no los
+ * tiene, y no se los inventa: se muestra el ingles, que es la version que
+ * existe. Sin esto el build reventaba al pedir el titulo chino de una seccion
+ * que no esta en chino.
+ *
+ * @param {Object} titles Rotulos por idioma.
+ * @param {string} lang Idioma pedido.
+ * @returns {string} El rotulo disponible.
+ */
+function titleIn(titles, lang) {
+    return titles[lang] || titles.en;
+}
+
+/**
  * Construye la barra lateral con el recorrido completo.
  *
  * Los capitulos pendientes se muestran, sin enlace y marcados. Ocultarlos haria
@@ -54,7 +71,7 @@ export function sidebar(parts, lang, current) {
     const groups = parts.map((part) => {
         const items = part.chapters.map((chapter) => {
             const { href: raw, own } = chapterHref(chapter, lang);
-            const label = escapeHtml(chapter.title[lang]);
+            const label = escapeHtml(titleIn(chapter.title, lang));
 
             if (chapter.draft) {
                 return (
@@ -68,7 +85,7 @@ export function sidebar(parts, lang, current) {
 
         return (
             `<li class="doc-part">` +
-            `<h3>${escapeHtml(part.title[lang])}</h3>` +
+            `<h3>${escapeHtml(titleIn(part.title, lang))}</h3>` +
             `<ul>${items.join('')}</ul>` +
             `</li>`
         );
@@ -79,6 +96,95 @@ export function sidebar(parts, lang, current) {
         `<ul>${groups.join('')}</ul>` +
         `</nav>`
     );
+}
+
+/**
+ * Construye la barra lateral de la referencia.
+ *
+ * A diferencia de Learn, que es una lista plana porque se lee en orden y tiene
+ * un final, la referencia crece indefinidamente y se entra por el medio. Una
+ * barra lateral con las paginas de los cuatro libros a la vez dejaria de
+ * servir para navegar en cuanto pasara de una pantalla, que es casi de
+ * inmediato.
+ *
+ * Por eso solo se despliega el libro actual. El resto ocupan una linea cada
+ * uno, enlazando a su portada: siguen visibles, porque esconderlos dejaria al
+ * lector sin saber que existen, pero no compiten con la pagina que esta
+ * leyendo.
+ *
+ * @param {Array} books Indice de la referencia.
+ * @param {string} lang Idioma.
+ * @param {string} current Ruta canonica de la pagina actual.
+ * @param {Function} bookHref Constructor de la ruta de la portada de un libro.
+ * @param {Function} pageHref Constructor de la ruta de una pagina.
+ * @param {Function} [linkTo] Constructor de la URL final. Existe para los
+ *        idiomas parciales: una pagina que no esta traducida se enlaza en el
+ *        idioma que si la tiene, en lugar de a una ruta que no se emite.
+ * @returns {string} HTML de la barra lateral.
+ */
+export function referenceSidebar(books, lang, current, bookHref, pageHref, linkTo) {
+    const link = linkTo || ((path) => urlFor(lang, path));
+    const t = UI[lang] || UI.en;
+
+    const groups = books.map((book) => {
+        const home = bookHref(book, lang);
+        const open = current === home || current.startsWith(home);
+        const label = escapeHtml(titleIn(book.title, lang));
+        const active = current === home ? ' aria-current="page"' : '';
+
+        const head =
+            `<h3><a href="${link(home)}"${active}>${label}</a></h3>`;
+
+        if (!open) return `<li class="doc-part is-closed">${head}</li>`;
+
+        const items = book.pages.map((page) => {
+            const href = pageHref(book, page, lang);
+            const title = escapeHtml(titleIn(page.title, lang));
+
+            if (page.draft) {
+                return `<li class="is-draft"><span title="${t.draft}">${title}</span></li>`;
+            }
+            const mark = href === current ? ' aria-current="page"' : '';
+            return `<li><a href="${link(href)}"${mark}>${title}</a></li>`;
+        });
+
+        return `<li class="doc-part">${head}<ul>${items.join('')}</ul></li>`;
+    });
+
+    return (
+        `<nav class="doc-sidebar" aria-label="${t.sections}">` +
+        `<ul>${groups.join('')}</ul>` +
+        `</nav>`
+    );
+}
+
+/**
+ * Construye el listado de paginas de la portada de un libro.
+ *
+ * Sale del mismo indice que la barra lateral. Escrito a mano en cada portada
+ * se quedaria sin la pagina anadida ayer, y una portada incompleta es peor que
+ * ninguna: quien la consulta cree haber visto el libro entero.
+ *
+ * Las paginas pendientes aparecen sin enlace y marcadas, por el mismo motivo
+ * que en Learn: ocultarlas haria parecer terminado un libro que no lo esta.
+ *
+ * @param {Object} book Libro.
+ * @param {string} lang Idioma.
+ * @param {Function} pageHref Constructor de la ruta de una pagina.
+ * @returns {string} HTML del listado.
+ */
+export function bookIndex(book, lang, pageHref) {
+    const t = UI[lang] || UI.en;
+
+    const items = book.pages.map((page) => {
+        const title = escapeHtml(titleIn(page.title, lang));
+        if (page.draft) {
+            return `<li class="is-draft"><span title="${t.draft}">${title}</span></li>`;
+        }
+        return `<li><a href="${urlFor(lang, pageHref(book, page, lang))}">${title}</a></li>`;
+    });
+
+    return `<ul class="book-index">${items.join('')}</ul>`;
 }
 
 /**
@@ -100,8 +206,11 @@ export function tableOfContents(headings, lang) {
     // ve al bajar la vista.
     if (items.length < 3) return '';
 
+    // El texto del encabezado se procesa como Markdown, igual que en el cuerpo:
+    // un titulo que contiene `codigo` debe verse como codigo tambien aqui, no
+    // con las comillas invertidas a la vista.
     const links = items
-        .map((h) => `<li><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`)
+        .map((h) => `<li><a href="#${h.id}">${renderInline(h.text)}</a></li>`)
         .join('');
 
     return (

@@ -1,0 +1,114 @@
+{
+ "encodings": [
+  {
+   "cpuid": "WAITPKG",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sets up a linear address range to be monitored by hardware and activates the monitor. The address range should be a write-back memory caching type. The address is contained in r16/r32/r64. Instruction Operand Encoding1 Op erand 2 Operand 3                  Operand 4 N/A N/A                      N/A",
+   "opcode": "F3 0F AE /6",
+   "operands": "A",
+   "syntax": "UMONITOR r16/r32/r64 Op/En    Tuple    Operand 1 A        N/A      ModRM:r/m (r)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the specified segment is not SS and the source register is outside the specified segment limit. If the specified segment register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the specified segment is SS and the source register is outside the SS segment limit. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5]=0. If the LOCK prefix is used. Real Address Mode Exceptions"
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP",
+   "when": "If the specified segment is not SS and the source register is outside of the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS",
+   "when": "If the specified segment is SS and the source register is outside of the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5] =0. If the LOCK prefix is used. Virtual 8086 Mode Exceptions Same exceptions as in real address mode; additionally: #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the specified segment is not SS and the linear address is in non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the specified segment is SS and the source register is in non-canonical form. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.07H.00H:ECX.WAITPKG[5] =0. If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "umonitor",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "UMONITOR"
+  ]
+ },
+ "mnemonics": [
+  "UMONITOR"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2028,
+    2029
+   ]
+  }
+ ],
+ "version": 1
+}

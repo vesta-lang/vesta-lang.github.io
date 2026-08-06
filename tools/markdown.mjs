@@ -165,7 +165,11 @@ export function slugify(text) {
     void to;
     return text
         .normalize('NFD')
-        .replace(/[̀-ͯ]/g, '') // marcas diacriticas
+        // Marcas diacriticas. Se escriben como escapes y no como los propios
+        // caracteres para que el fuente siga siendo ASCII: un rango de
+        // combinantes pegado en un editor es invisible y se corrompe al
+        // copiarse.
+        .replace(new RegExp('[\\u0300-\\u036f]', 'g'), '')
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '');
@@ -295,11 +299,35 @@ function renderList(lines, level) {
  * @returns {string} HTML de la tabla.
  */
 function renderTable(rows) {
-    const split = (row) =>
-        row
-            .replace(/^\||\|$/g, '')
-            .split('|')
-            .map((cell) => cell.trim());
+    // Una barra ESCAPADA (`\|`) es contenido de la celda, no un separador.
+    //
+    // Sin esto no hay forma de poner el operador `|` en una tabla: la fila se
+    // parte por dentro y la celda se desplaza a la columna siguiente, que es
+    // exactamente lo que pasaba en la tabla de operadores de bits.
+    const split = (row) => {
+        const cells = [];
+        let current = '';
+        for (let i = 0; i < row.length; i += 1) {
+            if (row[i] === '\\' && row[i + 1] === '|') {
+                current += '|';
+                i += 1;
+                continue;
+            }
+            if (row[i] === '|') {
+                cells.push(current);
+                current = '';
+                continue;
+            }
+            current += row[i];
+        }
+        cells.push(current);
+
+        // Las barras de los extremos delimitan la fila y no abren celda.
+        if (cells.length > 0 && cells[0].trim() === '') cells.shift();
+        if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
+
+        return cells.map((cell) => cell.trim());
+    };
 
     const header = split(rows[0]);
     const aligns = split(rows[1]).map((spec) => {

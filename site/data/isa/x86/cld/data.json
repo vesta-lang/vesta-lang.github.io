@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "FC"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Clear DF flag.",
+   "opcode": "FC",
+   "operands": "ZO",
+   "syntax": "CLD"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "DF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "cld",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CLD"
+  ]
+ },
+ "mnemonics": [
+  "CLD"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    845,
+    845
+   ]
+  }
+ ],
+ "version": 1
+}

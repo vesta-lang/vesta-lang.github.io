@@ -1,0 +1,144 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into lower 16 bits of EFLAGS.",
+   "opcode": "9D",
+   "operands": "ZO",
+   "syntax": "POPF"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Pop top of stack into EFLAGS.",
+   "opcode": "9D",
+   "operands": "ZO",
+   "syntax": "POPFD"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "9D"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Pop top of stack and zero-extend into RFLAGS.",
+   "opcode": "9D",
+   "operands": "ZO",
+   "syntax": "POPFQ"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the top of stack is not within the stack segment. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while CPL = 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If the top of stack is not within the stack segment."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If IOPL < 3 and VME is not enabled. If IOPL < 3 and the 32-bit operand size is used. If IOPL < 3, EFLAGS.VIP = 1, and bit 9 (IF) is set in the FLAGS value on the stack. If IOPL < 3 and bit 8 (TF) is set in the FLAGS value on the stack. If an attempt is made to execute the POPF/POPFD instruction with an operand-size override prefix."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If the top of stack is not within the stack segment. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while alignment checking is enabled."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same as for protected mode exceptions."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "popf",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "POPF",
+   "POPFQ"
+  ]
+ },
+ "mnemonics": [
+  "POPF",
+  "POPFD",
+  "POPFQ"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1696,
+    1699
+   ]
+  }
+ ],
+ "version": 1
+}

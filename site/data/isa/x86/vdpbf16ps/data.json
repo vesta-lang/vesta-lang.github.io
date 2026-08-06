@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "52"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply BF16 pairs from xmm2 and AND AVX512VL) xmm3/m128, and accumulate the resulting OR AVX10.1 packed single precision results in xmm1 with writemask k1.",
+   "opcode": "EVEX.128.F3.0F38.W0 52 /r",
+   "operands": "A",
+   "syntax": "VDPBF16PS xmm1{k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "52"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply BF16 pairs from ymm2 and AND AVX512VL) ymm3/m256, and accumulate the resulting OR AVX10.1 packed single precision results in ymm1 with writemask k1.",
+   "opcode": "EVEX.256.F3.0F38.W0 52 /r",
+   "operands": "A",
+   "syntax": "VDPBF16PS ymm1{k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "52"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply BF16 pairs from zmm2 and AND AVX512F) zmm3/m512, and accumulate the resulting OR AVX10.1 packed single precision results in zmm1 with writemask k1.",
+   "opcode": "EVEX.512.F3.0F38.W0 52 /r",
+   "operands": "A",
+   "syntax": "VDPBF16PS zmm1{k1}{z}, zmm2, zmm3/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vdpbf16ps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VDPBF16PS"
+  ]
+ },
+ "mnemonics": [
+  "VDPBF16PS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2211,
+    2212
+   ]
+  }
+ ],
+ "version": 1
+}

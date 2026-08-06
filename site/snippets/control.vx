@@ -1,0 +1,68 @@
+i32 main() {
+    // Condicional. Las llaves no son opcionales.
+    i64 nota = 7;
+    if (nota >= 9) {
+        println("sobresaliente");
+    } else if (nota >= 5) {
+        println("aprobado");
+    } else {
+        println("suspenso");
+    }
+
+    // while: comprueba antes de entrar.
+    i64 i = 0;
+    while (i < 3) {
+        println("while ${i}");
+        i = i + 1;
+    }
+
+    // do-while: ejecuta el cuerpo y comprueba despues, asi que siempre corre
+    // al menos una vez.
+    i64 intentos = 0;
+    do {
+        intentos = intentos + 1;
+    } while (intentos < 5);
+    println("intentos = ${intentos}");
+
+    // for clasico: inicializacion, condicion y paso, en la misma linea.
+    for (i64 k = 0; k < 3; k++) {
+        println("for ${k}");
+    }
+
+    // foreach sobre un array: no hay indice de por medio.
+    i64[4] datos = {10, 20, 30, 40};
+    i64 total = 0;
+    for (i64 v : datos) {
+        total = total + v;
+    }
+    println("suma = ${total}");
+
+    // break sale del bucle; continue salta a la siguiente vuelta.
+    for (i64 m = 0; m < 10; m++) {
+        if (m % 2 == 0) { continue; }
+        if (m > 6) { break; }
+        println("impar ${m}");
+    }
+
+    // El ternario elige entre dos valores sin escribir un if.  Se calcula
+    // fuera de la cadena: dentro de ${...} los dos puntos se confunden con el
+    // separador del especificador de formato.
+    i64 a = 9;
+    i64 b = 4;
+    i64 mayor = a > b ? a : b;
+    println("mayor = ${mayor}");
+
+    // match compara el valor contra varias formas. El guion bajo recoge todo
+    // lo que no haya casado antes.
+    i64 codigo = 3;
+    match codigo {
+        case 1 => println("aceptado");
+        case 2 => println("pendiente");
+        case _ => {
+            println("desconocido:");
+            println("  codigo = ${codigo}");
+        }
+    }
+
+    return 0;
+}

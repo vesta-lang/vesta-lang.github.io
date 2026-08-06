@@ -1,0 +1,243 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "01"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.256.66.0F3A.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point elements in ymm2/m256 using indices in imm8 and store the result in ymm1.",
+   "opcode": "VEX.256.66.0F3A.W1 01 /r ib",
+   "operands": "A",
+   "syntax": "VPERMPD ymm1, ymm2/m256, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "01"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point elements AVX512F) OR in ymm2/m256/m64bcst using indexes in imm8 AVX10.1 and store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F3A.W1 01 /r ib",
+   "operands": "B",
+   "syntax": "VPERMPD ymm1 {k1}{z}, ymm2/m256/m64bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "01"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point elements OR AVX10.1 in zmm2/m512/m64bcst using indices in imm8 and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F3A.W1 01 /r ib",
+   "operands": "B",
+   "syntax": "VPERMPD zmm1 {k1}{z}, zmm2/m512/m64bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "16"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point elements AVX512F) OR in ymm3/m256/m64bcst using indexes in ymm2 AVX10.1 and store the result in ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 16 /r",
+   "operands": "C",
+   "syntax": "VPERMPD ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "16"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Permute double precision floating-point elements OR AVX10.1 in zmm3/m512/m64bcst using indices in zmm2 and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 16 /r",
+   "operands": "C",
+   "syntax": "VPERMPD zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpermpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPERMPD"
+  ]
+ },
+ "mnemonics": [
+  "VPERMPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2573,
+    2576
+   ]
+  }
+ ],
+ "version": 1
+}

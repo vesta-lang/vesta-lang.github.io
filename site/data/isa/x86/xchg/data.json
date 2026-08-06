@@ -1,0 +1,448 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "90"
+    ],
+    "opcode_register": {
+     "marker": "+rw",
+     "width": 2
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange r16 with AX.",
+   "opcode": "90+rw",
+   "operands": "O",
+   "syntax": "XCHG AX, r16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "90"
+    ],
+    "opcode_register": {
+     "marker": "+rw",
+     "width": 2
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange AX with r16.",
+   "opcode": "90+rw",
+   "operands": "O",
+   "syntax": "XCHG r16, AX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "90"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange r32 with EAX.",
+   "opcode": "90+rd",
+   "operands": "O",
+   "syntax": "XCHG EAX, r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "90"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    },
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Exchange r64 with RAX.",
+   "opcode": "REX.W + 90+rd",
+   "operands": "O",
+   "syntax": "XCHG RAX, r64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "90"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange EAX with r32.",
+   "opcode": "90+rd",
+   "operands": "O",
+   "syntax": "XCHG r32, EAX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "90"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    },
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Exchange RAX with r64.",
+   "opcode": "REX.W + 90+rd",
+   "operands": "O",
+   "syntax": "XCHG r64, RAX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "86"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange r8 (byte register) with byte from r/m8.",
+   "opcode": "86 /r",
+   "operands": "MR",
+   "syntax": "XCHG r/m8, r8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "86"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange byte from r/m8 with r8 (byte register).",
+   "opcode": "86 /r",
+   "operands": "RM",
+   "syntax": "XCHG r8, r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange r16 with word from r/m16.",
+   "opcode": "87 /r",
+   "operands": "MR",
+   "syntax": "XCHG r/m16, r16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange word from r/m16 with r16.",
+   "opcode": "87 /r",
+   "operands": "RM",
+   "syntax": "XCHG r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange r32 with doubleword from r/m32.",
+   "opcode": "87 /r",
+   "operands": "MR",
+   "syntax": "XCHG r/m32, r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "87"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Exchange r64 with quadword from r/m64.",
+   "opcode": "REX.W + 87 /r",
+   "operands": "MR",
+   "syntax": "XCHG r/m64, r64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Exchange doubleword from r/m32 with r32.",
+   "opcode": "87 /r",
+   "operands": "RM",
+   "syntax": "XCHG r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "87"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Exchange quadword from r/m64 with r64.",
+   "opcode": "REX.W + 87 /r",
+   "operands": "RM",
+   "syntax": "XCHG r64, r/m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If either operand is in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  }
+ ],
+ "format": "isadoc",
+ "id": "xchg",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XCHG"
+  ]
+ },
+ "mnemonics": [
+  "XCHG"
+ ],
+ "operand_encodings": [
+  {
+   "id": "O",
+   "operands": [
+    {
+     "field": "AX/EAX/RAX",
+     "raw": "AX/EAX/RAX",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "opcode.reg",
+     "read": true,
+     "write": true
+    }
+   ]
+  },
+  {
+   "id": "O",
+   "operands": [
+    {
+     "field": "opcode.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "AX/EAX/RAX",
+     "raw": "AX/EAX/RAX",
+     "read": true,
+     "write": true
+    }
+   ]
+  },
+  {
+   "id": "MR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2859,
+    2860
+   ]
+  }
+ ],
+ "version": 1
+}

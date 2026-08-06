@@ -1,0 +1,179 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Save the x87 FPU, MMX, XMM, and MXCSR register state to m512byte.",
+   "opcode": "NP 0F AE /0",
+   "operands": "M",
+   "syntax": "FXSAVE m512byte"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "NP"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Save the x87 FPU, MMX, XMM, and MXCSR register state to m512byte.",
+   "opcode": "NP REX.W + 0F AE /0",
+   "operands": "M",
+   "syntax": "FXSAVE64 m512byte"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "For an illegal memory operand effective address in the CS, DS, ES, FS or GS segments. If a memory operand is not aligned on a 16-byte boundary, regardless of segment. (See the description of the alignment check exception [#AC] below.)"
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1. If CR0.EM[bit 2] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.FXSR[24] = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC",
+   "when": "If this exception is disabled a general protection exception (#GP) is signaled if the memory operand is not aligned on a 16-byte boundary, as described above. If the alignment check exception (#AC) is enabled (and the CPL is 3), signaling of #AC is not guaranteed and may vary with implementation, as follows. In all implementations where #AC is not signaled, a general protection exception is signaled in its place. In addition, the width of the alignment check may also vary with implementation. For instance, for a given implementation, an alignment check exception might be signaled for a 2-byte misalignment, whereas a general protection exception might be signaled for all other misalignments (4-, 8-, or 16-byte misalignments)."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand is not aligned on a 16-byte boundary, regardless of segment. If any part of the operand lies outside the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "real",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1. If CR0.EM[bit 2] = 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.FXSR[24] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC",
+   "when": "For unaligned memory reference."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. If memory operand is not aligned on a 16-byte boundary, regardless of segment. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1. If CR0.EM[bit 2] = 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.01H:EDX.FXSR[24] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC",
+   "when": "If this exception is disabled a general protection exception (#GP) is signaled if the memory operand is not aligned on a 16-byte boundary, as described above. If the alignment check exception (#AC) is enabled (and the CPL is 3), signaling of #AC is not guaranteed and may vary with implementation, as follows. In all implementations where #AC is not signaled, a general protection exception is signaled in its place. In addition, the width of the alignment check may also vary with implementation. For instance, for a given implementation, an alignment check exception might be signaled for a 2-byte misalignment, whereas a general protection exception might be signaled for all other misalignments (4-, 8-, or 16-byte misalignments). Implementation Note The order in which the processor signals general-protection (#GP) and page-fault (#PF) exceptions when they both occur on an instruction boundary is given in Table 5-2 in the Intel(R) 64 and IA-32 Architectures Software Developer's Manual, Volume 3B. This order vary for FXSAVE for different processor implementations."
+  }
+ ],
+ "format": "isadoc",
+ "id": "fxsave",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FXSAVE"
+  ]
+ },
+ "mnemonics": [
+  "FXSAVE"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1116,
+    1123
+   ]
+  }
+ ],
+ "version": 1
+}

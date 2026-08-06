@@ -1,0 +1,146 @@
+{
+ "encodings": [
+  {
+   "cpuid": "RDSEED",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NFX"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Read a 16-bit NIST SP800-90B & C compliant random value and store in the destination register.",
+   "opcode": "NFx 0F C7 /7",
+   "operands": "M",
+   "syntax": "RDSEED r16"
+  },
+  {
+   "cpuid": "RDSEED",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NFX"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Read a 32-bit NIST SP800-90B & C compliant random value and store in the destination register.",
+   "opcode": "NFx 0F C7 /7",
+   "operands": "M",
+   "syntax": "RDSEED r32"
+  },
+  {
+   "cpuid": "RDSEED",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 7
+    },
+    "opcode": [
+     "0F",
+     "C7"
+    ],
+    "prefixes": [
+     "NFX"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Read a 64-bit NIST SP800-90B & C compliant random value and store in the destination register.",
+   "opcode": "NFx REX.W + 0F C7 /7",
+   "operands": "M",
+   "syntax": "RDSEED r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.RDSEED[18] = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.RDSEED[18] = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.RDSEED[18] = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.RDSEED[18] = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.RDSEED[18] = 0."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "rdseed",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDSEED"
+  ]
+ },
+ "mnemonics": [
+  "RDSEED"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1845,
+    1846
+   ]
+  }
+ ],
+ "version": 1
+}

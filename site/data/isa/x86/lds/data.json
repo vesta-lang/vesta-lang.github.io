@@ -1,0 +1,420 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C5"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Load DS:r16 with far pointer from memory.",
+   "opcode": "C5 /r",
+   "operands": "RM",
+   "syntax": "LDS r16,m16:16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C5"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Load DS:r32 with far pointer from memory.",
+   "opcode": "C5 /r",
+   "operands": "RM",
+   "syntax": "LDS r32,m16:32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load SS:r16 with far pointer from memory.",
+   "opcode": "0F B2 /r",
+   "operands": "RM",
+   "syntax": "LSS r16,m16:16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load SS:r32 with far pointer from memory.",
+   "opcode": "0F B2 /r",
+   "operands": "RM",
+   "syntax": "LSS r32,m16:32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B2"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Load SS:r64 with far pointer from memory.",
+   "opcode": "REX.W + 0F B2 /r",
+   "operands": "RM",
+   "syntax": "LSS r64,m16:64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C4"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Load ES:r16 with far pointer from memory.",
+   "opcode": "C4 /r",
+   "operands": "RM",
+   "syntax": "LES r16,m16:16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C4"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Load ES:r32 with far pointer from memory.",
+   "opcode": "C4 /r",
+   "operands": "RM",
+   "syntax": "LES r32,m16:32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B4"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load FS:r16 with far pointer from memory.",
+   "opcode": "0F B4 /r",
+   "operands": "RM",
+   "syntax": "LFS r16,m16:16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B4"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load FS:r32 with far pointer from memory.",
+   "opcode": "0F B4 /r",
+   "operands": "RM",
+   "syntax": "LFS r32,m16:32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B4"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Load FS:r64 with far pointer from memory.",
+   "opcode": "REX.W + 0F B4 /r",
+   "operands": "RM",
+   "syntax": "LFS r64,m16:64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B5"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load GS:r16 with far pointer from memory.",
+   "opcode": "0F B5 /r",
+   "operands": "RM",
+   "syntax": "LGS r16,m16:16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B5"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load GS:r32 with far pointer from memory.",
+   "opcode": "0F B5 /r",
+   "operands": "RM",
+   "syntax": "LGS r32,m16:32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "B5"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Load GS:r64 with far pointer from memory.",
+   "opcode": "REX.W + 0F B5 /r",
+   "operands": "RM",
+   "syntax": "LGS r64,m16:64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If source operand is not a memory location. If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a NULL selector is loaded into the SS register. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(selector)",
+   "when": "If the SS register is being loaded and any of the following is true: the segment selector index is not within the descriptor table limits, the segment selector RPL is not equal to CPL, the segment is a non-writable data segment, or DPL is not equal to CPL. If the DS, ES, FS, or GS register is being loaded with a non-NULL segment selector and any of the following is true: the segment selector index is not within descriptor table limits, the segment is neither a data nor a readable code segment, or the segment is a data or nonconforming-code segment and both RPL and CPL are greater than DPL."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(selector)",
+   "when": "If the SS register is being loaded and the segment is marked not present."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NP(selector)",
+   "when": "If DS, ES, FS, or GS register is being loaded with a non-NULL segment selector and the segment is marked not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If source operand is not a memory location. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If source operand is not a memory location. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. If a NULL selector is attempted to be loaded into the SS register in compatibility mode. If a NULL selector is attempted to be loaded into the SS register in CPL3 and 64-bit mode. If a NULL selector is attempted to be loaded into the SS register in non-CPL3 and 64-bit mode where its RPL is not equal to CPL."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(Selector)",
+   "when": "If the FS, or GS register is being loaded with a non-NULL segment selector and any of the following is true: the segment selector index is not within descriptor table limits, the memory address of the descriptor is non-canonical, the segment is neither a data nor a readable code segment, or the segment is a data or nonconforming-code segment and both RPL and CPL are greater than DPL. If the SS register is being loaded and any of the following is true: the segment selector index is not within the descriptor table limits, the memory address of the descriptor is non-canonical, the segment selector RPL is not equal to CPL, the segment is a nonwritable data segment, or DPL is not equal to CPL."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is non-canonical"
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(Selector)",
+   "when": "If the SS register is being loaded and the segment is marked not present."
+  },
+  {
+   "mode": "long",
+   "vector": "#NP(selector)",
+   "when": "If FS, or GS register is being loaded with a non-NULL segment selector and the segment is marked not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If source operand is not a memory location. If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "lds",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LFS",
+   "LGS",
+   "LSS"
+  ]
+ },
+ "mnemonics": [
+  "LDS",
+  "LES",
+  "LFS",
+  "LGS",
+  "LSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1244,
+    1247
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,66 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2C"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Convert two packer double precision floating- point values from xmm/m128 to two packed signed doubleword integers in mm using truncation.",
+   "opcode": "66 0F 2C /r",
+   "operands": "RM",
+   "syntax": "CVTTPD2PI mm, xmm/m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cvttpd2pi",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CVTTPD2PI"
+  ]
+ },
+ "mnemonics": [
+  "CVTTPD2PI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    952,
+    952
+   ]
+  }
+ ],
+ "version": 1
+}

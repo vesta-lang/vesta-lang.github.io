@@ -1,0 +1,141 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "12"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move two packed single precision floating-point values from high quadword of xmm2 to low quadword of xmm1.",
+   "opcode": "NP 0F 12 /r",
+   "operands": "RM",
+   "syntax": "MOVHLPS xmm1, xmm2"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "12"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "VEX.128.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Merge two packed single precision floating-point values from high quadword of xmm3 and low quadword of xmm2.",
+   "opcode": "VEX.128.0F.WIG 12 /r",
+   "operands": "RVM",
+   "syntax": "VMOVHLPS xmm1, xmm2, xmm3"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "12"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "EVEX.128.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Merge two packed single precision floating-point values Instruction OR AVX10.1 Operand Encoding1 from high quadword of xmm3 and low quadword of xmm2. and 1 Operand 2 Operand 3  Operand 4 :reg (w) Mo dRM:r/m (r) N/A        N/A :reg (w) VEX.vvvv (r) / EVEX.vvvv (r) ModRM:r/m (r)          N/A",
+   "opcode": "EVEX.128.0F.W0 12 /r",
+   "operands": "RVM",
+   "syntax": "VMOVHLPS xmm1, xmm2, xmm3 Op/En                Oper RM                  ModRM RVM                 ModRM"
+  }
+ ],
+ "format": "isadoc",
+ "id": "movhlps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVHLPS",
+   "VMOVHLPS"
+  ]
+ },
+ "mnemonics": [
+  "MOVHLPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "VEX.vvvv (r) /",
+     "raw": "VEX.vvvv (r) /",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1362,
+    1363
+   ]
+  }
+ ],
+ "version": 1
+}

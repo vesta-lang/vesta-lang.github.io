@@ -1,0 +1,1970 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "47"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if above (CF=0 and ZF=0).",
+   "opcode": "0F 47 /r",
+   "operands": "RM",
+   "syntax": "CMOVA r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "47"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if above (CF=0 and ZF=0).",
+   "opcode": "0F 47 /r",
+   "operands": "RM",
+   "syntax": "CMOVA r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "47"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if above (CF=0 and ZF=0).",
+   "opcode": "REX.W + 0F 47 /r",
+   "operands": "RM",
+   "syntax": "CMOVA r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if above or equal (CF=0).",
+   "opcode": "0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVAE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if above or equal (CF=0).",
+   "opcode": "0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVAE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if above or equal (CF=0).",
+   "opcode": "REX.W + 0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVAE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if below (CF=1).",
+   "opcode": "0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVB r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if below (CF=1).",
+   "opcode": "0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVB r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if below (CF=1).",
+   "opcode": "REX.W + 0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVB r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "46"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if below or equal (CF=1 or ZF=1).",
+   "opcode": "0F 46 /r",
+   "operands": "RM",
+   "syntax": "CMOVBE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "46"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if below or equal (CF=1 or ZF=1).",
+   "opcode": "0F 46 /r",
+   "operands": "RM",
+   "syntax": "CMOVBE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "46"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if below or equal (CF=1 or ZF=1).",
+   "opcode": "REX.W + 0F 46 /r",
+   "operands": "RM",
+   "syntax": "CMOVBE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if carry (CF=1).",
+   "opcode": "0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVC r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if carry (CF=1).",
+   "opcode": "0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVC r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if carry (CF=1).",
+   "opcode": "REX.W + 0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVC r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "44"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if equal (ZF=1).",
+   "opcode": "0F 44 /r",
+   "operands": "RM",
+   "syntax": "CMOVE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "44"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if equal (ZF=1).",
+   "opcode": "0F 44 /r",
+   "operands": "RM",
+   "syntax": "CMOVE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "44"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if equal (ZF=1).",
+   "opcode": "REX.W + 0F 44 /r",
+   "operands": "RM",
+   "syntax": "CMOVE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if greater (ZF=0 and SF=OF).",
+   "opcode": "0F 4F /r",
+   "operands": "RM",
+   "syntax": "CMOVG r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if greater (ZF=0 and SF=OF).",
+   "opcode": "0F 4F /r",
+   "operands": "RM",
+   "syntax": "CMOVG r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4F"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n/a",
+    "long": "v/n.e."
+   },
+   "note": "Move if greater (ZF=0 and SF=OF).",
+   "opcode": "REX.W + 0F 4F /r",
+   "operands": "RM",
+   "syntax": "CMOVG r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if greater or equal (SF=OF).",
+   "opcode": "0F 4D /r",
+   "operands": "RM",
+   "syntax": "CMOVGE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if greater or equal (SF=OF).",
+   "opcode": "0F 4D /r",
+   "operands": "RM",
+   "syntax": "CMOVGE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4D"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if greater or equal (SF=OF).",
+   "opcode": "REX.W + 0F 4D /r",
+   "operands": "RM",
+   "syntax": "CMOVGE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if less (SF OF).",
+   "opcode": "0F 4C /r",
+   "operands": "RM",
+   "syntax": "CMOVL r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if less (SF OF).",
+   "opcode": "0F 4C /r",
+   "operands": "RM",
+   "syntax": "CMOVL r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4C"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if less (SF OF).",
+   "opcode": "REX.W + 0F 4C /r",
+   "operands": "RM",
+   "syntax": "CMOVL r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if less or equal (ZF=1 or SF OF).",
+   "opcode": "0F 4E /r",
+   "operands": "RM",
+   "syntax": "CMOVLE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if less or equal (ZF=1 or SF OF).",
+   "opcode": "0F 4E /r",
+   "operands": "RM",
+   "syntax": "CMOVLE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4E"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if less or equal (ZF=1 or SF OF).",
+   "opcode": "REX.W + 0F 4E /r",
+   "operands": "RM",
+   "syntax": "CMOVLE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "46"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not above (CF=1 or ZF=1).",
+   "opcode": "0F 46 /r",
+   "operands": "RM",
+   "syntax": "CMOVNA r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "46"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not above (CF=1 or ZF=1).",
+   "opcode": "0F 46 /r",
+   "operands": "RM",
+   "syntax": "CMOVNA r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "46"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not above (CF=1 or ZF=1).",
+   "opcode": "REX.W + 0F 46 /r",
+   "operands": "RM",
+   "syntax": "CMOVNA r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not above or equal (CF=1).",
+   "opcode": "0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVNAE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not above or equal (CF=1).",
+   "opcode": "0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVNAE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "42"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not above or equal (CF=1).",
+   "opcode": "REX.W + 0F 42 /r",
+   "operands": "RM",
+   "syntax": "CMOVNAE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not below (CF=0).",
+   "opcode": "0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVNB r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not below (CF=0).",
+   "opcode": "0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVNB r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not below (CF=0).",
+   "opcode": "REX.W + 0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVNB r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "47"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not below or equal (CF=0 and ZF=0).",
+   "opcode": "0F 47 /r",
+   "operands": "RM",
+   "syntax": "CMOVNBE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "47"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not below or equal (CF=0 and ZF=0).",
+   "opcode": "0F 47 /r",
+   "operands": "RM",
+   "syntax": "CMOVNBE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "47"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not below or equal (CF=0 and ZF=0).",
+   "opcode": "REX.W + 0F 47 /r",
+   "operands": "RM",
+   "syntax": "CMOVNBE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not carry (CF=0).",
+   "opcode": "0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVNC r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not carry (CF=0).",
+   "opcode": "0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVNC r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "43"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not carry (CF=0).",
+   "opcode": "REX.W + 0F 43 /r",
+   "operands": "RM",
+   "syntax": "CMOVNC r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "45"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not equal (ZF=0).",
+   "opcode": "0F 45 /r",
+   "operands": "RM",
+   "syntax": "CMOVNE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "45"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not equal (ZF=0).",
+   "opcode": "0F 45 /r",
+   "operands": "RM",
+   "syntax": "CMOVNE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "45"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not equal (ZF=0).",
+   "opcode": "REX.W + 0F 45 /r",
+   "operands": "RM",
+   "syntax": "CMOVNE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not greater (ZF=1 or SF OF).",
+   "opcode": "0F 4E /r",
+   "operands": "RM",
+   "syntax": "CMOVNG r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not greater (ZF=1 or SF OF).",
+   "opcode": "0F 4E /r",
+   "operands": "RM",
+   "syntax": "CMOVNG r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4E"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not greater (ZF=1 or SF OF).",
+   "opcode": "REX.W + 0F 4E /r",
+   "operands": "RM",
+   "syntax": "CMOVNG r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not greater or equal (SF OF).",
+   "opcode": "0F 4C /r",
+   "operands": "RM",
+   "syntax": "CMOVNGE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not greater or equal (SF OF).",
+   "opcode": "0F 4C /r",
+   "operands": "RM",
+   "syntax": "CMOVNGE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4C"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not greater or equal (SF OF).",
+   "opcode": "REX.W + 0F 4C /r",
+   "operands": "RM",
+   "syntax": "CMOVNGE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not less (SF=OF).",
+   "opcode": "0F 4D /r",
+   "operands": "RM",
+   "syntax": "CMOVNL r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not less (SF=OF).",
+   "opcode": "0F 4D /r",
+   "operands": "RM",
+   "syntax": "CMOVNL r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4D"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not less (SF=OF).",
+   "opcode": "REX.W + 0F 4D /r",
+   "operands": "RM",
+   "syntax": "CMOVNL r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not less or equal (ZF=0 and SF=OF).",
+   "opcode": "0F 4F /r",
+   "operands": "RM",
+   "syntax": "CMOVNLE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not less or equal (ZF=0 and SF=OF).",
+   "opcode": "0F 4F /r",
+   "operands": "RM",
+   "syntax": "CMOVNLE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4F"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not less or equal (ZF=0 and SF=OF).",
+   "opcode": "REX.W + 0F 4F /r",
+   "operands": "RM",
+   "syntax": "CMOVNLE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "41"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not overflow (OF=0).",
+   "opcode": "0F 41 /r",
+   "operands": "RM",
+   "syntax": "CMOVNO r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "41"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not overflow (OF=0).",
+   "opcode": "0F 41 /r",
+   "operands": "RM",
+   "syntax": "CMOVNO r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "41"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not overflow (OF=0).",
+   "opcode": "REX.W + 0F 41 /r",
+   "operands": "RM",
+   "syntax": "CMOVNO r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not parity (PF=0).",
+   "opcode": "0F 4B /r",
+   "operands": "RM",
+   "syntax": "CMOVNP r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not parity (PF=0).",
+   "opcode": "0F 4B /r",
+   "operands": "RM",
+   "syntax": "CMOVNP r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4B"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not parity (PF=0).",
+   "opcode": "REX.W + 0F 4B /r",
+   "operands": "RM",
+   "syntax": "CMOVNP r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "49"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not sign (SF=0).",
+   "opcode": "0F 49 /r",
+   "operands": "RM",
+   "syntax": "CMOVNS r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "49"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not sign (SF=0).",
+   "opcode": "0F 49 /r",
+   "operands": "RM",
+   "syntax": "CMOVNS r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "49"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not sign (SF=0).",
+   "opcode": "REX.W + 0F 49 /r",
+   "operands": "RM",
+   "syntax": "CMOVNS r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "45"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not zero (ZF=0).",
+   "opcode": "0F 45 /r",
+   "operands": "RM",
+   "syntax": "CMOVNZ r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "45"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if not zero (ZF=0).",
+   "opcode": "0F 45 /r",
+   "operands": "RM",
+   "syntax": "CMOVNZ r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "45"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if not zero (ZF=0).",
+   "opcode": "REX.W + 0F 45 /r",
+   "operands": "RM",
+   "syntax": "CMOVNZ r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "40"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if overflow (OF=1).",
+   "opcode": "0F 40 /r",
+   "operands": "RM",
+   "syntax": "CMOVO r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "40"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if overflow (OF=1).",
+   "opcode": "0F 40 /r",
+   "operands": "RM",
+   "syntax": "CMOVO r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "40"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if overflow (OF=1).",
+   "opcode": "REX.W + 0F 40 /r",
+   "operands": "RM",
+   "syntax": "CMOVO r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if parity (PF=1).",
+   "opcode": "0F 4A /r",
+   "operands": "RM",
+   "syntax": "CMOVP r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if parity (PF=1).",
+   "opcode": "0F 4A /r",
+   "operands": "RM",
+   "syntax": "CMOVP r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4A"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if parity (PF=1).",
+   "opcode": "REX.W + 0F 4A /r",
+   "operands": "RM",
+   "syntax": "CMOVP r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if parity even (PF=1).",
+   "opcode": "0F 4A /r",
+   "operands": "RM",
+   "syntax": "CMOVPE r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move if parity even (PF=1).",
+   "opcode": "0F 4A /r",
+   "operands": "RM",
+   "syntax": "CMOVPE r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4A"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move if parity even (PF=1).",
+   "opcode": "REX.W + 0F 4A /r",
+   "operands": "RM",
+   "syntax": "CMOVPE r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4B"
+    ]
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   Valid     Move if parity odd (PF=0).",
+   "opcode": "0F 4B /r",
+   "operands": "",
+   "syntax": "CMOVPO r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4B"
+    ]
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   Valid     Move if parity odd (PF=0).",
+   "opcode": "0F 4B /r",
+   "operands": "",
+   "syntax": "CMOVPO r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "4B"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   N.E.      Move if parity odd (PF=0).",
+   "opcode": "REX.W + 0F 4B /r",
+   "operands": "",
+   "syntax": "CMOVPO r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "48"
+    ]
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   Valid     Move if sign (SF=1).",
+   "opcode": "0F 48 /r",
+   "operands": "",
+   "syntax": "CMOVS r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "48"
+    ]
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   Valid     Move if sign (SF=1).",
+   "opcode": "0F 48 /r",
+   "operands": "",
+   "syntax": "CMOVS r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "48"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   N.E.      Move if sign (SF=1).",
+   "opcode": "REX.W + 0F 48 /r",
+   "operands": "",
+   "syntax": "CMOVS r64, r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "44"
+    ]
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   Valid     Move if zero (ZF=1).",
+   "opcode": "0F 44 /r",
+   "operands": "",
+   "syntax": "CMOVZ r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "44"
+    ]
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   Valid     Move if zero (ZF=1).",
+   "opcode": "0F 44 /r",
+   "operands": "",
+   "syntax": "CMOVZ r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "44"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "val",
+    "long": "rm"
+   },
+   "note": "id   N.E.      Move if zero (ZF=1).",
+   "opcode": "REX.W + 0F 44 /r",
+   "operands": "",
+   "syntax": "CMOVZ r64, r/m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "cmovcc",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CMOVB",
+   "CMOVBE",
+   "CMOVL",
+   "CMOVLE",
+   "CMOVNB",
+   "CMOVNBE",
+   "CMOVNL",
+   "CMOVNLE",
+   "CMOVNO",
+   "CMOVNP",
+   "CMOVNS",
+   "CMOVNZ",
+   "CMOVO",
+   "CMOVP",
+   "CMOVS",
+   "CMOVZ"
+  ]
+ },
+ "mnemonics": [
+  "CMOVcc"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    861,
+    864
+   ]
+  }
+ ],
+ "version": 1
+}

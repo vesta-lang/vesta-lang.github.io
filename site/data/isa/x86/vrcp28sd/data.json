@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512ER",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "CB"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocal ( < 2^-28 relative error) of the scalar double precision floating-point value in xmm3/m64 and stores the results in xmm1. Under writemask. Also, upper double precision floating-point value (bits[127:64]) from xmm2 is copied to xmm1[127:64].",
+   "opcode": "EVEX.LLIG.66.0F38.W1 CB /r",
+   "operands": "A",
+   "syntax": "VRCP28SD xmm1 {k1}{z}, xmm2, xmm3/m64 {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrcp28sd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRCP28SD"
+  ]
+ },
+ "mnemonics": [
+  "VRCP28SD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2965,
+    2966
+   ]
+  }
+ ],
+ "version": 1
+}

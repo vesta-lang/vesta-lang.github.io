@@ -1,0 +1,203 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast low byte value in k1 to two locations in AVX512CD) OR AVX10.1 xmm1.",
+   "opcode": "EVEX.128.F3.0F38.W1 2A /r",
+   "operands": "RM",
+   "syntax": "VPBROADCASTMB2Q xmm1, k1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast low byte value in k1 to four locations in AVX512CD) OR AVX10.1 ymm1.",
+   "opcode": "EVEX.256.F3.0F38.W1 2A /r",
+   "operands": "RM",
+   "syntax": "VPBROADCASTMB2Q ymm1, k1"
+  },
+  {
+   "cpuid": "AVX512CD",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast low byte value in k1 to eight locations in OR AVX10.1 zmm1.",
+   "opcode": "EVEX.512.F3.0F38.W1 2A /r",
+   "operands": "RM",
+   "syntax": "VPBROADCASTMB2Q zmm1, k1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.128.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast low word value in k1 to four locations in AVX512CD) OR AVX10.1 xmm1.",
+   "opcode": "EVEX.128.F3.0F38.W0 3A /r",
+   "operands": "RM",
+   "syntax": "VPBROADCASTMW2D xmm1, k1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.256.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast low word value in k1 to eight locations AVX512CD) OR AVX10.1 in ymm1.",
+   "opcode": "EVEX.256.F3.0F38.W0 3A /r",
+   "operands": "RM",
+   "syntax": "VPBROADCASTMW2D ymm1, k1"
+  },
+  {
+   "cpuid": "AVX512CD",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "3A"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "EVEX.512.F3.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Broadcast low word value in k1 to sixteen OR AVX10.1 locations in zmm1.",
+   "opcode": "EVEX.512.F3.0F38.W0 3A /r",
+   "operands": "RM",
+   "syntax": "VPBROADCASTMW2D zmm1, k1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpbroadcastm",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "VPBROADCASTM"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2505,
+    2506
+   ]
+  }
+ ],
+ "version": 1
+}

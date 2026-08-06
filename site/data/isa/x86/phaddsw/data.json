@@ -1,0 +1,168 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "03"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 16-bit signed integers horizontally, pack saturated integers to mm1.",
+   "opcode": "NP 0F 38 03 /r1",
+   "operands": "RM",
+   "syntax": "PHADDSW mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "03"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 16-bit signed integers horizontally, pack saturated integers to xmm1.",
+   "opcode": "66 0F 38 03 /r",
+   "operands": "RM",
+   "syntax": "PHADDSW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 16-bit signed integers horizontally, pack saturated integers to xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 03 /r",
+   "operands": "RVM",
+   "syntax": "VPHADDSW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "03"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add 16-bit signed integers horizontally, pack saturated integers to ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 03 /r",
+   "operands": "RVM",
+   "syntax": "VPHADDSW ymm1, ymm2, ymm3/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "phaddsw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PHADDSW",
+   "VPHADDSW"
+  ]
+ },
+ "mnemonics": [
+  "PHADDSW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1581,
+    1582
+   ]
+  }
+ ],
+ "version": 1
+}

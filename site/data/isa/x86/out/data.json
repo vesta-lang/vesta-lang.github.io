@@ -1,0 +1,189 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "E6"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output byte in AL to I/O port address imm8.",
+   "opcode": "E6 ib",
+   "operands": "I",
+   "syntax": "OUT imm8, AL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "E7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output word in AX to I/O port address imm8.",
+   "opcode": "E7 ib",
+   "operands": "I",
+   "syntax": "OUT imm8, AX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "E7"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output doubleword in EAX to I/O port address imm8.",
+   "opcode": "E7 ib",
+   "operands": "I",
+   "syntax": "OUT imm8, EAX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "EE"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output byte in AL to I/O port address in DX.",
+   "opcode": "EE",
+   "operands": "ZO",
+   "syntax": "OUT DX, AL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "EF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output word in AX to I/O port address in DX.",
+   "opcode": "EF",
+   "operands": "ZO",
+   "syntax": "OUT DX, AX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "EF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output doubleword in EAX to I/O port address in DX.",
+   "opcode": "EF",
+   "operands": "ZO",
+   "syntax": "OUT DX, EAX"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the CPL is greater than (has less privilege) the I/O privilege level (IOPL) and any of the corresponding I/O permission bits in TSS for the I/O port being accessed is 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If any of the I/O permission bits in the TSS for the I/O port being accessed is 1. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same as protected mode exceptions."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same as protected mode exceptions."
+  }
+ ],
+ "format": "isadoc",
+ "id": "out",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "OUT"
+  ]
+ },
+ "mnemonics": [
+  "OUT"
+ ],
+ "operand_encodings": [
+  {
+   "id": "I",
+   "operands": [
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1460,
+    1461
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,415 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "8F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into m16; increment stack pointer.",
+   "opcode": "8F /0",
+   "operands": "M",
+   "syntax": "POP r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "8F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Pop top of stack into m32; increment stack pointer.",
+   "opcode": "8F /0",
+   "operands": "M",
+   "syntax": "POP r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 0
+    },
+    "opcode": [
+     "8F"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into m64; increment stack pointer. Cannot encode 32-bit operand size.",
+   "opcode": "8F /0",
+   "operands": "M",
+   "syntax": "POP r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "58"
+    ],
+    "opcode_register": {
+     "marker": "+rw",
+     "width": 2
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into r16; increment stack pointer.",
+   "opcode": "58+ rw",
+   "operands": "O",
+   "syntax": "POP r16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "58"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Pop top of stack into r32; increment stack pointer.",
+   "opcode": "58+ rd",
+   "operands": "O",
+   "syntax": "POP r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "58"
+    ],
+    "opcode_register": {
+     "marker": "+rd",
+     "width": 4
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into r64; increment stack pointer. Cannot encode 32-bit operand size.",
+   "opcode": "58+ rd",
+   "operands": "O",
+   "syntax": "POP r64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "1F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Pop top of stack into DS; increment stack pointer.",
+   "opcode": "1F",
+   "operands": "ZO",
+   "syntax": "POP DS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "07"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Pop top of stack into ES; increment stack pointer.",
+   "opcode": "07",
+   "operands": "ZO",
+   "syntax": "POP ES"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "17"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Pop top of stack into SS; increment stack pointer.",
+   "opcode": "17",
+   "operands": "ZO",
+   "syntax": "POP SS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into FS; increment stack pointer by 16 bits.",
+   "opcode": "0F A1",
+   "operands": "ZO",
+   "syntax": "POP FS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A1"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Pop top of stack into FS; increment stack pointer by 32 bits.",
+   "opcode": "0F A1",
+   "operands": "ZO",
+   "syntax": "POP FS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A1"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into FS; increment stack pointer by 64 bits.",
+   "opcode": "0F A1",
+   "operands": "ZO",
+   "syntax": "POP FS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into GS; increment stack pointer by 16 bits.",
+   "opcode": "0F A9",
+   "operands": "ZO",
+   "syntax": "POP GS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Pop top of stack into GS; increment stack pointer by 32 bits.",
+   "opcode": "0F A9",
+   "operands": "ZO",
+   "syntax": "POP GS"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "A9"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Pop top of stack into GS; increment stack pointer by 64 bits.",
+   "opcode": "0F A9",
+   "operands": "ZO",
+   "syntax": "POP GS"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If attempt is made to load SS register with NULL segment selector. If the destination operand is in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(selector)",
+   "when": "If segment selector index is outside descriptor table limits. If the SS register is being loaded and the segment selector's RPL and the segment descriptor's DPL are not equal to the CPL. If the SS register is being loaded and the segment pointed to is a non-writable data segment. If the DS, ES, FS, or GS register is being loaded and the segment pointed to is not a data or readable code segment. If the DS, ES, FS, or GS register is being loaded and the segment pointed to is a data or nonconforming code segment, but both the RPL and the CPL are greater than the DPL."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the current top of stack is not within the stack segment. If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(selector)",
+   "when": "If the SS register is being loaded and the segment pointed to is marked not present."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NP",
+   "when": "If the DS, ES, FS, or GS register is being loaded and the segment pointed to is marked not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while the current privilege level is 3 and alignment checking is enabled."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while alignment checking is enabled."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same as for protected mode exceptions."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(selector)",
+   "when": "If the descriptor is outside the descriptor table limit. If the FS or GS register is being loaded and the segment pointed to is not a data or readable code segment. If the FS or GS register is being loaded and the segment pointed to is a data or nonconforming code segment, but both the RPL and the CPL are greater than the DPL."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory reference is made while alignment checking is enabled. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#NP",
+   "when": "If the FS or GS register is being loaded and the segment pointed to is marked not present."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If the DS, ES, or SS register is being loaded."
+  }
+ ],
+ "format": "isadoc",
+ "id": "pop",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "POP"
+  ]
+ },
+ "mnemonics": [
+  "POP"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  },
+  {
+   "id": "O",
+   "operands": [
+    {
+     "field": "opcode.reg",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1687,
+    1691
+   ]
+  }
+ ],
+ "version": 1
+}

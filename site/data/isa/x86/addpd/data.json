@@ -1,0 +1,245 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "58"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed double precision floating-point values from xmm2/mem to xmm1 and store result in xmm1.",
+   "opcode": "66 0F 58 /r",
+   "operands": "A",
+   "syntax": "ADDPD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed double precision floating-point values from xmm3/mem to xmm2 and store result in xmm1.",
+   "opcode": "VEX.128.66.0F.WIG 58 /r",
+   "operands": "B",
+   "syntax": "VADDPD xmm1,xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed double precision floating-point values from ymm3/mem to ymm2 and store result in ymm1.",
+   "opcode": "VEX.256.66.0F.WIG 58 /r",
+   "operands": "B",
+   "syntax": "VADDPD ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed double precision floating-point values from AVX512F) OR xmm3/m128/m64bcst to xmm2 and store result in xmm1 AVX10.1 with writemask k1.",
+   "opcode": "EVEX.128.66.0F.W1 58 /r",
+   "operands": "C",
+   "syntax": "VADDPD xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed double precision floating-point values from AVX512F) OR ymm3/m256/m64bcst to ymm2 and store result in ymm1 AVX10.1 with writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 58 /r",
+   "operands": "C",
+   "syntax": "VADDPD ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F OR",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "58"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Add packed double precision floating-point values from AVX10.1 zmm3/m512/m64bcst to zmm2 and store result in zmm1 with writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 58 /r",
+   "operands": "C",
+   "syntax": "VADDPD zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "addpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ADDPD",
+   "VADDPD"
+  ]
+ },
+ "mnemonics": [
+  "ADDPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    720,
+    722
+   ]
+  }
+ ],
+ "version": 1
+}

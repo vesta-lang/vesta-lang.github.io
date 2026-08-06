@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "EVEX.128.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single data from xmm2 and AND AVX512VL) xmm3/m128/m32bcst to packed BF16 data     in OR AVX10.1 xmm1 with writemask k1.",
+   "opcode": "EVEX.128.F2.0F38.W0 72 /r",
+   "operands": "A",
+   "syntax": "VCVTNE2PS2BF16 xmm1{k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "EVEX.256.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single data from ymm2 and AND AVX512VL) ymm3/m256/m32bcst to packed BF16 data     in OR AVX10.1 ymm1 with writemask k1.",
+   "opcode": "EVEX.256.F2.0F38.W0 72 /r",
+   "operands": "A",
+   "syntax": "VCVTNE2PS2BF16 ymm1{k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512_BF16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "72"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "EVEX.512.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert packed single data from zmm2 and AND AVX512F) zmm3/m512/m32bcst to packed BF16 data     in OR AVX10.1 zmm1 with writemask k1.",
+   "opcode": "EVEX.512.F2.0F38.W0 72 /r",
+   "operands": "A",
+   "syntax": "VCVTNE2PS2BF16 zmm1{k1}{z}, zmm2, zmm3/m512/m32bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtne2ps2bf16",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTNE2PS2BF16"
+  ]
+ },
+ "mnemonics": [
+  "VCVTNE2PS2BF16"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2083,
+    2084
+   ]
+  }
+ ],
+ "version": 1
+}

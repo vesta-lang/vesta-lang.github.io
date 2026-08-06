@@ -1,0 +1,96 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "C8"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Sets up a linear address range to be monitored by hardware and activates the monitor. The address range should be a write-back memory caching type. The address is DS:RAX/EAX/AX.",
+   "opcode": "0F 01 C8",
+   "operands": "ZO",
+   "syntax": "MONITOR"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the value in EAX is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector. If ECX 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the value in EAX is outside the SS segment limit. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.MONITOR[3] = 0. If current privilege level is not 0. Real Address Mode Exceptions"
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP",
+   "when": "If the CS, DS, ES, FS, or GS register is used to access memory and the value in EAX is outside of the effective address space from 0 to FFFFH. If ECX 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS",
+   "when": "If the SS register is used to access memory and the value in EAX is outside of the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.MONITOR[3] = 0. Virtual 8086 Mode Exceptions #UDThe MONITOR instruction is not recognized in virtual-8086 mode (even if CPUID.01H:ECX.MONITOR[3] = 1)."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the linear address of the operand in the CS, DS, ES, FS, or GS segment is in a non-canonical form. If RCX 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the SS register is used to access memory and the value in EAX is in a non-canonical form. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the current privilege level is not 0. If CPUID.01H:ECX.MONITOR[3] = 0."
+  }
+ ],
+ "format": "isadoc",
+ "id": "monitor",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MONITOR"
+  ]
+ },
+ "mnemonics": [
+  "MONITOR"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1315,
+    1316
+   ]
+  }
+ ],
+ "version": 1
+}

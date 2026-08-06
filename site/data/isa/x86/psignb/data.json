@@ -1,0 +1,382 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "08"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed byte integers in mm1 depending on the corresponding sign in mm2/m64.",
+   "opcode": "NP 0F 38 08 /r1",
+   "operands": "RM",
+   "syntax": "PSIGNB mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "08"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed byte integers in xmm1 depending on the corresponding sign in xmm2/m128.",
+   "opcode": "66 0F 38 08 /r",
+   "operands": "RM",
+   "syntax": "PSIGNB xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "09"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed word integers in mm1 depending on the corresponding sign in mm2/m128.",
+   "opcode": "NP 0F 38 09 /r1",
+   "operands": "RM",
+   "syntax": "PSIGNW mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "09"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed word integers in xmm1 depending on the corresponding sign in xmm2/m128.",
+   "opcode": "66 0F 38 09 /r",
+   "operands": "RM",
+   "syntax": "PSIGNW xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "0A"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed doubleword integers in mm1 depending on the corresponding sign in mm2/m128.",
+   "opcode": "NP 0F 38 0A /r1",
+   "operands": "RM",
+   "syntax": "PSIGND mm1, mm2/m64"
+  },
+  {
+   "cpuid": "SSSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "0A"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed doubleword integers in xmm1 depending on the corresponding sign in xmm2/m128.",
+   "opcode": "66 0F 38 0A /r",
+   "operands": "RM",
+   "syntax": "PSIGND xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "08"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed byte integers in xmm2 depending on the corresponding sign in xmm3/m128.",
+   "opcode": "VEX.128.66.0F38.WIG 08 /r",
+   "operands": "RVM",
+   "syntax": "VPSIGNB xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "09"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed word integers in xmm2 depending on the corresponding sign in xmm3/m128.",
+   "opcode": "VEX.128.66.0F38.WIG 09 /r",
+   "operands": "RVM",
+   "syntax": "VPSIGNW xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0A"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate/zero/preserve packed doubleword integers in xmm2 depending on the corresponding sign in xmm3/m128.",
+   "opcode": "VEX.128.66.0F38.WIG 0A /r",
+   "operands": "RVM",
+   "syntax": "VPSIGND xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "08"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate packed byte integers in ymm2 if the corresponding sign in ymm3/m256 is less than zero.",
+   "opcode": "VEX.256.66.0F38.WIG 08 /r",
+   "operands": "RVM",
+   "syntax": "VPSIGNB ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "09"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate packed 16-bit integers in ymm2 if the corresponding sign in ymm3/m256 is less than zero.",
+   "opcode": "VEX.256.66.0F38.WIG 09 /r",
+   "operands": "RVM",
+   "syntax": "VPSIGNW ymm1, ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0A"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Negate packed doubleword integers in ymm2 if the corresponding sign in ymm3/m256 is less than zero.",
+   "opcode": "VEX.256.66.0F38.WIG 0A /r",
+   "operands": "RVM",
+   "syntax": "VPSIGND ymm1, ymm2, ymm3/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "psignb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PSIGNB",
+   "VPSIGNB",
+   "PSIGNW",
+   "VPSIGNW",
+   "PSIGND",
+   "VPSIGND"
+  ]
+ },
+ "mnemonics": [
+  "PSIGNB",
+  "PSIGNW",
+  "PSIGND"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1726,
+    1729
+   ]
+  }
+ ],
+ "version": 1
+}

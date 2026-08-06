@@ -1,0 +1,195 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "C3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Near return to calling procedure.",
+   "opcode": "C3",
+   "operands": "ZO",
+   "syntax": "RET"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "CB"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Far return to calling procedure.",
+   "opcode": "CB",
+   "operands": "ZO",
+   "syntax": "RET"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "opcode": [
+     "C2"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Near return to calling procedure and pop imm16 bytes from stack.",
+   "opcode": "C2 iw",
+   "operands": "I",
+   "syntax": "RET imm16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "opcode": [
+     "CA"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Far return to calling procedure and pop imm16 bytes from stack.",
+   "opcode": "CA iw",
+   "operands": "I",
+   "syntax": "RET imm16"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the return code or stack segment selector is NULL. If the return instruction pointer is not within the return code segment limit. If returning to 32-bit or compatibility mode and the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is beyond 4GB."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(selector)",
+   "when": "If the RPL of the return code segment selector is less then the CPL. If the return code or stack segment selector index is not within its descriptor table limits. If the return code segment descriptor does not indicate a code segment. If the return code segment is non-conforming and the segment selector's DPL is not equal to the RPL of the code segment's segment selector If the return code segment is conforming and the segment selector's DPL greater than the RPL of the code segment's segment selector If the stack segment is not a writable data segment. If the stack segment selector RPL is not equal to the RPL of the return code segment selector. If the stack segment descriptor DPL is not equal to the RPL of the return code segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If the top bytes of stack are not within stack limits. If the return stack segment is not present."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NP(selector)",
+   "when": "If the return code segment is not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory access occurs when the CPL is 3 and alignment checking is enabled. #CP(Far-RET/IRET) If the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is not 4 byte aligned. If return instruction pointer from stack and shadow stack do not match."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If the return instruction pointer is not within the return code segment limit"
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If the top bytes of stack are not within stack limits."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the return instruction pointer is not within the return code segment limit"
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If the top bytes of stack are not within stack limits. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If an unaligned memory access occurs when alignment checking is enabled."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same as 64-bit mode exceptions."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the return instruction pointer is non-canonical. If the return instruction pointer is not within the return code segment limit. If the stack segment selector is NULL going back to compatibility mode. If the stack segment selector is NULL going back to CPL3 64-bit mode. If a NULL stack segment selector RPL is not equal to CPL going back to non-CPL3 64-bit mode. If the return code segment selector is NULL. If returning to 32-bit or compatibility mode and the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is beyond 4GB."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(selector)",
+   "when": "If the proposed segment descriptor for a code segment does not indicate it is a code segment. If the proposed new code segment descriptor has both the D-bit and L-bit set. If the DPL for a nonconforming-code segment is not equal to the RPL of the code segment selector. If CPL is greater than the RPL of the code segment selector. If FRED transitions are enabled and CPL is less than the RPL of the code segment selector. If FRED transitions are enabled and CPL = 0 and far RET would enter compatibility mode. If the DPL of a conforming-code segment is greater than the return code segment selector RPL. If a segment selector index is outside its descriptor table limits. If a segment descriptor memory address is non-canonical. If the stack segment is not a writable data segment. If the stack segment descriptor DPL is not equal to the RPL of the return code segment selector. If the stack segment selector RPL is not equal to the RPL of the return code segment selector."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If an attempt to pop a value off the stack violates the SS limit. If an attempt to pop a value off the stack causes a non-canonical address to be referenced."
+  },
+  {
+   "mode": "long",
+   "vector": "#NP(selector)",
+   "when": "If the return code or stack segment is not present. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3. #CP(Far-RET/IRET) If the previous SSP from shadow stack (when returning to CPL <3) or from IA32_PL3_SSP (returning to CPL 3) is not 4 byte aligned. If return instruction pointer from stack and shadow stack do not match. RORX -- Rotate Right Logical Without Affecting Flags Opcode/ Op/ 64/32- CPUID Description Instruction En bit Feature Mode Flag VEX.LZ.F2.0F3A.W0 F0 /r ib RMI V/V BMI2 Rotate 32-bit r/m32 right imm8 times and load into r32 without RORX r32, r/m32, imm8 affecting arithmetic flags. VEX.LZ.F2.0F3A.W1 F0 /r ib RMI V/N.E. BMI2 Rotate 64-bit r/m64 right imm8 times and load into r64 without RORX r64, r/m64, imm8 affecting arithmetic flags."
+  }
+ ],
+ "format": "isadoc",
+ "id": "ret",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "RET"
+ ],
+ "operand_encodings": [
+  {
+   "id": "I",
+   "operands": [
+    {
+     "field": "imm16",
+     "raw": "imm16",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1858,
+    1871
+   ]
+  }
+ ],
+ "version": 1
+}

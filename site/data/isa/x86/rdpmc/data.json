@@ -1,0 +1,90 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "33"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Read performance-monitoring counter specified by ECX into EDX:EAX.",
+   "opcode": "0F 33",
+   "operands": "ZO",
+   "syntax": "RDPMC"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0 and the PCE flag in the CR4 register is clear. If an invalid performance counter index is specified."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If an invalid performance counter index is specified."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the PCE flag in the CR4 register is clear. If an invalid performance counter index is specified."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0 and the PCE flag in the CR4 register is clear. If an invalid performance counter index is specified."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rdpmc",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "RDPMC"
+  ]
+ },
+ "mnemonics": [
+  "RDPMC"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1840,
+    1842
+   ]
+  }
+ ],
+ "version": 1
+}

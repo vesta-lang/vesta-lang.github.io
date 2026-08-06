@@ -1,0 +1,397 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "EB"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short, RIP = RIP + 8-bit displacement sign extended to 64-bits.",
+   "opcode": "EB cb",
+   "operands": "D",
+   "syntax": "JMP rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "E9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near, relative, displacement relative to next instruction. Not supported in 64-bit mode.",
+   "opcode": "E9 cw",
+   "operands": "D",
+   "syntax": "JMP rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "E9"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near, relative, RIP = RIP + 32-bit displacement sign extended to 64-bits.",
+   "opcode": "E9 cd",
+   "operands": "D",
+   "syntax": "JMP rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near, absolute indirect, address = zeroextended r/m16. Not supported in 64-bit mode.",
+   "opcode": "FF /4",
+   "operands": "M",
+   "syntax": "JMP r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near, absolute indirect, address given in r/m32. Not supported in 64-bit mode.",
+   "opcode": "FF /4",
+   "operands": "M",
+   "syntax": "JMP r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 4
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Jump near, absolute indirect, RIP = 64-Bit offset from register or memory.",
+   "opcode": "FF /4",
+   "operands": "M",
+   "syntax": "JMP r/m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "EA"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "inv."
+   },
+   "note": "Jump far, absolute, address given in operand.",
+   "opcode": "EA cd",
+   "operands": "S",
+   "syntax": "JMP ptr16:16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 6,
+      "marker": "cp"
+     }
+    ],
+    "opcode": [
+     "EA"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "inv."
+   },
+   "note": "Jump far, absolute, address given in operand.",
+   "opcode": "EA cp",
+   "operands": "S",
+   "syntax": "JMP ptr16:32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump far, absolute indirect, address given in m16:16.",
+   "opcode": "FF /5",
+   "operands": "M",
+   "syntax": "JMP m16:16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "FF"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump far, absolute indirect, address given in m16:32.",
+   "opcode": "FF /5",
+   "operands": "M",
+   "syntax": "JMP m16:32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "FF"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Jump far, absolute indirect, address given in m16:64.",
+   "opcode": "REX.W FF /5",
+   "operands": "M",
+   "syntax": "JMP m16:64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If offset in target operand, call gate, or TSS is beyond the code segment limits. If the segment selector in the destination operand, call gate, task gate, or TSS is NULL. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector. If target mode is compatibility mode and SSP is not in low 4GB."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(selector)",
+   "when": "If the segment selector index is outside descriptor table limits. If the segment descriptor pointed to by the segment selector in the destination operand is not"
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "for a conforming-code segment, nonconforming-code segment, call gate, task gate, or task #NP (selector) state segment."
+  },
+  {
+   "mode": "protected",
+   "vector": "#PF(fault-code)",
+   "when": "If the DPL for a nonconforming-code segment is not equal to the CPL"
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "(When not using a call gate.) If the RPL for the segment's segment selector is greater than the"
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "CPL. If the DPL for a conforming-code segment is greater than the CPL. If the DPL from a call-gate, task-gate, or TSS segment descriptor is less than the CPL or than the RPL of the call-gate, task-gate, or TSS's segment selector. If the segment descriptor for selector in a call gate does not indicate it is a code segment. If the segment descriptor for the segment selector in a task gate does not indicate an available TSS. If the segment selector for a TSS has its local/global bit set for local. If a TSS segment descriptor specifies that the TSS is busy or not available. If a memory operand effective address is outside the SS segment limit. If the code segment being accessed is not present. If call gate, task gate, or TSS not present. If a page fault occurs. If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3. (Only occurs when fetching target from memory.) If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If the target operand is beyond the code segment limits. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made. (Only occurs when fetching target from memory.)"
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same as 64-bit mode exceptions."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP(Selector)",
+   "when": "If FRED transitions are enabled and the selector references a call gate."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If a memory address is non-canonical. If target offset in destination operand is non-canonical. If target offset in destination operand is beyond the new code segment limit. If the segment selector in the destination operand is NULL. If the code segment selector in the 64-bit gate is NULL. If transitioning to compatibility mode and the SSP is beyond 4GB."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(selector)",
+   "when": "If the code segment or 64-bit call gate is outside descriptor table limits. If the code segment or 64-bit call gate overlaps non-canonical space."
+  },
+  {
+   "mode": "long",
+   "vector": "#NP(selector)",
+   "when": "If the segment descriptor from a 64-bit call gate is in non-canonical space."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the segment descriptor pointed to by the segment selector in the destination operand is not"
+  },
+  {
+   "mode": "long",
+   "vector": "#PF(fault-code)",
+   "when": "for a conforming-code segment, nonconforming-code segment, 64-bit call gate."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If the segment descriptor pointed to by the segment selector in the destination operand is a code segment, and has both the D-bit and the L-bit set. If the DPL for a nonconforming-code segment is not equal to the CPL, or the RPL for the segment's segment selector is greater than the CPL. If the DPL for a conforming-code segment is greater than the CPL. If the DPL from a 64-bit call-gate is less than the CPL or than the RPL of the 64-bit call-gate. If the upper type field of a 64-bit call gate is not 0x0. If the segment selector from a 64-bit call gate is beyond the descriptor table limits. If the code segment descriptor pointed to by the selector in the 64-bit gate doesn't have the L-bit set and the D-bit clear. If the segment descriptor for a segment selector from the 64-bit call gate does not indicate it is a code segment. If the code segment is non-conforming and CPL DPL. If the code segment is confirming and CPL < DPL. If FRED transitions are enabled and the selector references a call gate. If FRED transitions are enabled, CPL is 0, and the instruction would enter compatibility mode. If a code segment or 64-bit call gate is not present. (64-bit mode only) If a far jump is direct to an absolute address in memory. If the LOCK prefix is used. If a page fault occurs. If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  }
+ ],
+ "format": "isadoc",
+ "id": "jmp",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "JMP"
+  ]
+ },
+ "mnemonics": [
+  "JMP"
+ ],
+ "operand_encodings": [
+  {
+   "id": "S",
+   "operands": [
+    {
+     "field": "Segment + Absolute Address",
+     "raw": "Segment + Absolute Address",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "offset",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1208,
+    1216
+   ]
+  }
+ ],
+ "version": 1
+}

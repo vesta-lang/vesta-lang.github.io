@@ -1,0 +1,164 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "45"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 16 bits masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.0F.W0 45 /r",
+   "operands": "RVR",
+   "syntax": "KORW k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "45"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L1.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 8 bits masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.66.0F.W0 45 /r",
+   "operands": "RVR",
+   "syntax": "KORB k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "45"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "text": "VEX.L1.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 64 bits masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.0F.W1 45 /r",
+   "operands": "RVR",
+   "syntax": "KORQ k1, k2, k3"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "45"
+    ],
+    "vector_prefix": {
+     "length": 1,
+     "length_note": "L1",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L1.66.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 32 bits masks k2 and k3 and place result in k1. OR AVX10.1",
+   "opcode": "VEX.L1.66.0F.W1 45 /r",
+   "operands": "RVR",
+   "syntax": "KORD k1, k2, k3"
+  }
+ ],
+ "format": "isadoc",
+ "id": "korw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KORW",
+   "KORB",
+   "KORQ",
+   "KORD"
+  ]
+ },
+ "mnemonics": [
+  "KORW",
+  "KORB",
+  "KORQ",
+  "KORD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVR",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1226,
+    1226
+   ]
+  }
+ ],
+ "version": 1
+}

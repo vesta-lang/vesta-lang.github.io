@@ -1,0 +1,245 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "15"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves double precision floating- point values from high quadwords of xmm1 and xmm2/m128.",
+   "opcode": "66 0F 15 /r",
+   "operands": "A",
+   "syntax": "UNPCKHPD xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves double precision floating- point values from high quadwords of xmm2 and xmm3/m128.",
+   "opcode": "VEX.128.66.0F.WIG 15 /r",
+   "operands": "B",
+   "syntax": "VUNPCKHPD xmm1,xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves double precision floating- point values from high quadwords of ymm2 and ymm3/m256.",
+   "opcode": "VEX.256.66.0F.WIG 15 /r",
+   "operands": "B",
+   "syntax": "VUNPCKHPD ymm1,ymm2, ymm3/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves double precision floating- AVX512F) OR point values from high quadwords of xmm2 and AVX10.1 xmm3/m128/m64bcst subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F.W1 15 /r",
+   "operands": "C",
+   "syntax": "VUNPCKHPD xmm1 {k1}{z}, xmm2, xmm3/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves double precision floating- AVX512F) OR point values from high quadwords of ymm2 and AVX10.1 ymm3/m256/m64bcst subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F.W1 15 /r",
+   "operands": "C",
+   "syntax": "VUNPCKHPD ymm1 {k1}{z}, ymm2, ymm3/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "15"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Unpacks and Interleaves double precision floating- OR AVX10.1 point values from high quadwords of zmm2 and zmm3/m512/m64bcst subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F.W1 15 /r",
+   "operands": "C",
+   "syntax": "VUNPCKHPD zmm1 {k1}{z}, zmm2, zmm3/m512/m64bcst"
+  }
+ ],
+ "format": "isadoc",
+ "id": "unpckhpd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "UNPCKHPD",
+   "VUNPCKHPD"
+  ]
+ },
+ "mnemonics": [
+  "UNPCKHPD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2032,
+    2035
+   ]
+  }
+ ],
+ "version": 1
+}

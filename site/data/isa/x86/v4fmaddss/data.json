@@ -1,0 +1,114 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_4FMAPS",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "9B"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply scalar single precision floating-point values from source register block indicated by xmm2 by values from m128 and accumulate the result in xmm1.",
+   "opcode": "EVEX.LLIG.F2.0F38.W0 9B /r",
+   "operands": "A",
+   "syntax": "V4FMADDSS xmm1{k1}{z}, xmm2+3, m128"
+  },
+  {
+   "cpuid": "AVX512_4FMAPS",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "AB"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "F2",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply and negate scalar single precision floating-point values from source register block indicated by xmm2 by values from m128 and accumulate the result in xmm1.",
+   "opcode": "EVEX.LLIG.F2.0F38.W0 AB /r",
+   "operands": "A",
+   "syntax": "V4FNMADDSS xmm1{k1}{z}, xmm2+3, m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "v4fmaddss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "V4FMADDSS",
+   "V4FNMADDSS"
+  ]
+ },
+ "mnemonics": [
+  "V4FMADDSS",
+  "V4FNMADDSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "Tuple1_4X",
+     "raw": "Tuple1_4X",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2949,
+    2950
+   ]
+  }
+ ],
+ "version": 1
+}

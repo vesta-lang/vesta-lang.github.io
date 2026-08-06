@@ -153,15 +153,80 @@ a {
     font-size: 0.85rem;
 }
 
-.lang-switch a,
 .repo-link {
     color: var(--fg-soft);
     text-decoration: none;
 }
 
-.lang-switch a:hover,
 .repo-link:hover {
     color: var(--fg);
+}
+
+/* Selector de idioma.
+ *
+ * Es un desplegable y no una fila de enlaces porque la fila no escala: con dos
+ * idiomas cabe, con once ocupa la cabecera entera. `details` lo abre sin
+ * JavaScript y responde al teclado por si mismo. */
+.lang-switch {
+    position: relative;
+}
+
+.lang-switch > summary {
+    cursor: pointer;
+    color: var(--fg-soft);
+    list-style: none;
+    white-space: nowrap;
+}
+
+.lang-switch > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* La flecha se dibuja con bordes, no con un caracter: el glifo no esta en
+ * todas las fuentes y donde falta sale un rectangulo vacio detras del nombre
+ * del idioma. Es el mismo motivo que en el desplegable de la tabla. */
+.lang-switch > summary::after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.4rem;
+    vertical-align: 0.15em;
+    width: 0;
+    height: 0;
+    border-top: 0.3rem solid currentColor;
+    border-left: 0.25rem solid transparent;
+    border-right: 0.25rem solid transparent;
+}
+
+.lang-switch > summary:hover,
+.lang-switch[open] > summary {
+    color: var(--fg);
+}
+
+.lang-switch > ul {
+    position: absolute;
+    right: 0;
+    z-index: 20;
+    margin: 0.4rem 0 0;
+    padding: 0.35rem 0;
+    min-width: 9rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    list-style: none;
+    background: var(--bg-soft, #1a1a1a);
+    border: 1px solid var(--border, #333);
+    border-radius: 0.4rem;
+}
+
+.lang-switch > ul a {
+    display: block;
+    padding: 0.35rem 0.9rem;
+    color: var(--fg-soft);
+    text-decoration: none;
+}
+
+.lang-switch > ul a:hover {
+    color: var(--fg);
+    background: var(--bg, #111);
 }
 
 /* --- Contenido ---------------------------------------------------------- */
@@ -863,10 +928,10 @@ details > :last-child {
     padding: 2.5rem 0 5rem;
 }
 
-/* La barra lateral y el indice acompanan al scroll, pero solo cuando caben
- * enteros: si no, quedarian recortados sin forma de ver el resto. */
+/* La barra lateral y la columna derecha acompanan al scroll, pero solo cuando
+ * caben enteras: si no, quedarian recortadas sin forma de ver el resto. */
 .doc-sidebar,
-.doc-toc {
+.doc-aside {
     position: sticky;
     top: 1.5rem;
     max-height: calc(100vh - 3rem);
@@ -874,6 +939,268 @@ details > :last-child {
     padding: 2.5rem 0 2rem;
     font-size: 0.9rem;
     line-height: 1.5;
+}
+
+/* --- Etiquetas de la referencia ------------------------------------------
+ *
+ * La forma vive aqui; el color, en assets/css/tags.css, que se GENERA desde
+ * el vocabulario de etiquetas. Separarlos es lo que permite anadir una
+ * etiqueta nueva sin tocar una sola linea de CSS escrita a mano.
+ *
+ * La fila va pegada a su encabezado y no separada como un parrafo: describe
+ * la entrada que la precede, y con el espacio de un parrafo normal parece
+ * pertenecer al texto que viene despues.
+ */
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: -0.35rem 0 1.1rem;
+}
+
+.tag {
+    padding: 0.1rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* Leyenda: una fila por familia. Se apoya en grid y no en una tabla porque el
+ * tercer campo es prosa y en una celda de tabla se estrecha hasta romperse. */
+.tag-legend {
+    display: grid;
+    gap: 1.1rem;
+    margin: 1.5rem 0 2rem;
+    padding: 1.2rem 1.3rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.tag-legend-row h3 {
+    margin: 0 0 0.4rem;
+    padding: 0;
+    border: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-soft);
+}
+
+.tag-legend-help {
+    margin: 0.35rem 0 0;
+    font-size: 0.85rem;
+    color: var(--fg-soft);
+}
+
+/* --- Referencia de instrucciones ------------------------------------------
+ *
+ * El indice de un juego de instrucciones son cientos de entradas. Se dispone
+ * en columnas para que quepan a la vista: en una sola columna, buscar un
+ * mnemonico exige recorrer una pagina de veinte pantallas.
+ */
+.isa-summary {
+    margin-top: -0.4rem;
+    font-size: 1.05rem;
+    color: var(--fg-soft);
+}
+
+/* El pseudocodigo de la operacion viene en <pre>: se le da caja de bloque de
+ * codigo para que se lea como lo que es y no como texto suelto. */
+.isa-pseudo pre {
+    margin: 0 0 0.8rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+    background: var(--code-bg);
+    color: var(--code-fg);
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+/* Las banderas se consultan de un vistazo: van en aviso, no en parrafo. */
+.isa-flags {
+    margin: 1rem 0 2rem;
+    padding: 0.8rem 1rem;
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+}
+
+.isa-flags p {
+    margin: 0;
+}
+
+/* Las cinco listas de excepciones juntas son mas largas que el resto de la
+ * pagina. Plegadas, siguen estando y dejan de estorbar. */
+.isa-exc {
+    margin: 0.4rem 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.isa-exc summary {
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.isa-exc[open] summary {
+    border-bottom: 1px solid var(--border);
+}
+
+.isa-exc table {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Contenedor de lo que llega de arch-data. Antes de pulsar contiene el enlace
+ * a la tabla completa, que es lo que se ve sin JavaScript. */
+.isa-remote {
+    margin: 1rem 0 2rem;
+}
+
+.isa-remote > p:first-child {
+    margin-top: 0;
+}
+
+.isa-load {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.isa-load:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.isa-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin: 1rem 0 2rem;
+}
+
+.isa-jump a {
+    min-width: 1.7rem;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.isa-index {
+    margin: 0.8rem 0 2rem;
+    padding: 0;
+    list-style: none;
+    columns: 2;
+    column-gap: 2rem;
+}
+
+.isa-index li {
+    /* Sin esto una entrada puede partirse entre dos columnas y quedar con el
+     * mnemonico arriba y su resumen abajo del todo. */
+    break-inside: avoid;
+    padding: 0.15rem 0;
+    font-size: 0.9rem;
+}
+
+.isa-index span {
+    color: var(--fg-soft);
+}
+
+@media (max-width: 60rem) {
+    .isa-index {
+        columns: 1;
+    }
+}
+
+/* --- Indice de la portada de un libro ------------------------------------ */
+
+.book-index {
+    margin: 1.2rem 0 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.book-index li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.book-index li:last-child {
+    border-bottom: 0;
+}
+
+/* Las paginas pendientes se muestran sin enlace: ocultarlas haria parecer
+ * terminado un libro que no lo esta. */
+.book-index .is-draft span,
+.doc-sidebar .is-draft span {
+    color: var(--fg-soft);
+    opacity: 0.55;
+}
+
+/* --- Barra lateral de la referencia --------------------------------------
+ *
+ * Los libros que no son el actual se quedan en su titulo. Siguen visibles
+ * -- esconderlos dejaria al lector sin saber que existen -- pero no compiten
+ * con las paginas del libro que esta leyendo.
+ */
+.doc-part.is-closed {
+    margin-bottom: 0.6rem;
+}
+
+.doc-part h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.doc-part h3 a:hover {
+    color: var(--accent);
+}
+
+.doc-part h3 a[aria-current='page'] {
+    color: var(--accent);
+}
+
+/* --- Descargar el capitulo en Markdown -----------------------------------
+ *
+ * Es un enlace normal con `download`, no un boton con JS: el fichero existe en
+ * el servidor, asi que no hay nada que construir en el cliente. Quien tenga el
+ * JS desactivado tambien puede descargarlo.
+ *
+ * Va debajo del indice, no encima: el indice es lo que el lector usa mientras
+ * lee, y la descarga es una accion que se toma al final o antes de empezar,
+ * pero nunca compitiendo con la navegacion del texto.
+ */
+.doc-source {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--fg-soft);
+    font-size: 0.78rem;
+    text-decoration: none;
+}
+
+.doc-source:hover {
+    color: var(--fg);
+    border-color: var(--accent);
 }
 
 .doc-sidebar ul {
@@ -1047,4 +1374,498 @@ details > :last-child {
     .doc-main {
         padding-top: 1.75rem;
     }
+}
+
+
+/* --- Paginas de la referencia de instrucciones --------------------------- */
+
+/* Son sobre todo tablas: opcodes, campos de operando, excepciones por modo.
+ * El ancho de lectura vale para la prosa y estorba a una tabla, que con 42rem
+ * se desplaza dentro de si misma mientras media pantalla queda vacia a la
+ * derecha. Aqui la columna ocupa lo que hay y la prosa conserva su medida. */
+body.isa-page .doc-layout {
+    /* Dos columnas, no tres: en la referencia la de la derecha es el indice de
+     * la pagina y aqui va vacia, asi que ocupaba 13rem mas su hueco para nada.
+     * Con ese espacio y un tope mas alto, el mapa de opcodes pasa de 1072 a mas
+     * de 1500 pixeles utiles, que es la diferencia entre leer las dieciseis
+     * columnas y adivinarlas. */
+    max-width: 120rem;
+    grid-template-columns: 15rem minmax(0, 1fr);
+}
+
+body.isa-page .doc-aside {
+    display: none;
+}
+
+body.isa-page .doc-main {
+    /* `100%` y no `none`. Lo que se quiere quitar es el ancho de lectura de
+     * 42rem, no el limite de la columna: sin tope, el elemento de la rejilla
+     * se dimensiona por su contenido -- medido, 2244px dentro de una pista de
+     * 1072 -- y arrastra la pagina entera con el. */
+    max-width: 100%;
+    /* Sin esto la tabla ensancha la celda de la rejilla y el desbordamiento
+     * sale de la pagina entera en lugar de quedarse dentro de la tabla.
+     *
+     * No se recorta con `overflow: hidden`: eso esconde columnas en lugar de
+     * dejar llegar a ellas. Lo que hay que conseguir es que el ancho sobrante
+     * lo absorba el contenedor de la tabla, que si se desplaza. */
+    min-width: 0;
+}
+
+body.isa-page .doc-main > p,
+body.isa-page .doc-main > ul,
+body.isa-page .doc-main > ol,
+body.isa-page .doc-main > blockquote {
+    max-width: var(--measure);
+}
+
+/* Las tarjetas de codificacion de operandos se reparten el ancho en lugar de
+ * apilarse en una columna con el resto del renglon vacio. */
+.isa-openc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+}
+
+.isa-openc {
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--border, #333);
+    border-radius: 0.4rem;
+}
+
+.isa-openc h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+}
+
+.isa-openc ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.isa-openc em {
+    color: var(--fg-soft);
+    font-size: 0.85rem;
+}
+
+
+/* El campo donde va cada operando se explica debajo del nombre: `modrm.reg`
+ * no le dice a nadie donde escribir el registro, y sin eso la seccion no
+ * sirve para montar la instruccion a mano, que es para lo que existe. */
+.isa-openc .isa-field {
+    display: block;
+    margin: 0.15rem 0 0.5rem;
+    color: var(--fg-soft);
+    font-size: 0.8rem;
+    line-height: 1.35;
+}
+
+/* Las banderas con su nombre, en columnas: la sigla sola no se entiende. */
+.isa-flag-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 0.3rem 1rem;
+    margin: 0.5rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.isa-flag-row span {
+    color: var(--fg-soft);
+    font-size: 0.9rem;
+}
+
+
+/* --- Datos de arch-data ------------------------------------------------- */
+
+/* Una forma por bloque. `BT` tiene dieciocho y la latencia de la que opera
+ * sobre memoria no se parece a la de la que opera sobre registros: verlas
+ * juntas es el motivo de consultar esta seccion. */
+.isa-form {
+    margin: 0 0 0.75rem;
+    border: 1px solid var(--border, #333);
+    border-radius: 0.4rem;
+}
+
+.isa-form > summary {
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+}
+
+.isa-form[open] > summary {
+    border-bottom: 1px solid var(--border, #333);
+}
+
+.isa-form > *:not(summary) {
+    margin: 0.75rem 0.9rem;
+}
+
+/* Identidad estructural: pares etiqueta/valor en dos columnas. */
+.isa-identity {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.2rem 1rem;
+    margin: 0.75rem 0.9rem;
+}
+
+.isa-identity dt {
+    color: var(--fg-soft);
+    font-size: 0.85rem;
+}
+
+.isa-identity dd {
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Puerto de ejecucion. El color lo calcula el script con la misma funcion que
+ * el visor de arch-data, para que el mismo puerto se vea igual en los dos. */
+.pport {
+    padding: 0.05rem 0.35rem;
+    border-radius: 0.25rem;
+    font-family: var(--mono, monospace);
+    font-size: 0.85em;
+}
+
+.dim {
+    color: var(--fg-soft);
+}
+
+
+/* Variantes medidas colgando de su fila de codificacion.
+ *
+ * La fila del manual es el disparador y la ampliacion sale debajo, oculta
+ * hasta que se pide. Un bloque siempre visible que solo anuncia cuantas hay
+ * duplica el alto de la tabla y no dice nada que no quepa en la propia fila. */
+tr.is-expandable {
+    cursor: pointer;
+}
+
+/* El triangulo se dibuja con bordes, no con un caracter: el glifo de la
+ * flechita no esta en todas las fuentes y donde falta sale un rectangulo
+ * vacio delante de cada opcode. Ademas asi no entra un simbolo decorativo
+ * en el repositorio. */
+tr.is-expandable > td:first-child::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: 0.45rem;
+    vertical-align: 0.05em;
+    border-left: 0.35rem solid currentColor;
+    border-top: 0.25rem solid transparent;
+    border-bottom: 0.25rem solid transparent;
+    color: var(--fg-soft);
+    transition: transform .12s ease;
+}
+
+tr.is-expandable[aria-expanded="true"] > td:first-child::before {
+    transform: rotate(90deg);
+}
+
+tr.is-expandable:hover,
+tr.is-expandable:focus-visible {
+    background: hsl(0 0% 50% / .07);
+}
+
+.isa-variants > td {
+    padding: 0.6rem 0.9rem 0.9rem 2rem;
+    background: hsl(0 0% 50% / .05);
+}
+
+
+/* Distintivo de una variante, junto a su nombre: lo que la diferencia de las
+ * demas tiene que leerse sin abrirla. */
+.isa-tag {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    background: hsl(0 0% 50% / .14);
+    color: var(--fg-soft);
+}
+
+.isa-tag-apx { background: hsl(275 60% 50% / .18); color: hsl(275 65% 70%); }
+.isa-tag-nf { background: hsl(35 70% 50% / .18); color: hsl(35 75% 65%); }
+.isa-tag-ndd { background: hsl(150 55% 45% / .18); color: hsl(150 60% 62%); }
+
+/* Cuantas variantes medidas tiene una fila del manual. */
+.isa-count {
+    float: right;
+    min-width: 1.5rem;
+    padding: 0 0.35rem;
+    border-radius: 0.7rem;
+    background: hsl(0 0% 50% / .16);
+    color: var(--fg-soft);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+
+/* Lo que sobra de arch-data, plegado y cerrado. Casi siempre no hay nada que
+ * ver aqui porque el coste ya cuelga de su fila, y abrirlo por defecto seria
+ * ocupar media pagina para decir que no sobra nada. */
+.isa-leftover > summary {
+    padding: 0.4rem 0;
+    color: var(--fg-soft);
+    cursor: pointer;
+}
+
+.isa-leftover[open] > summary,
+.isa-leftover > summary:hover {
+    color: var(--fg);
+}
+
+
+/* --- Que ninguna tabla desborde la pagina --------------------------------- */
+
+/* La tabla se desplaza DENTRO de su contenedor. `min-width: 0` es lo que lo
+ * hace posible: sin el, un elemento de rejilla o de flex toma como minimo el
+ * ancho de su contenido, la celda crece y el desbordamiento sale por la
+ * pagina entera en lugar de quedarse en la tabla. */
+.table-scroll {
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    /* Un contenedor que se desplaza tiene que poder recibir el foco, o con
+     * teclado no hay forma de ver las columnas de la derecha. */
+    scrollbar-width: thin;
+}
+
+/* La tabla de codificaciones reparte sus columnas en proporcion fija, para
+ * que el texto largo se parta en lugar de estirar la columna y para que la
+ * tabla no pase nunca del ancho de su contenedor. */
+.isa-encodings {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.isa-encodings th,
+.isa-encodings td {
+    overflow-wrap: anywhere;
+}
+
+.isa-encodings th:nth-child(1), .isa-encodings td:nth-child(1) { width: 20%; }
+.isa-encodings th:nth-child(2), .isa-encodings td:nth-child(2) { width: 21%; }
+.isa-encodings th:nth-child(3), .isa-encodings td:nth-child(3) { width: 7%; }
+.isa-encodings th:nth-child(4), .isa-encodings td:nth-child(4) { width: 9%; }
+.isa-encodings th:nth-child(5), .isa-encodings td:nth-child(5) { width: 12%; }
+
+/* Las variantes cuelgan de su fila. La celda ocupa la tabla entera: es una
+ * ampliacion de la fila de arriba, no una fila mas. */
+.isa-variants > td {
+    padding: 0.6rem 0.9rem 0.9rem 2rem;
+    background: hsl(0 0% 50% / .05);
+}
+
+.isa-variants .isa-form,
+.isa-variants .table-scroll,
+.isa-variants .isa-identity {
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* En pantalla estrecha la referencia deja de ser de tres columnas: el
+ * recorrido pasa arriba y el contenido ocupa el ancho. Con las columnas fijas
+ * de 15rem y 13rem no cabria nada en un movil. */
+@media (max-width: 60rem) {
+    body.isa-page .doc-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.isa-page .doc-aside {
+        display: none;
+    }
+
+    .isa-identity {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0 0;
+    }
+
+    .isa-identity dt {
+        margin-top: 0.5rem;
+    }
+}
+
+
+/* Filtro por microarquitectura del indice de instrucciones. */
+.isa-filter {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin: 0 0 1.5rem;
+    font-size: 0.9rem;
+}
+
+.isa-filter select {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border, #333);
+    border-radius: 0.3rem;
+    background: var(--bg-soft, #1a1a1a);
+    color: var(--fg);
+    font: inherit;
+}
+
+.isa-filter-count {
+    color: var(--fg-soft);
+}
+
+
+/* --- Mapa de opcodes ------------------------------------------------------ */
+
+/* Rejilla de 16 por 16. Se lee buscando la fila del nibble alto y la columna
+ * del bajo, asi que las dos cabeceras tienen que verse siempre: por eso van
+ * fijas al desplazar. La tabla ocupa el ancho de la pagina, que es la unica
+ * forma de que quepan las dieciseis columnas sin cortar. */
+.op-map {
+    /* Reparto fijo y ancho completo: las diecisiete columnas -- la cabecera y
+     * los dieciseis nibbles -- caben siempre. Con un ancho minimo la tabla se
+     * salia del contenedor y el mapa se cortaba en la columna A, que es
+     * justamente perder la mitad de lo que se viene a consultar. */
+    table-layout: fixed;
+    width: 100%;
+    font-size: 0.68rem;
+    line-height: 1.25;
+}
+
+/* La cabecera de fila es estrecha; el resto se reparte lo que queda. */
+.op-map th:first-child,
+.op-map tbody th {
+    width: 2.2rem;
+}
+
+.op-map th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--bg);
+    text-align: center;
+    font-weight: 600;
+}
+
+.op-map tbody th {
+    left: 0;
+    z-index: 1;
+}
+
+.op-map td {
+    padding: 0.25rem 0.3rem;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.op-map td.is-empty {
+    background: hsl(0 0% 50% / .05);
+}
+
+.op-map a {
+    color: var(--fg);
+    text-decoration: none;
+}
+
+.op-map a:hover {
+    text-decoration: underline;
+}
+
+/* Lo que distingue a una instruccion dentro de su casilla: el prefijo
+ * obligatorio o el campo reg del ModRM. Sin esto la casilla `0F 58` mostraria
+ * cuatro nombres sin decir cual sale con cada prefijo. */
+.op-mark {
+    color: var(--fg-soft);
+    font-size: 0.9em;
+}
+
+
+/* --- Conmutador de vista del indice de instrucciones ---------------------- */
+
+/* Dos botones de radio y el combinador de hermano general: sin JavaScript, y
+ * las dos vistas estan en el HTML servido. Los radios se ocultan a la vista
+ * pero no al teclado ni al lector de pantalla, que es lo que los hace
+ * utilizables: la etiqueta es lo que se ve y lo que se pulsa. */
+.view-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.view-switch {
+    display: inline-flex;
+    margin: 0 0 1.5rem;
+    border: 1px solid var(--border, #333);
+    border-radius: 0.4rem;
+    overflow: hidden;
+}
+
+.view-switch label {
+    padding: 0.3rem 0.9rem;
+    color: var(--fg-soft);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.view-switch label:hover {
+    color: var(--fg);
+}
+
+.isa-view {
+    display: none;
+}
+
+#view-list:checked ~ .view-switch label[for="view-list"],
+#view-map:checked ~ .view-switch label[for="view-map"] {
+    background: hsl(0 0% 50% / .16);
+    color: var(--fg);
+}
+
+#view-list:checked ~ .isa-view-list,
+#view-map:checked ~ .isa-view-map {
+    display: block;
+}
+
+/* El foco del teclado se ve en la etiqueta, porque el radio esta oculto. */
+.view-toggle:focus-visible ~ .view-switch label {
+    outline: 2px solid var(--accent, #e0b070);
+    outline-offset: 2px;
+}
+
+
+/* Leyenda de categorias del mapa. El color lo pone el script, con la misma
+ * funcion que usa para los puertos: una categoria tiene siempre el mismo tono
+ * y no hay paleta que mantener. */
+.op-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 0.9rem;
+    margin: 0 0 1.5rem;
+    font-size: 0.8rem;
+}
+
+.op-legend p {
+    margin: 0;
+    color: var(--fg-soft);
+}
+
+.op-legend-item {
+    font-family: var(--mono, monospace);
+}
+
+
+/* Cada entrada de una casilla en su propia linea, para poder ocultarla entera
+ * con su marca cuando el filtro la deja fuera. */
+.op-entry {
+    display: block;
+}
+
+/* Casilla que tiene instrucciones pero ninguna en la microarquitectura
+ * elegida. Se distingue de la casilla vacia de verdad: una dice "aqui no hay
+ * nada" y la otra "aqui no hay nada EN ESTA". */
+.op-map td.is-filtered {
+    background: hsl(0 0% 50% / .09);
 }

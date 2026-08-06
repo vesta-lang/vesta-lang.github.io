@@ -1,0 +1,122 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "text": "EVEX.128.NP.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute square roots of the packed FP16 values AND AVX512VL) in xmm2/m128/m16bcst, and store the result in OR AVX10.1 xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.NP.MAP5.W0 51       /r",
+   "operands": "A",
+   "syntax": "VSQRTPH xmm1{k1}{z}, xmm2/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP5",
+     "text": "EVEX.256.NP.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute square roots of the packed FP16 values AND AVX512VL) in ymm2/m256/m16bcst, and store the result in OR AVX10.1 ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.NP.MAP5.W0 51       /r",
+   "operands": "A",
+   "syntax": "VSQRTPH ymm1{k1}{z}, ymm2/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "51"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP5",
+     "text": "EVEX.512.NP.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute square roots of the packed FP16 values OR AVX10.1 in zmm2/m512/m16bcst, and store the result in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.NP.MAP5.W0 51       /r",
+   "operands": "A",
+   "syntax": "VSQRTPH zmm1{k1}{z}, zmm2/m512/m16bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsqrtph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSQRTPH"
+  ]
+ },
+ "mnemonics": [
+  "VSQRTPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2816,
+    2817
+   ]
+  }
+ ],
+ "version": 1
+}

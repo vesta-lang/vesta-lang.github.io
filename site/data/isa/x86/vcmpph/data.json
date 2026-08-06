@@ -1,0 +1,150 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "text": "EVEX.128.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed FP16 values in AND AVX512VL) xmm3/m128/m16bcst and xmm2 using bits 4:0 of OR AVX10.1 imm8 as a comparison predicate subject to writemask k2, and store the result in mask register k1.",
+   "opcode": "EVEX.128.NP.0F3A.W0 C2 /r /ib",
+   "operands": "A",
+   "syntax": "VCMPPH k1{k2}, xmm2, xmm3/m128/m16bcst, imm8"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 3A",
+     "text": "EVEX.256.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed FP16 values in AND AVX512VL) ymm3/m256/m16bcst and ymm2 using bits 4:0 of OR AVX10.1 imm8 as a comparison predicate subject to writemask k2, and store the result in mask register k1.",
+   "opcode": "EVEX.256.NP.0F3A.W0 C2 /r /ib",
+   "operands": "A",
+   "syntax": "VCMPPH k1{k2}, ymm2, ymm3/m256/m16bcst, imm8"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "C2"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 3A",
+     "text": "EVEX.512.NP.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compare packed FP16 values in OR AVX10.1 zmm3/m512/m16bcst and zmm2 using bits 4:0 of imm8 as a comparison predicate subject to writemask k2, and store the result in mask register k1.",
+   "opcode": "EVEX.512.NP.0F3A.W0 C2 /r /ib",
+   "operands": "A",
+   "syntax": "VCMPPH k1{k2}, zmm2, zmm3/m512/m16bcst {sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcmpph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCMPPH"
+  ]
+ },
+ "mnemonics": [
+  "VCMPPH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2071,
+    2072
+   ]
+  }
+ ],
+ "version": 1
+}

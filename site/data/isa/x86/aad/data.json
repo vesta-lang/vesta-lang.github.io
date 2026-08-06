@@ -1,0 +1,100 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "D5",
+     "0A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "ASCII adjust AX before division.",
+   "opcode": "D5 0A",
+   "operands": "ZO",
+   "syntax": "AAD"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "D5"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "invalid"
+   },
+   "note": "Adjust AX before division to number base imm8.",
+   "opcode": "D5 ib",
+   "operands": "ZO",
+   "syntax": "AAD imm8"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If in 64-bit mode."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "aad",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "AADD"
+  ]
+ },
+ "mnemonics": [
+  "AAD"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    707,
+    708
+   ]
+  }
+ ],
+ "version": 1
+}

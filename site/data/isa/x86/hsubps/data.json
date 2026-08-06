@@ -1,0 +1,143 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE3",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "7D"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Horizontal subtract packed single precision floating-point values from xmm2/m128 to xmm1.",
+   "opcode": "F2 0F 7D /r",
+   "operands": "RM",
+   "syntax": "HSUBPS xmm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Horizontal subtract packed single precision floating-point values from xmm2 and xmm3/mem.",
+   "opcode": "VEX.128.F2.0F.WIG 7D /r",
+   "operands": "RVM",
+   "syntax": "VHSUBPS xmm1, xmm2, xmm3/m128"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7D"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "F2",
+     "text": "VEX.256.F2.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Horizontal subtract packed single precision floating-point values from ymm2 and ymm3/mem.",
+   "opcode": "VEX.256.F2.0F.WIG 7D /r",
+   "operands": "RVM",
+   "syntax": "VHSUBPS ymm1, ymm2, ymm3/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "hsubps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "HSUBPS",
+   "VHSUBPS"
+  ]
+ },
+ "mnemonics": [
+  "HSUBPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1149,
+    1151
+   ]
+  }
+ ],
+ "version": 1
+}

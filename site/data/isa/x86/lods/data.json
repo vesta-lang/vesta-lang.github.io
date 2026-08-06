@@ -1,0 +1,245 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AC"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, Load byte at address DS:(E)SI into AL. For 64-bit mode load byte at address (R)SI into AL.",
+   "opcode": "AC",
+   "operands": "ZO",
+   "syntax": "LODS m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, Load word at address DS:(E)SI into AX. For 64-bit mode load word at address (R)SI into AX.",
+   "opcode": "AD",
+   "operands": "ZO",
+   "syntax": "LODS m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, Load dword at address DS:(E)SI into EAX. For 64-bit mode load dword at address (R)SI into EAX.",
+   "opcode": "AD",
+   "operands": "ZO",
+   "syntax": "LODS m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Load qword at address (R)SI into RAX.",
+   "opcode": "REX.W + AD",
+   "operands": "ZO",
+   "syntax": "LODS m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AC"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, Load byte at address DS:(E)SI into AL. For 64-bit mode load byte at address (R)SI into AL.",
+   "opcode": "AC",
+   "operands": "ZO",
+   "syntax": "LODSB"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, Load word at address DS:(E)SI into AX. For 64-bit mode load word at address (R)SI into AX.",
+   "opcode": "AD",
+   "operands": "ZO",
+   "syntax": "LODSW"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "For legacy mode, Load dword at address DS:(E)SI into EAX. For 64-bit mode load dword at address (R)SI into EAX.",
+   "opcode": "AD",
+   "operands": "ZO",
+   "syntax": "LODSD"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Load qword at address (R)SI into RAX.",
+   "opcode": "REX.W + AD",
+   "operands": "ZO",
+   "syntax": "LODSQ"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "lods",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "LODSB",
+   "LODSW",
+   "LODSD",
+   "LODSQ"
+  ]
+ },
+ "mnemonics": [
+  "LODS",
+  "LODSB",
+  "LODSW",
+  "LODSD",
+  "LODSQ"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1271,
+    1273
+   ]
+  }
+ ],
+ "version": 1
+}

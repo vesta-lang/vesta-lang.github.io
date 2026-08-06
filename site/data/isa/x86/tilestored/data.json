@@ -1,0 +1,73 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AMX_TILE",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true,
+     "rm": "100"
+    },
+    "opcode": [
+     "4B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F3",
+     "text": "VEX.128.F3.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Store a tile in sibmem as specified in tmm1.",
+   "opcode": "VEX.128.F3.0F38.W0 4B !(11):rrr:100",
+   "operands": "A",
+   "syntax": "TILESTORED sibmem, tmm1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "tilestored",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "TILESTORED"
+  ]
+ },
+ "mnemonics": [
+  "TILESTORED"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2015,
+    2015
+   ]
+  }
+ ],
+ "version": 1
+}

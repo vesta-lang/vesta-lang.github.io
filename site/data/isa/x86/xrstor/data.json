@@ -1,0 +1,164 @@
+{
+ "encodings": [
+  {
+   "cpuid": "XSAVE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Restore state components specified by EDX:EAX from mem.",
+   "opcode": "NP 0F AE /5",
+   "operands": "M",
+   "syntax": "XRSTOR mem"
+  },
+  {
+   "cpuid": "XSAVE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 5
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "NP"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Restore state components specified by EDX:EAX from mem.",
+   "opcode": "NP REX.W + 0F AE /5",
+   "operands": "M",
+   "syntax": "XRSTOR64 mem"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If a memory operand is not aligned on a 64-byte boundary, regardless of segment. If bit 63 of the XCOMP_BV field of the XSAVE header is 1 and CPUID.0DH.01H:EAX.XSAVEC[1] = 0. If the standard form is executed and a bit in XCR0 is 0 and the corresponding bit in the XSTATE_BV field of the XSAVE header is 1. If the standard form is executed and bytes 23:8 of the XSAVE header are not all zero. If the compacted form is executed and a bit in XCR0 is 0 and the corresponding bit in the XCOMP_BV field of the XSAVE header is 1. If the compacted form is executed and a bit in the XCOMP_BV field in the XSAVE header is 0 and the corresponding bit in the XSTATE_BV field is 1. If the compacted form is executed and bytes 63:16 of the XSAVE header are not all zero. If attempting to write any reserved bits of the MXCSR register with 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.XSAVE[26] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC",
+   "when": "If this exception is disabled a general protection exception (#GP) is signaled if the memory operand is not aligned on a 64-byte boundary, as described above. If the alignment check exception (#AC) is enabled (and the CPL is 3), signaling of #AC is not guaranteed and may vary with implementation, as follows. In all implementations where #AC is not signaled, a general protection exception is signaled in its place. In addition, the width of the alignment check may also vary with implementation. For instance, for a given implementation, an alignment check exception might be signaled for a 2-byte misalignment, whereas a general protection exception might be signaled for all other misalignments (4-, 8-, or 16-byte misalignments)."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand is not aligned on a 64-byte boundary, regardless of segment. If any part of the operand lies outside the effective address space from 0 to FFFFH. If bit 63 of the XCOMP_BV field of the XSAVE header is 1 and CPUID.0DH.01H:EAX.XSAVEC[1] = 0. If the standard form is executed and a bit in XCR0 is 0 and the corresponding bit in the XSTATE_BV field of the XSAVE header is 1. If the standard form is executed and bytes 23:8 of the XSAVE header are not all zero. If the compacted form is executed and a bit in XCR0 is 0 and the corresponding bit in the XCOMP_BV field of the XSAVE header is 1. If the compacted form is executed and a bit in the XCOMP_BV field in the XSAVE header is 0 and the corresponding bit in the XSTATE_BV field is 1. If the compacted form is executed and bytes 63:16 of the XSAVE header are not all zero."
+  },
+  {
+   "mode": "real",
+   "vector": "#NM",
+   "when": "If attempting to write any reserved bits of the MXCSR register with 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR0.TS[bit 3] = 1. If CPUID.01H:ECX.XSAVE[26] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If a memory address is in a non-canonical form. If a memory operand is not aligned on a 64-byte boundary, regardless of segment. If bit 63 of the XCOMP_BV field of the XSAVE header is 1 and CPUID.0DH.01H:EAX.XSAVEC[1] = 0. If the standard form is executed and a bit in XCR0 is 0 and the corresponding bit in the XSTATE_BV field of the XSAVE header is 1. If the standard form is executed and bytes 23:8 of the XSAVE header are not all zero. If the compacted form is executed and a bit in XCR0 is 0 and the corresponding bit in the XCOMP_BV field of the XSAVE header is 1. If the compacted form is executed and a bit in the XCOMP_BV field in the XSAVE header is 0 and the corresponding bit in the XSTATE_BV field is 1. If the compacted form is executed and bytes 63:16 of the XSAVE header are not all zero. If attempting to write any reserved bits of the MXCSR register with 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#NM",
+   "when": "If CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX[26, \"XSAVE\"] = 0. If CR4.OSXSAVE[bit 18] = 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC",
+   "when": "If this exception is disabled a general protection exception (#GP) is signaled if the memory operand is not aligned on a 64-byte boundary, as described above. If the alignment check exception (#AC) is enabled (and the CPL is 3), signaling of #AC is not guaranteed and may vary with implementation, as follows. In all implementations where #AC is not signaled, a general protection exception is signaled in its place. In addition, the width of the alignment check may also vary with implementation. For instance, for a given implementation, an alignment check exception might be signaled for a 2-byte misalignment, whereas a general protection exception might be signaled for all other misalignments (4-, 8-, or 16-byte misalignments)."
+  }
+ ],
+ "format": "isadoc",
+ "id": "xrstor",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "XRSTOR"
+  ]
+ },
+ "mnemonics": [
+  "XRSTOR"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2876,
+    2880
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,122 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "text": "EVEX.128.NP.MAP5.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert two packed signed quadword integers in AND AVX512VL) xmm2/m128/m64bcst to packed FP16 values, OR AVX10.1 and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.NP.MAP5.W1 5B /r",
+   "operands": "A",
+   "syntax": "VCVTQQ2PH xmm1{k1}{z}, xmm2/m128/m64bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5B"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP5",
+     "text": "EVEX.256.NP.MAP5.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert four packed signed quadword integers in AND AVX512VL) ymm2/m256/m64bcst to packed FP16 values, OR AVX10.1 and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.256.NP.MAP5.W1 5B /r",
+   "operands": "A",
+   "syntax": "VCVTQQ2PH xmm1{k1}{z}, ymm2/m256/m64bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "5B"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP5",
+     "text": "EVEX.512.NP.MAP5.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed signed quadword integers in OR AVX10.1 zmm2/m512/m64bcst to packed FP16 values, and store the result in xmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.NP.MAP5.W1 5B /r",
+   "operands": "A",
+   "syntax": "VCVTQQ2PH xmm1{k1}{z}, zmm2/m512/m64bcst {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvtqq2ph",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTQQ2PH"
+  ]
+ },
+ "mnemonics": [
+  "VCVTQQ2PH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2134,
+    2135
+   ]
+  }
+ ],
+ "version": 1
+}

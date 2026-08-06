@@ -1,0 +1,84 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "57"
+    ],
+    "vector_prefix": {
+     "map": "0F 3A",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Perform a reduction transformation on a scalar single- OR AVX10.1 precision floating-point value in xmm3/m32 by subtracting a number of fraction bits specified by the imm8 field. Also, upper single-precision floating-point values (bits[127:32]) from xmm2 are copied to xmm1[127:32]. Stores the result in xmm1 register.",
+   "opcode": "EVEX.LLIG.66.0F3A.W0 57 /r /ib",
+   "operands": "A",
+   "syntax": "VREDUCESS xmm1 {k1}{z}, xmm2, xmm3/m32{sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vreducess",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VREDUCESS"
+  ]
+ },
+ "mnemonics": [
+  "VREDUCESS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2748,
+    2749
+   ]
+  }
+ ],
+ "version": 1
+}

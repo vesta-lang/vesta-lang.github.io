@@ -1,0 +1,79 @@
+{
+ "encodings": [
+  {
+   "cpuid": "OSPKE",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "EF"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Writes EAX into PKRU.",
+   "opcode": "NP 0F 01 EF",
+   "operands": "ZO",
+   "syntax": "WRPKRU"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If ECX  0. If EDX 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CR4.PKE = 0."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "wrpkru",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "WRPKRU"
+  ]
+ },
+ "mnemonics": [
+  "WRPKRU"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2842,
+    2843
+   ]
+  }
+ ],
+ "version": 1
+}

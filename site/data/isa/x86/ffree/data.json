@@ -1,0 +1,84 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "DD",
+     "C0"
+    ],
+    "opcode_register": {
+     "file": "x87",
+     "marker": "+i"
+    }
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Sets tag for ST(i) to empty.",
+   "opcode": "DD C0+i",
+   "operands": "",
+   "syntax": "FFREE ST(i)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "CR0.EM[bit 2] or CR0.TS[bit 3] = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#MF",
+   "when": "If there is a pending x87 FPU exception."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  }
+ ],
+ "format": "isadoc",
+ "id": "ffree",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "FFREE"
+  ]
+ },
+ "mnemonics": [
+  "FFREE"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1043,
+    1043
+   ]
+  }
+ ],
+ "version": 1
+}

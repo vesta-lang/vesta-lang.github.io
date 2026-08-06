@@ -1,0 +1,87 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "CA"
+    ],
+    "prefixes": [
+     "F2"
+    ]
+   },
+   "modes": {
+    "legacy": "invalid",
+    "long": "valid"
+   },
+   "note": "Event return for events occurring in ring 0.",
+   "opcode": "F2 0F 01 CA",
+   "operands": "ZO",
+   "syntax": "ERETS"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The ERETS instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The ERETS instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The ERETS instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The ERETS instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CR4.FRED = 0. If CPL > 0. If the LOCK prefix is used."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the RIP image on the stack is a not paging canonical. If the RFLAGS image on the stack sets reserved bits or the VM bit (or fails to set bit 1). If bits 15:0 of the CS image on the stack differs from the value of the current CS selector. If the CS image on the stack sets undefined bits (bits 63:19). If bits 15:0 of the SS image on the stack differs from the value of the current SS selector. If the SS image on the stack sets undefined bits (bits 31:19). If the SSP image on the shadow stack is not CPU canonical. If a shadow-stack access would use an address that is not paging canonical or would cause a LASS violation."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If an ordinary stack access would use an address that is not paging canonical or would cause a LASS violation. #CP(FAR-RET/IRET) If the address in SSP is not 8-byte aligned. If the 64-bit CS image on the shadow stack differs from that on the regular stack. If the SSLIP image on the shadow stack differs from the RIP image on the regular stack. If the SSP image on the shadow stack is not 4-byte aligned. If the CSL is i, the stack level is changing, and SSP differs from the value of IA32_FRED_SSPi."
+  }
+ ],
+ "flags": [
+  "VM"
+ ],
+ "format": "isadoc",
+ "id": "erets",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ERETS"
+  ]
+ },
+ "mnemonics": [
+  "ERETS"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1002,
+    1004
+   ]
+  }
+ ],
+ "version": 1
+}

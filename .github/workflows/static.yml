@@ -42,6 +42,14 @@ jobs:
         with:
           node-version: '22'
 
+      # El linter va ANTES del build, y no despues: comprueba el fuente, no el
+      # resultado, y si algo esta mal escrito no tiene sentido gastar el build
+      # en construirlo. Es tambien la ultima barrera contra las reglas que no
+      # se pueden verificar mirando el HTML: caracteres prohibidos, rastro de
+      # herramienta, ficheros sin documentar.
+      - name: Lint
+        run: node tools/lint.mjs
+
       # El build falla solo si algun fragmento .vx quedo sin regenerar su
       # indice: es preferible romper la publicacion a servir un fragmento cuyo
       # resaltado no corresponde a su codigo.

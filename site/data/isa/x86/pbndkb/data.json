@@ -1,0 +1,79 @@
+{
+ "encodings": [
+  {
+   "cpuid": "PBNDKB",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "C7"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "This instruction is used to bind information to a platform by encrypting it with a platform-specific wrapping key.",
+   "opcode": "NP 0F 01 C7",
+   "operands": "ZO",
+   "syntax": "PBNDKB"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "PBNDKB is not supported in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "PBNDKB is not supported in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "PBNDKB is not supported in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the values of RBX and RCX are not both canonical. If RBX or RCX is not 256B aligned. If RBX = RCX. If any of the reserved bytes in the input bind structure are set (including bytes in BTDATA). If the value of the key-generation control in the BTDATA field of the input bind structure is not 0 or 1. #PF(fault-code) If a page fault occurs in accessing memory operands."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If any of the LOCK/REP/Operand Size/VEX prefixes are used. If the current privilege level is not 0. If CPUID.07H.01H:EBX.PBNDKB[1] = 0."
+  }
+ ],
+ "format": "isadoc",
+ "id": "pbndkb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PBNDKB"
+  ]
+ },
+ "mnemonics": [
+  "PBNDKB"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1527,
+    1530
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,396 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "20"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Insert a byte integer value from r32/m8 into xmm1 at the destination element in xmm1 specified by imm8.",
+   "opcode": "66 0F 3A 20 /r ib",
+   "operands": "A",
+   "syntax": "PINSRB xmm1, r32/m8, imm8"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "22"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Insert a dword integer value from r/m3 into the xmm1 at the destination element specified by imm8.",
+   "opcode": "66 0F 3A 22 /r ib",
+   "operands": "A",
+   "syntax": "PINSRD xmm1, r/m3, imm8"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "3A",
+     "22"
+    ],
+    "prefixes": [
+     "66"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n. e.",
+    "long": "v"
+   },
+   "note": "Insert a qword integer value from r/m64 into the xmm1 at the destination element specified by imm8.",
+   "opcode": "66 REX.W 0F 3A 22 /r ib",
+   "operands": "A",
+   "syntax": "PINSRQ xmm1, r/m64, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v1"
+   },
+   "note": "Merge a byte integer value from r32/m8 and rest from xmm2 into xmm1 at the byte offset in imm8.",
+   "opcode": "VEX.128.66.0F3A.W0 20 /r ib",
+   "operands": "B",
+   "syntax": "VPINSRB xmm1, xmm2, r32/m8, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Insert a dword integer value from r32/m32 and rest from xmm2 into xmm1 at the dword offset in imm8.",
+   "opcode": "VEX.128.66.0F3A.W0 22 /r ib",
+   "operands": "B",
+   "syntax": "VPINSRD xmm1, xmm2, r/m3, imm8"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.128.66.0F3A.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "i2",
+    "long": "v"
+   },
+   "note": "Insert a qword integer value from r64/m64 and rest from xmm2 into xmm1 at the qword offset in imm8.",
+   "opcode": "VEX.128.66.0F3A.W1 22 /r ib",
+   "operands": "B",
+   "syntax": "VPINSRQ xmm1, xmm2, r/m64, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Merge a byte integer value from r32/m8 and OR AVX10.1 rest from xmm2 into xmm1 at the byte offset in imm8.",
+   "opcode": "EVEX.128.66.0F3A.WIG 20 /r ib",
+   "operands": "C",
+   "syntax": "VPINSRB xmm1, xmm2, r32/m8, imm8"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Insert a dword integer value from r32/m32 OR AVX10.1 and rest from xmm2 into xmm1 at the dword offset in imm8.",
+   "opcode": "EVEX.128.66.0F3A.W0 22 /r ib",
+   "operands": "C",
+   "syntax": "VPINSRD xmm1, xmm2, r32/m32, imm8"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.2",
+    "long": "v"
+   },
+   "note": "Insert a qword integer value from r64/m64 OR AVX10.1 and rest from xmm2 into xmm1 at the qword offset in imm8.",
+   "opcode": "EVEX.128.66.0F3A.W1 22 /r ib",
+   "operands": "C",
+   "syntax": "VPINSRQ xmm1, xmm2, r64/m64, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pinsrb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "PINSRB",
+   "VPINSRB",
+   "PINSRD",
+   "VPINSRD",
+   "PINSRQ",
+   "VPINSRQ"
+  ]
+ },
+ "mnemonics": [
+  "PINSRB",
+  "PINSRD",
+  "PINSRQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1594,
+    1596
+   ]
+  }
+ ],
+ "version": 1
+}

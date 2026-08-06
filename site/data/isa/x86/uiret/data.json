@@ -1,0 +1,94 @@
+{
+ "encodings": [
+  {
+   "cpuid": "UINTR",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "EC"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Return from handling a user interrupt.",
+   "opcode": "F3 0F 01 EC",
+   "operands": "ZO",
+   "syntax": "UIRET"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The UIRET instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The UIRET instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The UIRET instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The UIRET instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the return instruction pointer is non-canonical."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If an attempt to pop a value off the stack causes a non-canonical address to be referenced. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#CP",
+   "when": "If return instruction pointer from stack and shadow stack do not match."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If executed inside an enclave. If CR4.UINTR = 0. If CPUID.07H.00H:EDX.UINTR[5] = 0."
+  }
+ ],
+ "format": "isadoc",
+ "id": "uiret",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "UIRET"
+  ]
+ },
+ "mnemonics": [
+  "UIRET"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2026,
+    2027
+   ]
+  }
+ ],
+ "version": 1
+}

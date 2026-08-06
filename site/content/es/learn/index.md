@@ -9,8 +9,8 @@ section: "learn"
 Esto es un recorrido, no una referencia. Los capítulos se leen en orden: cada uno
 asume el anterior y termina con código que puedes ejecutar.
 
-Si lo que buscas es la respuesta a una pregunta concreta —qué formas admite
-`typedef`, qué devuelve un builtin— eso está en la
+Si lo que buscas es la respuesta a una pregunta concreta (qué formas admite
+`typedef`, qué devuelve un builtin), eso está en la
 [documentación](/es/docs/), que no asume nada y es exhaustiva.
 
 ## Por dónde empezar
@@ -27,8 +27,8 @@ binario nativo sin runtime.
 
 La barra lateral tiene el índice entero. Está escrito de menos a más: se empieza
 por la sintaxis, se sigue por la memoria y la abstracción, y las partes que hacen
-distinto a Vesta —el comptime, la biblioteca estándar escrita en el propio
-lenguaje, y su runtime— llegan cuando ya sabes leer el código.
+distinto a Vesta (el comptime, la biblioteca estándar escrita en el propio
+lenguaje, y su runtime) llegan cuando ya sabes leer el código.
 
 Los capítulos que aparecen sin enlace todavía no están escritos. Se muestran
 igualmente para que veas el recorrido completo.

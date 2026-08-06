@@ -1,0 +1,130 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the packed single-precision floating-point AND AVX512F) values in xmm2 using values from OR AVX10.1 xmm3/m128/m32bcst. Under writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 2C /r",
+   "operands": "A",
+   "syntax": "VSCALEFPS xmm1 {k1}{z}, xmm2, xmm3/m128/m32bcst"
+  },
+  {
+   "cpuid": "(AVX512VL",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the packed single-precision values in ymm2 AND AVX512F) using floating-point values from OR AVX10.1 ymm3/m256/m32bcst. Under writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 2C /r",
+   "operands": "A",
+   "syntax": "VSCALEFPS ymm1 {k1}{z}, ymm2, ymm3/m256/m32bcst"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the packed single-precision floating-point OR AVX10.1 values in zmm2 using floating-point values from zmm3/m512/m32bcst. Under writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 2C /r",
+   "operands": "A",
+   "syntax": "VSCALEFPS zmm1 {k1}{z}, zmm2, zmm3/m512/m32bcst{er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vscalefps",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSCALEFPS"
+  ]
+ },
+ "mnemonics": [
+  "VSCALEFPS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2782,
+    2784
+   ]
+  }
+ ],
+ "version": 1
+}

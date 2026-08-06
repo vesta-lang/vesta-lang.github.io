@@ -1,0 +1,105 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AMX_TILE",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true,
+     "rm": "100"
+    },
+    "opcode": [
+     "4B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "VEX.128.F2.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Load data into tmm1 as specified by information in sibmem.",
+   "opcode": "VEX.128.F2.0F38.W0 4B !(11):rrr:100",
+   "operands": "A",
+   "syntax": "TILELOADD tmm1, sibmem"
+  },
+  {
+   "cpuid": "AMX_TILE",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true,
+     "rm": "100"
+    },
+    "opcode": [
+     "4B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Load data into tmm1 as specified by information in sibmem with hint to optimize data caching.",
+   "opcode": "VEX.128.66.0F38.W0 4B !(11):rrr:100",
+   "operands": "A",
+   "syntax": "TILELOADDT1 tmm1, sibmem"
+  }
+ ],
+ "format": "isadoc",
+ "id": "tileloadd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "TILELOADD",
+   "TILELOADDT1"
+  ]
+ },
+ "mnemonics": [
+  "TILELOADD",
+  "TILELOADDT1"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2012,
+    2013
+   ]
+  }
+ ],
+ "version": 1
+}

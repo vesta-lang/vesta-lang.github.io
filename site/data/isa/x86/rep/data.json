@@ -1,0 +1,396 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6C"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Input (count) bytes from port DX to (dest).",
+   "opcode": "F3 6C",
+   "operands": "ZO",
+   "syntax": "REP INS m8, DX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6D"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Input (count) words from port DX to (dest).",
+   "opcode": "F3 6D",
+   "operands": "ZO",
+   "syntax": "REP INS m16, DX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6D"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Input (count) doublewords from port DX to (dest).",
+   "opcode": "F3 6D",
+   "operands": "ZO",
+   "syntax": "REP INS m32, DX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AC"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load (count) bytes from (src) to AL.",
+   "opcode": "F3 AC",
+   "operands": "ZO",
+   "syntax": "REP LODS AL"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load (count) words from (src) to AX.",
+   "opcode": "F3 AD",
+   "operands": "ZO",
+   "syntax": "REP LODS AX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Load (count) doublewords from (src) to EAX.",
+   "opcode": "F3 AD",
+   "operands": "ZO",
+   "syntax": "REP LODS EAX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AD"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Load (count) quadwords from (src) to RAX.",
+   "opcode": "F3 REX.W AD",
+   "operands": "ZO",
+   "syntax": "REP LODS RAX"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A4"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move (count) bytes from (src) to (dest).",
+   "opcode": "F3 A4",
+   "operands": "ZO",
+   "syntax": "REP MOVS m8, m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A5"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move (count) words from (src) to (dest).",
+   "opcode": "F3 A5",
+   "operands": "ZO",
+   "syntax": "REP MOVS m16, m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A5"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Move (count) doublewords from (src) to (dest).",
+   "opcode": "F3 A5",
+   "operands": "ZO",
+   "syntax": "REP MOVS m32, m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "A5"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Move (count) quadwords from (src) to (dest).",
+   "opcode": "F3 REX.W A5",
+   "operands": "ZO",
+   "syntax": "REP MOVS m64, m64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6E"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output (count) bytes from (src) to port DX.",
+   "opcode": "F3 6E",
+   "operands": "ZO",
+   "syntax": "REP OUTS DX, m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6F"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output (count) words from (src) to port DX.",
+   "opcode": "F3 6F",
+   "operands": "ZO",
+   "syntax": "REP OUTS DX, m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "6F"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Output (count) doublewords from (src) to port DX.",
+   "opcode": "F3 6F",
+   "operands": "ZO",
+   "syntax": "REP OUTS DX, m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AA"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Fill (count) bytes at (dest) with AL.",
+   "opcode": "F3 AA",
+   "operands": "ZO",
+   "syntax": "REP STOS m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Fill (count) words at (dest) with AX.",
+   "opcode": "F3 AB",
+   "operands": "ZO",
+   "syntax": "REP STOS m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Fill (count) doublewords at (dest) with EAX.",
+   "opcode": "F3 AB",
+   "operands": "ZO",
+   "syntax": "REP STOS m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "AB"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Fill (count) quadwords at (dest) with RAX.",
+   "opcode": "F3 REX.W AB",
+   "operands": "ZO",
+   "syntax": "REP STOS m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": null,
+   "when": "Exceptions may be generated by an instruction associated with the prefix."
+  },
+  {
+   "mode": "protected",
+   "vector": null,
+   "when": "Exceptions may be generated by an instruction associated with the prefix."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Exceptions may be generated by an instruction associated with the prefix."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Exceptions may be generated by an instruction associated with the prefix."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "Exceptions may be generated by an instruction associated with the prefix."
+  }
+ ],
+ "format": "isadoc",
+ "id": "rep",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "REP"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1852,
+    1853
+   ]
+  }
+ ],
+ "version": 1
+}

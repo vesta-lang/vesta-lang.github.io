@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4F"
+    ],
+    "vector_prefix": {
+     "map": "0F 38",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Computes the approximate reciprocal square root of the OR AVX10.1 scalar single-precision floating-point value in xmm3/m32 and stores the result in the low doubleword element of xmm1 using writemask k1. Bits[127:32] of xmm2 is copied to xmm1[127:32].",
+   "opcode": "EVEX.LLIG.66.0F38.W0 4F /r",
+   "operands": "A",
+   "syntax": "VRSQRT14SS xmm1 {k1}{z}, xmm2, xmm3/m32"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrsqrt14ss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRSQRT14SS"
+  ]
+ },
+ "mnemonics": [
+  "VRSQRT14SS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2771,
+    2772
+   ]
+  }
+ ],
+ "version": 1
+}

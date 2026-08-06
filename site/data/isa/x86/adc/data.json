@@ -1,0 +1,608 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "opcode": [
+     "14"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry imm8 to AL.",
+   "opcode": "14 ib",
+   "operands": "I",
+   "syntax": "ADC AL, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "opcode": [
+     "15"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry imm16 to AX.",
+   "opcode": "15 iw",
+   "operands": "I",
+   "syntax": "ADC AX, imm16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "opcode": [
+     "15"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry imm32 to EAX.",
+   "opcode": "15 id",
+   "operands": "I",
+   "syntax": "ADC EAX, imm32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "opcode": [
+     "15"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Add with carry imm32 sign extended to 64-bits to RAX.",
+   "opcode": "REX.W + 15 id",
+   "operands": "I",
+   "syntax": "ADC RAX, imm32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "80"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry imm8 to r/m8.",
+   "opcode": "80 /2 ib",
+   "operands": "MI",
+   "syntax": "ADC r/m8, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "iw"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "81"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry imm16 to r/m16.",
+   "opcode": "81 /2 iw",
+   "operands": "MI",
+   "syntax": "ADC r/m16, imm16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "81"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with CF imm32 to r/m32.",
+   "opcode": "81 /2 id",
+   "operands": "MI",
+   "syntax": "ADC r/m32, imm32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "id"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "81"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Add with CF imm32 sign extended to 64-bits to r/m64.",
+   "opcode": "REX.W + 81 /2 id",
+   "operands": "MI",
+   "syntax": "ADC r/m64, imm32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with CF sign-extended imm8 to r/m16.",
+   "opcode": "83 /2 ib",
+   "operands": "MI",
+   "syntax": "ADC    r/m16, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with CF sign-extended imm8 into r/m32.",
+   "opcode": "83 /2 ib",
+   "operands": "MI",
+   "syntax": "ADC    r/m32, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "83"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Add with CF sign-extended imm8 into r/m64.",
+   "opcode": "REX.W + 83 /2 ib",
+   "operands": "MI",
+   "syntax": "ADC    r/m64, imm8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry byte register to r/m8.",
+   "opcode": "10 /r",
+   "operands": "MR",
+   "syntax": "ADC    r/m8, r8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry r16 to r/m16.",
+   "opcode": "11 /r",
+   "operands": "MR",
+   "syntax": "ADC    r/m16, r16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with CF r32 to r/m32.",
+   "opcode": "11 /r",
+   "operands": "MR",
+   "syntax": "ADC    r/m32, r32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Add with CF r64 to r/m64.",
+   "opcode": "REX.W + 11 /r",
+   "operands": "MR",
+   "syntax": "ADC    r/m64, r64"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "12"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry r/m8 to byte register.",
+   "opcode": "12 /r",
+   "operands": "RM",
+   "syntax": "ADC    r8, r/m8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with carry r/m16 to r16.",
+   "opcode": "13 /r",
+   "operands": "RM",
+   "syntax": "ADC    r16, r/m16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Add with CF r/m32 to r32.",
+   "opcode": "13 /r",
+   "operands": "RM",
+   "syntax": "ADC    r32, r/m32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "13"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Add with CF r/m64 to r64.",
+   "opcode": "REX.W + 13 /r",
+   "operands": "RM",
+   "syntax": "ADC    r64, r/m64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the destination is located in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used but the destination is not a memory operand."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "adc",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ADC"
+  ]
+ },
+ "mnemonics": [
+  "ADC"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MI",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "imm8/16/32",
+     "raw": "imm8/16/32",
+     "read": false,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "I",
+   "operands": [
+    {
+     "field": "AL/AX/EAX/RAX",
+     "raw": "AL/AX/EAX/RAX",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "imm8/16/32",
+     "raw": "imm8/16/32",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    713,
+    715
+   ]
+  }
+ ],
+ "version": 1
+}

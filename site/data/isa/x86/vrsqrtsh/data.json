@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "4F"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compute the approximate reciprocal square root OR AVX10.1 of the FP16 value in xmm3/m16 and store the result in the low word element of xmm1 subject to writemask k1. Bits 127:16 of xmm2 are copied to xmm1[127:16].",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 4F /r",
+   "operands": "A",
+   "syntax": "VRSQRTSH xmm1{k1}{z}, xmm2, xmm3/m16"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrsqrtsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRSQRTSH"
+  ]
+ },
+ "mnemonics": [
+  "VRSQRTSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2775,
+    2775
+   ]
+  }
+ ],
+ "version": 1
+}

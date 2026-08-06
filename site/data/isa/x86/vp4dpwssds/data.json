@@ -1,0 +1,81 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_4VNNIW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "53"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "F2",
+     "text": "EVEX.512.F2.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Multiply signed words from source register block indicated by zmm2 by signed words from m128 and accumulate the resulting dword results with signed saturation in zmm1.",
+   "opcode": "EVEX.512.F2.0F38.W0 53 /r",
+   "operands": "A",
+   "syntax": "VP4DPWSSDS zmm1{k1}{z}, zmm2+3, m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vp4dpwssds",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VP4DPWSSDS"
+  ]
+ },
+ "mnemonics": [
+  "VP4DPWSSDS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "Tuple1_4X",
+     "raw": "Tuple1_4X",
+     "read": false,
+     "write": false
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2959,
+    2960
+   ]
+  }
+ ],
+ "version": 1
+}

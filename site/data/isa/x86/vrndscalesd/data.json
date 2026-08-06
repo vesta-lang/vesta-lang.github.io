@@ -1,0 +1,89 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0B"
+    ],
+    "vector_prefix": {
+     "map": "0F 3A",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Rounds scalar double precision floating-point value in OR AVX10.1 xmm3/m64 to a number of fraction bits specified by the imm8 field. Stores the result in xmm1 register.",
+   "opcode": "EVEX.LLIG.66.0F3A.W1 0B /r ib",
+   "operands": "A",
+   "syntax": "VRNDSCALESD xmm1 {k1}{z}, xmm2, xmm3/m64{sae}, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vrndscalesd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VRNDSCALESD"
+  ]
+ },
+ "mnemonics": [
+  "VRNDSCALESD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2759,
+    2760
+   ]
+  }
+ ],
+ "version": 1
+}

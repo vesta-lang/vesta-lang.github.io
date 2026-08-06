@@ -1,0 +1,87 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "leaf": {
+     "register": "EAX",
+     "value": "7"
+    },
+    "opcode": [
+     "0F",
+     "37"
+    ],
+    "prefixes": [
+     "NP"
+    ]
+   },
+   "modes": {},
+   "note": "Perform specified SMX mode control as selected with the input EBX.",
+   "opcode": "NP 0F 37 (EAX = 7)",
+   "operands": "",
+   "syntax": "GETSEC[SMCTRL]"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[SMCTRL] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If CR0.PE = 0 or CPL > 0 or EFLAGS.VM = 1. If in VMX root operation. If a protected partition is not already active or the processor is currently in authenticated code mode. If the processor is in SMM. If the SMM monitor is not configured."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[SMCTRL] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "GETSEC[SMCTRL] is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CR4.SMXE = 0. If GETSEC[SMCTRL] is not reported as supported by GETSEC[CAPABILITIES]."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "GETSEC[SMCTRL] is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  },
+  {
+   "mode": "long",
+   "vector": null,
+   "when": "All protected mode exceptions apply."
+  }
+ ],
+ "format": "isadoc",
+ "id": "getsec-smctrl",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "GETSEC[SMCTRL]"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2938,
+    2940
+   ]
+  }
+ ],
+ "version": 1
+}

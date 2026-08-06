@@ -1,0 +1,220 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "E7"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move packed integer values in xmm1 to m128 using non- temporal hint.",
+   "opcode": "66 0F E7 /r",
+   "operands": "A",
+   "syntax": "MOVNTDQ m128, xmm1"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E7"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.128.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move packed integer values in xmm1 to m128 using non- temporal hint.",
+   "opcode": "VEX.128.66.0F.WIG E7 /r",
+   "operands": "A",
+   "syntax": "VMOVNTDQ m128, xmm1"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E7"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.256.66.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move packed integer values in ymm1 to m256 using non- temporal hint.",
+   "opcode": "VEX.256.66.0F.WIG E7 /r",
+   "operands": "A",
+   "syntax": "VMOVNTDQ m256, ymm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E7"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move packed integer values in xmm1 to m128 using non- AVX512F) OR AVX10.1 temporal hint.",
+   "opcode": "EVEX.128.66.0F.W0 E7 /r",
+   "operands": "B",
+   "syntax": "VMOVNTDQ m128, xmm1"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E7"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move packed integer values in zmm1 to m256 using non- AVX512F) OR AVX10.1 temporal hint.",
+   "opcode": "EVEX.256.66.0F.W0 E7 /r",
+   "operands": "B",
+   "syntax": "VMOVNTDQ m256, ymm1"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "E7"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move packed integer values in zmm1 to m512 using non- OR AVX10.1 temporal hint. Instruction Operand Encodi ng1 Operand 1 Operan d 2             Operand 3  Operand 4 ModRM:r/m (w) ModRM: reg (r)         N/A        N/A ModRM:r/m (w) ModRM: reg (r)         N/A        N/A",
+   "opcode": "EVEX.512.66.0F.W0 E7 /r",
+   "operands": "B",
+   "syntax": "VMOVNTDQ m512, zmm1 Op/En    Tuple Type A             N/A B             Full Mem"
+  }
+ ],
+ "format": "isadoc",
+ "id": "movntdq",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVNTDQ",
+   "VMOVNTDQ"
+  ]
+ },
+ "mnemonics": [
+  "MOVNTDQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1378,
+    1379
+   ]
+  }
+ ],
+ "version": 1
+}

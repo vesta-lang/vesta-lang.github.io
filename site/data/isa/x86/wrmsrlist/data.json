@@ -1,0 +1,79 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MSRLIST",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "C6"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Write requested list of MSRs with the values specified in memory.",
+   "opcode": "F3 0F 01 C6",
+   "operands": "ZO",
+   "syntax": "WRMSRLIST"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The WRMSRLIST instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The WRMSRLIST instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The WRMSRLIST instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The WRMSRLIST instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the current privilege level is not 0. If RSI [2:0] 0, RDI [2:0] 0, or bits 63:32 of an MSR-address table entry are not all zero. If an execution of WRMSR to a specified MSR with a specified value would generate a generalprotection exception (#GP(0)). If the memory address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.01H:EAX.MSRLIST[27] = 0. 1. For example, the processor may take a page fault due to a linear address for the 10th entry in the MSR address table despite only having completed the MSR writes up to entry 5."
+  }
+ ],
+ "format": "isadoc",
+ "id": "wrmsrlist",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "WRMSRLIST"
+  ]
+ },
+ "mnemonics": [
+  "WRMSRLIST"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2838,
+    2839
+   ]
+  }
+ ],
+ "version": 1
+}

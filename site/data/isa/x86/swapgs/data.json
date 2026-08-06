@@ -1,0 +1,76 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "opcode": [
+     "0F",
+     "01",
+     "F8"
+    ]
+   },
+   "modes": {
+    "legacy": "invalid",
+    "long": "valid"
+   },
+   "note": "Exchanges the current GS base register value with the IA32_KERNEL_GS_BASE MSR.",
+   "opcode": "0F 01 F8",
+   "operands": "ZO",
+   "syntax": "SWAPGS"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The SWAPGS instruction is not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The SWAPGS instruction is not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The SWAPGS instruction is not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The SWAPGS instruction is not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If CPL  0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CR4.FRED = 1."
+  }
+ ],
+ "format": "isadoc",
+ "id": "swapgs",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "SWAPGS"
+  ]
+ },
+ "mnemonics": [
+  "SWAPGS"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1985,
+    1986
+   ]
+  }
+ ],
+ "version": 1
+}

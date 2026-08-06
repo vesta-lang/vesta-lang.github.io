@@ -1,0 +1,384 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 128 bits of packed byte AVX512VL) OR AVX10.1 values from xmm1 to m128 with writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 63 /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSB m128{k1}, xmm1"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 128 bits of packed byte AVX512VL) OR AVX10.1 values from xmm2 to xmm1 with writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W0 63 /r",
+   "operands": "B",
+   "syntax": "VPCOMPRESSB xmm1{k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 256 bits of packed byte AVX512VL) OR AVX10.1 values from ymm1 to m256 with writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 63 /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSB m256{k1}, ymm1"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 256 bits of packed byte AVX512VL) OR AVX10.1 values from ymm2 to ymm1 with writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 63 /r",
+   "operands": "B",
+   "syntax": "VPCOMPRESSB ymm1{k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 512 bits of packed byte OR AVX10.1 values from zmm1 to m512 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 63 /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSB m512{k1}, zmm1"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 512 bits of packed byte OR AVX10.1 values from zmm2 to zmm1 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 63 /r",
+   "operands": "B",
+   "syntax": "VPCOMPRESSB zmm1{k1}{z}, zmm2"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 128 bits of packed word AVX512VL) OR AVX10.1 values from xmm1 to m128 with writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 63 /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSW m128{k1}, xmm1"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 128 bits of packed word AVX512VL) OR AVX10.1 values from xmm2 to xmm1 with writemask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 63 /r",
+   "operands": "B",
+   "syntax": "VPCOMPRESSW xmm1{k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 256 bits of packed word AVX512VL) OR AVX10.1 values from ymm1 to m256 with writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 63 /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSW m256{k1}, ymm1"
+  },
+  {
+   "cpuid": "(AVX512_VBMI2 AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 256 bits of packed word AVX512VL) OR AVX10.1 values from ymm2 to ymm1 with writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 63 /r",
+   "operands": "B",
+   "syntax": "VPCOMPRESSW ymm1{k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 512 bits of packed word OR AVX10.1 values from zmm1 to m512 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 63 /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSW m512{k1}, zmm1"
+  },
+  {
+   "cpuid": "AVX512_VBMI2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "63"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress up to 512 bits of packed word OR AVX10.1 values from zmm2 to zmm1 with writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 63 /r",
+   "operands": "B",
+   "syntax": "VPCOMPRESSW zmm1{k1}{z}, zmm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpcompressb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPCOMPRESSB"
+  ]
+ },
+ "mnemonics": [
+  "VPCOMPRESSB",
+  "VCOMPRESSW"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2519,
+    2521
+   ]
+  }
+ ],
+ "version": 1
+}

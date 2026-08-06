@@ -1,0 +1,447 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "10"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Merge scalar single precision floating-point value from xmm2 to xmm1 register.",
+   "opcode": "F3 0F 10 /r",
+   "operands": "A",
+   "syntax": "MOVSS xmm1, xmm2"
+  },
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "10"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load scalar single precision floating-point value from m32 to xmm1 register.",
+   "opcode": "F3 0F 10 /r",
+   "operands": "A",
+   "syntax": "MOVSS xmm1, m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Merge scalar single precision floating-point value from xmm2 and xmm3 to xmm1 register",
+   "opcode": "VEX.LIG.F3.0F.WIG 10 /r",
+   "operands": "B",
+   "syntax": "VMOVSS xmm1, xmm2, xmm3"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Load scalar single precision floating-point value from m32 to xmm1 register.",
+   "opcode": "VEX.LIG.F3.0F.WIG 10 /r",
+   "operands": "D",
+   "syntax": "VMOVSS xmm1, m32"
+  },
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "11"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move scalar single precision floating-point value from xmm1 register to xmm2/m32.",
+   "opcode": "F3 0F 11 /r",
+   "operands": "C",
+   "syntax": "MOVSS xmm2/m32, xmm1"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move scalar single precision floating-point value from xmm2 and xmm3 to xmm1 register.",
+   "opcode": "VEX.LIG.F3.0F.WIG 11 /r",
+   "operands": "E",
+   "syntax": "VMOVSS xmm1, xmm2, xmm3"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move scalar single precision floating-point value from xmm1 register to m32.",
+   "opcode": "VEX.LIG.F3.0F.WIG 11 /r",
+   "operands": "C",
+   "syntax": "VMOVSS m32, xmm1"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move scalar single precision floating-point value OR AVX10.1 from xmm2 and xmm3 to xmm1 register under writemask k1.",
+   "opcode": "EVEX.LLIG.F3.0F.W0 10 /r",
+   "operands": "B",
+   "syntax": "VMOVSS xmm1 {k1}{z}, xmm2, xmm3"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "10"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move scalar single precision floating-point values OR AVX10.1 from m32 to xmm1 under writemask k1.",
+   "opcode": "EVEX.LLIG.F3.0F.W0 10 /r",
+   "operands": "F",
+   "syntax": "VMOVSS xmm1 {k1}{z}, m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move scalar single precision floating-point value OR AVX10.1 from xmm2 and xmm3 to xmm1 register under writemask k1.",
+   "opcode": "EVEX.LLIG.F3.0F.W0 11 /r",
+   "operands": "E",
+   "syntax": "VMOVSS xmm1 {k1}{z}, xmm2, xmm3"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "11"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Move scalar single precision floating-point values OR AVX10.1 from xmm1 to m32 under writemask k1.",
+   "opcode": "EVEX.LLIG.F3.0F.W0 11 /r",
+   "operands": "G",
+   "syntax": "VMOVSS m32 {k1}, xmm1"
+  }
+ ],
+ "format": "isadoc",
+ "id": "movss",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVSS",
+   "VMOVSS"
+  ]
+ },
+ "mnemonics": [
+  "MOVSS"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "evex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  },
+  {
+   "id": "G",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1407,
+    1409
+   ]
+  }
+ ],
+ "version": 1
+}

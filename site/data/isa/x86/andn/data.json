@@ -1,0 +1,110 @@
+{
+ "encodings": [
+  {
+   "cpuid": "BMI1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "F2"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise AND of inverted r32b with r/m32, store result in r32a.",
+   "opcode": "VEX.LZ.0F38.W0 F2 /r",
+   "operands": "RVM",
+   "syntax": "ANDN r32a, r32b, r/m32"
+  },
+  {
+   "cpuid": "BMI1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "prefixes": [
+     "F2"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "LZ",
+     "map": "0F 38",
+     "text": "VEX.LZ.0F38.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Bitwise AND of inverted r64b with r/m64, store result in r64a.",
+   "opcode": "VEX.LZ. 0F38.W1 F2 /r",
+   "operands": "RVM",
+   "syntax": "ANDN r64a, r64b, r/m64"
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "andn",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "ANDN"
+  ]
+ },
+ "mnemonics": [
+  "ANDN"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RVM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    766,
+    766
+   ]
+  }
+ ],
+ "version": 1
+}

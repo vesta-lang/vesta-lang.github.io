@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.128.66.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert eight packed FP16 values in AND AVX512VL) xmm2/m128/m16bcst to eight signed word OR AVX10.1 integers, and store the result in xmm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.128.66.MAP5.W0 7C /r",
+   "operands": "A",
+   "syntax": "VCVTTPH2W xmm1{k1}{z}, xmm2/m128/m16bcst"
+  },
+  {
+   "cpuid": "(AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.256.66.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert sixteen packed FP16 values in AND AVX512VL) ymm2/m256/m16bcst to sixteen signed word OR AVX10.1 integers, and store the result in ymm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.256.66.MAP5.W0 7C /r",
+   "operands": "A",
+   "syntax": "VCVTTPH2W ymm1{k1}{z}, ymm2/m256/m16bcst"
+  },
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "7C"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "MAP5",
+     "prefix": "66",
+     "text": "EVEX.512.66.MAP5.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert thirty-two packed FP16 values in OR AVX10.1 zmm2/m512/m16bcst to thirty-two signed word integers, and store the result in zmm1 using truncation subject to writemask k1.",
+   "opcode": "EVEX.512.66.MAP5.W0 7C /r",
+   "operands": "A",
+   "syntax": "VCVTTPH2W zmm1{k1}{z}, zmm2/m512/m16bcst {sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vcvttph2w",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VCVTTPH2W"
+  ]
+ },
+ "mnemonics": [
+  "VCVTTPH2W"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Full"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2168,
+    2169
+   ]
+  }
+ ],
+ "version": 1
+}

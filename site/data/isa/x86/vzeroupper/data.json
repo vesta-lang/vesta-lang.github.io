@@ -1,0 +1,50 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "opcode": [
+     "77"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F",
+     "text": "VEX.128.0F.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Zero bits in positions 128 and higher of some YMM and ZMM registers.",
+   "opcode": "VEX.128.0F.WIG 77",
+   "operands": "ZO",
+   "syntax": "VZEROUPPER"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vzeroupper",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VZEROUPPER"
+  ]
+ },
+ "mnemonics": [
+  "VZEROUPPER"
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2827,
+    2828
+   ]
+  }
+ ],
+ "version": 1
+}

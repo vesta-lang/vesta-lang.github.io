@@ -1,0 +1,167 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "98"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 16 bits masks k1 and k2 and update ZF and CF accordingly. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W0 98 /r",
+   "operands": "RR",
+   "syntax": "KORTESTW k1, k2"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "98"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 8 bits masks k1 and k2 and update ZF and CF accordingly. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W0 98 /r",
+   "operands": "RR",
+   "syntax": "KORTESTB k1, k2"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "98"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "text": "VEX.L0.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 64 bits masks k1 and k2 and update ZF and CF accordingly. OR AVX10.1",
+   "opcode": "VEX.L0.0F.W1 98 /r",
+   "operands": "RR",
+   "syntax": "KORTESTQ k1, k2"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "98"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Bitwise OR 32 bits masks k1 and k2 and update ZF and CF accordingly. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F.W1 98 /r",
+   "operands": "RR",
+   "syntax": "KORTESTD k1, k2"
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "kortestw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KORTESTW",
+   "KORTESTB",
+   "KORTESTQ",
+   "KORTESTD"
+  ]
+ },
+ "mnemonics": [
+  "KORTESTW",
+  "KORTESTB",
+  "KORTESTQ",
+  "KORTESTD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RR",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1224,
+    1225
+   ]
+  }
+ ],
+ "version": 1
+}

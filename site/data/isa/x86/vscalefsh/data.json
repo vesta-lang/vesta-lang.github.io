@@ -1,0 +1,78 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512_FP16",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2D"
+    ],
+    "vector_prefix": {
+     "map": "MAP6",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.MAP6.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Scale the FP16 values in xmm2 using the value OR AVX10.1 from xmm3/m16 and store the result in xmm1 subject to writemask k1. Bits 127:16 from xmm2 are copied to xmm1[127:16].",
+   "opcode": "EVEX.LLIG.66.MAP6.W0 2D /r",
+   "operands": "A",
+   "syntax": "VSCALEFSH xmm1{k1}{z}, xmm2, xmm3/m16 {er}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vscalefsh",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSCALEFSH"
+  ]
+ },
+ "mnemonics": [
+  "VSCALEFSH"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2787,
+    2788
+   ]
+  }
+ ],
+ "version": 1
+}

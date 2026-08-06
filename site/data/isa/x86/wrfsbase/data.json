@@ -1,0 +1,170 @@
+{
+ "encodings": [
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the FS base address with the 32-bit value in the source register.",
+   "opcode": "F3 0F AE /2",
+   "operands": "M",
+   "syntax": "WRFSBASE r32"
+  },
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 2
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the FS base address with the 64-bit value in the source register.",
+   "opcode": "F3 REX.W 0F AE /2",
+   "operands": "M",
+   "syntax": "WRFSBASE r64"
+  },
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the GS base address with the 32-bit value in the source register.",
+   "opcode": "F3 0F AE /3",
+   "operands": "M",
+   "syntax": "WRGSBASE r32"
+  },
+  {
+   "cpuid": "FSGSBASE",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 3
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "i",
+    "long": "v"
+   },
+   "note": "Load the GS base address with the 64-bit value in the source register.",
+   "opcode": "F3 REX.W 0F AE /3",
+   "operands": "M",
+   "syntax": "WRGSBASE r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "The WRFSBASE and WRGSBASE instructions are not recognized in protected mode."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "The WRFSBASE and WRGSBASE instructions are not recognized in real-address mode."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "The WRFSBASE and WRGSBASE instructions are not recognized in virtual-8086 mode."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "The WRFSBASE and WRGSBASE instructions are not recognized in compatibility mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CR4.FSGSBASE[bit 16] = 0. If CPUID.07H.00H:EBX.FSGSBASE[0] = 0"
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the source register contains a non-canonical address."
+  }
+ ],
+ "format": "isadoc",
+ "id": "wrfsbase",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "WRFSBASE",
+   "WRGSBASE"
+  ]
+ },
+ "mnemonics": [
+  "WRFSBASE",
+  "WRGSBASE"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2834,
+    2835
+   ]
+  }
+ ],
+ "version": 1
+}

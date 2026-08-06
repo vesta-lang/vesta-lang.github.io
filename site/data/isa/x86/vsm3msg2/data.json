@@ -1,0 +1,75 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "DA"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Performs the final calculation for the next four SM3 SM3 message words using previous message words from xmm2 and xmm3/m128, storing the result in xmm1.",
+   "opcode": "VEX.128.66.0F38.W0 DA /r",
+   "operands": "A",
+   "syntax": "VSM3MSG2 xmm1, xmm2, xmm3/m128"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vsm3msg2",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VSM3MSG2"
+  ]
+ },
+ "mnemonics": [
+  "VSM3MSG2"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "vex.vvvv",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2808,
+    2809
+   ]
+  }
+ ],
+ "version": 1
+}

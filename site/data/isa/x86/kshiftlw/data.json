@@ -1,0 +1,166 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "32"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F3A.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift left 16 bits in k2 by immediate and write result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F3A.W1 32 /r",
+   "operands": "RRI",
+   "syntax": "KSHIFTLW k1, k2, imm8"
+  },
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "32"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift left 8 bits in k2 by immediate and write result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F3A.W0 32 /r",
+   "operands": "RRI",
+   "syntax": "KSHIFTLB k1, k2, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "33"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F3A.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift left 64 bits in k2 by immediate and write result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F3A.W1 33 /r",
+   "operands": "RRI",
+   "syntax": "KSHIFTLQ k1, k2, imm8"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "33"
+    ],
+    "vector_prefix": {
+     "length": 0,
+     "length_note": "L0",
+     "map": "0F 3A",
+     "prefix": "66",
+     "text": "VEX.L0.66.0F3A.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Shift left 32 bits in k2 by immediate and write result in k1. OR AVX10.1",
+   "opcode": "VEX.L0.66.0F3A.W0 33 /r",
+   "operands": "RRI",
+   "syntax": "KSHIFTLD k1, k2, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "kshiftlw",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "KSHIFTLW",
+   "KSHIFTLB",
+   "KSHIFTLQ",
+   "KSHIFTLD"
+  ]
+ },
+ "mnemonics": [
+  "KSHIFTLW",
+  "KSHIFTLB",
+  "KSHIFTLQ",
+  "KSHIFTLD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RRI",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    },
+    {
+     "field": "imm8",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1227,
+    1228
+   ]
+  }
+ ],
+ "version": 1
+}

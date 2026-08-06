@@ -1,0 +1,114 @@
+{
+ "encodings": [
+  {
+   "cpuid": "CLWB",
+   "layout": {
+    "modrm": {
+     "kind": "digit",
+     "value": 6
+    },
+    "opcode": [
+     "0F",
+     "AE"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Writes back modified cache line containing m8, and may retain the line in cache hierarchy in non-modified state. In struction Opera nd Encoding1 Operand 1 Operand 2 Operand 3  Operand 4 N/A N/A        N/A",
+   "opcode": "66 0F AE /6",
+   "operands": "M",
+   "syntax": "CLWB m8 Op/En M   ModRM:r/m (w)"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.CLWB[24] = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "For an illegal memory operand effective address in the CS, DS, ES, FS or GS segments."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "For an illegal address in the SS segment. #PF(fault-code) For a page fault."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.CLWB[24] = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If any part of the operand lies outside the effective address space from 0 to FFFFH."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real address mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:EBX.CLWB[24] = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form. #PF(fault-code) For a page fault."
+  }
+ ],
+ "format": "isadoc",
+ "id": "clwb",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CLWB"
+  ]
+ },
+ "mnemonics": [
+  "CLWB"
+ ],
+ "operand_encodings": [
+  {
+   "id": "M",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    858,
+    859
+   ]
+  }
+ ],
+ "version": 1
+}

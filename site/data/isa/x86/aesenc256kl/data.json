@@ -1,0 +1,204 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AESKLE",
+   "layout": {
+    "modrm": {
+     "kind": "reg",
+     "mod": "11",
+     "negated": true
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "DE"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Encrypt xmm using 256-bit AES key indicated by han- dle at m512 and store result in xmm.",
+   "opcode": "F3 0F 38 DE !(11):rrr:bbb",
+   "operands": "A",
+   "syntax": "AESENC256KL xmm, m512"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used. If CPUID.07H.00H:ECX.KEY_LOCKER[23] = 0. If CR4.KL = 0. If CPUID.19H:EBX.AESKLE[0] = 0. If CR0.EM = 1. If CR4.OSFXSR = 0."
+  },
+  {
+   "mode": "real",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "protected",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "compat",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "long",
+   "vector": "#NM",
+   "when": "If CR0.TS = 1."
+  },
+  {
+   "mode": "real",
+   "vector": "#PF",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#PF",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#PF",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "compat",
+   "vector": "#PF",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#PF",
+   "when": "If a page fault occurs."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector. If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector. If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector. If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "compat",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector. If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register is used to access memory and it contains a NULL segment selector. If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "compat",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. If a memory address referencing the SS segment is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. If a memory address referencing the SS segment is in a non-canonical form."
+  }
+ ],
+ "flags": [
+  "CF",
+  "PF",
+  "AF",
+  "ZF",
+  "SF",
+  "OF"
+ ],
+ "format": "isadoc",
+ "id": "aesenc256kl",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "AESENC256KL"
+  ]
+ },
+ "mnemonics": [
+  "AESENC256KL"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    753,
+    754
+   ]
+  }
+ ],
+ "version": 1
+}

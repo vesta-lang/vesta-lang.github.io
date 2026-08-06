@@ -1,0 +1,268 @@
+{
+ "encodings": [
+  {
+   "cpuid": "MOVBE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F0"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Reverse byte order in m16 and move to r16.",
+   "opcode": "0F 38 F0 /r",
+   "operands": "RM",
+   "syntax": "MOVBE r16, m16"
+  },
+  {
+   "cpuid": "MOVBE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F0"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Reverse byte order in m32 and move to r32.",
+   "opcode": "0F 38 F0 /r",
+   "operands": "RM",
+   "syntax": "MOVBE r32, m32"
+  },
+  {
+   "cpuid": "MOVBE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F0"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Reverse byte order in m64 and move to r64.",
+   "opcode": "REX.W + 0F 38 F0 /r",
+   "operands": "RM",
+   "syntax": "MOVBE r64, m64"
+  },
+  {
+   "cpuid": "MOVBE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F1"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Reverse byte order in r16 and move to m16.",
+   "opcode": "0F 38 F1 /r",
+   "operands": "MR",
+   "syntax": "MOVBE m16, r16"
+  },
+  {
+   "cpuid": "MOVBE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F1"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Reverse byte order in r32 and move to m32.",
+   "opcode": "0F 38 F1 /r",
+   "operands": "MR",
+   "syntax": "MOVBE m32, r32"
+  },
+  {
+   "cpuid": "MOVBE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "F1"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Reverse byte order in r64 and move to m64.",
+   "opcode": "REX.W + 0F 38 F1 /r",
+   "operands": "MR",
+   "syntax": "MOVBE m64, r64"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the destination operand is in a non-writable segment. If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit. If the DS, ES, FS, or GS register contains a NULL segment selector."
+  },
+  {
+   "mode": "protected",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "protected",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.MOVBE[22] = 0. If the LOCK prefix is used. If REP (F3H) prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#SS",
+   "when": "If a memory operand effective address is outside the SS segment limit."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.MOVBE[22] = 0. If the LOCK prefix is used. If REP (F3H) prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#GP(0)",
+   "when": "If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#SS(0)",
+   "when": "If a memory operand effective address is outside the SS segment limit. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.MOVBE[22] = 0. If the LOCK prefix is used. If REP (F3H) prefix is used. If REPNE (F2H) prefix is used and CPUID.01H:ECX.SSE4_2[20] = 0."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#SS(0)",
+   "when": "If the stack address is in a non-canonical form. #PF(fault-code) If a page fault occurs."
+  },
+  {
+   "mode": "long",
+   "vector": "#AC(0)",
+   "when": "If alignment checking is enabled and an unaligned memory reference is made while the current privilege level is 3."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If CPUID.01H:ECX.MOVBE[22] = 0. If the LOCK prefix is used. If REP (F3H) prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "movbe",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "MOVBE"
+  ]
+ },
+ "mnemonics": [
+  "MOVBE"
+ ],
+ "operand_encodings": [
+  {
+   "id": "RM",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "MR",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1334,
+    1336
+   ]
+  }
+ ],
+ "version": 1
+}

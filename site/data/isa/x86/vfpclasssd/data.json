@@ -1,0 +1,79 @@
+{
+ "encodings": [
+  {
+   "cpuid": "AVX512DQ",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "ib"
+     }
+    ],
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "67"
+    ],
+    "vector_prefix": {
+     "map": "0F 3A",
+     "prefix": "66",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.66.0F3A.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Tests the input for the following categories: NaN, +0, -0, OR AVX10.1 +Infinity, -Infinity, denormal, finite negative. The immediate field provides a mask bit for each of these category tests. The masked test results are OR-ed together to form a mask result.",
+   "opcode": "EVEX.LLIG.66.0F3A.W1 67 /r ib",
+   "operands": "A",
+   "syntax": "VFPCLASSSD k2 {k1}, xmm2/m64, imm8"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vfpclasssd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VFPCLASSSD"
+  ]
+ },
+ "mnemonics": [
+  "VFPCLASSSD"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2404,
+    2405
+   ]
+  }
+ ],
+ "version": 1
+}

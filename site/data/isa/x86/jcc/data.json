@@ -1,0 +1,2247 @@
+{
+ "encodings": [
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "77"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if above (CF=0 and ZF=0).",
+   "opcode": "77 cb",
+   "operands": "D",
+   "syntax": "JA rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "73"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if above or equal (CF=0).",
+   "opcode": "73 cb",
+   "operands": "D",
+   "syntax": "JAE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "72"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if below (CF=1).",
+   "opcode": "72 cb",
+   "operands": "D",
+   "syntax": "JB rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "76"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if below or equal (CF=1 or ZF=1).",
+   "opcode": "76 cb",
+   "operands": "D",
+   "syntax": "JBE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "72"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if carry (CF=1).",
+   "opcode": "72 cb",
+   "operands": "D",
+   "syntax": "JC rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "E3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.e."
+   },
+   "note": "Jump short if CX register is 0.",
+   "opcode": "E3 cb",
+   "operands": "D",
+   "syntax": "JCXZ rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "E3"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if ECX register is 0.",
+   "opcode": "E3 cb",
+   "operands": "D",
+   "syntax": "JECXZ rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "E3"
+    ]
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "valid"
+   },
+   "note": "Jump short if RCX register is 0.",
+   "opcode": "E3 cb",
+   "operands": "D",
+   "syntax": "JRCXZ rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "74"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if equal (ZF=1).",
+   "opcode": "74 cb",
+   "operands": "D",
+   "syntax": "JE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if greater (ZF=0 and SF=OF).",
+   "opcode": "7F cb",
+   "operands": "D",
+   "syntax": "JG rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if greater or equal (SF=OF).",
+   "opcode": "7D cb",
+   "operands": "D",
+   "syntax": "JGE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if less (SF OF).",
+   "opcode": "7C cb",
+   "operands": "D",
+   "syntax": "JL rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if less or equal (ZF=1 or SF OF).",
+   "opcode": "7E cb",
+   "operands": "D",
+   "syntax": "JLE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "76"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not above (CF=1 or ZF=1).",
+   "opcode": "76 cb",
+   "operands": "D",
+   "syntax": "JNA rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "72"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not above or equal (CF=1).",
+   "opcode": "72 cb",
+   "operands": "D",
+   "syntax": "JNAE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "73"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not below (CF=0).",
+   "opcode": "73 cb",
+   "operands": "D",
+   "syntax": "JNB rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "77"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not below or equal (CF=0 and ZF=0).",
+   "opcode": "77 cb",
+   "operands": "D",
+   "syntax": "JNBE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "73"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not carry (CF=0).",
+   "opcode": "73 cb",
+   "operands": "D",
+   "syntax": "JNC rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "75"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not equal (ZF=0).",
+   "opcode": "75 cb",
+   "operands": "D",
+   "syntax": "JNE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not greater (ZF=1 or SF OF).",
+   "opcode": "7E cb",
+   "operands": "D",
+   "syntax": "JNG rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not greater or equal (SF OF).",
+   "opcode": "7C cb",
+   "operands": "D",
+   "syntax": "JNGE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not less (SF=OF).",
+   "opcode": "7D cb",
+   "operands": "D",
+   "syntax": "JNL rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not less or equal (ZF=0 and SF=OF).",
+   "opcode": "7F cb",
+   "operands": "D",
+   "syntax": "JNLE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "71"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not overflow (OF=0).",
+   "opcode": "71 cb",
+   "operands": "D",
+   "syntax": "JNO rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not parity (PF=0).",
+   "opcode": "7B cb",
+   "operands": "D",
+   "syntax": "JNP rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "79"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not sign (SF=0).",
+   "opcode": "79 cb",
+   "operands": "D",
+   "syntax": "JNS rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "75"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if not zero (ZF=0).",
+   "opcode": "75 cb",
+   "operands": "D",
+   "syntax": "JNZ rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "70"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if overflow (OF=1).",
+   "opcode": "70 cb",
+   "operands": "D",
+   "syntax": "JO rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if parity (PF=1).",
+   "opcode": "7A cb",
+   "operands": "D",
+   "syntax": "JP rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if parity even (PF=1).",
+   "opcode": "7A cb",
+   "operands": "D",
+   "syntax": "JPE rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "7B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if parity odd (PF=0).",
+   "opcode": "7B cb",
+   "operands": "D",
+   "syntax": "JPO rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "78"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if sign (SF=1).",
+   "opcode": "78 cb",
+   "operands": "D",
+   "syntax": "JS rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 1,
+      "marker": "cb"
+     }
+    ],
+    "opcode": [
+     "74"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump short if zero (ZF = 1).",
+   "opcode": "74 cb",
+   "operands": "D",
+   "syntax": "JZ rel8"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if above (CF=0 and ZF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 87 cw",
+   "operands": "D",
+   "syntax": "JA rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if above (CF=0 and ZF=0).",
+   "opcode": "0F 87 cd",
+   "operands": "D",
+   "syntax": "JA rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if above or equal (CF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 83 cw",
+   "operands": "D",
+   "syntax": "JAE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if above or equal (CF=0).",
+   "opcode": "0F 83 cd",
+   "operands": "D",
+   "syntax": "JAE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "82"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if below (CF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 82 cw",
+   "operands": "D",
+   "syntax": "JB rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "82"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if below (CF=1).",
+   "opcode": "0F 82 cd",
+   "operands": "D",
+   "syntax": "JB rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "86"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if below or equal (CF=1 or ZF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 86 cw",
+   "operands": "D",
+   "syntax": "JBE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "86"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if below or equal (CF=1 or ZF=1).",
+   "opcode": "0F 86 cd",
+   "operands": "D",
+   "syntax": "JBE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "82"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if carry (CF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 82 cw",
+   "operands": "D",
+   "syntax": "JC rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "82"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if carry (CF=1).",
+   "opcode": "0F 82 cd",
+   "operands": "D",
+   "syntax": "JC rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "84"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if equal (ZF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 84 cw",
+   "operands": "D",
+   "syntax": "JE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "84"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if equal (ZF=1).",
+   "opcode": "0F 84 cd",
+   "operands": "D",
+   "syntax": "JE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "84"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if 0 (ZF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 84 cw",
+   "operands": "D",
+   "syntax": "JZ rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "84"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if 0 (ZF=1).",
+   "opcode": "0F 84 cd",
+   "operands": "D",
+   "syntax": "JZ rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if greater (ZF=0 and SF=OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8F cw",
+   "operands": "D",
+   "syntax": "JG rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if greater (ZF=0 and SF=OF).",
+   "opcode": "0F 8F cd",
+   "operands": "D",
+   "syntax": "JG rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if greater or equal (SF=OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8D cw",
+   "operands": "D",
+   "syntax": "JGE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if greater or equal (SF=OF).",
+   "opcode": "0F 8D cd",
+   "operands": "D",
+   "syntax": "JGE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if less (SF OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8C cw",
+   "operands": "D",
+   "syntax": "JL rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if less (SF OF).",
+   "opcode": "0F 8C cd",
+   "operands": "D",
+   "syntax": "JL rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if less or equal (ZF=1 or SF OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8E cw",
+   "operands": "D",
+   "syntax": "JLE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if less or equal (ZF=1 or SF OF).",
+   "opcode": "0F 8E cd",
+   "operands": "D",
+   "syntax": "JLE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "86"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not above (CF=1 or ZF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 86 cw",
+   "operands": "D",
+   "syntax": "JNA rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "86"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not above (CF=1 or ZF=1).",
+   "opcode": "0F 86 cd",
+   "operands": "D",
+   "syntax": "JNA rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "82"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not above or equal (CF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 82 cw",
+   "operands": "D",
+   "syntax": "JNAE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "82"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not above or equal (CF=1).",
+   "opcode": "0F 82 cd",
+   "operands": "D",
+   "syntax": "JNAE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not below (CF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 83 cw",
+   "operands": "D",
+   "syntax": "JNB rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not below (CF=0).",
+   "opcode": "0F 83 cd",
+   "operands": "D",
+   "syntax": "JNB rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not below or equal (CF=0 and ZF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 87 cw",
+   "operands": "D",
+   "syntax": "JNBE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "87"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not below or equal (CF=0 and ZF=0).",
+   "opcode": "0F 87 cd",
+   "operands": "D",
+   "syntax": "JNBE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not carry (CF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 83 cw",
+   "operands": "D",
+   "syntax": "JNC rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "83"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not carry (CF=0).",
+   "opcode": "0F 83 cd",
+   "operands": "D",
+   "syntax": "JNC rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "85"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not equal (ZF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 85 cw",
+   "operands": "D",
+   "syntax": "JNE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "85"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not equal (ZF=0).",
+   "opcode": "0F 85 cd",
+   "operands": "D",
+   "syntax": "JNE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not greater (ZF=1 or SF OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8E cw",
+   "operands": "D",
+   "syntax": "JNG rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8E"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not greater (ZF=1 or SF OF).",
+   "opcode": "0F 8E cd",
+   "operands": "D",
+   "syntax": "JNG rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not greater or equal (SF OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8C cw",
+   "operands": "D",
+   "syntax": "JNGE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8C"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not greater or equal (SF OF).",
+   "opcode": "0F 8C cd",
+   "operands": "D",
+   "syntax": "JNGE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not less (SF=OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8D cw",
+   "operands": "D",
+   "syntax": "JNL rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8D"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not less (SF=OF).",
+   "opcode": "0F 8D cd",
+   "operands": "D",
+   "syntax": "JNL rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not less or equal (ZF=0 and SF=OF). Not supported in 64-bit mode.",
+   "opcode": "0F 8F cw",
+   "operands": "D",
+   "syntax": "JNLE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8F"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not less or equal (ZF=0 and SF=OF).",
+   "opcode": "0F 8F cd",
+   "operands": "D",
+   "syntax": "JNLE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "81"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not overflow (OF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 81 cw",
+   "operands": "D",
+   "syntax": "JNO rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "81"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not overflow (OF=0).",
+   "opcode": "0F 81 cd",
+   "operands": "D",
+   "syntax": "JNO rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not parity (PF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 8B cw",
+   "operands": "D",
+   "syntax": "JNP rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not parity (PF=0).",
+   "opcode": "0F 8B cd",
+   "operands": "D",
+   "syntax": "JNP rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "89"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not sign (SF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 89 cw",
+   "operands": "D",
+   "syntax": "JNS rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "89"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not sign (SF=0).",
+   "opcode": "0F 89 cd",
+   "operands": "D",
+   "syntax": "JNS rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "85"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if not zero (ZF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 85 cw",
+   "operands": "D",
+   "syntax": "JNZ rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "85"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if not zero (ZF=0).",
+   "opcode": "0F 85 cd",
+   "operands": "D",
+   "syntax": "JNZ rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "80"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if overflow (OF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 80 cw",
+   "operands": "D",
+   "syntax": "JO rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "80"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if overflow (OF=1).",
+   "opcode": "0F 80 cd",
+   "operands": "D",
+   "syntax": "JO rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if parity (PF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 8A cw",
+   "operands": "D",
+   "syntax": "JP rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if parity (PF=1).",
+   "opcode": "0F 8A cd",
+   "operands": "D",
+   "syntax": "JP rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if parity even (PF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 8A cw",
+   "operands": "D",
+   "syntax": "JPE rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8A"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if parity even (PF=1).",
+   "opcode": "0F 8A cd",
+   "operands": "D",
+   "syntax": "JPE rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if parity odd (PF=0). Not supported in 64-bit mode.",
+   "opcode": "0F 8B cw",
+   "operands": "D",
+   "syntax": "JPO rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "8B"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if parity odd (PF=0).",
+   "opcode": "0F 8B cd",
+   "operands": "D",
+   "syntax": "JPO rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "88"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if sign (SF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 88 cw",
+   "operands": "D",
+   "syntax": "JS rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "88"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if sign (SF=1).",
+   "opcode": "0F 88 cd",
+   "operands": "D",
+   "syntax": "JS rel32"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 2,
+      "marker": "cw"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "84"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "n.s."
+   },
+   "note": "Jump near if 0 (ZF=1). Not supported in 64-bit mode.",
+   "opcode": "0F 84 cw",
+   "operands": "D",
+   "syntax": "JZ rel16"
+  },
+  {
+   "cpuid": "",
+   "layout": {
+    "immediates": [
+     {
+      "bytes": 4,
+      "marker": "cd"
+     }
+    ],
+    "opcode": [
+     "0F",
+     "84"
+    ]
+   },
+   "modes": {
+    "legacy": "valid",
+    "long": "valid"
+   },
+   "note": "Jump near if 0 (ZF=1).",
+   "opcode": "0F 84 cd",
+   "operands": "D",
+   "syntax": "JZ rel32"
+  }
+ ],
+ "exceptions": [
+  {
+   "mode": "protected",
+   "vector": "#GP(0)",
+   "when": "If the offset being jumped to is beyond the limits of the CS segment."
+  },
+  {
+   "mode": "protected",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#GP",
+   "when": "If the offset being jumped to is beyond the limits of the CS segment or is outside of the effective address space from 0 to FFFFH. This condition can occur if a 32-bit address size override prefix is used."
+  },
+  {
+   "mode": "real",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  },
+  {
+   "mode": "virtual8086",
+   "vector": null,
+   "when": "Same exceptions as in real address mode."
+  },
+  {
+   "mode": "compat",
+   "vector": null,
+   "when": "Same exceptions as in protected mode."
+  },
+  {
+   "mode": "long",
+   "vector": "#GP(0)",
+   "when": "If the memory address is in a non-canonical form."
+  },
+  {
+   "mode": "long",
+   "vector": "#UD",
+   "when": "If the LOCK prefix is used."
+  }
+ ],
+ "format": "isadoc",
+ "id": "jcc",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "JB",
+   "JBE",
+   "JL",
+   "JLE",
+   "JNB",
+   "JNBE",
+   "JNL",
+   "JNLE",
+   "JNO",
+   "JNP",
+   "JNS",
+   "JNZ",
+   "JO",
+   "JP",
+   "JS",
+   "JZ"
+  ]
+ },
+ "mnemonics": [
+  "Jcc"
+ ],
+ "operand_encodings": [
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "offset",
+     "read": false,
+     "write": false
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1203,
+    1207
+   ]
+  }
+ ],
+ "version": 1
+}

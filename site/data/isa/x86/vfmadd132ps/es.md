@@ -1,0 +1,380 @@
+---
+summary: Fused Multiply-Add of Packed Single
+---
+
+## Descripción
+
+Realiza un conjunto de computación de SIMD multiadd en valores en coma flotante de precisión simple empaquetados usando tres operandos de origen y escribe los resultados multiadd en el operando de destino. El operando de destino es también el primer operando de origen. El segundo operando debe ser un registro SIMD. El tercer operando de origen puede ser un registro SIMD o una ubicación de memoria.
+
+VFMADD132PS: Multiplica los cuatro, ocho o dieciséis valores de punto flotante de precisión individual empaquetados de la primera fuente operando a los cuatro, ocho o dieciséis valores de punto flotante de precisión única en la tercera fuente operando, agrega el resultado intermedio de precisión infinita a los cuatro, ocho o dieciséis valores de punto flotante de precisión único empaquetado en la segunda fuente operando, realiza redondeo y almacena los cuatro, ocho o dieciséis valores empaquetados de destino flotante de precisión.
+
+VFMADD213PS: Multiplica los cuatro, ocho o dieciséis valores de punto flotante de precisión individual empaquetados de la segunda fuente operand a los cuatro, ocho o dieciséis valores de punto flotante de precisión única en la primera fuente operand, añade el resultado intermedio de precisión infinita a los cuatro, ocho o dieciséis valores de punto flotante de precisión único empaquetado en la tercera fuente operante, realiza redondeo y almacena el resultado de los cuatro, ocho o dieciséis valores de precisión monopado a destino flotante
+
+VFMADD231PS: Multiplica los cuatro, ocho o dieciséis valores de punto flotante de precisión individual empaquetados de la segunda fuente operand a los cuatro, ocho o dieciséis valores de punto flotante de precisión único en la tercera fuente operand, añade el resultado intermedio de precisión infinita a los cuatro, ocho o dieciséis valores de punto flotante de precisión único empaquetado en la primera fuente operante, realiza redondeo y almacena los cuatro, ocho o dieciséis valores empaquetados de destino flotante de precisión.
+
+EVEX versiones codificadas: El operando de destino (también primer operando de origen) es un registro ZMM y codificado en reg field. El segundo operando de origen es un registro ZMM y codificado en EVEX.vvvv. El tercer operando de origen es un registro ZMM, una ubicación de memoria de 512 bits, o un vector de 512 bits emitido desde una ubicación de memoria de 32 bits. El operando de destino está actualizado condicionalmente con máscara de escritura k1.
+
+VEX.256 versión codificada: El operando de destino (también primer operando de origen) es un registro YMM y codificado en reg field. El segundo operando de origen es un registro YMM y codificado en VEX.vvvv. El tercer operando de origen es un registro YMM o una ubicación de memoria de 256 bits y codificado en rm field.
+
+VEX.128 versión codificada: El operando de destino (también primer operando de origen) es un registro XMM y codificado en reg field. El segundo operando de origen es un registro XMM y codificado en VEX.vvvv. El tercer operando de origen es un registro XMM o una ubicación de memoria de 128 bits y codificado en rm field. Los 128 bits superiores del destino YMM registran se ponen a cero.
+
+## Operación
+
+```text
+In the operations below, "*" and "+" symbols represent multiplication and addition with infinite precision inputs and outputs (no
+rounding).
+
+VFMADD132PS DEST, SRC2, SRC3
+IF (VEX.128) THEN
+
+    MAXNUM := 4
+ELSEIF (VEX.256)
+
+    MAXNUM := 8
+FI
+For i = 0 to MAXNUM-1 {
+
+    n := 32*i;
+    DEST[n+31:n] := RoundFPControl_MXCSR(DEST[n+31:n]*SRC3[n+31:n] + SRC2[n+31:n])
+}
+IF (VEX.128) THEN
+    DEST[MAXVL-1:128] := 0
+
+
+ELSEIF (VEX.256)
+    DEST[MAXVL-1:256] := 0
+
+FI
+
+VFMADD213PS DEST, SRC2, SRC3
+IF (VEX.128) THEN
+
+    MAXNUM := 4
+ELSEIF (VEX.256)
+
+    MAXNUM := 8
+FI
+For i = 0 to MAXNUM-1 {
+
+    n := 32*i;
+    DEST[n+31:n] := RoundFPControl_MXCSR(SRC2[n+31:n]*DEST[n+31:n] + SRC3[n+31:n])
+}
+IF (VEX.128) THEN
+    DEST[MAXVL-1:128] := 0
+ELSEIF (VEX.256)
+    DEST[MAXVL-1:256] := 0
+FI
+
+VFMADD231PS DEST, SRC2, SRC3
+IF (VEX.128) THEN
+
+    MAXNUM := 4
+ELSEIF (VEX.256)
+
+    MAXNUM := 8
+FI
+For i = 0 to MAXNUM-1 {
+
+    n := 32*i;
+    DEST[n+31:n] := RoundFPControl_MXCSR(SRC2[n+31:n]*SRC3[n+31:n] + DEST[n+31:n])
+}
+IF (VEX.128) THEN
+    DEST[MAXVL-1:128] := 0
+ELSEIF (VEX.256)
+    DEST[MAXVL-1:256] := 0
+FI
+
+VFMADD132PS DEST, SRC2, SRC3 (EVEX encoded version, when src3 operand is a register)
+
+(KL, VL) = (4, 128), (8, 256), (16, 512)
+
+IF (VL = 512) AND (EVEX.b = 1)
+
+     THEN
+
+     SET_ROUNDING_MODE_FOR_THIS_INSTRUCTION(EVEX.RC);
+
+     ELSE
+
+     SET_ROUNDING_MODE_FOR_THIS_INSTRUCTION(MXCSR.RC);
+
+FI;
+
+FOR j := 0 TO KL-1
+
+     i := j * 32
+
+     IF k1[j] OR *no writemask*
+
+     THEN DEST[i+31:i] :=
+
+                  RoundFPControl(DEST[i+31:i]*SRC3[i+31:i] + SRC2[i+31:i])
+
+     ELSE
+
+                  IF *merging-masking*    ; merging-masking
+
+                  THEN *DEST[i+31:i] remains unchanged*
+
+                  ELSE                    ; zeroing-masking
+
+                    DEST[i+31:i] := 0
+
+
+                FI
+    FI;
+ENDFOR
+DEST[MAXVL-1:VL] := 0
+
+VFMADD132PS DEST, SRC2, SRC3 (EVEX encoded version, when src3 operand is a memory source)
+(KL, VL) = (4, 128), (8, 256), (16, 512)
+
+FOR j := 0 TO KL-1
+
+     i := j * 32
+
+     IF k1[j] OR *no writemask*
+
+          THEN
+
+                  IF (EVEX.b = 1)
+
+                       THEN
+
+                       DEST[i+31:i] :=
+
+                  RoundFPControl_MXCSR(DEST[i+31:i]*SRC3[31:0] + SRC2[i+31:i])
+
+                       ELSE
+
+                       DEST[i+31:i] :=
+
+                  RoundFPControl_MXCSR(DEST[i+31:i]*SRC3[i+31:i] + SRC2[i+31:i])
+
+                  FI;
+
+          ELSE
+
+                  IF *merging-masking*    ; merging-masking
+
+                       THEN *DEST[i+31:i] remains unchanged*
+
+                       ELSE               ; zeroing-masking
+
+                       DEST[i+31:i] := 0
+
+                  FI
+
+     FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+
+VFMADD213PS DEST, SRC2, SRC3 (EVEX encoded version, when src3 operand is a register)
+
+(KL, VL) = (4, 128), (8, 256), (16, 512)
+
+IF (VL = 512) AND (EVEX.b = 1)
+
+     THEN
+
+          SET_ROUNDING_MODE_FOR_THIS_INSTRUCTION(EVEX.RC);
+
+     ELSE
+
+          SET_ROUNDING_MODE_FOR_THIS_INSTRUCTION(MXCSR.RC);
+
+FI;
+
+FOR j := 0 TO KL-1
+
+     i := j * 32
+
+     IF k1[j] OR *no writemask*
+
+          THEN DEST[i+31:i] :=
+
+                  RoundFPControl(SRC2[i+31:i]*DEST[i+31:i] + SRC3[i+31:i])
+
+          ELSE
+
+                  IF *merging-masking*    ; merging-masking
+
+                       THEN *DEST[i+31:i] remains unchanged*
+
+                       ELSE               ; zeroing-masking
+
+                       DEST[i+31:i] := 0
+
+                  FI
+
+     FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+
+VFMADD213PS DEST, SRC2, SRC3 (EVEX encoded version, when src3 operand is a memory source)
+
+
+(KL, VL) = (4, 128), (8, 256), (16, 512)
+
+FOR j := 0 TO KL-1
+
+     i := j * 32
+
+     IF k1[j] OR *no writemask*
+
+          THEN
+
+                  IF (EVEX.b = 1)
+
+                       THEN
+
+                       DEST[i+31:i] :=
+
+                  RoundFPControl_MXCSR(SRC2[i+31:i]*DEST[i+31:i] + SRC3[31:0])
+
+                       ELSE
+
+                       DEST[i+31:i] :=
+
+                  RoundFPControl_MXCSR(SRC2[i+31:i]*DEST[i+31:i] + SRC3[i+31:i])
+
+                  FI;
+
+          ELSE
+
+                  IF *merging-masking*    ; merging-masking
+
+                       THEN *DEST[i+31:i] remains unchanged*
+
+                       ELSE               ; zeroing-masking
+
+                       DEST[i+31:i] := 0
+
+                  FI
+
+     FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+
+VFMADD231PS DEST, SRC2, SRC3 (EVEX encoded version, when src3 operand is a register)
+
+(KL, VL) = (4, 128), (8, 256), (16, 512)
+
+IF (VL = 512) AND (EVEX.b = 1)
+
+     THEN
+
+          SET_ROUNDING_MODE_FOR_THIS_INSTRUCTION(EVEX.RC);
+
+     ELSE
+
+          SET_ROUNDING_MODE_FOR_THIS_INSTRUCTION(MXCSR.RC);
+
+FI;
+
+FOR j := 0 TO KL-1
+
+     i := j * 32
+
+     IF k1[j] OR *no writemask*
+
+          THEN DEST[i+31:i] :=
+
+                  RoundFPControl(SRC2[i+31:i]*SRC3[i+31:i] + DEST[i+31:i])
+
+          ELSE
+
+                  IF *merging-masking*    ; merging-masking
+
+                       THEN *DEST[i+31:i] remains unchanged*
+
+                       ELSE               ; zeroing-masking
+
+                       DEST[i+31:i] := 0
+
+                  FI
+
+     FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+
+VFMADD231PS DEST, SRC2, SRC3 (EVEX encoded version, when src3 operand is a memory source)
+(KL, VL) = (4, 128), (8, 256), (16, 512)
+
+FOR j := 0 TO KL-1
+    i := j * 32
+    IF k1[j] OR *no writemask*
+          THEN
+
+
+        IF (EVEX.b = 1)
+
+             THEN
+
+             DEST[i+31:i] :=
+
+        RoundFPControl_MXCSR(SRC2[i+31:i]*SRC3[31:0] + DEST[i+31:i])
+
+             ELSE
+
+             DEST[i+31:i] :=
+
+        RoundFPControl_MXCSR(SRC2[i+31:i]*SRC3[i+31:i] + DEST[i+31:i])
+
+        FI;
+
+     ELSE
+
+        IF *merging-masking*    ; merging-masking
+
+             THEN *DEST[i+31:i] remains unchanged*
+
+             ELSE               ; zeroing-masking
+
+             DEST[i+31:i] := 0
+
+        FI
+
+FI;
+
+ENDFOR
+
+DEST[MAXVL-1:VL] := 0
+```
+
+## Intel C/C++ compilador intrínseco
+
+```c
+VFMADDxxxPS __m512 _mm512_fmadd_ps(__m512 a, __m512 b, __m512 c);
+VFMADDxxxPS __m512 _mm512_fmadd_round_ps(__m512 a, __m512 b, __m512 c, int r);
+VFMADDxxxPS __m512 _mm512_mask_fmadd_ps(__m512 a, __mmask16 k, __m512 b, __m512 c);
+VFMADDxxxPS __m512 _mm512_maskz_fmadd_ps(__mmask16 k, __m512 a, __m512 b, __m512 c);
+VFMADDxxxPS __m512 _mm512_mask3_fmadd_ps(__m512 a, __m512 b, __m512 c, __mmask16 k);
+VFMADDxxxPS __m512 _mm512_mask_fmadd_round_ps(__m512 a, __mmask16 k, __m512 b, __m512 c, int r);
+VFMADDxxxPS __m512 _mm512_maskz_fmadd_round_ps(__mmask16 k, __m512 a, __m512 b, __m512 c, int r);
+VFMADDxxxPS __m512 _mm512_mask3_fmadd_round_ps(__m512 a, __m512 b, __m512 c, __mmask16 k, int r);
+VFMADDxxxPS __m256 _mm256_mask_fmadd_ps(__m256 a, __mmask8 k, __m256 b, __m256 c);
+VFMADDxxxPS __m256 _mm256_maskz_fmadd_ps(__mmask8 k, __m256 a, __m256 b, __m256 c);
+VFMADDxxxPS __m256 _mm256_mask3_fmadd_ps(__m256 a, __m256 b, __m256 c, __mmask8 k);
+VFMADDxxxPS __m128 _mm_mask_fmadd_ps(__m128 a, __mmask8 k, __m128 b, __m128 c);
+VFMADDxxxPS __m128 _mm_maskz_fmadd_ps(__mmask8 k, __m128 a, __m128 b, __m128 c);
+VFMADDxxxPS __m128 _mm_mask3_fmadd_ps(__m128 a, __m128 b, __m128 c, __mmask8 k);
+VFMADDxxxPS __m128 _mm_fmadd_ps (__m128 a, __m128 b, __m128 c);
+VFMADDxxxPS __m256 _mm256_fmadd_ps (__m256 a, __m256 b, __m256 c);
+```
+
+## SIMD coma flotante Excepciones
+
+Overflow, Underflow, Invalid, Precision, Denormal.
+
+## Otras excepciones
+
+Instrucciones codificadas por VEX, ver Tabla 2-19, "Tipo 2 Condiciones de Excepción". Instrucciones codificadas por EVEX, ver Tabla 2-48, "Tipo E2 Clase Condiciones de Excepción."

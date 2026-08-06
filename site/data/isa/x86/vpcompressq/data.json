@@ -1,0 +1,125 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8B"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress packed quadword integer values AVX512F) OR AVX10.1 from xmm2 to xmm1/m128 using control mask k1.",
+   "opcode": "EVEX.128.66.0F38.W1 8B /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSQ xmm1/m128 {k1}{z}, xmm2"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8B"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress packed quadword integer values AVX512F) OR AVX10.1 from ymm2 to ymm1/m256 using control mask k1.",
+   "opcode": "EVEX.256.66.0F38.W1 8B /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSQ ymm1/m256 {k1}{z}, ymm2"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "8B"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Compress packed quadword integer values OR AVX10.1 from zmm2 to zmm1/m512 using control mask k1.",
+   "opcode": "EVEX.512.66.0F38.W1 8B /r",
+   "operands": "A",
+   "syntax": "VPCOMPRESSQ zmm1/m512 {k1}{z}, zmm2"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpcompressq",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPCOMPRESSQ"
+  ]
+ },
+ "mnemonics": [
+  "VPCOMPRESSQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.rm",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.reg",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2524,
+    2525
+   ]
+  }
+ ],
+ "version": 1
+}

@@ -1,0 +1,209 @@
+{
+ "encodings": [
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "vsib"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using signed qword indices, gather dword values AVX512F) OR AVX10.1 from memory using writemask k1 for merging- masking.",
+   "opcode": "EVEX.128.66.0F38.W0 91 /vsib",
+   "operands": "A",
+   "syntax": "VPGATHERQD xmm1 {k1}, vm64x"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "vsib"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using signed qword indices, gather dword values AVX512F) OR AVX10.1 from memory using writemask k1 for merging- masking.",
+   "opcode": "EVEX.256.66.0F38.W0 91 /vsib",
+   "operands": "A",
+   "syntax": "VPGATHERQD xmm1 {k1}, vm64y"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "vsib"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using signed qword indices, gather dword values OR AVX10.1 from memory using writemask k1 for merging- masking.",
+   "opcode": "EVEX.512.66.0F38.W0 91 /vsib",
+   "operands": "A",
+   "syntax": "VPGATHERQD ymm1 {k1}, vm64z"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "vsib"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using signed qword indices, gather quadword AVX512F) OR AVX10.1 values from memory using writemask k1 for merging-masking.",
+   "opcode": "EVEX.128.66.0F38.W1 91 /vsib",
+   "operands": "A",
+   "syntax": "VPGATHERQQ xmm1 {k1}, vm64x"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "vsib"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using signed qword indices, gather quadword AVX512F) OR AVX10.1 values from memory using writemask k1 for merging-masking.",
+   "opcode": "EVEX.256.66.0F38.W1 91 /vsib",
+   "operands": "A",
+   "syntax": "VPGATHERQQ ymm1 {k1}, vm64y"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "vsib"
+    },
+    "opcode": [
+     "91"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Using signed qword indices, gather quadword OR AVX10.1 values from memory using writemask k1 for merging-masking.",
+   "opcode": "EVEX.512.66.0F38.W1 91 /vsib",
+   "operands": "A",
+   "syntax": "VPGATHERQQ zmm1 {k1}, vm64z"
+  }
+ ],
+ "format": "isadoc",
+ "id": "vpgatherqd",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "VPGATHERQD",
+   "VPGATHERQQ"
+  ]
+ },
+ "mnemonics": [
+  "VPGATHERQD",
+  "VPGATHERQQ"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "BaseReg (R): VSIB:base,",
+     "raw": "BaseReg (R): VSIB:base,",
+     "read": false,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Scalar"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    2610,
+    2612
+   ]
+  }
+ ],
+ "version": 1
+}

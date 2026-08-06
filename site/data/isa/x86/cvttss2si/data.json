@@ -1,0 +1,221 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2C"
+    ],
+    "prefixes": [
+     "F3"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one single precision floating-point value from xmm1/m32 to one signed doubleword integer in r3 using truncation.",
+   "opcode": "F3 0F 2C /r",
+   "operands": "A",
+   "syntax": "CVTTSS2SI r3, xmm1/m32"
+  },
+  {
+   "cpuid": "SSE",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "2C"
+    ],
+    "prefixes": [
+     "F3"
+    ],
+    "rex": "W"
+   },
+   "modes": {
+    "legacy": "n.e.",
+    "long": "v"
+   },
+   "note": "Convert one single precision floating-point value from xmm1/m32 to one signed quadword integer in r64 using truncation.",
+   "opcode": "F3 REX.W 0F 2C /r",
+   "operands": "A",
+   "syntax": "CVTTSS2SI r64, xmm1/m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.W0",
+     "type": "VEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one single precision floating-point value from xmm1/m32 to one signed doubleword integer in r3 using truncation.",
+   "opcode": "VEX.LIG.F3.0F.W0 2C /r 1",
+   "operands": "A",
+   "syntax": "VCVTTSS2SI r3, xmm1/m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "length": null,
+     "length_note": "LIG",
+     "map": "0F",
+     "prefix": "F3",
+     "text": "VEX.LIG.F3.0F.W1",
+     "type": "VEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.2",
+    "long": "v"
+   },
+   "note": "Convert one single precision floating-point value from xmm1/m32 to one signed quadword integer in r64 using truncation.",
+   "opcode": "VEX.LIG.F3.0F.W1 2C /r 1",
+   "operands": "A",
+   "syntax": "VCVTTSS2SI r64, xmm1/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Convert one single precision floating-point value from OR AVX10.1 xmm1/m32 to one signed doubleword integer in r3 using truncation.",
+   "opcode": "EVEX.LLIG.F3.0F.W0 2C /r",
+   "operands": "B",
+   "syntax": "VCVTTSS2SI r3, xmm1/m32{sae}"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "2C"
+    ],
+    "vector_prefix": {
+     "map": "0F",
+     "prefix": "F3",
+     "rest": [
+      "LLIG"
+     ],
+     "text": "EVEX.LLIG.F3.0F.W1",
+     "type": "EVEX",
+     "w": 1
+    }
+   },
+   "modes": {
+    "legacy": "n.e.2",
+    "long": "v"
+   },
+   "note": "Convert one single precision floating-point value from OR AVX10.1 xmm1/m32 to one signed quadword integer in r64 using truncation.",
+   "opcode": "EVEX.LLIG.F3.0F.W1 2C /r",
+   "operands": "B",
+   "syntax": "VCVTTSS2SI r64, xmm1/m32{sae}"
+  }
+ ],
+ "format": "isadoc",
+ "id": "cvttss2si",
+ "isa": "x86",
+ "links": {
+  "arch_data": [
+   "CVTTSS2SI",
+   "VCVTTSS2SI"
+  ]
+ },
+ "mnemonics": [
+  "CVTTSS2SI"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Tuple1 Fixed"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    959,
+    960
+   ]
+  }
+ ],
+ "version": 1
+}

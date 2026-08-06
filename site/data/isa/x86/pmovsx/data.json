@@ -1,0 +1,1070 @@
+{
+ "encodings": [
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "20"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 8-bit integers in the low 8 bytes of xmm2/m64 to 8 packed 16-bit integers in xmm1.",
+   "opcode": "66 0f 38 20 /r",
+   "operands": "A",
+   "syntax": "PMOVSXBW xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "21"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 8-bit integers in the low 4 bytes of xmm2/m32 to 4 packed 32-bit integers in xmm1.",
+   "opcode": "66 0f 38 21 /r",
+   "operands": "A",
+   "syntax": "PMOVSXBD xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "22"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 8-bit integers in the low 2 bytes of xmm2/m16 to 2 packed 64-bit integers in xmm1.",
+   "opcode": "66 0f 38 22 /r",
+   "operands": "A",
+   "syntax": "PMOVSXBQ xmm1, xmm2/m16"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "23"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 16-bit integers in the low 8 bytes of xmm2/m64 to 4 packed 32-bit integers in xmm1.",
+   "opcode": "66 0f 38 23/r",
+   "operands": "A",
+   "syntax": "PMOVSXWD xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "24"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 16-bit integers in the low 4 bytes of xmm2/m32 to 2 packed 64-bit integers in xmm1.",
+   "opcode": "66 0f 38 24 /r",
+   "operands": "A",
+   "syntax": "PMOVSXWQ xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "SSE4_1",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "0F",
+     "38",
+     "25"
+    ],
+    "prefixes": [
+     "66"
+    ]
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 32-bit integers in the low 8 bytes of xmm2/m64 to 2 packed 64-bit integers in xmm1.",
+   "opcode": "66 0f 38 25 /r",
+   "operands": "A",
+   "syntax": "PMOVSXDQ xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 8-bit integers in the low 8 bytes of xmm2/m64 to 8 packed 16-bit integers in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 20 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXBW xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "21"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 8-bit integers in the low 4 bytes of xmm2/m32 to 4 packed 32-bit integers in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 21 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXBD xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 8-bit integers in the low 2 bytes of xmm2/m16 to 2 packed 64-bit integers in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 22 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXBQ xmm1, xmm2/m16"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "23"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 16-bit integers in the low 8 bytes of xmm2/m64 to 4 packed 32-bit integers in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 23 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXWD xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "24"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 16-bit integers in the low 4 bytes of xmm2/m32 to 2 packed 64-bit integers in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 24 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXWQ xmm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.128.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 32-bit integers in the low 8 bytes of xmm2/m64 to 2 packed 64-bit integers in xmm1.",
+   "opcode": "VEX.128.66.0F38.WIG 25 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXDQ xmm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 16 packed 8-bit integers in xmm2/m128 to 16 packed 16-bit integers in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 20 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXBW ymm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "21"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 8-bit integers in the low 8 bytes of xmm2/m64 to 8 packed 32-bit integers in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 21 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXBD ymm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 8-bit integers in the low 4 bytes of xmm2/m32 to 4 packed 64-bit integers in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 22 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXBQ ymm1, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "23"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 16-bit integers in the low 16 bytes of xmm2/m128 to 8 packed 32-bit integers in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 23 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXWD ymm1, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "24"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 16-bit integers in the low 8 bytes of xmm2/m64 to 4 packed 64-bit integers in ymm1.",
+   "opcode": "VEX.256.66.0F38.WIG 24 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXWQ ymm1, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX2",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "VEX.256.66.0F38.WIG",
+     "type": "VEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 32-bit integers in the low 16 bytes of xmm2/m128 to 4 packed 64-bit integers in ymm1. Op / 64/32 bit CPUID Feature Description En Mode Support Flag",
+   "opcode": "VEX.256.66.0F38.WIG 25 /r",
+   "operands": "A",
+   "syntax": "VPMOVSXDQ ymm1, xmm2/m128 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 8-bit integers in xmm2/m64 to AVX512BW) OR 8 packed 16-bit integers in zmm1. AVX10.1",
+   "opcode": "EVEX.128.66.0F38.WIG 20 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXBW xmm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 16 packed 8-bit integers in xmm2/m128 AVX512BW) OR to 16 packed 16-bit integers in ymm1. AVX10.1",
+   "opcode": "EVEX.256.66.0F38.WIG 20 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXBW ymm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX512BW",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "20"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 32 packed 8-bit integers in ymm2/m256 OR AVX10.1 to 32 packed 16-bit integers in zmm1.",
+   "opcode": "EVEX.512.66.0F38.WIG 20 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXBW zmm1 {k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "21"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 8-bit integers in the low 4 bytes AVX512F) OR of xmm2/m32 to 4 packed 32-bit integers in xmm1 AVX10.1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 21 /r",
+   "operands": "C",
+   "syntax": "VPMOVSXBD xmm1 {k1}{z}, xmm2/m32"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "21"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 8-bit integers in the low 8 bytes AVX512F) OR of xmm2/m64 to 8 packed 32-bit integers in ymm1 AVX10.1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 21 /r",
+   "operands": "C",
+   "syntax": "VPMOVSXBD ymm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "21"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 16 packed 8-bit integers in the low 16 OR AVX10.1 bytes of xmm2/m128 to 16 packed 32-bit integers in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.WIG 21 /r",
+   "operands": "C",
+   "syntax": "VPMOVSXBD zmm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 8-bit integers in the low 2 bytes AVX512F) OR of xmm2/m16 to 2 packed 64-bit integers in xmm1 AVX10.1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 22 /r",
+   "operands": "D",
+   "syntax": "VPMOVSXBQ xmm1 {k1}{z}, xmm2/m16"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 8-bit integers in the low 4 bytes AVX512F) OR of xmm2/m32 to 4 packed 64-bit integers in ymm1 AVX10.1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 22 /r",
+   "operands": "D",
+   "syntax": "VPMOVSXBQ ymm1 {k1}{z}, xmm2/m32"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "22"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 8-bit integers in the low 8 bytes OR AVX10.1 of xmm2/m64 to 8 packed 64-bit integers in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.WIG 22 /r",
+   "operands": "D",
+   "syntax": "VPMOVSXBQ zmm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "23"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 16-bit integers in the low 8 AVX512F) OR bytes of ymm2/mem to 4 packed 32-bit integers in AVX10.1 xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 23 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXWD xmm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "23"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 16-bit integers in the low 16 AVX512F) OR bytes of ymm2/m128 to 8 packed 32-bit integers in AVX10.1 ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 23 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXWD ymm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "23"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 16 packed 16-bit integers in the low 32 OR AVX10.1 bytes of ymm2/m256 to 16 packed 32-bit integers in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.WIG 23 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXWD zmm1 {k1}{z}, ymm2/m256"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "24"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 16-bit integers in the low 4 AVX512F) OR bytes of xmm2/m32 to 2 packed 64-bit integers in AVX10.1 xmm1 subject to writemask k1.",
+   "opcode": "EVEX.128.66.0F38.WIG 24 /r",
+   "operands": "C",
+   "syntax": "VPMOVSXWQ xmm1 {k1}{z}, xmm2/m32"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "24"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 4 packed 16-bit integers in the low 8 AVX512F) OR bytes of xmm2/m64 to 4 packed 64-bit integers in AVX10.1 ymm1 subject to writemask k1.",
+   "opcode": "EVEX.256.66.0F38.WIG 24 /r",
+   "operands": "C",
+   "syntax": "VPMOVSXWQ ymm1 {k1}{z}, xmm2/m64"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "24"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.WIG",
+     "type": "EVEX",
+     "w": null,
+     "w_note": "WIG"
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 16-bit integers in the low 16 OR AVX10.1 bytes of xmm2/m128 to 8 packed 64-bit integers in zmm1 subject to writemask k1.",
+   "opcode": "EVEX.512.66.0F38.WIG 24 /r",
+   "operands": "C",
+   "syntax": "VPMOVSXWQ zmm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "(AVX512VL AND",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 128,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.128.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 2 packed 32-bit integers in the low 8 AVX512F) OR bytes of xmm2/m64 to 2 packed 64-bit integers in AVX10.1 zmm1 using writemask k1. Op / 64/32 bit CPUID Featur e        Description En Mode Support Flag",
+   "opcode": "EVEX.128.66.0F38.W0 25 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXDQ xmm1 {k1}{z}, xmm2/m64 Opcode/ Instruction"
+  },
+  {
+   "cpuid": "(AVX512VL AN",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 256,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.256.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "D        Sign extend 4 packed 32-bit integers in the low 16 AVX512F) OR bytes of xmm2/m128 to 4 packed 64-bit integers in AVX10.1 zmm1 using writemask k1.",
+   "opcode": "EVEX.256.66.0F38.W0 25 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXDQ ymm1 {k1}{z}, xmm2/m128"
+  },
+  {
+   "cpuid": "AVX512F",
+   "layout": {
+    "modrm": {
+     "kind": "reg"
+    },
+    "opcode": [
+     "25"
+    ],
+    "vector_prefix": {
+     "length": 512,
+     "map": "0F 38",
+     "prefix": "66",
+     "text": "EVEX.512.66.0F38.W0",
+     "type": "EVEX",
+     "w": 0
+    }
+   },
+   "modes": {
+    "legacy": "v",
+    "long": "v"
+   },
+   "note": "Sign extend 8 packed 32-bit integers in the low 32 OR AVX10.1 bytes of ymm2/m256 to 8 packed 64-bit integers in zmm1 using writemask k1.",
+   "opcode": "EVEX.512.66.0F38.W0 25 /r",
+   "operands": "B",
+   "syntax": "VPMOVSXDQ zmm1 {k1}{z}, ymm2/m256"
+  }
+ ],
+ "format": "isadoc",
+ "id": "pmovsx",
+ "isa": "x86",
+ "links": {
+  "arch_data": []
+ },
+ "mnemonics": [
+  "PMOVSX"
+ ],
+ "operand_encodings": [
+  {
+   "id": "A",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Half Mem"
+  },
+  {
+   "id": "C",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Quarter Mem"
+  },
+  {
+   "id": "D",
+   "operands": [
+    {
+     "field": "modrm.reg",
+     "read": false,
+     "write": true
+    },
+    {
+     "field": "modrm.rm",
+     "read": true,
+     "write": false
+    }
+   ],
+   "tuple_type": "Eighth Mem"
+  }
+ ],
+ "sources": [
+  {
+   "edition": "325462-091US",
+   "id": "intel-sdm",
+   "pages": [
+    1641,
+    1650
+   ]
+  }
+ ],
+ "version": 1
+}
