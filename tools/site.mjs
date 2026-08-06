@@ -92,6 +92,7 @@ export const UI = {
         repo: 'Source code',
         footer: 'Vesta is developed in the open.',
         toc: 'On this page',
+        downloadMd: 'Download as Markdown',
         licenseTitle: 'License',
         licenseBody:
             'The Vesta toolchain is free software under the GPLv2, with a runtime ' +
@@ -105,6 +106,7 @@ export const UI = {
         repo: 'Código fuente',
         footer: 'Vesta se desarrolla en abierto.',
         toc: 'En esta página',
+        downloadMd: 'Descargar en Markdown',
         licenseTitle: 'Licencia',
         licenseBody:
             'Las herramientas de Vesta son software libre bajo GPLv2, con una ' +

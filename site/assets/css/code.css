@@ -237,6 +237,74 @@
     overflow: hidden;
 }
 
+/* --- Boton de copiado ----------------------------------------------------
+ *
+ * Lo inyecta `copy-code.mjs`; el CSS vive aqui igualmente para que aparezca ya
+ * colocado y no de un salto visible al cargarse el script.
+ *
+ * Se mantiene tenue hasta que el puntero entra en el bloque o el propio boton
+ * recibe el foco. Un boton a plena opacidad sobre cada fragmento compite con
+ * el codigo, que es lo que el lector ha venido a leer.
+ */
+.code-block,
+.snippet {
+    position: relative;
+}
+
+.copy-code {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.5rem;
+    z-index: 1;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    background: var(--code-bg);
+    color: var(--code-caption);
+    font: inherit;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.code-block:hover .copy-code,
+.snippet:hover .copy-code,
+.copy-code:focus-visible {
+    opacity: 1;
+}
+
+.copy-code:hover {
+    color: var(--code-fg);
+    border-color: var(--code-caption);
+}
+
+.copy-code[data-state='ok'] {
+    opacity: 1;
+    color: var(--accent);
+    border-color: currentColor;
+}
+
+.copy-code[data-state='error'] {
+    opacity: 1;
+    color: #dc2626;
+    border-color: currentColor;
+}
+
+/* Sin puntero fino no hay hover, asi que el boton nunca se revelaria. */
+@media (hover: none) {
+    .copy-code {
+        opacity: 1;
+    }
+}
+
+/* El fragmento con cabecera ya tiene una franja arriba: el boton se coloca
+ * dentro de ella en lugar de flotar sobre la primera linea de codigo. */
+.snippet:has(figcaption) > .copy-code {
+    top: 0.4rem;
+}
+
 .code-block pre {
     margin: 0;
     padding: 0.9rem 1.1rem;

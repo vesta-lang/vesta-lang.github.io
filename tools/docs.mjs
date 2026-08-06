@@ -12,7 +12,7 @@
  * distintas, y quien lee no sabe cual creer.
  */
 
-import { escapeHtml } from './markdown.mjs';
+import { escapeHtml, renderInline } from './markdown.mjs';
 import { chapterHref } from '../site/content/learn.mjs';
 import { urlFor } from './site.mjs';
 
@@ -100,8 +100,11 @@ export function tableOfContents(headings, lang) {
     // ve al bajar la vista.
     if (items.length < 3) return '';
 
+    // El texto del encabezado se procesa como Markdown, igual que en el cuerpo:
+    // un titulo que contiene `codigo` debe verse como codigo tambien aqui, no
+    // con las comillas invertidas a la vista.
     const links = items
-        .map((h) => `<li><a href="#${h.id}">${escapeHtml(h.text)}</a></li>`)
+        .map((h) => `<li><a href="#${h.id}">${renderInline(h.text)}</a></li>`)
         .join('');
 
     return (

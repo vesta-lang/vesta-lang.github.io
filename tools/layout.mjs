@@ -187,7 +187,12 @@ ${docs
 ${content}
 ${docs.pager}
         </main>
-        ${docs.toc}
+        <aside class="doc-aside">
+${docs.toc}
+${docs.sourceUrl
+              ? `            <a class="doc-source" href="${docs.sourceUrl}" download>${ui.downloadMd}</a>`
+              : ''}
+        </aside>
     </div>`
         : `    <main id="content">
 ${content}
@@ -216,6 +221,7 @@ ${content}
 
     <script type="module" src="/assets/js/lang.mjs"></script>
     <script type="module" src="/assets/js/flame.mjs"></script>
+    <script type="module" src="/assets/js/copy-code.mjs"></script>
     ${bodyClass.includes('layout-error')
         ? '<script type="module" src="/assets/js/error-path.mjs"></script>'
         : ''}

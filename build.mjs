@@ -38,6 +38,7 @@ import { insertTabs, tabStyles } from './tools/tabs.mjs';
 import { pager, sidebar, tableOfContents } from './tools/docs.mjs';
 import { LEARN, chapterHref, flatChapters } from './site/content/learn.mjs';
 import { parseFrontMatter, render } from './tools/markdown.mjs';
+import { pageSource, sourceUrlFor } from './tools/page-source.mjs';
 import { LANGUAGES, SITE_URL, urlFor } from './tools/site.mjs';
 import { renderSnippetFile } from './tools/snippet.mjs';
 
@@ -205,9 +206,19 @@ function homeJsonLd(lang) {
 /**
  * Genera el sitemap.
  *
- * Se incluyen todas las variantes de idioma con sus enlaces reciprocos, que es
- * lo que permite al buscador entender que son la misma pagina en dos lenguas y
- * no contenido duplicado.
+ * Se listan todas las variantes de idioma como URLs independientes, sin mas.
+ *
+ * NO se anotan aqui los `hreflang`. Habia dos motivos para quitarlos. El
+ * esquema oficial de sitemaps.org define `<url>` como una secuencia cerrada de
+ * `loc`, `lastmod`, `changefreq` y `priority`, sin punto de extension, asi que
+ * los `<xhtml:link>` -- pese a estar documentados por Google -- hacen que el
+ * fichero no valide. Y ademas sobran: cada pagina ya declara sus `hreflang`
+ * reciprocos en su propia cabecera, que es uno de los metodos admitidos.
+ * Anotarlos tambien aqui seria mantener la misma verdad en dos sitios.
+ *
+ * Tampoco se emite `lastmod`: sin fechas reales de cambio por pagina, poner la
+ * del build haria que todas las URLs se declararan modificadas en cada
+ * publicacion, que es peor que no decir nada.
  *
  * @param {Array<{path: string, available: string[]}>} pages Paginas generadas.
  * @returns {string} XML del sitemap.
@@ -216,22 +227,13 @@ function sitemap(pages) {
     const entries = [];
     for (const page of pages) {
         for (const lang of page.available) {
-            const links = page.available
-                .map(
-                    (other) =>
-                        `        <xhtml:link rel="alternate" hreflang="${other}" ` +
-                        `href="${SITE_URL}${urlFor(other, page.path)}"/>`
-                )
-                .join('\n');
             entries.push(
-                `    <url>\n        <loc>${SITE_URL}${urlFor(lang, page.path)}</loc>\n` +
-                    `${links}\n    </url>`
+                `    <url>\n        <loc>${SITE_URL}${urlFor(lang, page.path)}</loc>\n    </url>`
             );
         }
     }
     return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries.join('\n')}
 </urlset>
 `;
@@ -289,6 +291,82 @@ ${missing.size} enlaces internos sin destino:`);
         console.warn('');
     }
     return missing.size;
+}
+
+/**
+ * Contrasta el estado declarado de cada capitulo con lo que hay escrito.
+ *
+ * El indice de Learn marca con `draft` los capitulos aun por escribir, y la
+ * barra lateral los muestra como texto muerto en lugar de enlazarlos. Eso hace
+ * que las dos formas de equivocarse sean invisibles, cada una a su manera:
+ *
+ * - Un capitulo escrito que sigue marcado como borrador **se publica pero no
+ *   se enlaza desde ninguna parte**. La pagina existe, responde 200 y nadie
+ *   llega a ella. Es el fallo que motivo esta comprobacion.
+ * - Un capitulo sin marcar del que no hay texto se enlaza hacia el vacio. Eso
+ *   lo caza `checkLinks`, pero lo dice como un `href` roto mas, sin explicar
+ *   que el problema esta en el indice.
+ *
+ * Avisa en lugar de fallar porque escribir un capitulo primero en un idioma y
+ * luego en el otro es trabajo normal, y el estado intermedio es legitimo.
+ *
+ * @param {Map} pages Paginas encontradas, indexadas por ruta canonica.
+ * @returns {void}
+ */
+function checkChapters(pages) {
+    const huerfanos = [];
+    const vacios = [];
+
+    // Dos capitulos con el mismo slug producen la misma URL, y el segundo
+    // sobrescribe al primero sin que nada lo diga. Ademas el `pager` localiza
+    // el capitulo actual comparando rutas, asi que la navegacion de la pagina
+    // afectada apunta al vecino equivocado. Salio de un slug copiado y pegado
+    // entre dos capitulos que hablan de control de flujo.
+    // Un capitulo cuyo slug no se traduce genera la misma ruta en los dos
+    // idiomas, y eso es correcto: la ruta canonica es una sola. Solo importa
+    // que dos capitulos DISTINTOS acaben en la misma.
+    const vistos = new Map();
+    for (const { chapter } of flatChapters()) {
+        if (chapter.path) continue;
+        for (const lang of Object.keys(LANGUAGES)) {
+            const { href } = chapterHref(chapter, lang);
+            const duenyo = vistos.get(href);
+            if (duenyo && duenyo !== chapter.id) {
+                console.warn(
+                    `Slug duplicado: ${href} lo usan "${duenyo}" y "${chapter.id}".`
+                );
+            }
+            vistos.set(href, chapter.id);
+        }
+    }
+
+    for (const { chapter } of flatChapters()) {
+        // Los capitulos que apuntan a una pagina de otra seccion, como la de
+        // instalacion, no tienen fuente propia en Learn.
+        if (chapter.path) continue;
+
+        for (const lang of Object.keys(LANGUAGES)) {
+            const { href } = chapterHref(chapter, lang);
+            const escrito = pages.has(href) && pages.get(href).versions[lang];
+
+            if (escrito && chapter.draft) huerfanos.push(`${href} [${lang}]`);
+            if (!escrito && !chapter.draft) vacios.push(`${href} [${lang}]`);
+        }
+    }
+
+    if (huerfanos.length > 0) {
+        console.warn(`
+${huerfanos.length} capitulos escritos que siguen marcados como borrador ` +
+            '(se publican sin enlace):');
+        for (const entry of huerfanos) console.warn(`  ${entry}`);
+        console.warn('');
+    }
+    if (vacios.length > 0) {
+        console.warn(`
+${vacios.length} capitulos enlazados sin texto (quitar el enlace o escribirlos):`);
+        for (const entry of vacios) console.warn(`  ${entry}`);
+        console.warn('');
+    }
 }
 
 /**
@@ -352,10 +430,30 @@ async function build() {
                 const position = flat.findIndex(
                     (entry) => chapterHref(entry.chapter, lang).href === page.path
                 );
+
+                // El fuente descargable se emite junto a la pagina. Solo en
+                // Learn: son capitulos que se leen enteros y que alguien puede
+                // querer llevarse para anotarlos o traducirlos. Una pagina de
+                // consulta o la portada no tienen ese uso.
+                const url = urlFor(lang, page.path);
+                const sourceUrl = sourceUrlFor(url);
+                emit(
+                    join(OUT, sourceUrl.replace(/^\//, '')),
+                    pageSource({
+                        body,
+                        title: meta.title || 'Vesta',
+                        url: `${SITE_URL}${url}`,
+                        lang,
+                        snippetsDir: SNIPPETS,
+                        siteUrl: SITE_URL,
+                    })
+                );
+
                 docs = {
                     sidebar: sidebar(LEARN, lang, page.path),
                     toc: tableOfContents(headings, lang),
                     pager: position === -1 ? '' : pager(flat, position, lang),
+                    sourceUrl,
                 };
             }
 
@@ -409,14 +507,34 @@ async function build() {
                 .map((p) => ({ path: p.path, available: Object.keys(p.versions) }))
         )
     );
+    // El fichero se GENERA y no se versiona, porque lleva el dominio dentro:
+    // escrito a mano se quedaria desactualizado en cuanto cambiara.
+    //
+    // La pagina de error se excluye del rastreo. Ya lleva `noindex`, pero eso
+    // solo evita que se indexe DESPUES de pedirla; decirlo aqui ahorra la
+    // peticion y, sobre todo, evita que el buscador la trate como una pagina
+    // mas del sitio.
     emit(
         join(OUT, 'robots.txt'),
-        `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
+        [
+            'User-agent: *',
+            'Allow: /',
+            'Disallow: /404.html',
+            'Disallow: /es/404.html',
+            // Los `.md` descargables son el mismo texto que su pagina HTML.
+            // Rastrearlos no aporta nada al buscador y le da dos direcciones
+            // para el mismo contenido, que es justo lo que hay que evitar.
+            'Disallow: /*.md$',
+            '',
+            `Sitemap: ${SITE_URL}/sitemap.xml`,
+            '',
+        ].join('\n')
     );
     // Pages sirve rutas con guion bajo inicial solo si el sitio no pasa por
     // Jekyll; este fichero lo desactiva.
     emit(join(OUT, '.nojekyll'), '');
 
+    checkChapters(pages);
     const broken = checkLinks(pages);
     console.log(
         `${count} paginas en ${Date.now() - started} ms -> dist/` +
@@ -439,6 +557,7 @@ async function serve() {
         '.json': 'application/json; charset=utf-8',
         '.xml': 'application/xml; charset=utf-8',
         '.txt': 'text/plain; charset=utf-8',
+        '.md': 'text/markdown; charset=utf-8',
         '.png': 'image/png',
         '.jpg': 'image/jpeg',
         '.webp': 'image/webp',

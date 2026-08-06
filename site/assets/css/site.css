@@ -863,10 +863,10 @@ details > :last-child {
     padding: 2.5rem 0 5rem;
 }
 
-/* La barra lateral y el indice acompanan al scroll, pero solo cuando caben
- * enteros: si no, quedarian recortados sin forma de ver el resto. */
+/* La barra lateral y la columna derecha acompanan al scroll, pero solo cuando
+ * caben enteras: si no, quedarian recortadas sin forma de ver el resto. */
 .doc-sidebar,
-.doc-toc {
+.doc-aside {
     position: sticky;
     top: 1.5rem;
     max-height: calc(100vh - 3rem);
@@ -874,6 +874,32 @@ details > :last-child {
     padding: 2.5rem 0 2rem;
     font-size: 0.9rem;
     line-height: 1.5;
+}
+
+/* --- Descargar el capitulo en Markdown -----------------------------------
+ *
+ * Es un enlace normal con `download`, no un boton con JS: el fichero existe en
+ * el servidor, asi que no hay nada que construir en el cliente. Quien tenga el
+ * JS desactivado tambien puede descargarlo.
+ *
+ * Va debajo del indice, no encima: el indice es lo que el lector usa mientras
+ * lee, y la descarga es una accion que se toma al final o antes de empezar,
+ * pero nunca compitiendo con la navegacion del texto.
+ */
+.doc-source {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--fg-soft);
+    font-size: 0.78rem;
+    text-decoration: none;
+}
+
+.doc-source:hover {
+    color: var(--fg);
+    border-color: var(--accent);
 }
 
 .doc-sidebar ul {
