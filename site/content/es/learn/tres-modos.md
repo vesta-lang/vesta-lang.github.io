@@ -72,7 +72,7 @@ vesta --vx modes.vx -m aot -o modes
 ./modes
 ```
 
-Eso produce un ejecutable del sistema —PE en Windows, ELF en Linux— que **no
+Eso produce un ejecutable del sistema (PE en Windows, ELF en Linux) que **no
 necesita Vesta instalado**. Puedes copiarlo a otra máquina y funciona.
 
 Y no lleva runtime dentro salvo que lo pidas: la memoria se libera de forma

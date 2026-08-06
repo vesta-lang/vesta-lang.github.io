@@ -1,0 +1,29 @@
+# Formato de fichero comun a todo el repositorio.
+#
+# Lo entienden los editores sin instalar nada, que es la razon de usarlo: el
+# linter comprueba, pero esto evita que haga falta. Un fichero guardado con
+# CRLF o con espacio al final se corrige solo en lugar de fallar el build.
+#
+# Las reglas de contenido (ASCII, cabeceras de documentacion, lenguajes de
+# valla) viven en tools/lint.mjs, porque ningun editor sabe comprobarlas.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# El Markdown del sitio se envuelve a 80 columnas: es prosa, y una linea larga
+# convierte cada correccion en un diff de parrafo entero.
+[*.md]
+max_line_length = 80
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.vx]
+indent_size = 4
